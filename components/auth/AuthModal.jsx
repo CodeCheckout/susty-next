@@ -40,7 +40,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                 // The signed-in user info.
                 const user = result.user;
                 // ...
-                console.log(result);
+                closeModalHandler();
 
 
             }).catch((error) => {
@@ -157,7 +157,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                 <button
                                                     onClick={signInWithGoogleHandler}
                                                     aria-label="Continue with google" role="button"
-                                                        className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4">
+                                                    className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill={"none"}
                                                          width={48} height={48}
                                                          viewBox="0 0 48 48">
@@ -242,7 +242,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                             <button
                                                 onClick={signInWithGoogleHandler}
                                                 aria-label="Continue with google" role="button"
-                                                    className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4">
+                                                className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill={"none"}
                                                      width={48} height={48}
                                                      viewBox="0 0 48 48">

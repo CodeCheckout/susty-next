@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import AuthModal from "../auth/AuthModal";
 import {useLocalStorage, useDidUpdate} from "@mantine/hooks";
 import {toast} from "react-toastify";
+import {getAuth, signOut} from "firebase/auth";
+import {firebaseApp} from "../../services/firebase";
 
 
 const LoginSignupButton = () => {
@@ -9,6 +11,13 @@ const LoginSignupButton = () => {
 
     const [sustyAuth, setSustyAuth] = useLocalStorage({key: 'susty', defaultValue: {}});
     const [loggedIn, setLoggedIn] = useState(false);
+
+    //Firebase auth object
+    const auth = getAuth(firebaseApp);
+
+    useEffect(() => {
+        console.log(auth.currentUser);
+    }, [auth]);
 
     useEffect(() => {
         if (Object.keys(sustyAuth).length > 0) {
@@ -22,6 +31,11 @@ const LoginSignupButton = () => {
         toast.info('Logging out...');
         setSustyAuth(() => {
             return ({});
+        });
+        signOut(auth).then(() => {
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
         });
     }
 
