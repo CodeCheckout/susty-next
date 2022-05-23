@@ -1,13 +1,13 @@
-import React from 'react';
-import CTA from "../components/home/CTA";
-import BasicPageWrapper from "../components/layouts/BasicPageWrapper";
+import React from 'react'
+import CTA from '../components/home/CTA'
+import BasicPageWrapper from '../components/layouts/BasicPageWrapper'
 
 const Index = () => {
     return (
         <BasicPageWrapper>
-            <CTA/>
+            <CTA />
         </BasicPageWrapper>
-    );
-};
+    )
+}
 
-export default Index;
+export default Index

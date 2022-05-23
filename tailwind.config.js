@@ -9,8 +9,8 @@ module.exports = {
         },
         extend: {
             colors: {
-                "susty": "#f08080"
-            }
+                susty: '#f08080',
+            },
         },
     },
     plugins: [
