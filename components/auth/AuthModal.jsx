@@ -41,7 +41,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                 const user = result.user;
                 // ...
                 closeModalHandler();
-
+                console.log(result);
 
             }).catch((error) => {
             // Handle Errors here.
