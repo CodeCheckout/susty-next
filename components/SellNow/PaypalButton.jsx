@@ -1,10 +1,7 @@
 import React from 'react'
 import PaypalExpressBtn from 'react-paypal-express-checkout'
-import axios from 'axios'
-import {useRouter} from 'next/router'
 
 const PayPalButton = (props) => {
-    const router = useRouter()
 
     const onSuccess = (payment) => {
         console.log('payment success: ', payment)
@@ -33,7 +30,7 @@ const PayPalButton = (props) => {
     return (
         <PaypalExpressBtn
             style={{
-                size: 'large',
+                size: 'small',
                 color: 'blue',
                 shape: 'rect',
                 label: 'checkout',
