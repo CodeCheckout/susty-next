@@ -1,13 +1,19 @@
 import React, {useState} from 'react'
 import {HiInformationCircle} from 'react-icons/hi'
+import {useRouter} from "next/router";
 
-const PopularItemCard = ({src, alt, price, size, brand, favCount}) => {
+const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
     const [isFavourite, setIsFavourite] = useState(false)
+
+    const router = useRouter();
 
     return (
         <>
             <div className={'hidden lg:block box-content w-[12rem] min-h-max'}>
                 <div
+                    onClick={async () => {
+                        await router.push(`/items/view/${id}`)
+                    }}
                     className={`relative w-full group bg-gray-800 duration-300 cursor-pointer`}
                 >
                     <img

@@ -23,8 +23,9 @@ const PopularItems = () => {
             {items.length > 0 && (
                 <>
                     {items.map((item) => (
-                        <div key={item.id}>
+                        <div key={item._id}>
                             <PopularItemCard
+                                id={item._id}
                                 src={item.images[0]?.url}
                                 alt={item.images[0]?.name}
                                 price={item.price}
