@@ -1,16 +1,18 @@
 import React, {useState} from 'react';
 import {HiInformationCircle} from "react-icons/hi";
 
-const PopularItemCard = ({src, alt, price, size, brand}) => {
+const PopularItemCard = ({src, alt, price, size, brand , favCount}) => {
     const [isFavourite, setIsFavourite] = useState(false);
-    let favCount = 2;
+
 
     return (
         <>
             <div className={"hidden lg:block box-content w-[12rem] min-h-max"}>
-                <div><img className={"h-[20rem] w-[12rem] object-cover"}
-                          src={src} alt={alt}
-                          width={"full"} height={"full"}/></div>
+                <div className={`relative w-full group bg-gray-800 duration-300 cursor-pointer`}>
+                    <img className={"h-[20rem] w-[12rem] object-cover group-hover:opacity-80 transition-opacity"}
+                         src={src} alt={alt}
+                         width={"full"} height={"full"}/>
+                </div>
                 <div className={"p-3 grid grid-cols-3"}>
                     <div className={"col-start-1 col-end-3"}>
                         <div className={"flex flex-col gap-0.5"}>
@@ -54,7 +56,7 @@ const PopularItemCard = ({src, alt, price, size, brand}) => {
                 </div>
             </div>
             <div className={"block lg:hidden box-content w-56 min-h-max"}>
-                <div className={'hover:bg-red-400'}>
+                <div className={''}>
                     <div className={"flex flex-col w-56 py-3 "}>
                         <img className={"h-80 object-fit "}
                              src={src} alt={alt}

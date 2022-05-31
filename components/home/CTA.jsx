@@ -12,7 +12,7 @@ const CTA = () => {
 
     return (
         <>
-            <div className={'hidden lg:block'}>
+            <div className={'hidden lg:block px-20'}>
                 <div className={'grid grid-cols-4 gap-2'}>
                     <div className={'col-span-3'}>
                         <div className="flex flex-col gap-3 w-full">
