@@ -1,6 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-const TitleAndDescription = ({title, setTitle, description, setDescription}) => {
+const TitleAndDescription = ({
+    title,
+    setTitle,
+    description,
+    setDescription,
+}) => {
     return (
         <div className={`bg-gray-50 w-54 p-4 shadow rounded-sm`}>
             <div className={`grid grid-cols-5 pb-2`}>
@@ -14,7 +19,7 @@ const TitleAndDescription = ({title, setTitle, description, setDescription}) => 
                 />
             </div>
 
-            <hr/>
+            <hr />
 
             <div className={`grid grid-cols-5 pt-2`}>
                 <p className={`font-medium text-lg`}>Describe your item</p>
@@ -28,9 +33,8 @@ const TitleAndDescription = ({title, setTitle, description, setDescription}) => 
                     onChange={(e) => setDescription(e.target.value)}
                 />
             </div>
-
         </div>
-    );
-};
+    )
+}
 
-export default TitleAndDescription;
+export default TitleAndDescription

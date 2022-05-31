@@ -9,19 +9,19 @@ import {
     HiRefresh,
     HiShieldCheck,
     HiViewGrid,
-    HiX
+    HiX,
 } from 'react-icons/hi'
-import SearchBar from "./Header/SearchBar";
-import {FiHelpCircle} from "react-icons/fi";
-import LoginSignupButton from "../buttons/LoginSignupButton";
-import {useRouter} from "next/router";
+import SearchBar from './Header/SearchBar'
+import {FiHelpCircle} from 'react-icons/fi'
+import LoginSignupButton from '../buttons/LoginSignupButton'
+import {useRouter} from 'next/router'
 
 const searchBarOptions = [
-    {id: 1, name: "Catalog  ",},
-    {id: 2, name: "Members",},
-    {id: 3, name: "Forum",},
-    {id: 4, name: "Help Center",},
-];
+    {id: 1, name: 'Catalog  '},
+    {id: 2, name: 'Members'},
+    {id: 3, name: 'Forum'},
+    {id: 4, name: 'Help Center'},
+]
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -30,13 +30,15 @@ function classNames(...classes) {
 const solutions = [
     {
         name: 'Analytics',
-        description: 'Get a better understanding of where your traffic is coming from.',
+        description:
+            'Get a better understanding of where your traffic is coming from.',
         href: '#',
         icon: HiChartBar,
     },
     {
         name: 'Engagement',
-        description: 'Speak directly to your customers in a more meaningful way.',
+        description:
+            'Speak directly to your customers in a more meaningful way.',
         href: '#',
         icon: HiCursorClick,
     },
@@ -44,23 +46,26 @@ const solutions = [
         name: 'Security',
         description: "Your customers' data will be safe and secure.",
         href: '#',
-        icon: HiShieldCheck
+        icon: HiShieldCheck,
     },
     {
         name: 'Integrations',
-        description: "Connect with third-party tools that you're already using.",
+        description:
+            "Connect with third-party tools that you're already using.",
         href: '#',
         icon: HiViewGrid,
     },
     {
         name: 'Automations',
-        description: 'Build strategic funnels that will drive your customers to convert',
+        description:
+            'Build strategic funnels that will drive your customers to convert',
         href: '#',
         icon: HiRefresh,
     },
     {
         name: 'Reports',
-        description: 'Get detailed reports that will help you make more informed decisions ',
+        description:
+            'Get detailed reports that will help you make more informed decisions ',
         href: '#',
         icon: HiDocumentReport,
     },
@@ -68,19 +73,35 @@ const solutions = [
 const resources = [
     {
         name: 'Help Center',
-        description: 'Get all of your questions answered in our forums or contact support.',
+        description:
+            'Get all of your questions answered in our forums or contact support.',
         href: '#',
     },
-    {name: 'Guides', description: 'Learn how to maximize our platform to get the most out of it.', href: '#'},
-    {name: 'Events', description: 'See what meet-ups and other events we might be planning near you.', href: '#'},
-    {name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#'},
+    {
+        name: 'Guides',
+        description:
+            'Learn how to maximize our platform to get the most out of it.',
+        href: '#',
+    },
+    {
+        name: 'Events',
+        description:
+            'See what meet-ups and other events we might be planning near you.',
+        href: '#',
+    },
+    {
+        name: 'Security',
+        description: 'Understand how we take your privacy seriously.',
+        href: '#',
+    },
 ]
 
-
 const Header = () => {
-    const router = useRouter();
+    const router = useRouter()
 
-    const [selectedSearchBarOption, setSelectedSearchBarOption] = useState(searchBarOptions[0]);
+    const [selectedSearchBarOption, setSelectedSearchBarOption] = useState(
+        searchBarOptions[0]
+    )
 
     return (
         <Popover className="relative bg-white">
@@ -97,10 +118,9 @@ const Header = () => {
                 </div>
 
                 <div className="-mr-2 -my-2 md:hidden">
-                    <Popover.Button
-                        className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                         <span className="sr-only">Open menu</span>
-                        <HiMenu className="h-6 w-6" aria-hidden="true"/>
+                        <HiMenu className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
                 </div>
 
@@ -112,11 +132,10 @@ const Header = () => {
                     />
                 </div>
 
-
                 <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 gap-3">
-                    <LoginSignupButton/>
+                    <LoginSignupButton />
                     <button
-                        onClick={async ()=>{
+                        onClick={async () => {
                             await router.push('/items/add')
                         }}
                         type="button"
@@ -143,10 +162,11 @@ const Header = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
             >
-                <Popover.Panel focus
-                               className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-                    <div
-                        className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+                <Popover.Panel
+                    focus
+                    className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+                >
+                    <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                         <div className="pt-5 pb-6 px-5">
                             <div className="flex items-center justify-between">
                                 <div>
@@ -157,10 +177,14 @@ const Header = () => {
                                     />
                                 </div>
                                 <div className="-mr-2">
-                                    <Popover.Button
-                                        className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                                        <span className="sr-only">Close menu</span>
-                                        <HiX className="h-6 w-6" aria-hidden="true"/>
+                                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                                        <span className="sr-only">
+                                            Close menu
+                                        </span>
+                                        <HiX
+                                            className="h-6 w-6"
+                                            aria-hidden="true"
+                                        />
                                     </Popover.Button>
                                 </div>
                             </div>
@@ -172,12 +196,15 @@ const Header = () => {
                                             href={solution.href}
                                             className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
                                         >
-                                            <div
-                                                className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
-                                                <solution.icon className="h-6 w-6" aria-hidden="true"/>
+                                            <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                                                <solution.icon
+                                                    className="h-6 w-6"
+                                                    aria-hidden="true"
+                                                />
                                             </div>
-                                            <div
-                                                className="ml-4 text-base font-medium text-gray-900">{solution.name}</div>
+                                            <div className="ml-4 text-base font-medium text-gray-900">
+                                                {solution.name}
+                                            </div>
                                         </a>
                                     ))}
                                 </nav>
@@ -185,15 +212,24 @@ const Header = () => {
                         </div>
                         <div className="py-6 px-5">
                             <div className="grid grid-cols-2 gap-4">
-                                <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                <a
+                                    href="#"
+                                    className="text-base font-medium text-gray-900 hover:text-gray-700"
+                                >
                                     Pricing
                                 </a>
 
-                                <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                <a
+                                    href="#"
+                                    className="text-base font-medium text-gray-900 hover:text-gray-700"
+                                >
                                     Docs
                                 </a>
 
-                                <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                <a
+                                    href="#"
+                                    className="text-base font-medium text-gray-900 hover:text-gray-700"
+                                >
                                     Enterprise
                                 </a>
                                 {resources.map((resource) => (
@@ -215,7 +251,10 @@ const Header = () => {
                                 </a>
                                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                                     Existing customer?{' '}
-                                    <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                                    <a
+                                        href="#"
+                                        className="text-indigo-600 hover:text-indigo-500"
+                                    >
                                         Sign in
                                     </a>
                                 </p>
@@ -225,7 +264,7 @@ const Header = () => {
                 </Popover.Panel>
             </Transition>
         </Popover>
-    );
-};
+    )
+}
 
-export default Header;
+export default Header

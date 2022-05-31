@@ -17,7 +17,6 @@ const LoginSignupButton = () => {
     //Firebase auth object
     const auth = getAuth(firebaseApp)
 
-
     useEffect(() => {
         if (Object.keys(sustyAuth).length > 0) {
             setLoggedIn(true)
@@ -62,7 +61,7 @@ const LoginSignupButton = () => {
                 </>
             )}
 
-            <AuthModal  openState={openModal} setOpenModal={setOpenModal}/>
+            <AuthModal openState={openModal} setOpenModal={setOpenModal} />
         </>
     )
 }
