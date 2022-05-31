@@ -53,19 +53,7 @@ const imgArray = [
 
 
 const singleProductPage = () => {
-    const [product, setProduct] = useState({
-        _id: "",
-        brand: "",
-        condition: "",
-        colour: "",
-        location: "",
-        paymentOption: "",
-        views: "",
-        uploaded: "",
-        images: [],
-        description: "product description",
-        long_description: "long description",
-    });
+    const [product, setProduct] = useState({});
 
     const router = useRouter();
     const {single} = router.query;
