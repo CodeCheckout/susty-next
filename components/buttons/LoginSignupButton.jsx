@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import AuthModal from '../auth/AuthModal'
-import {useLocalStorage, useDidUpdate} from '@mantine/hooks'
+import {useLocalStorage} from '@mantine/hooks'
 import {toast} from 'react-toastify'
 import {getAuth, signOut} from 'firebase/auth'
 import {firebaseApp} from '../../services/firebase'
@@ -17,9 +17,6 @@ const LoginSignupButton = () => {
     //Firebase auth object
     const auth = getAuth(firebaseApp)
 
-    useEffect(() => {
-        console.log(auth.currentUser)
-    }, [auth])
 
     useEffect(() => {
         if (Object.keys(sustyAuth).length > 0) {
@@ -31,9 +28,7 @@ const LoginSignupButton = () => {
 
     const logoutHandler = () => {
         toast.info('Logging out...')
-        setSustyAuth(() => {
-            return {}
-        })
+        setSustyAuth({})
         signOut(auth)
             .then(() => {
                 // Sign-out successful.
@@ -50,7 +45,7 @@ const LoginSignupButton = () => {
                     <button
                         onClick={logoutHandler}
                         type="button"
-                        className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-susty"
+                        className="inline-flex items-center px-4 py-2 border border-susty shadow-sm text-sm font-medium rounded-md text-red-500 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-susty"
                     >
                         Logout
                     </button>
@@ -60,14 +55,14 @@ const LoginSignupButton = () => {
                     <button
                         onClick={() => setOpenModal(true)}
                         type="button"
-                        className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-susty"
+                        className="inline-flex items-center px-4 py-2 border border-susty shadow-sm text-sm font-medium rounded-md text-red-500 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-susty"
                     >
-                        Login &nbsp;|&nbsp; Signup
+                        Login&nbsp;&nbsp;|&nbsp;&nbsp;Signup
                     </button>
                 </>
             )}
 
-            <AuthModal openState={openModal} setOpenModal={setOpenModal} />
+            <AuthModal  openState={openModal} setOpenModal={setOpenModal}/>
         </>
     )
 }

@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {Dialog} from '@headlessui/react'
 import {AnimatePresence, motion} from 'framer-motion'
 import Link from 'next/link'
-import {getAuth, signInWithPopup, GoogleAuthProvider} from 'firebase/auth'
+import {getAuth, GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
 import {firebaseApp} from '../../services/firebase'
+import axios from 'axios'
+import {useLocalStorage} from "@mantine/hooks";
 
 const AuthModal = ({openState, setOpenModal}) => {
     const closeModalHandler = () => {
@@ -13,6 +15,12 @@ const AuthModal = ({openState, setOpenModal}) => {
         setIsLoginRouteAnd3Button(true)
         setIsLoginEmailPassword(true)
     }
+
+
+    const [sustyAuth, setSustyAuth] = useLocalStorage({
+        key: 'susty',
+        defaultValue: {},
+    })
 
     //1st check
     const [isRegisterStatus, setIsRegisterStatus] = useState(true)
@@ -39,19 +47,31 @@ const AuthModal = ({openState, setOpenModal}) => {
                 // The signed-in user info.
                 const user = result.user
                 // ...
+
+                return result.user
+            })
+            .then(async (userDetails) => {
+                await axios.post('/api/user/auth', {
+                    uid: userDetails.uid,
+                    displayName: userDetails.displayName,
+                    photoURL: userDetails.photoURL,
+                    email: userDetails.email
+                }).then((res) => {
+                    setSustyAuth(res.data.user)
+                })
+            })
+            .then(() => {
                 closeModalHandler()
-                console.log(result)
-            })
-            .catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code
-                const errorMessage = error.message
-                // The email of the user's account used.
-                const email = error.customData.email
-                // The AuthCredential type that was used.
-                const credential = GoogleAuthProvider.credentialFromError(error)
-                // ...
-            })
+            }).catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code
+            const errorMessage = error.message
+            // The email of the user's account used.
+            const email = error.customData.email
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error)
+            // ...
+        })
     }
 
     return (
@@ -74,7 +94,8 @@ const AuthModal = ({openState, setOpenModal}) => {
                     }}
                 >
                     <div className={'fixed inset-0 overflow-y-auto font-susty'}>
-                        <div className="flex min-h-full items-center justify-center p-4 text-center bg-gray-700 bg-opacity-80">
+                        <div
+                            className="flex min-h-full items-center justify-center p-4 text-center bg-gray-700 bg-opacity-80">
                             <motion.div
                                 key={`modal-for-email`}
                                 initial={{scale: 0, opacity: 0, y: -500}}
@@ -195,7 +216,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         <button
                                                             aria-label="Continue with facebook"
                                                             role="button"
-                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4"
+                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4 blur-sm"
                                                         >
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -258,7 +279,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         <button
                                                             aria-label="Continue with apple"
                                                             role="button"
-                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4"
+                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4 blur-sm"
                                                         >
                                                             <img
                                                                 src="https://img.icons8.com/fluency-systems-filled/48/000000/mac-client.png"
@@ -403,7 +424,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         <button
                                                             aria-label="Continue with facebook"
                                                             role="button"
-                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4"
+                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4 blur-sm"
                                                         >
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -466,7 +487,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         <button
                                                             aria-label="Continue with apple"
                                                             role="button"
-                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4"
+                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4 blur-sm"
                                                         >
                                                             <img
                                                                 src="https://img.icons8.com/fluency-systems-filled/48/000000/mac-client.png"

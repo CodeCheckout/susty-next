@@ -38,7 +38,7 @@ const CTA = () => {
                                 </p>
                                 <img
                                     src={slides.men}
-                                    className="w-full h-full my-auto object-cover group-hover:opacity-40 transition-opacity"
+                                    className="w-full h-full my-auto object-cover group-hover:opacity-40 transition-opacity "
                                     alt="Logo"
                                 />
                             </div>
@@ -69,7 +69,7 @@ const CTA = () => {
                                 money?
                             </p>
                             <button
-                                onClick={async () => await router.push(`/`)}
+                                onClick={async () => await router.push(`/items/add`)}
                                 className={
                                     'px-4 py-3 mt-auto w-full text-xl bg-red-400 hover:bg-red-50 focus:bg-white text-white hover:text-red-400 focus:text-black border border-red-400 hover:border-red-400 focus:border-black'
                                 }
