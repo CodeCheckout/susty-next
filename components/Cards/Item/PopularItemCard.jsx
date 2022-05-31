@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import {HiInformationCircle} from 'react-icons/hi'
-import {useRouter} from "next/router";
+import {useRouter} from 'next/router'
 
 const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
     const [isFavourite, setIsFavourite] = useState(false)
 
-    const router = useRouter();
+    const router = useRouter()
 
     return (
         <>

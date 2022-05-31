@@ -12,6 +12,6 @@ export default (req, res) =>
             {
                 patternStr: '^/api',
                 replaceStr: '',
-            }
+            },
         ],
     })
