@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import {useRouter} from "next/router";
+import PayPalButton from "../../../components/SellNow/PaypalButton";
 
 const imgArray = [
     {
@@ -292,7 +293,7 @@ const singleProductPage = () => {
                         {/* Side profile details */}
                         <div className="p-4  bg-white shadow-md bg-white">
                             <div className="space-y-2 " action="#">
-                                <h5 className="text-3xl font-medium text-gray-900">$88.00</h5>
+                                <h5 className="text-3xl font-medium text-gray-900">${product.price}</h5>
                                 <div className="grid grid-cols-5">
                                     <div className="pt-10">
                                         <div className="bg-green-300 rounded-full h-8 w-8 pl-1.5 pt-1.5">
@@ -380,12 +381,9 @@ const singleProductPage = () => {
                                     >
                                         Message seller
                                     </button>
-                                    <button
-                                        type="submit"
-                                        className="w-full text-white bg-susty  focus:ring-4 focus:outline-none  font-medium rounded-sm text-sm px-5 py-2.5 text-center "
-                                    >
-                                        Buy now
-                                    </button>
+                                    {product &&
+                                        <PayPalButton price={product.price}/>
+                                    }
                                     <button
                                         type="submit"
                                         className="w-full bg-transparent  text-susty font-semibold hover:text-white py-2 px-4 border border-susty hover:border-transparent rounded"
