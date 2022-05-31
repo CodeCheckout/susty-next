@@ -5,7 +5,7 @@ import Link from 'next/link'
 import {getAuth, GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
 import {firebaseApp} from '../../services/firebase'
 import axios from 'axios'
-import {useLocalStorage} from "@mantine/hooks";
+import {useLocalStorage} from '@mantine/hooks'
 
 const AuthModal = ({openState, setOpenModal}) => {
     const closeModalHandler = () => {
@@ -15,7 +15,6 @@ const AuthModal = ({openState, setOpenModal}) => {
         setIsLoginRouteAnd3Button(true)
         setIsLoginEmailPassword(true)
     }
-
 
     const [sustyAuth, setSustyAuth] = useLocalStorage({
         key: 'susty',
@@ -51,27 +50,30 @@ const AuthModal = ({openState, setOpenModal}) => {
                 return result.user
             })
             .then(async (userDetails) => {
-                await axios.post('/api/user/auth', {
-                    uid: userDetails.uid,
-                    displayName: userDetails.displayName,
-                    photoURL: userDetails.photoURL,
-                    email: userDetails.email
-                }).then((res) => {
-                    setSustyAuth(res.data.user)
-                })
+                await axios
+                    .post('/api/user/auth', {
+                        uid: userDetails.uid,
+                        displayName: userDetails.displayName,
+                        photoURL: userDetails.photoURL,
+                        email: userDetails.email,
+                    })
+                    .then((res) => {
+                        setSustyAuth(res.data.user)
+                    })
             })
             .then(() => {
                 closeModalHandler()
-            }).catch((error) => {
-            // Handle Errors here.
-            const errorCode = error.code
-            const errorMessage = error.message
-            // The email of the user's account used.
-            const email = error.customData.email
-            // The AuthCredential type that was used.
-            const credential = GoogleAuthProvider.credentialFromError(error)
-            // ...
-        })
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code
+                const errorMessage = error.message
+                // The email of the user's account used.
+                const email = error.customData.email
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error)
+                // ...
+            })
     }
 
     return (
@@ -94,8 +96,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                     }}
                 >
                     <div className={'fixed inset-0 overflow-y-auto font-susty'}>
-                        <div
-                            className="flex min-h-full items-center justify-center p-4 text-center bg-gray-700 bg-opacity-80">
+                        <div className="flex min-h-full items-center justify-center p-4 text-center bg-gray-700 bg-opacity-80">
                             <motion.div
                                 key={`modal-for-email`}
                                 initial={{scale: 0, opacity: 0, y: -500}}

@@ -1,6 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-const PriceAndSwapping = ({price, setPrice, setCurrency, currency, swapping, setSwapping }) => {
+const PriceAndSwapping = ({
+    price,
+    setPrice,
+    setCurrency,
+    currency,
+    swapping,
+    setSwapping,
+}) => {
     return (
         <div className={`bg-gray-50 w-54 p-4 shadow rounded-sm`}>
             <div className={`grid grid-cols-5 pb-2`}>
@@ -28,9 +35,9 @@ const PriceAndSwapping = ({price, setPrice, setCurrency, currency, swapping, set
                             className="focus:ring-susty focus:border-susty h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
                             onChange={(e) => setCurrency(e.target.value)}
                         >
-                            <option value={"USD"}>USD</option>
-                            <option value={"AUD"}>AUD</option>
-                            <option value={"NZD"}>NZD</option>
+                            <option value={'USD'}>USD</option>
+                            <option value={'AUD'}>AUD</option>
+                            <option value={'NZD'}>NZD</option>
                         </select>
                     </div>
                 </div>
@@ -42,16 +49,18 @@ const PriceAndSwapping = ({price, setPrice, setCurrency, currency, swapping, set
                         name="remember-me"
                         type="checkbox"
                         className="h-4 w-4 text-susty focus:ring-red-400 border-gray-300 rounded"
-
-                        onClick = {() => setSwapping(!swapping)}
+                        onClick={() => setSwapping(!swapping)}
                     />
-                    <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                    <label
+                        htmlFor="remember-me"
+                        className="ml-2 block text-sm text-gray-900"
+                    >
                         I'm interested in swapping
                     </label>
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default PriceAndSwapping;
+export default PriceAndSwapping
