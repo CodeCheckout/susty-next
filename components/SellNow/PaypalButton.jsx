@@ -1,49 +1,33 @@
-import React from 'react'
-import PaypalExpressBtn from 'react-paypal-express-checkout'
+import { PayPalButton } from "react-paypal-button-v2";
 
-const PayPalButton = (props) => {
+import React from 'react';
 
-    const onSuccess = (payment) => {
-        console.log('payment success: ', payment)
-    }
-
-    const onCancel = (data) => {
-        console.log('The payment was cancelled!')
-    }
-
-    const onError = (err) => {
-        console.log('Error!', err)
-        console.log(props.price)
-    }
-
-    let env = 'sandbox' // you can set here to 'production' for production
-    let currency = 'USD' // or you can set this value from your props or state
-    let total = props.price
-
-    const client = {
-        // sandbox: 'PAYPAl_SANDBOX_CLIENT_ID',
-        sandbox:
-            'AQKrqLAGPHWXvNqTXhSYhd59be7VZ_odFtqfvbSpy-41OU40n9192H7J-Qpf1nmeap6RetRCPj_i96rb',
-        production: 'YOUR-PRODUCTION-APP-ID', //fill with your app id
-    }
-
+const PaypalButton = () => {
     return (
-        <PaypalExpressBtn
-            style={{
-                size: 'small',
-                color: 'blue',
-                shape: 'rect',
-                label: 'checkout',
-            }}
-            env={env}
-            client={client}
-            currency={currency}
-            total={total ? total : 1}
-            onError={onError}
-            onSuccess={onSuccess}
-            onCancel={onCancel}
-        />
-    )
-}
+        <div>
+            <PayPalButton
+                amount="0.01"
+                // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+                onSuccess={(details, data) => {
+                    console.log(details);
+                    console.log(data);
+                    // alert("Transaction completed by " + details.payer.name.given_name);
+                    //
+                    // // OPTIONAL: Call your server to save the transaction
+                    // return fetch("/paypal-transaction-complete", {
+                    //     method: "post",
+                    //     body: JSON.stringify({
+                    //         orderId: data.orderID
+                    //     })
+                    // });
+                }}
+                options={{
+                    clientId: "AQKrqLAGPHWXvNqTXhSYhd59be7VZ_odFtqfvbSpy-41OU40n9192H7J-Qpf1nmeap6RetRCPj_i96rb"
 
-export default PayPalButton
+                }}
+            />
+        </div>
+    );
+};
+
+export default PaypalButton;
