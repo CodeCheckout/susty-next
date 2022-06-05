@@ -13,10 +13,10 @@ const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
                 <div
                     onClick={async () => {
                         await router.push({
-                            pathname : '/items/view/',
-                            query : {
-                                itemId : id
-                            }
+                            pathname: '/items/view/',
+                            query: {
+                                itemId: id,
+                            },
                         })
                     }}
                     className={`relative w-full group bg-gray-800 duration-300 cursor-pointer`}

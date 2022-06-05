@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import {useRouter} from "next/router";
-import axios from "axios";
+import React, {useEffect, useState} from 'react'
+import {useRouter} from 'next/router'
+import axios from 'axios'
 
 const View = () => {
     const router = useRouter()
     const {itemId} = router.query
 
-    const [productDetails, setProductDetails] = useState(null);
+    const [productDetails, setProductDetails] = useState(null)
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -24,15 +24,9 @@ const View = () => {
                 })
         }
         fetchProducts()
-
     }, [router.query])
 
-    return (<div>
-        {productDetails && <>
-            {JSON.stringify(productDetails)}
-        </>}
+    return <div>{productDetails && <>{JSON.stringify(productDetails)}</>}</div>
+}
 
-    </div>);
-};
-
-export default View;
+export default View
