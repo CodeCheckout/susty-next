@@ -6,7 +6,7 @@ const View = () => {
     const router = useRouter()
     const {itemId} = router.query
 
-    const [productDetails, setProductDetails] = useState({});
+    const [productDetails, setProductDetails] = useState(null);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -27,11 +27,12 @@ const View = () => {
 
     }, [router.query])
 
-    return (
-        <div>
+    return (<div>
+        {productDetails && <>
             {JSON.stringify(productDetails)}
-        </div>
-    );
+        </>}
+
+    </div>);
 };
 
 export default View;
