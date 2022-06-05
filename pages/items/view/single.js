@@ -153,7 +153,7 @@ const singleProductPage = () => {
                                                                 strokeLinejoin="round"
                                                                 d="M9 5l7 7-7 7"
                                                             />
-                                                        </svg>
+                             w                           </svg>
                                                         <span className="sr-only">
                                                             Next
                                                         </span>

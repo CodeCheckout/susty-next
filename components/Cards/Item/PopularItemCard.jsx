@@ -12,7 +12,12 @@ const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
             <div className={'hidden lg:block box-content w-[12rem] min-h-max'}>
                 <div
                     onClick={async () => {
-                        await router.push(`/items/view/${id}`)
+                        await router.push({
+                            pathname : '/items/view/',
+                            query : {
+                                itemId : id
+                            }
+                        })
                     }}
                     className={`relative w-full group bg-gray-800 duration-300 cursor-pointer`}
                 >
