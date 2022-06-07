@@ -6,23 +6,19 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-const SearchBar = ({
-    setSelectedSearchBarOption,
-    selectedSearchBarOption,
-    searchBarOptions,
-}) => {
+const SearchBar = ({setSelectedSearchBarOption,selectedSearchBarOption,searchBarOptions,}) => {
     return (
-        <div>
-            <div className="mx-8 pr-8 relative rounded shadow-sm w-screen sm:w-[50em]">
-                <div className="mt-1 relative rounded-md shadow-sm">
+        <div className='px-2'>
+            <div className="md:mx-8 md:pr-0 relative rounded shadow-sm">
+                <div className="relative rounded-md shadow-sm w-full">
                     <input
                         type="text"
                         name="account-number"
                         id="account-number"
-                        className="pl-40 focus:ring-susty focus:border-susty block w-full pr-10 sm:text-sm border-gray-300 rounded-md"
+                        className="pl-40 focus:ring-susty focus:border-susty block w-full pr-8 border-gray-300 rounded-md text-sm"
                         placeholder="Search for Items"
                     />
-                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none cursor-pointer">
+                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
                         <HiSearch
                             className="h-5 w-5 text-gray-400 text-susty"
                             aria-hidden="true"
@@ -37,7 +33,7 @@ const SearchBar = ({
                         {({open}) => (
                             <>
                                 <div className="mt-1 relative">
-                                    <Listbox.Button className="bg-white relative w-[10em] border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-susty focus:border-susty sm:text-sm">
+                                    <Listbox.Button className="bg-white relative w-[8em] border rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-susty focus:border-susty text-sm">
                                         <span className="block truncate">
                                             {selectedSearchBarOption.name}
                                         </span>
@@ -56,7 +52,7 @@ const SearchBar = ({
                                         leaveFrom="opacity-100"
                                         leaveTo="opacity-0"
                                     >
-                                        <Listbox.Options className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
+                                        <Listbox.Options className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none text-sm">
                                             {searchBarOptions.map((person) => (
                                                 <Listbox.Option
                                                     key={person.id}
@@ -110,6 +106,7 @@ const SearchBar = ({
                     </Listbox>
                 </div>
             </div>
+
         </div>
     )
 }

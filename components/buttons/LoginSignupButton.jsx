@@ -5,14 +5,13 @@ import {toast} from 'react-toastify'
 import {getAuth, signOut} from 'firebase/auth'
 import {firebaseApp} from '../../services/firebase'
 
-const LoginSignupButton = () => {
+const LoginSignupButton = ({setLoggedIn , loggedIn}) => {
     const [openModal, setOpenModal] = useState(false)
 
     const [sustyAuth, setSustyAuth] = useLocalStorage({
         key: 'susty',
         defaultValue: {},
     })
-    const [loggedIn, setLoggedIn] = useState(false)
 
     //Firebase auth object
     const auth = getAuth(firebaseApp)
@@ -31,6 +30,7 @@ const LoginSignupButton = () => {
         signOut(auth)
             .then(() => {
                 // Sign-out successful.
+                setLoggedIn(false)
             })
             .catch((error) => {
                 // An error happened.
@@ -61,7 +61,7 @@ const LoginSignupButton = () => {
                 </>
             )}
 
-            <AuthModal openState={openModal} setOpenModal={setOpenModal} />
+            <AuthModal  openState={openModal} setOpenModal={setOpenModal}/>
         </>
     )
 }

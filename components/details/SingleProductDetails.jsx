@@ -105,14 +105,14 @@ const SingleProductDetails = ({productDetails, sellerDetails}) => {
             <div className={`mt-8 grid  gap-2`}>
                 <button
                     type="submit"
-                    className=" w-full bg-white border border-susty rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-susty hover:text-white hover:bg-susty focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-susty"
+                    className=" w-full bg-white border border-susty rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-susty hover:text-white hover:bg-susty focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-300"
                 >
                     Add to Favourites
                     <AiOutlineHeart className={'h-5 w-5 ml-5'} />
                 </button>
                 <button
                     type="submit"
-                    className=" w-full bg-susty border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className=" w-full bg-susty border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-300"
                 >
                     Buy Now
                 </button>
@@ -171,12 +171,12 @@ const SingleProductDetails = ({productDetails, sellerDetails}) => {
                     </div>
 
                     <div className="flex items-center justify-between mt-6">
-                        <button className="flex items-center sm:px-9 px-4 py-3 hover:bg-red-400 bg-susty rounded">
+                        <button className="flex items-center sm:px-9 px-4 py-3 hover:bg-red-400 bg-susty rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-300">
                             <p className="text-sm font-semibold leading-4 text-center text-white">
                                 Message
                             </p>
                         </button>
-                        <button className="flex items-center sm:px-10 px-6 py-3 bg-red-50 hover:bg-red-200 rounded ml-6 sm:ml-14">
+                        <button className="flex items-center sm:px-10 px-6 py-3 bg-red-50 hover:bg-red-200 rounded ml-6 sm:ml-14 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-300">
                             <p className="text-sm font-semibold leading-4 text-center text-red-400 ">
                                 Follow
                             </p>
