@@ -4,7 +4,7 @@ import {useRouter} from 'next/router'
 
 const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
     const [isFavourite, setIsFavourite] = useState(false)
-    const [favouriteCount, setFavouriteCount] = useState(favCount);
+    const [favouriteCount, setFavouriteCount] = useState(favCount)
 
     const router = useRouter()
 
@@ -16,8 +16,8 @@ const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
                         await router.push({
                             pathname: '/items/view/',
                             query: {
-                                itemId: id
-                            }
+                                itemId: id,
+                            },
                         })
                     }}
                     className={`relative w-full group bg-gray-800 duration-300 cursor-pointer`}
@@ -56,7 +56,9 @@ const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
                     <div className={'col-start-3 col-end-4'}>
                         <div
                             onClick={() => {
-                                isFavourite ? setFavouriteCount(favouriteCount - 1) : setFavouriteCount(favouriteCount + 1)
+                                isFavourite
+                                    ? setFavouriteCount(favouriteCount - 1)
+                                    : setFavouriteCount(favouriteCount + 1)
                                 setIsFavourite(!isFavourite)
                             }}
                             className={
@@ -64,16 +66,12 @@ const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
                             }
                         >
                             {isFavourite === true ? (
-                                <HiHeart
-                                    className={`text-susty`}/>
+                                <HiHeart className={`text-susty`} />
                             ) : (
-                                <HiOutlineHeart
-                                    className={`text-susty`}/>
+                                <HiOutlineHeart className={`text-susty`} />
                             )}
                             <span
-                                className={
-                                    'text-gray-500 font-medium text-sm'
-                                }
+                                className={'text-gray-500 font-medium text-sm'}
                             >
                                 {favouriteCount}
                             </span>
@@ -106,7 +104,13 @@ const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
                                 <div>
                                     <div
                                         onClick={() => {
-                                            isFavourite ? setFavouriteCount(favouriteCount - 1) : setFavouriteCount(favouriteCount + 1)
+                                            isFavourite
+                                                ? setFavouriteCount(
+                                                      favouriteCount - 1
+                                                  )
+                                                : setFavouriteCount(
+                                                      favouriteCount + 1
+                                                  )
                                             setIsFavourite(!isFavourite)
                                         }}
                                         className={
@@ -114,12 +118,11 @@ const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
                                         }
                                     >
                                         {isFavourite === true ? (
-                                            <HiHeart
-                                                className={`text-susty`}/>
-
+                                            <HiHeart className={`text-susty`} />
                                         ) : (
                                             <HiOutlineHeart
-                                                className={`text-susty`}/>
+                                                className={`text-susty`}
+                                            />
                                         )}
                                         <span
                                             className={
