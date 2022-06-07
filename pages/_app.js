@@ -8,7 +8,6 @@ function MyApp({Component, pageProps}) {
     return (
         <>
             <ToastContainer limit={2} />
-            <Header />
             <Component {...pageProps} />
         </>
     )
