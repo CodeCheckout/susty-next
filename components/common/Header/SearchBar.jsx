@@ -6,9 +6,13 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-const SearchBar = ({setSelectedSearchBarOption,selectedSearchBarOption,searchBarOptions,}) => {
+const SearchBar = ({
+    setSelectedSearchBarOption,
+    selectedSearchBarOption,
+    searchBarOptions,
+}) => {
     return (
-        <div className='px-2'>
+        <div className="px-2">
             <div className="md:mx-8 md:pr-0 relative rounded shadow-sm">
                 <div className="relative rounded-md shadow-sm w-full">
                     <input
@@ -106,7 +110,6 @@ const SearchBar = ({setSelectedSearchBarOption,selectedSearchBarOption,searchBar
                     </Listbox>
                 </div>
             </div>
-
         </div>
     )
 }

@@ -5,7 +5,7 @@ import {toast} from 'react-toastify'
 import {getAuth, signOut} from 'firebase/auth'
 import {firebaseApp} from '../../services/firebase'
 
-const LoginSignupButton = ({setLoggedIn , loggedIn}) => {
+const LoginSignupButton = ({setLoggedIn, loggedIn}) => {
     const [openModal, setOpenModal] = useState(false)
 
     const [sustyAuth, setSustyAuth] = useLocalStorage({
@@ -61,7 +61,7 @@ const LoginSignupButton = ({setLoggedIn , loggedIn}) => {
                 </>
             )}
 
-            <AuthModal  openState={openModal} setOpenModal={setOpenModal}/>
+            <AuthModal openState={openModal} setOpenModal={setOpenModal} />
         </>
     )
 }
