@@ -55,12 +55,15 @@ export default function Example() {
                                             >
                                                 Your Order
                                             </h2>
-                                            <Disclosure.Button
-                                                className="font-medium text-indigo-600 hover:text-indigo-500">
+                                            <Disclosure.Button className="font-medium text-indigo-600 hover:text-indigo-500">
                                                 {open ? (
-                                                    <span>Hide full summary</span>
+                                                    <span>
+                                                        Hide full summary
+                                                    </span>
                                                 ) : (
-                                                    <span>Show full summary</span>
+                                                    <span>
+                                                        Show full summary
+                                                    </span>
                                                 )}
                                             </Disclosure.Button>
                                         </div>
@@ -76,23 +79,35 @@ export default function Example() {
                                                         className="flex py-6 space-x-6"
                                                     >
                                                         <img
-                                                            src={product.imageSrc}
-                                                            alt={product.imageAlt}
+                                                            src={
+                                                                product.imageSrc
+                                                            }
+                                                            alt={
+                                                                product.imageAlt
+                                                            }
                                                             className="flex-none w-40 h-40 object-center object-cover bg-gray-200 rounded-md"
                                                         />
                                                         <div className="flex flex-col justify-between space-y-4">
                                                             <div className="text-sm font-medium space-y-1">
                                                                 <h3 className="text-gray-900">
-                                                                    {product.name}
+                                                                    {
+                                                                        product.name
+                                                                    }
                                                                 </h3>
                                                                 <p className="text-gray-900">
-                                                                    {product.price}
+                                                                    {
+                                                                        product.price
+                                                                    }
                                                                 </p>
                                                                 <p className="text-gray-500">
-                                                                    {product.color}
+                                                                    {
+                                                                        product.color
+                                                                    }
                                                                 </p>
                                                                 <p className="text-gray-500">
-                                                                    {product.size}
+                                                                    {
+                                                                        product.size
+                                                                    }
                                                                 </p>
                                                             </div>
                                                             <div className="flex space-x-4">
@@ -149,10 +164,9 @@ export default function Example() {
                                                 <div className="flex justify-between">
                                                     <dt className="flex">
                                                         Discount
-                                                        <span
-                                                            className="ml-2 rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 tracking-wide">
-                                                    {discount.code}
-                                                </span>
+                                                        <span className="ml-2 rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 tracking-wide">
+                                                            {discount.code}
+                                                        </span>
                                                     </dt>
                                                     <dd className="text-gray-900">
                                                         -{discount.amount}
@@ -174,8 +188,12 @@ export default function Example() {
                                         </Disclosure.Panel>
 
                                         <p className="flex items-center justify-between text-sm font-medium text-gray-900 border-t border-gray-200 pt-6 mt-6">
-                                            <span className="text-base">Total</span>
-                                            <span className="text-base">{total}</span>
+                                            <span className="text-base">
+                                                Total
+                                            </span>
+                                            <span className="text-base">
+                                                {total}
+                                            </span>
                                         </p>
                                     </>
                                 )}
@@ -268,15 +286,16 @@ export default function Example() {
                                 <dl className="text-sm font-medium text-gray-500 mt-10 space-y-6">
                                     <div className="flex justify-between">
                                         <dt>Subtotal</dt>
-                                        <dd className="text-gray-900">{subtotal}</dd>
+                                        <dd className="text-gray-900">
+                                            {subtotal}
+                                        </dd>
                                     </div>
                                     <div className="flex justify-between">
                                         <dt className="flex">
                                             Discount
-                                            <span
-                                                className="ml-2 rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 tracking-wide">
-                                        {discount.code}
-                                    </span>
+                                            <span className="ml-2 rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 tracking-wide">
+                                                {discount.code}
+                                            </span>
                                         </dt>
                                         <dd className="text-gray-900">
                                             -{discount.amount}
@@ -284,14 +303,17 @@ export default function Example() {
                                     </div>
                                     <div className="flex justify-between">
                                         <dt>Taxes</dt>
-                                        <dd className="text-gray-900">{taxes}</dd>
+                                        <dd className="text-gray-900">
+                                            {taxes}
+                                        </dd>
                                     </div>
                                     <div className="flex justify-between">
                                         <dt>Shipping</dt>
-                                        <dd className="text-gray-900">{shipping}</dd>
+                                        <dd className="text-gray-900">
+                                            {shipping}
+                                        </dd>
                                     </div>
-                                    <div
-                                        className="flex items-center justify-between border-t border-gray-200 text-gray-900 pt-6">
+                                    <div className="flex items-center justify-between border-t border-gray-200 text-gray-900 pt-6">
                                         <dt>Total</dt>
                                         <dd className="text-base">{total}</dd>
                                     </div>
@@ -309,8 +331,13 @@ export default function Example() {
                             </h2>
 
                             <div className="max-w-lg mx-auto lg:pt-16">
-                                <div style={{maxWidth: "750px", minHeight: "200px"}}>
-                                    <PaypalButton price={2}/>
+                                <div
+                                    style={{
+                                        maxWidth: '750px',
+                                        minHeight: '200px',
+                                    }}
+                                >
+                                    <PaypalButton price={2} />
                                 </div>
                             </div>
                         </section>
