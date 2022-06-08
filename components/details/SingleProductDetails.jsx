@@ -2,13 +2,16 @@ import React from 'react'
 import {BsShieldFillCheck} from 'react-icons/bs'
 import {AiOutlineHeart} from 'react-icons/ai'
 import {FaStar} from 'react-icons/fa'
-import {HiLocationMarker, HiChevronRight} from 'react-icons/hi'
+import {HiChevronRight, HiLocationMarker} from 'react-icons/hi'
+import {useRouter} from "next/router";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
 const SingleProductDetails = ({productDetails, sellerDetails}) => {
+    const router = useRouter();
+
     return (
         <div className="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
             <div className="bg-white border border-1 shadow-lg overflow-hidden sm:rounded-lg">
@@ -92,7 +95,7 @@ const SingleProductDetails = ({productDetails, sellerDetails}) => {
                             <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                 {new Date(
                                     new Date(Date.now()) -
-                                        new Date(productDetails.createdAt)
+                                    new Date(productDetails.createdAt)
                                 )
                                     .getDate()
                                     .toString()}{' '}
@@ -108,9 +111,16 @@ const SingleProductDetails = ({productDetails, sellerDetails}) => {
                     className=" w-full bg-white border border-susty rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-susty hover:text-white hover:bg-susty focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-300"
                 >
                     Add to Favourites
-                    <AiOutlineHeart className={'h-5 w-5 ml-5'} />
+                    <AiOutlineHeart className={'h-5 w-5 ml-5'}/>
                 </button>
                 <button
+                    onClick={async () => {
+                        await router.push('/items/buy', {
+                            query: {
+                                id: productDetails._id
+                            }
+                        })
+                    }}
                     type="submit"
                     className=" w-full bg-susty border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-300"
                 >
@@ -139,7 +149,7 @@ const SingleProductDetails = ({productDetails, sellerDetails}) => {
                                                 key={rating}
                                                 className={classNames(
                                                     sellerDetails.rating >
-                                                        rating
+                                                    rating
                                                         ? 'text-yellow-400'
                                                         : 'text-gray-200',
                                                     'h-5 w-5 flex-shrink-0'
@@ -171,12 +181,14 @@ const SingleProductDetails = ({productDetails, sellerDetails}) => {
                     </div>
 
                     <div className="flex items-center justify-between mt-6">
-                        <button className="flex items-center sm:px-9 px-4 py-3 hover:bg-red-400 bg-susty rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-300">
+                        <button
+                            className="flex items-center sm:px-9 px-4 py-3 hover:bg-red-400 bg-susty rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-300">
                             <p className="text-sm font-semibold leading-4 text-center text-white">
                                 Message
                             </p>
                         </button>
-                        <button className="flex items-center sm:px-10 px-6 py-3 bg-red-50 hover:bg-red-200 rounded ml-6 sm:ml-14 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-300">
+                        <button
+                            className="flex items-center sm:px-10 px-6 py-3 bg-red-50 hover:bg-red-200 rounded ml-6 sm:ml-14 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-300">
                             <p className="text-sm font-semibold leading-4 text-center text-red-400 ">
                                 Follow
                             </p>
