@@ -313,7 +313,7 @@ export default function Example() {
                                     <div style={{maxWidth: "750px", minHeight: "200px"}}>
                                         <PayPalScriptProvider
                                             options={{
-                                                "client-id": "test",
+                                                "client-id": "AQKrqLAGPHWXvNqTXhSYhd59be7VZ_odFtqfvbSpy-41OU40n9192H7J-Qpf1nmeap6RetRCPj_i96rb",
                                                 components: "buttons",
                                                 currency: "USD"
                                             }}
