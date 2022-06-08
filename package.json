@@ -6,7 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@headlessui/react": "^1.6.2",
+    "@headlessui/react": "1.6.4",
     "@mantine/hooks": "^4.2.6",
     "@mantine/next": "^4.2.6",
     "@paypal/react-paypal-js": "^7.8.1",
