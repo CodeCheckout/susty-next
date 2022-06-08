@@ -3,7 +3,7 @@ import {Popover, Transition} from '@headlessui/react'
 import {useRouter} from 'next/router'
 import SearchBar from './Header/SearchBar'
 import {HiMenu, HiX} from 'react-icons/hi'
-import LoginSignupButton from '../buttons/loginsignupbutton'
+import LoginSignupButton from '../buttons/LoginSignupButton'
 import {useLocalStorage} from '@mantine/hooks'
 
 const searchBarStaticOptions = [
