@@ -6,9 +6,13 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-const SearchBar = ({setSelectedSearchBarOption, selectedSearchBarOption, searchBarOptions,}) => {
+const SearchBar = ({
+    setSelectedSearchBarOption,
+    selectedSearchBarOption,
+    searchBarOptions,
+}) => {
     return (
-        <div className='px-2'>
+        <div className="px-2">
             <div className="md:mx-8 md:pr-0 relative rounded shadow-sm">
                 <div className="relative rounded-md shadow-sm w-full">
                     <input
@@ -33,13 +37,11 @@ const SearchBar = ({setSelectedSearchBarOption, selectedSearchBarOption, searchB
                         {({open}) => (
                             <>
                                 <div className="mt-1 relative">
-                                    <Listbox.Button
-                                        className="bg-white relative w-[8em] border rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-susty focus:border-susty text-sm">
+                                    <Listbox.Button className="bg-white relative w-[8em] border rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-susty focus:border-susty text-sm">
                                         <span className="block truncate">
                                             {selectedSearchBarOption.name}
                                         </span>
-                                        <span
-                                            className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                                        <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                                             <HiSelector
                                                 className="h-5 w-5 text-gray-400"
                                                 aria-hidden="true"
@@ -54,8 +56,7 @@ const SearchBar = ({setSelectedSearchBarOption, selectedSearchBarOption, searchB
                                         leaveFrom="opacity-100"
                                         leaveTo="opacity-0"
                                     >
-                                        <Listbox.Options
-                                            className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none text-sm">
+                                        <Listbox.Options className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none text-sm">
                                             {searchBarOptions.map((person) => (
                                                 <Listbox.Option
                                                     key={person.id}
@@ -109,7 +110,6 @@ const SearchBar = ({setSelectedSearchBarOption, selectedSearchBarOption, searchB
                     </Listbox>
                 </div>
             </div>
-
         </div>
     )
 }
