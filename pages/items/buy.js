@@ -1,8 +1,7 @@
-import React from 'react';
+import React from 'react'
 import {Disclosure} from '@headlessui/react'
 import {useRouter} from 'next/router'
 import PaypalButton from '../../components/SellNow/PaypalButton'
-
 
 const subtotal = '$108.00'
 const discount = {code: 'CHEAPSKATE', amount: '$16.00'}
@@ -24,7 +23,6 @@ const products = [
     },
     // More products...
 ]
-
 
 const Buy = () => {
     const router = useRouter()
@@ -51,8 +49,7 @@ const Buy = () => {
                                             >
                                                 Your Order
                                             </h2>
-                                            <Disclosure.Button
-                                                className="font-medium text-indigo-600 hover:text-indigo-500">
+                                            <Disclosure.Button className="font-medium text-indigo-600 hover:text-indigo-500">
                                                 {open ? (
                                                     <span>
                                                         Hide full summary
@@ -161,8 +158,7 @@ const Buy = () => {
                                                 <div className="flex justify-between">
                                                     <dt className="flex">
                                                         Discount
-                                                        <span
-                                                            className="ml-2 rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 tracking-wide">
+                                                        <span className="ml-2 rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 tracking-wide">
                                                             {discount.code}
                                                         </span>
                                                     </dt>
@@ -209,10 +205,8 @@ const Buy = () => {
                                 </h2>
 
                                 <div className="max-w-lg mx-auto lg:pt-16 -z-50">
-                                    <div
-
-                                    >
-                                        <PaypalButton price={2}/>
+                                    <div>
+                                        <PaypalButton price={2} />
                                     </div>
                                 </div>
                             </section>
@@ -222,7 +216,10 @@ const Buy = () => {
                                     aria-labelledby="summary-heading"
                                     className="hidden fixed bg-gray-50 w-full h-[93vh] max-w-md lg:flex-col lg:flex"
                                 >
-                                    <h2 id="summary-heading" className="sr-only">
+                                    <h2
+                                        id="summary-heading"
+                                        className="sr-only"
+                                    >
                                         Order summary
                                     </h2>
 
@@ -310,10 +307,9 @@ const Buy = () => {
                                             <div className="flex justify-between">
                                                 <dt className="flex">
                                                     Discount
-                                                    <span
-                                                        className="ml-2 rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 tracking-wide">
-                                                {discount.code}
-                                            </span>
+                                                    <span className="ml-2 rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 tracking-wide">
+                                                        {discount.code}
+                                                    </span>
                                                 </dt>
                                                 <dd className="text-gray-900">
                                                     -{discount.amount}
@@ -331,22 +327,22 @@ const Buy = () => {
                                                     {shipping}
                                                 </dd>
                                             </div>
-                                            <div
-                                                className="flex items-center justify-between border-t border-gray-200 text-gray-900 pt-6">
+                                            <div className="flex items-center justify-between border-t border-gray-200 text-gray-900 pt-6">
                                                 <dt>Total</dt>
-                                                <dd className="text-base">{total}</dd>
+                                                <dd className="text-base">
+                                                    {total}
+                                                </dd>
                                             </div>
                                         </dl>
                                     </div>
                                 </section>
                             </div>
                         </div>
-
                     </main>
                 </div>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default Buy;
+export default Buy

@@ -139,7 +139,11 @@ const HeaderSection = () => {
 
     return (
         <>
-                <div className={'px-2 py-3 sm:px-4 lg:px-14 sticky top-0 z-40 bg-white'}>
+            <div
+                className={
+                    'px-2 py-3 sm:px-4 lg:px-14 sticky top-0 z-40 bg-white'
+                }
+            >
                 <Popover className="relative ">
                     <div className="flex justify-between items-center">
                         <div className="flex justify-start mb-1">
