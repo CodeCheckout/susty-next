@@ -1,6 +1,8 @@
+import React from 'react';
 import {Disclosure} from '@headlessui/react'
 import {useRouter} from 'next/router'
 import PaypalButton from '../../components/SellNow/PaypalButton'
+
 
 const subtotal = '$108.00'
 const discount = {code: 'CHEAPSKATE', amount: '$16.00'}
@@ -23,21 +25,15 @@ const products = [
     // More products...
 ]
 
-export default function Example() {
+
+const Buy = () => {
     const router = useRouter()
+
     return (
         <>
-            {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
-            <div className={`h-full`}>
-                <div className={`h-full`}>
-                    <main className="lg:min-h-full lg:overflow-hidden lg:flex lg:flex-row-reverse">
+            <div className={`h-full w-full`}>
+                <div className={`h-full w-full`}>
+                    <main className="lg:min-w-full lg:min-h-full lg:overflow-hidden">
                         <h1 className="sr-only">Checkout</h1>
 
                         {/* Mobile order summary */}
@@ -55,7 +51,8 @@ export default function Example() {
                                             >
                                                 Your Order
                                             </h2>
-                                            <Disclosure.Button className="font-medium text-indigo-600 hover:text-indigo-500">
+                                            <Disclosure.Button
+                                                className="font-medium text-indigo-600 hover:text-indigo-500">
                                                 {open ? (
                                                     <span>
                                                         Hide full summary
@@ -164,7 +161,8 @@ export default function Example() {
                                                 <div className="flex justify-between">
                                                     <dt className="flex">
                                                         Discount
-                                                        <span className="ml-2 rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 tracking-wide">
+                                                        <span
+                                                            className="ml-2 rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 tracking-wide">
                                                             {discount.code}
                                                         </span>
                                                     </dt>
@@ -200,150 +198,155 @@ export default function Example() {
                             </Disclosure>
                         </section>
 
-                        {/* Order summary */}
-                        <section
-                            aria-labelledby="summary-heading"
-                            className="hidden bg-gray-50 w-full max-w-md flex-col lg:flex"
-                        >
-                            <h2 id="summary-heading" className="sr-only">
-                                Order summary
-                            </h2>
-
-                            <ul
-                                role="list"
-                                className="flex-auto overflow-y-auto divide-y divide-gray-200 px-6"
+                        <div className={'lg:grid lg:grid-cols-3 lg:gap-3'}>
+                            {/* Checkout form */}
+                            <section
+                                aria-labelledby="payment-heading"
+                                className="flex-auto lg:flex-none lg:col-start-1 lg:col-end-3 overflow-y-auto px-4 pt-12 pb-16 sm:px-6 sm:pt-16 lg:px-20 lg:pt-0 lg:pb-24"
                             >
-                                {products.map((product) => (
-                                    <li
-                                        key={product.id}
-                                        className="flex py-6 space-x-6"
+                                <h2 id="payment-heading" className="sr-only">
+                                    Payment and shipping details
+                                </h2>
+
+                                <div className="max-w-lg mx-auto lg:pt-16 -z-50">
+                                    <div
+
                                     >
-                                        <img
-                                            src={product.imageSrc}
-                                            alt={product.imageAlt}
-                                            className="flex-none w-40 h-40 object-center object-cover bg-gray-200 rounded-md"
-                                        />
-                                        <div className="flex flex-col justify-between space-y-4">
-                                            <div className="text-sm font-medium space-y-1">
-                                                <h3 className="text-gray-900">
-                                                    {product.name}
-                                                </h3>
-                                                <p className="text-gray-900">
-                                                    {product.price}
-                                                </p>
-                                                <p className="text-gray-500">
-                                                    {product.color}
-                                                </p>
-                                                <p className="text-gray-500">
-                                                    {product.size}
-                                                </p>
-                                            </div>
-                                            <div className="flex space-x-4">
-                                                <button
-                                                    type="button"
-                                                    className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                                                >
-                                                    Edit
-                                                </button>
-                                                <div className="flex border-l border-gray-300 pl-4">
-                                                    <button
-                                                        type="button"
-                                                        className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                                                    >
-                                                        Remove
-                                                    </button>
+                                        <PaypalButton price={2}/>
+                                    </div>
+                                </div>
+                            </section>
+                            {/* Order summary */}
+                            <div className={'lg:col-start-3 lg:col-end-4  '}>
+                                <section
+                                    aria-labelledby="summary-heading"
+                                    className="hidden fixed bg-gray-50 w-full h-[93vh] max-w-md lg:flex-col lg:flex"
+                                >
+                                    <h2 id="summary-heading" className="sr-only">
+                                        Order summary
+                                    </h2>
+
+                                    <ul
+                                        role="list"
+                                        className="flex-auto overflow-y-auto divide-y divide-gray-200 px-6"
+                                    >
+                                        {products.map((product) => (
+                                            <li
+                                                key={product.id}
+                                                className="flex py-6 space-x-6"
+                                            >
+                                                <img
+                                                    src={product.imageSrc}
+                                                    alt={product.imageAlt}
+                                                    className="flex-none w-40 h-40 object-center object-cover bg-gray-200 rounded-md"
+                                                />
+                                                <div className="flex flex-col justify-between space-y-4">
+                                                    <div className="text-sm font-medium space-y-1">
+                                                        <h3 className="text-gray-900">
+                                                            {product.name}
+                                                        </h3>
+                                                        <p className="text-gray-900">
+                                                            {product.price}
+                                                        </p>
+                                                        <p className="text-gray-500">
+                                                            {product.color}
+                                                        </p>
+                                                        <p className="text-gray-500">
+                                                            {product.size}
+                                                        </p>
+                                                    </div>
+                                                    <div className="flex space-x-4">
+                                                        <button
+                                                            type="button"
+                                                            className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                                                        >
+                                                            Edit
+                                                        </button>
+                                                        <div className="flex border-l border-gray-300 pl-4">
+                                                            <button
+                                                                type="button"
+                                                                className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                                                            >
+                                                                Remove
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    <div className="relative top-0 flex-none bg-gray-50 border-t border-gray-200 p-6">
+                                        <form>
+                                            <label
+                                                htmlFor="discount-code"
+                                                className="block text-sm font-medium text-gray-700"
+                                            >
+                                                Discount code
+                                            </label>
+                                            <div className="flex space-x-4 mt-1">
+                                                <input
+                                                    type="text"
+                                                    id="discount-code"
+                                                    name="discount-code"
+                                                    className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                                />
+                                                <button
+                                                    type="submit"
+                                                    className="bg-gray-200 text-sm font-medium text-gray-600 rounded-md px-4 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                                                >
+                                                    Apply
+                                                </button>
                                             </div>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
+                                        </form>
 
-                            <div className="sticky bottom-0 flex-none bg-gray-50 border-t border-gray-200 p-6">
-                                <form>
-                                    <label
-                                        htmlFor="discount-code"
-                                        className="block text-sm font-medium text-gray-700"
-                                    >
-                                        Discount code
-                                    </label>
-                                    <div className="flex space-x-4 mt-1">
-                                        <input
-                                            type="text"
-                                            id="discount-code"
-                                            name="discount-code"
-                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                        />
-                                        <button
-                                            type="submit"
-                                            className="bg-gray-200 text-sm font-medium text-gray-600 rounded-md px-4 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
-                                        >
-                                            Apply
-                                        </button>
-                                    </div>
-                                </form>
-
-                                <dl className="text-sm font-medium text-gray-500 mt-10 space-y-6">
-                                    <div className="flex justify-between">
-                                        <dt>Subtotal</dt>
-                                        <dd className="text-gray-900">
-                                            {subtotal}
-                                        </dd>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <dt className="flex">
-                                            Discount
-                                            <span className="ml-2 rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 tracking-wide">
+                                        <dl className="text-sm font-medium text-gray-500 mt-10 space-y-6">
+                                            <div className="flex justify-between">
+                                                <dt>Subtotal</dt>
+                                                <dd className="text-gray-900">
+                                                    {subtotal}
+                                                </dd>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <dt className="flex">
+                                                    Discount
+                                                    <span
+                                                        className="ml-2 rounded-full bg-gray-200 text-xs text-gray-600 py-0.5 px-2 tracking-wide">
                                                 {discount.code}
                                             </span>
-                                        </dt>
-                                        <dd className="text-gray-900">
-                                            -{discount.amount}
-                                        </dd>
+                                                </dt>
+                                                <dd className="text-gray-900">
+                                                    -{discount.amount}
+                                                </dd>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <dt>Taxes</dt>
+                                                <dd className="text-gray-900">
+                                                    {taxes}
+                                                </dd>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <dt>Shipping</dt>
+                                                <dd className="text-gray-900">
+                                                    {shipping}
+                                                </dd>
+                                            </div>
+                                            <div
+                                                className="flex items-center justify-between border-t border-gray-200 text-gray-900 pt-6">
+                                                <dt>Total</dt>
+                                                <dd className="text-base">{total}</dd>
+                                            </div>
+                                        </dl>
                                     </div>
-                                    <div className="flex justify-between">
-                                        <dt>Taxes</dt>
-                                        <dd className="text-gray-900">
-                                            {taxes}
-                                        </dd>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <dt>Shipping</dt>
-                                        <dd className="text-gray-900">
-                                            {shipping}
-                                        </dd>
-                                    </div>
-                                    <div className="flex items-center justify-between border-t border-gray-200 text-gray-900 pt-6">
-                                        <dt>Total</dt>
-                                        <dd className="text-base">{total}</dd>
-                                    </div>
-                                </dl>
+                                </section>
                             </div>
-                        </section>
+                        </div>
 
-                        {/* Checkout form */}
-                        <section
-                            aria-labelledby="payment-heading"
-                            className="flex-auto overflow-y-auto px-4 pt-12 pb-16 sm:px-6 sm:pt-16 lg:px-8 lg:pt-0 lg:pb-24"
-                        >
-                            <h2 id="payment-heading" className="sr-only">
-                                Payment and shipping details
-                            </h2>
-
-                            <div className="max-w-lg mx-auto lg:pt-16">
-                                <div
-                                    style={{
-                                        maxWidth: '750px',
-                                        minHeight: '200px',
-                                    }}
-                                >
-                                    <PaypalButton price={2} />
-                                </div>
-                            </div>
-                        </section>
                     </main>
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
+
+export default Buy;

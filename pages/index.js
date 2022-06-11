@@ -7,7 +7,6 @@ import Header from '../components/common/Header'
 const Index = () => {
     return (
         <BasicPageWrapper>
-            <Header />
             <CTA />
             <PopularItems />
         </BasicPageWrapper>

@@ -1,9 +1,5 @@
 import {useEffect} from 'react'
-import {
-    PayPalButtons,
-    PayPalScriptProvider,
-    usePayPalScriptReducer,
-} from '@paypal/react-paypal-js'
+import {PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer,} from '@paypal/react-paypal-js'
 
 // This values are the props in the UI
 const currency = 'USD'
@@ -27,7 +23,7 @@ const ButtonWrapper = ({currency, showSpinner, price}) => {
 
     return (
         <>
-            {showSpinner && isPending && <div className="spinner" />}
+            {showSpinner && isPending && <div className="spinner"/>}
             <PayPalButtons
                 style={style}
                 disabled={false}
@@ -62,7 +58,13 @@ const ButtonWrapper = ({currency, showSpinner, price}) => {
 
 export default function App({price}) {
     return (
-        <div style={{maxWidth: '750px', minHeight: '200px'}}>
+        <div style={{
+            maxWidth: '750px',
+            minHeight: '200px',
+            position: 'relative',
+            zIndex: '0',
+
+        }}>
             <PayPalScriptProvider
                 options={{
                     'client-id':
