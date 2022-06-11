@@ -1,17 +1,18 @@
-import {Fragment} from "react";
-import {Menu, Transition} from "@headlessui/react";
-import {IoNotificationsOutline} from "react-icons/io5";
+import {Fragment} from 'react'
+import {Menu, Transition} from '@headlessui/react'
+import {IoNotificationsOutline} from 'react-icons/io5'
 
 const Notification = () => {
     return (
-        <div className={""}>
+        <div className={''}>
             <>
                 <Menu as="div" className="inline-block text-left">
                     <div>
-                        <Menu.Button
-                            className="inline-flex justify-center w-full text-sm font-medium text-gray-700   focus:ring-indigo-500">
-                            <IoNotificationsOutline color="#a3a3a3"
-                                                    className='w-6 h-6 hover:text-red-400 focus:text-red-400 cursor-pointer'/>
+                        <Menu.Button className="inline-flex justify-center w-full text-sm font-medium text-gray-700   focus:ring-indigo-500">
+                            <IoNotificationsOutline
+                                color="#a3a3a3"
+                                className="w-6 h-6 hover:text-red-400 focus:text-red-400 cursor-pointer"
+                            />
                         </Menu.Button>
                     </div>
 
@@ -24,9 +25,7 @@ const Notification = () => {
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                     >
-
-                        <Menu.Items
-                            className="origin-top-right absolute right-0 mt-1 max-w-sm rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-20">
+                        <Menu.Items className="origin-top-right absolute right-0 mt-1 max-w-sm rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-20">
                             <div className="py-1">
                                 <Menu.Item>
                                     <button
@@ -44,11 +43,18 @@ const Notification = () => {
                                         </div>
 
                                         <div className=" text-sm font-medium text-gray-700 bg-white">
-                                            <a href="#" className="block w-full px-1 py-2 ">
-                                                Clothes you don't wear = extra cash. Sell them today.
-                                                Upload now.
+                                            <a
+                                                href="#"
+                                                className="block w-full px-1 py-2 "
+                                            >
+                                                Clothes you don't wear = extra
+                                                cash. Sell them today. Upload
+                                                now.
                                             </a>
-                                            <a href="#" className="block w-full px-1 py-2 text-left">
+                                            <a
+                                                href="#"
+                                                className="block w-full px-1 py-2 text-left"
+                                            >
                                                 16 hours ago
                                             </a>
                                         </div>
@@ -70,11 +76,18 @@ const Notification = () => {
                                         </div>
 
                                         <div className=" text-sm font-medium text-gray-700 bg-white">
-                                            <a href="#" className="block w-full px-1 py-2 ">
-                                                Clothes you don't wear = extra cash. Sell them today.
-                                                Upload now.
+                                            <a
+                                                href="#"
+                                                className="block w-full px-1 py-2 "
+                                            >
+                                                Clothes you don't wear = extra
+                                                cash. Sell them today. Upload
+                                                now.
                                             </a>
-                                            <a href="#" className="block w-full px-1 py-2 text-left">
+                                            <a
+                                                href="#"
+                                                className="block w-full px-1 py-2 text-left"
+                                            >
                                                 16 hours ago
                                             </a>
                                         </div>
@@ -96,17 +109,28 @@ const Notification = () => {
                                         </div>
 
                                         <div className=" text-sm font-medium text-gray-700 bg-white">
-                                            <a href="#" className="block w-full px-1 py-2 ">
-                                                Clothes you don't wear = extra cash. Sell them today.
-                                                Upload now.
+                                            <a
+                                                href="#"
+                                                className="block w-full px-1 py-2 "
+                                            >
+                                                Clothes you don't wear = extra
+                                                cash. Sell them today. Upload
+                                                now.
                                             </a>
-                                            <a href="#" className="block w-full px-1 py-2 text-left">
+                                            <a
+                                                href="#"
+                                                className="block w-full px-1 py-2 text-left"
+                                            >
                                                 16 hours ago
                                             </a>
                                         </div>
                                     </button>
                                 </Menu.Item>
-                                <form method="POST" action="#" className="pt-3 pb-1 flex justify-center">
+                                <form
+                                    method="POST"
+                                    action="#"
+                                    className="pt-3 pb-1 flex justify-center"
+                                >
                                     <Menu.Item>
                                         <button
                                             type="submit"
@@ -121,7 +145,8 @@ const Notification = () => {
                     </Transition>
                 </Menu>
             </>
-        </div>);
-};
+        </div>
+    )
+}
 
-export default Notification;
+export default Notification
