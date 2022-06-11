@@ -13,7 +13,7 @@ import SearchBar from './Header/SearchBar'
 import Notification from './Header/Notification'
 
 import Link from 'next/link'
-import LoginSignupButton from "../buttons/LoginSignupButton";
+import LoginSignupButton from '../buttons/LoginSignupButton'
 
 const searchBarStaticOptions = [
     {id: 1, name: 'Catalog  '},
