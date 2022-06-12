@@ -1,28 +1,32 @@
-import React, {useState} from 'react';
-import {useRouter} from "next/router";
-import {AnimatePresence, motion} from "framer-motion";
+import React, {useState} from 'react'
+import {useRouter} from 'next/router'
+import {AnimatePresence, motion} from 'framer-motion'
 
-const slidesStaticData = [{
-    id: 1,
-    title: 'Women',
-    src: 'https://firebasestorage.googleapis.com/v0/b/susty-next.appspot.com/o/Slide1.png?alt=media&token=54dc1d99-b1f2-4059-a261-a8f2b6be3365',
-    alt: "Women with Cloths Image"
-}, {
-    id: 2,
-    title: 'Men',
-    src: 'https://firebasestorage.googleapis.com/v0/b/susty-next.appspot.com/o/Slide2.png?alt=media&token=c23cb27e-4493-4084-90b4-740fb58cb2f5',
-    alt: "Mens with Cloths Image"
-}, {
-    id: 3,
-    title: 'Kids',
-    src: 'https://firebasestorage.googleapis.com/v0/b/susty-next.appspot.com/o/Slide3.png?alt=media&token=11651c89-7afd-4107-934e-74f8e62ea817',
-    alt: "Kids with Cloths Image"
-}]
+const slidesStaticData = [
+    {
+        id: 1,
+        title: 'Women',
+        src: 'https://firebasestorage.googleapis.com/v0/b/susty-next.appspot.com/o/Slide1.png?alt=media&token=54dc1d99-b1f2-4059-a261-a8f2b6be3365',
+        alt: 'Women with Cloths Image',
+    },
+    {
+        id: 2,
+        title: 'Men',
+        src: 'https://firebasestorage.googleapis.com/v0/b/susty-next.appspot.com/o/Slide2.png?alt=media&token=c23cb27e-4493-4084-90b4-740fb58cb2f5',
+        alt: 'Mens with Cloths Image',
+    },
+    {
+        id: 3,
+        title: 'Kids',
+        src: 'https://firebasestorage.googleapis.com/v0/b/susty-next.appspot.com/o/Slide3.png?alt=media&token=11651c89-7afd-4107-934e-74f8e62ea817',
+        alt: 'Kids with Cloths Image',
+    },
+]
 
 const CTA = () => {
-    const [slides, setSlides] = useState(slidesStaticData);
+    const [slides, setSlides] = useState(slidesStaticData)
 
-    const router = useRouter();
+    const router = useRouter()
 
     return (
         <>
@@ -38,7 +42,9 @@ const CTA = () => {
                                             scale: 1.01,
                                         }}
                                         className="relative w-full group bg-gray-800 duration-300 cursor-pointer"
-                                        onClick={async () => await router.push(`/`)}
+                                        onClick={async () =>
+                                            await router.push(`/`)
+                                        }
                                     >
                                         <p className="absolute bottom-3 left-16 text-white text-2xl transition ease-in-out delay-150 group-hover:underline group-hover:-translate-y-2">
                                             {slide.title}
@@ -70,7 +76,8 @@ const CTA = () => {
                                 }
                                 whileHover={{scale: 1.02}}
                                 whileTap={{scale: 0.98}}
-                                className={`inline-flex justify-center items-center capitalize px-4 py-1.5 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}>
+                                className={`inline-flex justify-center items-center capitalize px-4 py-1.5 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                            >
                                 Sell Now
                             </motion.button>
                             <div
@@ -102,7 +109,8 @@ const CTA = () => {
                                 }
                                 whileHover={{scale: 1.02}}
                                 whileTap={{scale: 0.98}}
-                                className={`inline-flex justify-center items-center capitalize px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}>
+                                className={`inline-flex justify-center items-center capitalize px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                            >
                                 Sell Now
                             </motion.button>
                             <div
@@ -123,7 +131,9 @@ const CTA = () => {
                                             scale: 1.01,
                                         }}
                                         className="relative h-full w-full group bg-gray-800 duration-300 cursor-pointer"
-                                        onClick={async () => await router.push(`/`)}
+                                        onClick={async () =>
+                                            await router.push(`/`)
+                                        }
                                     >
                                         <p className="absolute bottom-3 left-16 text-white text-xl sm:text-2xl transition ease-in-out delay-150 group-hover:underline group-hover:-translate-y-2">
                                             {slide.title}
@@ -141,7 +151,7 @@ const CTA = () => {
                 </div>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default CTA;
+export default CTA
