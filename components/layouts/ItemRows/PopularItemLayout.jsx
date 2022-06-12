@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import {ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/solid'
+import {HiChevronLeft , HiChevronRight} from "react-icons/hi";
 
 const PopularItemWrapper = ({children}) => {
     const ref = useRef(null)
@@ -28,7 +28,7 @@ const PopularItemWrapper = ({children}) => {
                             'absolute h-[2.5rem] w-[2.5rem] grid place-items-center left-[1rem] top-[9rem] bg-black bg-opacity-70 rounded-full cursor-pointer'
                         }
                     >
-                        <ChevronLeftIcon
+                        <HiChevronLeft
                             className={'text-white w-[2.5rem] h-[2.5rem]'}
                         />
                     </div>
@@ -52,7 +52,7 @@ const PopularItemWrapper = ({children}) => {
                             'absolute h-[2.5rem] w-[2.5rem] place-items-center right-[1rem] top-[9rem] bg-black bg-opacity-70 rounded-full cursor-pointer'
                         }
                     >
-                        <ChevronRightIcon
+                        <HiChevronRight
                             className={'text-white w-[2.5rem] h-[2.5rem]'}
                         />
                     </div>
