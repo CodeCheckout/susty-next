@@ -91,11 +91,7 @@ const userDropdown = [
     {id: '86a66b51-14df-4947-9580-2f6f44e70e07', name: 'Account', path: '#'},
     {id: '03380728-d104-473b-bb9c-b7671185d114', name: 'Profile', path: '#'},
     {id: 'd0960412-44f7-4120-8851-b605328b2738', name: 'Settings', path: '#'},
-    {
-        id: '6417e8c7-b9b8-46de-a25a-829700003b79',
-        name: 'Personalization',
-        path: '#',
-    },
+    {id: '6417e8c7-b9b8-46de-a25a-829700003b79', name: 'Personalization', path: '#',},
     {id: '3236825c-ac12-4656-b099-4a395adb2eb0', name: 'Wallet', path: '#'},
     {id: 'bbced0e1-2e6b-4525-99e9-6b2006ad0c42', name: 'Donations', path: '#'},
     {id: '8c69d15d-3669-4ec8-a5c5-308f16cbb3aa', name: 'Log out', path: '#'},
