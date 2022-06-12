@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import {HiChevronLeft , HiChevronRight} from "react-icons/hi";
+import {HiChevronLeft, HiChevronRight} from 'react-icons/hi'
 
 const PopularItemWrapper = ({children}) => {
     const ref = useRef(null)
