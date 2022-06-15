@@ -187,7 +187,7 @@ const ProfileBio = () => {
                                         <div className={"text-sm"}>Last seen 1 hour ago</div>
                                     </div>
                                     <div className={"flex flex-row gap-1"}>
-                                        <RssIcon className={"w-5 h-5"}/>
+                                        <HiRss className={"w-5 h-5"}/>
                                         <div className={"text-sm"}><Link href={"#"}><a
                                             className={"text-susty hover:underline"}>{0}</a></Link> followers, <Link
                                             href={"#"}><a
