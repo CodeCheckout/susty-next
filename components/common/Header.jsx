@@ -89,7 +89,7 @@ const catalogMobileArrayStaticData = [
 
 const userDropdown = [
     {id: '86a66b51-14df-4947-9580-2f6f44e70e07', name: 'Account', path: '#'},
-    {id: '03380728-d104-473b-bb9c-b7671185d114', name: 'Profile', path: '#'},
+    {id: '03380728-d104-473b-bb9c-b7671185d114', name: 'Profile', path: '/profile'},
     {id: 'd0960412-44f7-4120-8851-b605328b2738', name: 'Settings', path: '#'},
     {
         id: '6417e8c7-b9b8-46de-a25a-829700003b79',
