@@ -1,7 +1,8 @@
 import React, {useRef, useState} from 'react';
-import {ChevronLeftIcon, ChevronRightIcon, PlusIcon} from "@heroicons/react/solid";
+import {HiChevronLeft , HiChevronRight , HiPlus} from "react-icons/hi";
 import Link from "next/link";
-import RatesInClosetSpotlight from "../rates/RatesInClosetSpotlight";
+import RatesInClosetSpotlight from "../../details/RatesInClosetSpotlight";
+
 
 const personData = [{
     id: 1,
@@ -44,7 +45,7 @@ const ClosetSpotlightWrapper = ({children}) => {
                     </div>
                     <button
                         className={'inline-flex gap-1 items-center px-2.5 py-1.5 rounded-md text-white text-xs font-semibold bg-susty'}>
-                        <PlusIcon className={'w-4 h-4'}/>Follow
+                        <HiPlus className={'w-4 h-4'}/>Follow
                     </button>
                 </div>
             </div>
@@ -56,7 +57,7 @@ const ClosetSpotlightWrapper = ({children}) => {
                         scroll(-100)
                     }}
                          className={"absolute h-[2.5rem] w-[2.5rem] grid place-items-center left-[1rem] top-[9rem] bg-black bg-opacity-70 rounded-full cursor-pointer"}>
-                        <ChevronLeftIcon className={"text-white w-[2.5rem] h-[2.5rem]"}/>
+                        <HiChevronLeft className={"text-white w-[2.5rem] h-[2.5rem]"}/>
                     </div>
                 </div>
                 {children}
@@ -69,7 +70,7 @@ const ClosetSpotlightWrapper = ({children}) => {
                         scroll(100)
                     }}
                          className={"absolute h-[2.5rem] w-[2.5rem] place-items-center right-[1rem] top-[9rem] bg-black bg-opacity-70 rounded-full cursor-pointer"}>
-                        <ChevronRightIcon className={"text-white w-[2.5rem] h-[2.5rem]"}/>
+                        <HiChevronRight className={"text-white w-[2.5rem] h-[2.5rem]"}/>
                     </div>
                 </div>
             </div>
