@@ -1,5 +1,5 @@
 import React from 'react';
-import {HiStar} from "react-icons/all";
+import {HiStar} from "react-icons/hi";
 
 const RatesInClosetSpotlight = ({person, personD, id}) => {
     return (
