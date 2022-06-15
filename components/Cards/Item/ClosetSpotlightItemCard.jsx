@@ -124,7 +124,7 @@ const ClosetSpotlightItemCard = ({src, alt, price, size, brand}) => {
                                     <div className={'font-semibold text-sm'}>
                                         ${price}
                                     </div>
-                                    <InformationCircleIcon
+                                    <HiInformationCircle
                                         className={
                                             'w-6 h-6 text-gray-500 text-sm'
                                         }
