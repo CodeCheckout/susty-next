@@ -39,7 +39,7 @@ const CookiePolicy = () => {
                             Date last updated: 10-11-2021
                         </p>
                         <p className="leading-normal text-gray-600 mt-5">
-                            When you use Vinted Website or App (jointly “Platform”), we and
+                            When you use Susty Website or App (jointly “Platform”), we and
                             our partners may automatically store and/or access information on
                             your device via cookies or similar technologies to process
                             personal data for the operation of the Platform, manage behavioral
@@ -48,7 +48,7 @@ const CookiePolicy = () => {
                             cookies are, how they are used on our Platform, and how you can
                             manage them.
                             <br />
-                            For general information on Vinted’s data practices, please read
+                            For general information on Susty’s data practices, please read
                             our Privacy Policy. The capitalized terms used in this Cookie
                             Policy have the same meaning as in the Privacy Policy.
                         </p>
@@ -84,7 +84,7 @@ const CookiePolicy = () => {
                             </ol>
                         </div>
                         <div>
-                            <p className="leading-loose my-5 text-3xl font-semibold">
+                            <p className="leading-relaxed my-5 text-2xl sm:text-3xl font-semibold">
                                 1. What are cookies?
                             </p>
                         </div>
@@ -111,7 +111,7 @@ const CookiePolicy = () => {
                             </p>
                         </div>
                         <div>
-                            <p className="leading-loose my-5 text-3xl font-semibold">
+                            <p className="leading-relaxed my-5 text-2xl sm:text-3xl font-semibold">
                                 2. Why do you use cookies?
                             </p>
                         </div>
@@ -137,7 +137,7 @@ const CookiePolicy = () => {
                         </div>
 
                         <div>
-                            <p className="leading-loose my-5 text-3xl font-semibold">
+                            <p className="leading-relaxed my-5 text-2xl sm:text-3xl font-semibold">
                                 3. What information do cookies facilitate collecting?
                             </p>
                         </div>
@@ -153,7 +153,7 @@ const CookiePolicy = () => {
                         </div>
 
                         <div>
-                            <p className="leading-loose my-5 text-3xl font-semibold">
+                            <p className="leading-relaxed my-5 text-2xl sm:text-3xl font-semibold">
                                 4. How can I manage cookies?
                             </p>
                         </div>
