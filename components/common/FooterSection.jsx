@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const FooterSection = () => {
     return (
-        <div className={'border-t border-gray-200'}>
+        <div className={'px-2 py-3 sm:px-4 lg:px-14 border-t border-gray-200'}>
             <div className={'flex flex-row gap-2 sm:gap-4 mx-0.5 my-2'}>
                 <Link href={'/footer/policy'}>
                     <a
