@@ -109,7 +109,7 @@ const SuggestedSearches = () => {
                 </div>
                 <div
                     className={
-                        'overflow-x-auto overflow-y-hidden scroll-smooth flex flex-row gap-3 scrollbar-hide '
+                        'overflow-x-hidden overflow-y-hidden scroll-smooth flex flex-row gap-3 scrollbar-hide '
                     }
                     ref={ref}
                 >

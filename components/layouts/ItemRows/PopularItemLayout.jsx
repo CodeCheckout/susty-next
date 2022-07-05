@@ -13,7 +13,7 @@ const PopularItemWrapper = ({children}) => {
             <div className={'text-2xl py-5'}>Popular Items</div>
             <div
                 className={
-                    'overflow-x-auto overflow-y-hidden scroll-smooth  flex flex-row gap-3 scrollbar-hide'
+                    'overflow-x-hidden overflow-y-hidden scroll-smooth  flex flex-row gap-3 scrollbar-hide'
                 }
                 ref={ref}
             >
