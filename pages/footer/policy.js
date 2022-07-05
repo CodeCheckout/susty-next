@@ -1,12 +1,12 @@
-import React from 'react';
-import PrivacyPolicy from "../../components/common/Footer/PrivacyPolicy";
+import React from 'react'
+import PrivacyPolicy from '../../components/common/Footer/PrivacyPolicy'
 
 const Policy = () => {
     return (
         <>
-            <PrivacyPolicy/>
+            <PrivacyPolicy />
         </>
-    );
-};
+    )
+}
 
-export default Policy;
+export default Policy

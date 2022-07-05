@@ -1,12 +1,12 @@
-import React from 'react';
-import TermsAndConditions from "../../components/common/Footer/TermsAndConditions";
+import React from 'react'
+import TermsAndConditions from '../../components/common/Footer/TermsAndConditions'
 
 const Conditions = () => {
     return (
         <>
-            <TermsAndConditions/>
+            <TermsAndConditions />
         </>
-    );
-};
+    )
+}
 
-export default Conditions;
+export default Conditions
