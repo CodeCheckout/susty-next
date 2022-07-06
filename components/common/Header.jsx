@@ -176,7 +176,7 @@ const HeaderSection = () => {
                             {loggedIn && (
                                 <>
                                     <div className=" mr-1">
-                                        <Link href="/final/inbox">
+                                        <Link href="/inbox/">
                                             <a>
                                                 <AiOutlineMail
                                                     color="#a3a3a3"
@@ -189,7 +189,7 @@ const HeaderSection = () => {
                                         <Notification />
                                     </div>
                                     <div className="mx-1">
-                                        <Link href="/favorite/">
+                                        <Link href="/favourites/">
                                             <a>
                                                 <AiOutlineHeart
                                                     color="#a3a3a3"

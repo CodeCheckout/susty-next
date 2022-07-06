@@ -4,11 +4,11 @@ import {IoNotificationsOutline} from 'react-icons/io5'
 
 const Notification = () => {
     return (
-        <div className={''}>
+        <div>
             <>
                 <Menu as="div" className="inline-block text-left">
                     <div>
-                        <Menu.Button className="inline-flex justify-center w-full text-sm font-medium text-gray-700   focus:ring-indigo-500">
+                        <Menu.Button className="inline-flex justify-center w-full text-sm font-medium text-gray-700 focus:ring-indigo-500">
                             <IoNotificationsOutline
                                 color="#a3a3a3"
                                 className="w-6 h-6 hover:text-red-400 focus:text-red-400 cursor-pointer"
@@ -25,104 +25,101 @@ const Notification = () => {
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                     >
-                        <Menu.Items className="origin-top-right absolute right-0 mt-1 max-w-sm rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-20">
+                        <Menu.Items className="absolute left-1/4 sm:left-1/2 mt-1 max-w-sm rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-20">
                             <div className="py-1">
                                 <Menu.Item>
                                     <button
                                         type="button"
-                                        className="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b"
+                                        className="relative inline-flex items-center w-full px-2 sm:px-4 py-2 text-sm font-medium border-b"
                                     >
-                                        <div className="grid  gap- flex items-left">
+                                        <div className="flex flex-row gap-0.5 items-left">
                                             <div className="mb-2">
                                                 <img
                                                     src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
-                                                    className="h-18 w-32 rounded-full"
-                                                    alt=""
+                                                    className="h-10 sm:h-14 w-20 rounded-full"
+                                                    height={20}
+                                                    width={20}
+                                                    alt="Notification Image"
                                                 />
                                             </div>
-                                        </div>
-
-                                        <div className=" text-sm font-medium text-gray-700 bg-white">
-                                            <a
-                                                href="#"
-                                                className="block w-full px-1 py-2 "
-                                            >
-                                                Clothes you don't wear = extra
-                                                cash. Sell them today. Upload
-                                                now.
-                                            </a>
-                                            <a
-                                                href="#"
-                                                className="block w-full px-1 py-2 text-left"
-                                            >
-                                                16 hours ago
-                                            </a>
+                                            <div className="flex flex-col text-sm font-medium text-gray-700 bg-white">
+                                                <div
+                                                    className="block w-full px-1 py-2 "
+                                                >
+                                                    Clothes you don't wear = extra
+                                                    cash. Sell them today. Upload
+                                                    now.
+                                                </div>
+                                                <div
+                                                    className="block w-full px-4 py-1 text-gray-500 text-left"
+                                                >
+                                                    16 hours ago
+                                                </div>
+                                            </div>
                                         </div>
                                     </button>
                                 </Menu.Item>
                                 <Menu.Item>
                                     <button
                                         type="button"
-                                        className="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b"
+                                        className="relative inline-flex items-center w-full px-2 sm:px-4 py-2 text-sm font-medium border-b"
                                     >
-                                        <div className="grid  gap- flex items-left">
+                                        <div className="flex flex-row gap-0.5 items-left">
                                             <div className="mb-2">
                                                 <img
                                                     src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
-                                                    className="h-18 w-32 rounded-full"
-                                                    alt=""
+                                                    className="h-10 sm:h-14 w-20 rounded-full"
+                                                    height={20}
+                                                    width={20}
+                                                    alt="Notification Image"
                                                 />
                                             </div>
-                                        </div>
-
-                                        <div className=" text-sm font-medium text-gray-700 bg-white">
-                                            <a
-                                                href="#"
-                                                className="block w-full px-1 py-2 "
-                                            >
-                                                Clothes you don't wear = extra
-                                                cash. Sell them today. Upload
-                                                now.
-                                            </a>
-                                            <a
-                                                href="#"
-                                                className="block w-full px-1 py-2 text-left"
-                                            >
-                                                16 hours ago
-                                            </a>
+                                            <div className="flex flex-col text-sm font-medium text-gray-700 bg-white">
+                                                <div
+                                                    className="block w-full px-1 py-2 "
+                                                >
+                                                    Clothes you don't wear = extra
+                                                    cash. Sell them today. Upload
+                                                    now.
+                                                </div>
+                                                <div
+                                                    className="block w-full px-4 py-1 text-gray-500 text-left"
+                                                >
+                                                    16 hours ago
+                                                </div>
+                                            </div>
                                         </div>
                                     </button>
                                 </Menu.Item>
                                 <Menu.Item>
                                     <button
                                         type="button"
-                                        className="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b"
+                                        className="relative inline-flex items-center w-full px-2 sm:px-4 py-2 text-sm font-medium border-b"
                                     >
-                                        <div className="grid  gap- flex items-left">
+                                        <div className="flex flex-row gap-0.5 items-left">
                                             <div className="mb-2">
                                                 <img
                                                     src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
-                                                    className="h-18 w-32 rounded-full"
-                                                    alt=""
+                                                    className="h-10 sm:h-14 w-20 rounded-full"
+                                                    height={20}
+                                                    width={20}
+                                                    alt="Notification Image"
                                                 />
                                             </div>
-                                        </div>
-
-                                        <div className=" text-sm font-medium text-gray-700 bg-white">
-                                            <a
-                                                href="#"
-                                                className="block w-full px-1 py-2 "
-                                            >
-                                                Clothes you don't wear = extra
-                                                cash. Sell them today. Upload
-                                                now.
-                                            </a>
-                                            <a
-                                                href="#"
-                                                className="block w-full px-1 py-2 text-left"
-                                            >
-                                                16 hours ago
-                                            </a>
+                                            <div className="flex flex-col text-sm font-medium text-gray-700 bg-white">
+                                                <div
+                                                    className="block w-full px-1 py-2 "
+                                                >
+                                                    Clothes you don't wear = extra
+                                                    cash. Sell them today. Upload
+                                                    now.
+                                                </div>
+                                                <div
+                                                    className="block w-full px-4 py-1 text-gray-500 text-left"
+                                                >
+                                                    16 hours ago
+                                                </div>
+                                            </div>
                                         </div>
                                     </button>
                                 </Menu.Item>
