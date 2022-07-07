@@ -50,7 +50,7 @@ const MessageList = () => {
                             <button
                                 className={`inline-flex items-center px-4 py-1.5 border border-transparent shadow-sm text-xs font-medium rounded-md text-susty bg-red-100 hover:bg-susty hover:text-white hover:border-susty`}
                             >
-                                <HiPlusSm className="w-5 h-5 mr-2 items-center"/>
+                                <HiPlusSm className="w-5 h-5 mr-2 items-center" />
                                 New Message
                             </button>
                         </Link>
