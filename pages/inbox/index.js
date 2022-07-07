@@ -1,12 +1,12 @@
-import React from 'react';
-import MessageList from "../../components/conversations/MessageList";
+import React from 'react'
+import MessageList from '../../components/conversations/MessageList'
 
 const Index = () => {
     return (
         <>
-            <MessageList/>
+            <MessageList />
         </>
-    );
-};
+    )
+}
 
-export default Index;
+export default Index

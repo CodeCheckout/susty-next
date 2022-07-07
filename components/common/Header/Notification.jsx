@@ -43,16 +43,12 @@ const Notification = () => {
                                                 />
                                             </div>
                                             <div className="flex flex-col text-sm font-medium text-gray-700 bg-white">
-                                                <div
-                                                    className="block w-full px-1 py-2 "
-                                                >
-                                                    Clothes you don't wear = extra
-                                                    cash. Sell them today. Upload
-                                                    now.
+                                                <div className="block w-full px-1 py-2 ">
+                                                    Clothes you don't wear =
+                                                    extra cash. Sell them today.
+                                                    Upload now.
                                                 </div>
-                                                <div
-                                                    className="block w-full px-4 py-1 text-gray-500 text-left"
-                                                >
+                                                <div className="block w-full px-4 py-1 text-gray-500 text-left">
                                                     16 hours ago
                                                 </div>
                                             </div>
@@ -75,16 +71,12 @@ const Notification = () => {
                                                 />
                                             </div>
                                             <div className="flex flex-col text-sm font-medium text-gray-700 bg-white">
-                                                <div
-                                                    className="block w-full px-1 py-2 "
-                                                >
-                                                    Clothes you don't wear = extra
-                                                    cash. Sell them today. Upload
-                                                    now.
+                                                <div className="block w-full px-1 py-2 ">
+                                                    Clothes you don't wear =
+                                                    extra cash. Sell them today.
+                                                    Upload now.
                                                 </div>
-                                                <div
-                                                    className="block w-full px-4 py-1 text-gray-500 text-left"
-                                                >
+                                                <div className="block w-full px-4 py-1 text-gray-500 text-left">
                                                     16 hours ago
                                                 </div>
                                             </div>
@@ -107,16 +99,12 @@ const Notification = () => {
                                                 />
                                             </div>
                                             <div className="flex flex-col text-sm font-medium text-gray-700 bg-white">
-                                                <div
-                                                    className="block w-full px-1 py-2 "
-                                                >
-                                                    Clothes you don't wear = extra
-                                                    cash. Sell them today. Upload
-                                                    now.
+                                                <div className="block w-full px-1 py-2 ">
+                                                    Clothes you don't wear =
+                                                    extra cash. Sell them today.
+                                                    Upload now.
                                                 </div>
-                                                <div
-                                                    className="block w-full px-4 py-1 text-gray-500 text-left"
-                                                >
+                                                <div className="block w-full px-4 py-1 text-gray-500 text-left">
                                                     16 hours ago
                                                 </div>
                                             </div>
