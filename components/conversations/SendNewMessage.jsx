@@ -33,11 +33,11 @@ const SendNewMessage = () => {
         query === ''
             ? people
             : people.filter((person) =>
-                person.name
-                    .toLowerCase()
-                    .replace(/\s+/g, '')
-                    .includes(query.toLowerCase().replace(/\s+/g, ''))
-            )
+                  person.name
+                      .toLowerCase()
+                      .replace(/\s+/g, '')
+                      .includes(query.toLowerCase().replace(/\s+/g, ''))
+              )
 
     const [opened, setOpened] = useState(false)
     const ref = useClickOutside(() => setOpened(false))
@@ -47,11 +47,17 @@ const SendNewMessage = () => {
     return (
         <div className={'bg-gray-100'}>
             <div className="py-4 px-4 md:max-w-4xl mx-auto pt-8">
-                <div className={'text-gray-400 text-sm ml-2 font-medium uppercase'}>
+                <div
+                    className={
+                        'text-gray-400 text-sm ml-2 font-medium uppercase'
+                    }
+                >
                     New Message
                 </div>
                 <div className={'bg-white shadow-md'}>
-                    <div className={'grid grid-cols-3 mt-5 px-5 pt-5 pb-[20rem]'}>
+                    <div
+                        className={'grid grid-cols-3 mt-5 px-5 pt-5 pb-[20rem]'}
+                    >
                         <div className={'col-span-1 text-sm'}>To:</div>
                         <div
                             className={
@@ -66,8 +72,7 @@ const SendNewMessage = () => {
                                     onChange={setSelected}
                                 >
                                     <div className="relative mt-1">
-                                        <div
-                                            className="relative w-full cursor-default overflow-hidden rounded-md bg-white text-left border-b border-susty focus-visible:outline-2 focus-visible:outline-susty focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-susty sm:text-sm">
+                                        <div className="relative w-full cursor-default overflow-hidden rounded-md bg-white text-left border-b border-susty focus-visible:outline-2 focus-visible:outline-susty focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-susty sm:text-sm">
                                             <Combobox.Input
                                                 className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 ring-2 ring-susty"
                                                 displayValue={(person) =>
@@ -85,7 +90,9 @@ const SendNewMessage = () => {
                                             >
                                                 <HiChevronUp
                                                     className={`h-5 w-5 text-gray-400 ${
-                                                        opened ? '' : 'rotate-180'
+                                                        opened
+                                                            ? ''
+                                                            : 'rotate-180'
                                                     }`}
                                                     aria-hidden="true"
                                                 />
@@ -96,65 +103,67 @@ const SendNewMessage = () => {
                                             animate={{opacity: 1, scale: 1}}
                                             exit={{opacity: 0, scale: 0}}
                                         >
-                                            <Combobox.Options
-                                                className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md shadow bg-white py-1 text-base ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                            <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md shadow bg-white py-1 text-base ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                                 {filteredPeople.length === 0 &&
                                                 query !== '' ? (
-                                                    <div
-                                                        className="relative cursor-default select-none py-2 px-4 text-gray-700">
+                                                    <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                                         Nothing found.
                                                     </div>
                                                 ) : (
-                                                    filteredPeople.map((person) => (
-                                                        <Combobox.Option
-                                                            key={person.id}
-                                                            className={({
-                                                                            active,
-                                                                        }) => `relative cursor-default select-none py-2 pl-10 pr-4 text-sm 
+                                                    filteredPeople.map(
+                                                        (person) => (
+                                                            <Combobox.Option
+                                                                key={person.id}
+                                                                className={({
+                                                                    active,
+                                                                }) => `relative cursor-default select-none py-2 pl-10 pr-4 text-sm 
                                                 ${
-                                                                active
-                                                                    ? 'bg-susty text-white'
-                                                                    : 'text-gray-900'
-                                                            }`}
-                                                            value={person}
-                                                            onClick={() => {
-                                                                setOpened(false)
-                                                            }}
-                                                        >
-                                                            {({
-                                                                  selected,
-                                                                  active,
-                                                              }) => (
-                                                                <>
-                                                                <span
-                                                                    className={`block truncate ${
-                                                                        selected
-                                                                            ? 'font-medium'
-                                                                            : 'font-normal'
-                                                                    }`}
-                                                                >
-                                                                    {
-                                                                        person.name
-                                                                    }
-                                                                </span>
-                                                                    {selected ? (
+                                                    active
+                                                        ? 'bg-susty text-white'
+                                                        : 'text-gray-900'
+                                                }`}
+                                                                value={person}
+                                                                onClick={() => {
+                                                                    setOpened(
+                                                                        false
+                                                                    )
+                                                                }}
+                                                            >
+                                                                {({
+                                                                    selected,
+                                                                    active,
+                                                                }) => (
+                                                                    <>
                                                                         <span
-                                                                            className={`absolute inset-y-0 left-0 flex items-center text-sm pl-3 ${
-                                                                                active
-                                                                                    ? 'text-white'
-                                                                                    : 'text-red-600'
+                                                                            className={`block truncate ${
+                                                                                selected
+                                                                                    ? 'font-medium'
+                                                                                    : 'font-normal'
                                                                             }`}
                                                                         >
-                                                                        <HiCheck
-                                                                            className="h-5 w-5"
-                                                                            aria-hidden="true"
-                                                                        />
-                                                                    </span>
-                                                                    ) : null}
-                                                                </>
-                                                            )}
-                                                        </Combobox.Option>
-                                                    ))
+                                                                            {
+                                                                                person.name
+                                                                            }
+                                                                        </span>
+                                                                        {selected ? (
+                                                                            <span
+                                                                                className={`absolute inset-y-0 left-0 flex items-center text-sm pl-3 ${
+                                                                                    active
+                                                                                        ? 'text-white'
+                                                                                        : 'text-red-600'
+                                                                                }`}
+                                                                            >
+                                                                                <HiCheck
+                                                                                    className="h-5 w-5"
+                                                                                    aria-hidden="true"
+                                                                                />
+                                                                            </span>
+                                                                        ) : null}
+                                                                    </>
+                                                                )}
+                                                            </Combobox.Option>
+                                                        )
+                                                    )
                                                 )}
                                             </Combobox.Options>
                                         </motion.div>
@@ -184,7 +193,9 @@ const SendNewMessage = () => {
                         />
                         <HiArrowRight
                             className={`col-start-6 lg:col-start-10 w-5 h-5 font-semibold absolute ${
-                                msgInput.length > 0 ? 'text-susty' : 'text-gray-300'
+                                msgInput.length > 0
+                                    ? 'text-susty'
+                                    : 'text-gray-300'
                             }`}
                         />
                     </div>
