@@ -17,7 +17,7 @@ const Footer = () => {
         <>
             <div
                 className={
-                    'relative bottom-0 left-0 right-0 top-[22vh] -z-10 px-2 py-3 sm:px-4 lg:px-14 border-t border-gray-200'
+                    'relative bottom-0 left-0 right-0 -z-10 px-2 py-3 sm:px-4 lg:px-14 border-t border-gray-200'
                 }
             >
                 <div className={'flex flex-row gap-2 sm:gap-4 mx-0.5 my-2'}>

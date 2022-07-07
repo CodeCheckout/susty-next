@@ -31,7 +31,7 @@ const Buy = () => {
         <>
             <div className={`h-full w-full`}>
                 <div className={`h-full w-full`}>
-                    <main className="lg:min-w-full lg:min-h-full lg:overflow-hidden">
+                    <main className="lg:min-w-full lg:min-h-[80vh] lg:overflow-hidden">
                         <h1 className="sr-only">Checkout</h1>
 
                         {/* Mobile order summary */}
