@@ -151,7 +151,7 @@ const HeaderSection = () => {
                 <Popover className="relative ">
                     <div className="flex justify-between items-center">
                         <div className="flex justify-start mb-1">
-                            <a href="#">
+                            <a href="/">
                                 <span className="sr-only">Workflow</span>
                                 <img
                                     className="h-8 min-w-fit sm:h-10"
