@@ -39,7 +39,10 @@ const MessageOverview = ({inboxId}) => {
                 <div className={'bg-white px-2 lg:px-2 shadow-sm'}>
                     <div className={'flex flex-col'}>
                         {receiverMessage.map((receive) => (
-                            <div key={receive.id} className={'flex flex-col gap-1'}>
+                            <div
+                                key={receive.id}
+                                className={'flex flex-col gap-1'}
+                            >
                                 <div
                                     className={
                                         'grid float-left items-center border-b-2 border-gray-100 py-5 px-3 mb-8 shadow-sm'
@@ -74,8 +77,14 @@ const MessageOverview = ({inboxId}) => {
                                                 'p-4 rounded-lg shadow-sm border border-gray-100'
                                             }
                                         >
-                                            <div className={'flex flex-col gap-2'}>
-                                                <div className={'font-semibold'}>
+                                            <div
+                                                className={
+                                                    'flex flex-col gap-2'
+                                                }
+                                            >
+                                                <div
+                                                    className={'font-semibold'}
+                                                >
                                                     Hi! I'm {receiverUsername}
                                                 </div>
                                                 <div
@@ -93,18 +102,22 @@ const MessageOverview = ({inboxId}) => {
                                                     <HiLocationMarker
                                                         className={'w-4 h-4'}
                                                     />
-                                                    <span>{receive.country}</span>
+                                                    <span>
+                                                        {receive.country}
+                                                    </span>
                                                 </div>
                                                 <div
                                                     className={
                                                         'flex flex-row gap-3 items-center text-xs text-gray-500'
                                                     }
                                                 >
-                                                    <FiEye className={'w-4 h-4'} />
+                                                    <FiEye
+                                                        className={'w-4 h-4'}
+                                                    />
                                                     <span>
-                                                    Last seen {receive.active}{' '}
-                                                        ago
-                                                </span>
+                                                        Last seen{' '}
+                                                        {receive.active} ago
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
