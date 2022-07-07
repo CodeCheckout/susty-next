@@ -5,7 +5,7 @@ import {Disclosure, Switch} from '@headlessui/react'
 import {HiMinusSm, HiPlusSm} from 'react-icons/hi'
 import {motion} from 'framer-motion'
 
-const FooterSection = () => {
+const Footer = () => {
     const [showPopUp, setShopPopUp] = useState(false)
 
     const [enabled1, setEnabled1] = useState(false)
@@ -17,7 +17,7 @@ const FooterSection = () => {
         <>
             <div
                 className={
-                    'px-2 py-3 sm:px-4 lg:px-14 border-t border-gray-200'
+                    'relative bottom-0 left-0 right-0 -z-10 px-2 py-3 sm:px-4 lg:px-14 border-t border-gray-200'
                 }
             >
                 <div className={'flex flex-row gap-2 sm:gap-4 mx-0.5 my-2'}>
@@ -514,4 +514,4 @@ const FooterSection = () => {
     )
 }
 
-export default FooterSection
+export default Footer
