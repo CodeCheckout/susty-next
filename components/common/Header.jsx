@@ -78,7 +78,7 @@ const catalogMobileArrayStaticData = [
     {
         id: 4,
         name: 'Help center',
-        path: '#',
+        path: '/helpcenter',
     },
     {
         id: 5,
