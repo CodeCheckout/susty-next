@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import Home from "../../common/HelpCenter/Home";
-import HelpCenterSideBar from "./HelpCenterSideBar";
+import React, {useState} from 'react'
+import Home from '../../common/HelpCenter/Home'
+import HelpCenterSideBar from './HelpCenterSideBar'
 
 const HelpCenterPageWrapper = () => {
-    const [sidebarClickedItem, setSidebarClickedItem] = useState(<Home />);
-    const [subItemSidebar, setSubItemSidebar] = useState();
+    const [sidebarClickedItem, setSidebarClickedItem] = useState(<Home />)
+    const [subItemSidebar, setSubItemSidebar] = useState()
 
     return (
         <div className={'px-4 sm:px-8 md:px-12 md:min-w-max py-8'}>
@@ -20,7 +20,7 @@ const HelpCenterPageWrapper = () => {
                 <div className="w-full">{sidebarClickedItem}</div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default HelpCenterPageWrapper;
+export default HelpCenterPageWrapper
