@@ -52,7 +52,7 @@ const sidebarItems = [
         active: false,
         subItems: [
             'Buying process',
-            'Finding an item',
+            'Finding items to buy',
             'Before you buy',
             'Making a payment',
             'Shipping and Delivery',
