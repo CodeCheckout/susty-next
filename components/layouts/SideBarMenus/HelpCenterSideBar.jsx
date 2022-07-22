@@ -35,10 +35,10 @@ const sidebarItems = [
         component: <Selling />,
         active: false,
         subItems: [
-            'Selling process',
-            'Uploading an item',
+            'How Selling works',
+            'Listing an item',
             'Selling faster',
-            'Postage',
+            'Shipping',
             'Getting Paid',
             'Feedback & Communication',
             'Returns & Cancellations',
@@ -126,10 +126,13 @@ const HelpCenterSideBar = ({setSidebarClickedItem}) => {
     const [clickedItem, setClickedItem] = useState(sidebarItems[0])
 
     return (
-        <div className={'min-w-fit'}>
+        <div className={'lg:px-20 min-w-fit min-h-max'}>
             <div className=" p-2">
+                <div className="flex items-center flex-shrink-0 px-4">
+                    <p className='font-semibold text-2xl'>Help Center</p>
+                </div>
                 <ul>
-                    {sidebarArray.map((item, idx) => {
+                    {sidebarArray.map((item) => {
                         return (
                             <li key={item.id}>
                                 <Disclosure>

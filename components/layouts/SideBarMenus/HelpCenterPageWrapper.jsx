@@ -7,8 +7,8 @@ const HelpCenterPageWrapper = () => {
     const [subItemSidebar, setSubItemSidebar] = useState()
 
     return (
-        <div className={'px-4 sm:px-8 md:px-12 md:min-w-max py-8'}>
-            <div className="flex flex-row w-full">
+        <div className={'px-4 sm:px-8 md:px-16 md:min-w-max py-8'}>
+            <div className="flex flex-row w-full min-h-max">
                 <div className="hidden md:block min-w-fit">
                     <HelpCenterSideBar
                         sidebarClickedItem={sidebarClickedItem}
