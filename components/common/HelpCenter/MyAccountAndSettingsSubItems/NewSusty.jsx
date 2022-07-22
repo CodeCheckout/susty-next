@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const NewSusty = () => {
     return (
@@ -8,7 +8,7 @@ const NewSusty = () => {
                 <div className="text-xs text-gray-500 mb-4">Pick a topic</div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default NewSusty;
+export default NewSusty

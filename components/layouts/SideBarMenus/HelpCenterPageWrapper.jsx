@@ -1,121 +1,119 @@
 import React, {useState} from 'react'
 import Home from '../../common/HelpCenter/Home'
 import HelpCenterSideBar from './HelpCenterSideBar'
-import Covid from "../../common/HelpCenter/Covid";
-import Selling from "../../common/HelpCenter/Selling";
-import HowSellingWorks from "../../common/HelpCenter/SellingSubItems/HowSellingWorks";
-import ListingAnItem from "../../common/HelpCenter/SellingSubItems/ListingAnItem";
-import SellingFaster from "../../common/HelpCenter/SellingSubItems/SellingFaster";
-import ShippingDetails from "../../common/HelpCenter/SellingSubItems/ShippingDetails";
-import GettingPaid from "../../common/HelpCenter/SellingSubItems/GettingPaid";
-import FeedbackAndCommunication from "../../common/HelpCenter/SellingSubItems/FeedbackAndCommunication";
-import ReturnsAndCancellations from "../../common/HelpCenter/SellingSubItems/ReturnsAndCancellations";
-import MyItems from "../../common/HelpCenter/SellingSubItems/MyItems";
-import Buying from "../../common/HelpCenter/Buying";
-import BuyingProcess from "../../common/HelpCenter/BuyingSubItems/BuyingProcess";
-import FindingItemsToBuy from "../../common/HelpCenter/BuyingSubItems/FindingItemsToBuy";
-import BeforeYouBuy from "../../common/HelpCenter/BuyingSubItems/BeforeYouBuy";
-import MakingAPayment from "../../common/HelpCenter/BuyingSubItems/MakingAPayment";
-import ShippingAndDelivery from "../../common/HelpCenter/BuyingSubItems/ShippingAndDelivery";
-import FeedbackAndCommunicationBuying from "../../common/HelpCenter/BuyingSubItems/FeedbackAndCommunicationBuying";
-import RefundsAndCancellation from "../../common/HelpCenter/BuyingSubItems/RefundsAndCancellation";
-import Shipping from "../../common/HelpCenter/Shipping";
-import IAmASeller from "../../common/HelpCenter/ShippingSubItems/IAmASeller";
-import IAmABuyer from "../../common/HelpCenter/ShippingSubItems/IAmABuyer";
-import PaymentsAndPayouts from "../../common/HelpCenter/PaymentsAndPayouts";
-import PaymentMethods from "../../common/HelpCenter/PaymentsAndPayoutsSubItems/PaymentMethods";
-import SustyWallet from "../../common/HelpCenter/PaymentsAndPayoutsSubItems/SustyWallet";
-import Payouts from "../../common/HelpCenter/PaymentsAndPayoutsSubItems/Payouts";
-import SafetyAndReporting from "../../common/HelpCenter/SafetyAndReporting";
-import BuyerProtection from "../../common/HelpCenter/SafetyAndReportingSubItems/BuyerProtection";
-import SellerProtection from "../../common/HelpCenter/SafetyAndReportingSubItems/SellerProtection";
-import PersonalSafetyAndSecurity from "../../common/HelpCenter/SafetyAndReportingSubItems/PersonalSafetyAndSecurity";
-import PrivateDataUsageAndProtection
-    from "../../common/HelpCenter/SafetyAndReportingSubItems/PrivateDataUsageAndProtection";
-import IdentityVerifications from "../../common/HelpCenter/SafetyAndReportingSubItems/IdentityVerifications";
-import CatalogRules from "../../common/HelpCenter/SafetyAndReportingSubItems/CatalogRules";
-import CommunityAndForumRules from "../../common/HelpCenter/SafetyAndReportingSubItems/CommunityAndForumRules";
-import MyAccountAndSettings from "../../common/HelpCenter/MyAccountAndSettings";
-import NewSusty from "../../common/HelpCenter/MyAccountAndSettingsSubItems/NewSusty";
-import MyClosetSettings from "../../common/HelpCenter/MyAccountAndSettingsSubItems/MyClosetSettings";
-import ProfileDetails from "../../common/HelpCenter/MyAccountAndSettingsSubItems/ProfileDetails";
-import ShippingAndPaymentSettings
-    from "../../common/HelpCenter/MyAccountAndSettingsSubItems/ShippingAndPaymentSettings";
-import SustyWalletMyAccounts from "../../common/HelpCenter/MyAccountAndSettingsSubItems/SustyWalletMyAccounts";
-import Referrals from "../../common/HelpCenter/MyAccountAndSettingsSubItems/Referrals";
-import NotificationsAndEmails from "../../common/HelpCenter/MyAccountAndSettingsSubItems/NotificationsAndEmails";
-import Community from "../../common/HelpCenter/Community";
-import Forum from "../../common/HelpCenter/CommunitySubItems/Forum";
-import Members from "../../common/HelpCenter/CommunitySubItems/Members";
-import NotLoggedIn from "../../common/HelpCenter/NotLoggedIn";
+import Covid from '../../common/HelpCenter/Covid'
+import Selling from '../../common/HelpCenter/Selling'
+import HowSellingWorks from '../../common/HelpCenter/SellingSubItems/HowSellingWorks'
+import ListingAnItem from '../../common/HelpCenter/SellingSubItems/ListingAnItem'
+import SellingFaster from '../../common/HelpCenter/SellingSubItems/SellingFaster'
+import ShippingDetails from '../../common/HelpCenter/SellingSubItems/ShippingDetails'
+import GettingPaid from '../../common/HelpCenter/SellingSubItems/GettingPaid'
+import FeedbackAndCommunication from '../../common/HelpCenter/SellingSubItems/FeedbackAndCommunication'
+import ReturnsAndCancellations from '../../common/HelpCenter/SellingSubItems/ReturnsAndCancellations'
+import MyItems from '../../common/HelpCenter/SellingSubItems/MyItems'
+import Buying from '../../common/HelpCenter/Buying'
+import BuyingProcess from '../../common/HelpCenter/BuyingSubItems/BuyingProcess'
+import FindingItemsToBuy from '../../common/HelpCenter/BuyingSubItems/FindingItemsToBuy'
+import BeforeYouBuy from '../../common/HelpCenter/BuyingSubItems/BeforeYouBuy'
+import MakingAPayment from '../../common/HelpCenter/BuyingSubItems/MakingAPayment'
+import ShippingAndDelivery from '../../common/HelpCenter/BuyingSubItems/ShippingAndDelivery'
+import FeedbackAndCommunicationBuying from '../../common/HelpCenter/BuyingSubItems/FeedbackAndCommunicationBuying'
+import RefundsAndCancellation from '../../common/HelpCenter/BuyingSubItems/RefundsAndCancellation'
+import Shipping from '../../common/HelpCenter/Shipping'
+import IAmASeller from '../../common/HelpCenter/ShippingSubItems/IAmASeller'
+import IAmABuyer from '../../common/HelpCenter/ShippingSubItems/IAmABuyer'
+import PaymentsAndPayouts from '../../common/HelpCenter/PaymentsAndPayouts'
+import PaymentMethods from '../../common/HelpCenter/PaymentsAndPayoutsSubItems/PaymentMethods'
+import SustyWallet from '../../common/HelpCenter/PaymentsAndPayoutsSubItems/SustyWallet'
+import Payouts from '../../common/HelpCenter/PaymentsAndPayoutsSubItems/Payouts'
+import SafetyAndReporting from '../../common/HelpCenter/SafetyAndReporting'
+import BuyerProtection from '../../common/HelpCenter/SafetyAndReportingSubItems/BuyerProtection'
+import SellerProtection from '../../common/HelpCenter/SafetyAndReportingSubItems/SellerProtection'
+import PersonalSafetyAndSecurity from '../../common/HelpCenter/SafetyAndReportingSubItems/PersonalSafetyAndSecurity'
+import PrivateDataUsageAndProtection from '../../common/HelpCenter/SafetyAndReportingSubItems/PrivateDataUsageAndProtection'
+import IdentityVerifications from '../../common/HelpCenter/SafetyAndReportingSubItems/IdentityVerifications'
+import CatalogRules from '../../common/HelpCenter/SafetyAndReportingSubItems/CatalogRules'
+import CommunityAndForumRules from '../../common/HelpCenter/SafetyAndReportingSubItems/CommunityAndForumRules'
+import MyAccountAndSettings from '../../common/HelpCenter/MyAccountAndSettings'
+import NewSusty from '../../common/HelpCenter/MyAccountAndSettingsSubItems/NewSusty'
+import MyClosetSettings from '../../common/HelpCenter/MyAccountAndSettingsSubItems/MyClosetSettings'
+import ProfileDetails from '../../common/HelpCenter/MyAccountAndSettingsSubItems/ProfileDetails'
+import ShippingAndPaymentSettings from '../../common/HelpCenter/MyAccountAndSettingsSubItems/ShippingAndPaymentSettings'
+import SustyWalletMyAccounts from '../../common/HelpCenter/MyAccountAndSettingsSubItems/SustyWalletMyAccounts'
+import Referrals from '../../common/HelpCenter/MyAccountAndSettingsSubItems/Referrals'
+import NotificationsAndEmails from '../../common/HelpCenter/MyAccountAndSettingsSubItems/NotificationsAndEmails'
+import Community from '../../common/HelpCenter/Community'
+import Forum from '../../common/HelpCenter/CommunitySubItems/Forum'
+import Members from '../../common/HelpCenter/CommunitySubItems/Members'
+import NotLoggedIn from '../../common/HelpCenter/NotLoggedIn'
 
 const sidebarItems = [
     {
         id: '1',
         title: 'Home',
-        component: <Home/>,
+        component: <Home />,
         active: false,
         subItems: [],
     },
     {
         id: '2',
         title: 'COVID-19',
-        component: <Covid/>,
+        component: <Covid />,
         active: false,
         subItems: [],
     },
     {
         id: '3',
         title: 'Selling',
-        component: <Selling/>,
+        component: <Selling />,
         active: false,
         subItems: [
             {
                 id: '1',
                 title: 'How Selling works',
-                component: <HowSellingWorks/>,
+                component: <HowSellingWorks />,
                 active: false,
             },
             {
                 id: '2',
                 title: 'Listing an item',
-                component: <ListingAnItem/>,
+                component: <ListingAnItem />,
                 active: false,
             },
             {
                 id: '3',
                 title: 'Selling faster',
-                component: <SellingFaster/>,
+                component: <SellingFaster />,
                 active: false,
             },
             {
                 id: '4',
                 title: 'Shipping',
-                component: <ShippingDetails/>,
+                component: <ShippingDetails />,
                 active: false,
             },
             {
                 id: '5',
                 title: 'Getting Paid',
-                component: <GettingPaid/>,
+                component: <GettingPaid />,
                 active: false,
             },
             {
                 id: '6',
                 title: 'Feedback & Communication',
-                component: <FeedbackAndCommunication/>,
+                component: <FeedbackAndCommunication />,
                 active: false,
             },
             {
                 id: '7',
                 title: 'Returns & Cancellations',
-                component: <ReturnsAndCancellations/>,
+                component: <ReturnsAndCancellations />,
                 active: false,
             },
             {
                 id: '7',
                 title: 'My Items',
-                component: <MyItems/>,
+                component: <MyItems />,
                 active: false,
             },
         ],
@@ -123,49 +121,49 @@ const sidebarItems = [
     {
         id: '4',
         title: 'Buying',
-        component: <Buying/>,
+        component: <Buying />,
         active: false,
         subItems: [
             {
                 id: '1',
                 title: 'Buying process',
-                component: <BuyingProcess/>,
+                component: <BuyingProcess />,
                 active: false,
             },
             {
                 id: '2',
                 title: 'Finding items to buy',
-                component: <FindingItemsToBuy/>,
+                component: <FindingItemsToBuy />,
                 active: false,
             },
             {
                 id: '3',
                 title: 'Before you buy',
-                component: <BeforeYouBuy/>,
+                component: <BeforeYouBuy />,
                 active: false,
             },
             {
                 id: '4',
                 title: 'Making a payment',
-                component: <MakingAPayment/>,
+                component: <MakingAPayment />,
                 active: false,
             },
             {
                 id: '5',
                 title: 'Shipping and Delivery',
-                component: <ShippingAndDelivery/>,
+                component: <ShippingAndDelivery />,
                 active: false,
             },
             {
                 id: '6',
                 title: 'Feedback & Communication',
-                component: <FeedbackAndCommunicationBuying/>,
+                component: <FeedbackAndCommunicationBuying />,
                 active: false,
             },
             {
                 id: '7',
                 title: 'Refunds & cancellation',
-                component: <RefundsAndCancellation/>,
+                component: <RefundsAndCancellation />,
                 active: false,
             },
         ],
@@ -173,19 +171,19 @@ const sidebarItems = [
     {
         id: '5',
         title: 'Shipping',
-        component: <Shipping/>,
+        component: <Shipping />,
         active: false,
         subItems: [
             {
                 id: '1',
                 title: "I'm a Seller",
-                component: <IAmASeller/>,
+                component: <IAmASeller />,
                 active: false,
             },
             {
                 id: '2',
                 title: "I'm a buyer",
-                component: <IAmABuyer/>,
+                component: <IAmABuyer />,
                 active: false,
             },
         ],
@@ -193,25 +191,25 @@ const sidebarItems = [
     {
         id: '6',
         title: 'Payment & Payouts',
-        component: <PaymentsAndPayouts/>,
+        component: <PaymentsAndPayouts />,
         active: false,
         subItems: [
             {
                 id: '1',
                 title: 'Payment methods',
-                component: <PaymentMethods/>,
+                component: <PaymentMethods />,
                 active: false,
             },
             {
                 id: '2',
                 title: 'Susty Wallet',
-                component: <SustyWallet/>,
+                component: <SustyWallet />,
                 active: false,
             },
             {
                 id: '3',
                 title: 'Payouts',
-                component: <Payouts/>,
+                component: <Payouts />,
                 active: false,
             },
         ],
@@ -219,49 +217,49 @@ const sidebarItems = [
     {
         id: '7',
         title: 'Safety & Reporting',
-        component: <SafetyAndReporting/>,
+        component: <SafetyAndReporting />,
         active: false,
         subItems: [
             {
                 id: '1',
                 title: 'Buyer protection',
-                component: <BuyerProtection/>,
+                component: <BuyerProtection />,
                 active: false,
             },
             {
                 id: '2',
                 title: 'Seller protection',
-                component: <SellerProtection/>,
+                component: <SellerProtection />,
                 active: false,
             },
             {
                 id: '3',
                 title: 'Personal safety & security',
-                component: <PersonalSafetyAndSecurity/>,
+                component: <PersonalSafetyAndSecurity />,
                 active: false,
             },
             {
                 id: '4',
                 title: 'Private data usage & protection',
-                component: <PrivateDataUsageAndProtection/>,
+                component: <PrivateDataUsageAndProtection />,
                 active: false,
             },
             {
                 id: '5',
                 title: 'Identity verifications',
-                component: <IdentityVerifications/>,
+                component: <IdentityVerifications />,
                 active: false,
             },
             {
                 id: '6',
                 title: 'Catalog rules',
-                component: <CatalogRules/>,
+                component: <CatalogRules />,
                 active: false,
             },
             {
                 id: '7',
                 title: 'Community and forum rules',
-                component: <CommunityAndForumRules/>,
+                component: <CommunityAndForumRules />,
                 active: false,
             },
         ],
@@ -269,49 +267,49 @@ const sidebarItems = [
     {
         id: '8',
         title: 'My account & Settings',
-        component: <MyAccountAndSettings/>,
+        component: <MyAccountAndSettings />,
         active: false,
         subItems: [
             {
                 id: '1',
                 title: 'New Susty',
-                component: <NewSusty/>,
+                component: <NewSusty />,
                 active: false,
             },
             {
                 id: '2',
                 title: 'My closet settings',
-                component: <MyClosetSettings/>,
+                component: <MyClosetSettings />,
                 active: false,
             },
             {
                 id: '3',
                 title: 'Profile details',
-                component: <ProfileDetails/>,
+                component: <ProfileDetails />,
                 active: false,
             },
             {
                 id: '4',
                 title: 'Shipping & Payment settings',
-                component: <ShippingAndPaymentSettings/>,
+                component: <ShippingAndPaymentSettings />,
                 active: false,
             },
             {
                 id: '5',
                 title: 'Susty Wallet',
-                component: <SustyWalletMyAccounts/>,
+                component: <SustyWalletMyAccounts />,
                 active: false,
             },
             {
                 id: '6',
                 title: 'Referrals',
-                component: <Referrals/>,
+                component: <Referrals />,
                 active: false,
             },
             {
                 id: '7',
                 title: 'Notifications & emails',
-                component: <NotificationsAndEmails/>,
+                component: <NotificationsAndEmails />,
                 active: false,
             },
         ],
@@ -319,19 +317,19 @@ const sidebarItems = [
     {
         id: '9',
         title: 'Community',
-        component: <Community/>,
+        component: <Community />,
         active: false,
         subItems: [
             {
                 id: '1',
                 title: 'Forum',
-                component: <Forum/>,
+                component: <Forum />,
                 active: false,
             },
             {
                 id: '2',
                 title: 'Members',
-                component: <Members/>,
+                component: <Members />,
                 active: false,
             },
         ],
@@ -339,7 +337,7 @@ const sidebarItems = [
     {
         id: '10',
         title: 'Not Logged in',
-        component: <NotLoggedIn/>,
+        component: <NotLoggedIn />,
         active: false,
         subItems: [],
     },
@@ -355,15 +353,17 @@ const HelpCenterPageWrapper = () => {
             <div className="flex flex-col lg:grid lg:grid-cols-3 min-w-max min-h-max">
                 <div className="min-w-fit lg:col-span-1">
                     <HelpCenterSideBar
-                        sidebarOpen = {sidebarOpen}
-                        setSidebarOpen = {setSidebarOpen}
+                        sidebarOpen={sidebarOpen}
+                        setSidebarOpen={setSidebarOpen}
                         sidebarItems={sidebarItems}
                         sidebarClickedItem={sidebarClickedItem}
                         setSidebarClickedItem={setSidebarClickedItem}
                         subItemSidebar={subItemSidebar}
                     />
                 </div>
-                <div className="relative min-w-max lg:min-w-xl lg:col-span-2">{sidebarClickedItem}</div>
+                <div className="relative min-w-max lg:min-w-xl lg:col-span-2">
+                    {sidebarClickedItem}
+                </div>
             </div>
         </div>
     )

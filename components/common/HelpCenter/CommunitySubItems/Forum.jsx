@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Forum = () => {
     return (
@@ -8,7 +8,7 @@ const Forum = () => {
                 <div className="text-xs text-gray-500 mb-4">Pick a topic</div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Forum;
+export default Forum

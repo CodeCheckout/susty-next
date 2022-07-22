@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const SustyWalletMyAccounts = () => {
     return (
@@ -8,7 +8,7 @@ const SustyWalletMyAccounts = () => {
                 <div className="text-xs text-gray-500 mb-4">Pick a topic</div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default SustyWalletMyAccounts;
+export default SustyWalletMyAccounts
