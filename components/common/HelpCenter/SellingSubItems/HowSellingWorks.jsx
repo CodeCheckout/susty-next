@@ -254,16 +254,19 @@ const HowSellingWorks = () => {
                                             Select the size of your package.
                                         </li>
                                     </ol>
-                                    <p className="py-4">In both the description and photos, you should note any defects, alterations, missing parts, etc., of the item.</p>
+                                    <p className="py-4">In both the description and photos, you should note any defects,
+                                        alterations, missing parts, etc., of the item.</p>
 
                                     <h1 className="text-xl mt-6 mb-2 font-semibold">
                                         Choosing the correct item category
                                     </h1>
                                     <p className="pt-4">
-                                        Item categories also determine the shipping options available. So choosing the correct item will help you choose the right package size!
+                                        Item categories also determine the shipping options available. So choosing the
+                                        correct item will help you choose the right package size!
                                     </p>
                                     <p className="pt-4">
-                                        Also, note that the custom shipping and no shipping (meet up and collect) option is only available for items in the heavy category.
+                                        Also, note that the custom shipping and no shipping (meet up and collect) option
+                                        is only available for items in the heavy category.
                                     </p>
                                     <p className="pt-4">
                                         Here are a few examples of uploading items to the correct category:
@@ -272,7 +275,8 @@ const HowSellingWorks = () => {
                                         <li className="pt-1">
                                             Curling iron
                                         </li>
-                                        <p className="py-3 text-gray-600">Women > Beauty > Beauty tools > Hair styling tools</p>
+                                        <p className="py-3 text-gray-600">Women > Beauty > Beauty tools > Hair styling
+                                            tools</p>
                                         <li className="pt-1">
                                             Men's running shoes
                                         </li>
@@ -282,7 +286,8 @@ const HowSellingWorks = () => {
                                         </li>
                                         <p className="py-3 text-gray-600">Home > Textiles > Cushions</p>
                                     </ol>
-                                    <p className="py-3">Note that children's books should be uploaded under ‘Entertainment > Books > Kids & young adults’, not the Kids category.</p>
+                                    <p className="py-3">Note that children's books should be uploaded under
+                                        ‘Entertainment > Books > Kids & young adults’, not the Kids category.</p>
                                 </div>
                                 <div>
                                     <h1 className="text-xl mt-6 mb-2">
@@ -290,10 +295,13 @@ const HowSellingWorks = () => {
                                     </h1>
                                     <ul className="pl-4 p-2 list-disc">
                                         <li className="pt-1">
-                                            You can only sell books with an ISBN — a 10 or 13-digit number found above the book’s barcode. The barcode is usually on the back cover or one of the final pages of the book.
+                                            You can only sell books with an ISBN — a 10 or 13-digit number found above
+                                            the book’s barcode. The barcode is usually on the back cover or one of the
+                                            final pages of the book.
                                         </li>
                                         <li className="pt-1">
-                                            For items that require an age-rating label (like video games), make sure that the photo displays such labeling.
+                                            For items that require an age-rating label (like video games), make sure
+                                            that the photo displays such labeling.
                                         </li>
                                     </ul>
                                 </div>
@@ -301,7 +309,6 @@ const HowSellingWorks = () => {
                         </>
                     )}
                 </Disclosure>
-
                 <Disclosure>
                     {({open}) => (
                         <>
@@ -310,7 +317,7 @@ const HowSellingWorks = () => {
                                 <div className="pr-6">
                                     <div>
                                         <p className={'font-semibold'}>
-                                            Canceling an order
+                                            Selling step-by-step
                                         </p>
                                     </div>
                                 </div>
@@ -322,53 +329,118 @@ const HowSellingWorks = () => {
                             </Disclosure.Button>
                             <Disclosure.Panel className="max-w-3xl p-4">
                                 <h1 className="text-3xl font-bold mt-0 mb-2">
-                                    Canceling an order
+                                    Selling step-by-step
                                 </h1>
-                                <p className="pt-4">
-                                    A buyer and a seller can cancel their
-                                    order only if the item hasn’t been
-                                    shipped yet.{' '}
-                                </p>
-
-                                <h1 className="text-3xl mt-6 mb-2 font-semibold">
-                                    To cancel an order:
-                                </h1>
-                                <ul className="pl-4 p-2 list-decimal">
-                                    <li className="pt-1">
-                                        Open your conversation screen with
-                                        the other member
-                                    </li>
-                                    <li className="pt-1">
-                                        Press ⓘ at the top-right corner
-                                    </li>
-                                    <li className="pt-1">
-                                        Choose Cancel order and select a
-                                        reason from the list, or choose
-                                        Other and type in the reason
-                                    </li>
-                                </ul>
-
-                                <h1 className="text-xl mt-6 mb-2">
-                                    Good to know:
-                                </h1>
-                                <ul className="pl-4 p-2 list-disc">
-                                    <li className="pt-1">
-                                        A mutual agreement between the buyer
-                                        and seller about canceling their
-                                        order will help them avoid automatic
-                                        negative feedback.
-                                    </li>
-                                    <li className="pt-1">
-                                        After an order is canceled, sellers
-                                        can press Re-upload on their
-                                        conversation screen to put the item
-                                        on sale again.
-                                    </li>
-                                    <li className="pt-1">
-                                        In certain cases, we may cancel an
-                                        order too.
-                                    </li>
-                                </ul>
+                                <div>
+                                    <h1 className="text-3xl mt-6 mb-2 font-semibold">
+                                        1. Build a trusted profile, adjust your jewelry settings
+                                    </h1>
+                                    <ul className="pl-4 p-2 list-decimal">
+                                        <li className="pt-1">
+                                            Add your profile picture and verify your account to show you’re a real
+                                            person.
+                                        </li>
+                                        <li className="pt-1">
+                                            Write something about yourself in the About you section.
+                                        </li>
+                                        <li className="pt-1">
+                                            If you wish to exclude certain carriers from your listings, adjust your
+                                            shipping
+                                            options.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h1 className="text-xl mt-6 mb-2">
+                                        2. List your items
+                                    </h1>
+                                    <ul className="pl-4 p-2 list-disc">
+                                        <li className="pt-1">
+                                            Find out what you can sell on Susty.
+                                        </li>
+                                        <li className="pt-1">
+                                            Add a few clear, nice photos of the item. If it’s an item from a well-known
+                                            brand, you should add at least 5 pictures of it to show its authenticity.
+                                        </li>
+                                        <li className="pt-1">
+                                            Be specific and honest in the item's description and select the correct
+                                            package
+                                            size.
+                                        </li>
+                                        <li className="pt-1">
+                                            Remember that listing has no fees, and uploading more items can help you
+                                            sell
+                                            faster.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h1 className="text-xl mt-6 mb-2">
+                                        3. While you wait for buyers
+                                    </h1>
+                                    <ul className="pl-4 p-2 list-disc">
+                                        <li className="pt-1">
+                                            Get noticed — bump your items and use Closet Spotlight to boost your
+                                            wardrobe’s visibility.
+                                        </li>
+                                        <li className="pt-1">
+                                            You can sell more items through a bundle sale (it’s possible to set
+                                            discounts for item bundles).
+                                        </li>
+                                        <li className="pt-1">
+                                            Once a buyer contacts you, use the Make an offer button to suggest a better
+                                            price for a single item.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h1 className="text-xl mt-6 mb-2">
+                                        4. It’s sold! Time to ship
+                                    </h1>
+                                    <ul className="pl-4 p-2 list-disc">
+                                        <li className="pt-1">
+                                            Pack your item. A personal touch is always nice.
+                                        </li>
+                                        <li className="pt-1">
+                                            Ship the item within 5 working days of the sale.
+                                        </li>
+                                        <li className="pt-1">
+                                            Use the shipping option your buyer has chosen to avoid issues with package
+                                            tracking or order cancellation.
+                                        </li>
+                                        <li className="pt-1">
+                                            You can track your package on Susty.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h1 className="text-xl mt-6 mb-2">
+                                        5. Delivered! Get your earnings and leave feedback
+                                    </h1>
+                                    <ul className="pl-4 p-2 list-disc">
+                                        <li className="pt-1">
+                                            As soon as the buyer presses Everything is OK, your payment will become
+                                            available in your Susty balance.
+                                        </li>
+                                        <li className="pt-1">
+                                            Payouts may take up to 5 working days to appear in your bank account.
+                                        </li>
+                                        <li className="pt-1">
+                                            Leave feedback for your buyers and help to build trust within the community.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h1 className="text-xl mt-6 mb-2">
+                                        Good to know
+                                    </h1>
+                                    <ul className="pl-4 p-2 list-disc">
+                                        <li className="pt-1">
+                                            If you experience improper behavior, harassment or spam activities from
+                                            other members, report it so we can immediately put a stop to it.
+                                        </li>
+                                    </ul>
+                                </div>
                             </Disclosure.Panel>
                         </>
                     )}
@@ -381,7 +453,7 @@ const HowSellingWorks = () => {
                                 <div className="pr-6">
                                     <div>
                                         <p className={'font-semibold'}>
-                                            Payment methods
+                                            Is selling on Susty free?
                                         </p>
                                     </div>
                                 </div>
@@ -393,241 +465,14 @@ const HowSellingWorks = () => {
                             </Disclosure.Button>
                             <Disclosure.Panel className="max-w-3xl p-4">
                                 <h1 className="text-3xl font-bold mt-0 mb-2">
-                                    Payment methods
+                                    Is selling on Susty free?
                                 </h1>
                                 <p className="pt-4">
-                                    After pressing the Buy now button, you’ll be
-                                    able to choose the payment method for your
-                                    order. Payment methods available on Susty
-                                    are:
+                                    There are no fees for uploading your items or selling them on Susty. This means
+                                    once your sale is successfully closed, you’ll receive the full selling price
+                                    straight to your Susty Wallet.
                                 </p>
-
-                                <Disclosure>
-                                    {({open}) => (
-                                        <>
-                                            <Disclosure.Button
-                                                className="flex w-full justify-between rounded-lg  px-4 py-4 text-left text-sm md:text-base font-medium hover:bg-gray-100 focus:bg-gray-50 focus:outline-none focus-visible:ring">
-                                                <div className="pr-6">
-                                                    <div>
-                                                        <p
-                                                            className={
-                                                                'font-semibold'
-                                                            }
-                                                        >
-                                                            Valid credit/ debit
-                                                            cards
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <HiChevronRight
-                                                    className={`${
-                                                        open
-                                                            ? 'rotate-90 transform'
-                                                            : ''
-                                                    } h-5 w-5 text-black`}
-                                                />
-                                            </Disclosure.Button>
-                                            <Disclosure.Panel className="w-full p-4">
-                                                <ul className="pl-4 p-2 list-disc">
-                                                    <li className="pt-1">
-                                                        We accept Visa,
-                                                        MasterCard, JCB,
-                                                        Discover, and Diners
-                                                        Club.
-                                                    </li>
-                                                    <li className="pt-2">
-                                                        Prepaid cards (PCS) and
-                                                        virtual cards are also
-                                                        accepted.
-                                                    </li>
-                                                </ul>
-                                            </Disclosure.Panel>
-                                        </>
-                                    )}
-                                </Disclosure>
-                                <Disclosure>
-                                    {({open}) => (
-                                        <>
-                                            <Disclosure.Button
-                                                className="flex w-full justify-between rounded-lg  px-4 py-4 text-left text-sm md:text-base font-medium hover:bg-gray-100 focus:bg-gray-50 focus:outline-none focus-visible:ring">
-                                                <div className="pr-6">
-                                                    <div>
-                                                        <p
-                                                            className={
-                                                                'font-semibold'
-                                                            }
-                                                        >
-                                                            Apple Pay
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <HiChevronRight
-                                                    className={`${
-                                                        open
-                                                            ? 'rotate-90 transform'
-                                                            : ''
-                                                    } h-5 w-5 text-black`}
-                                                />
-                                            </Disclosure.Button>
-                                            <Disclosure.Panel className="w-full p-4">
-                                                <ul className="pl-4 p-2 list-disc">
-                                                    <li className="pt-1">
-                                                        If you have Apple Pay
-                                                        set up on your iOS
-                                                        device, you can use it
-                                                        to pay on Susty.
-                                                    </li>
-                                                    <li className="pt-2">
-                                                        Confirm the payment with
-                                                        your Touch ID without
-                                                        leaving the checkout
-                                                        screen. Note that
-                                                        another verification
-                                                        method may be used (such
-                                                        as Face ID or a
-                                                        passcode), depending on
-                                                        your device.
-                                                    </li>
-                                                </ul>
-                                            </Disclosure.Panel>
-                                        </>
-                                    )}
-                                </Disclosure>
-                                <Disclosure>
-                                    {({open}) => (
-                                        <>
-                                            <Disclosure.Button
-                                                className="flex w-full justify-between rounded-lg  px-4 py-4 text-left text-sm md:text-base font-medium hover:bg-gray-100 focus:bg-gray-50 focus:outline-none focus-visible:ring">
-                                                <div className="pr-6">
-                                                    <div>
-                                                        <p
-                                                            className={
-                                                                'font-semibold'
-                                                            }
-                                                        >
-                                                            Google Pay
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <HiChevronRight
-                                                    className={`${
-                                                        open
-                                                            ? 'rotate-90 transform'
-                                                            : ''
-                                                    } h-5 w-5 text-black`}
-                                                />
-                                            </Disclosure.Button>
-                                            <Disclosure.Panel className="w-full p-4">
-                                                <ul className="pl-4 p-2 list-disc">
-                                                    <li className="pt-1">
-                                                        If Google Pay is
-                                                        installed on your
-                                                        Android device, you can
-                                                        use it to pay for your
-                                                        Susty order.
-                                                    </li>
-                                                </ul>
-                                            </Disclosure.Panel>
-                                        </>
-                                    )}
-                                </Disclosure>
-                                <Disclosure>
-                                    {({open}) => (
-                                        <>
-                                            <Disclosure.Button
-                                                className="flex w-full justify-between rounded-lg  px-4 py-4 text-left text-sm md:text-base font-medium hover:bg-gray-100 focus:bg-gray-50 focus:outline-none focus-visible:ring">
-                                                <div className="pr-6">
-                                                    <div>
-                                                        <p
-                                                            className={
-                                                                'font-semibold'
-                                                            }
-                                                        >
-                                                            Your Susty Wallet
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <HiChevronRight
-                                                    className={`${
-                                                        open
-                                                            ? 'rotate-90 transform'
-                                                            : ''
-                                                    } h-5 w-5 text-black`}
-                                                />
-                                            </Disclosure.Button>
-                                            <Disclosure.Panel className="w-full p-4">
-                                                <ul className="pl-4 p-2 list-disc">
-                                                    <li className="pt-1">
-                                                        If you have money in
-                                                        your Susty Wallet
-                                                        (Balance) as a result of
-                                                        your sales, this payment
-                                                        method will be chosen
-                                                        automatically.
-                                                    </li>
-                                                    <li className="pt-2">
-                                                        While paying with your
-                                                        Susty Wallet, for
-                                                        security reasons, we’ll
-                                                        ask you to confirm your
-                                                        bank card information
-                                                        (if you haven’t
-                                                        registered one yet).
-                                                        This applies even if the
-                                                        amount of your purchase
-                                                        is fully covered by the
-                                                        money available on your
-                                                        Susty Wallet.
-                                                    </li>
-                                                    <li className="pt-2">
-                                                        You can cover a part of
-                                                        an item’s price by
-                                                        another payment method
-                                                        if the funds in your
-                                                        Susty Wallet aren’t
-                                                        enough.
-                                                    </li>
-                                                    <li className="pt-2">
-                                                        Don’t want to use your
-                                                        earnings for purchases
-                                                        on Susty? You can pay
-                                                        out money from your
-                                                        Susty Wallet to your
-                                                        bank account at any
-                                                        time.
-                                                    </li>
-                                                </ul>
-                                            </Disclosure.Panel>
-                                        </>
-                                    )}
-                                </Disclosure>
-
-                                <p className="pt-4">
-                                    Note that Buyer Protection applies to all
-                                    payments made using the Buy now button for a
-                                    fee. If you buy outside of Susty, we won’t
-                                    be able to help you if a problem arises.
-                                </p>
-
-                                <h1 className="text-xl mt-6 mb-2">
-                                    Good to know:
-                                </h1>
-                                <ul className="pl-4 p-2 list-disc">
-                                    <li className="pt-1">
-                                        Your Google Pay, Apple Pay, and credit &
-                                        debit cards payment information is
-                                        encrypted and protected.
-                                    </li>
-                                    <li className="pt-1">
-                                        Not all of the payment methods mentioned
-                                        above may be available to each member.
-                                    </li>
-                                    <li className="pt-1">
-                                        A small charge may be applied to your
-                                        bank card to ensure its validity. This
-                                        charge will be refunded immediately.
-                                    </li>
-                                </ul>
+                                <p className='text-susty'>Start Selling!</p>
                             </Disclosure.Panel>
                         </>
                     )}
@@ -640,7 +485,7 @@ const HowSellingWorks = () => {
                                 <div className="pr-6">
                                     <div>
                                         <p className={'font-semibold'}>
-                                            Using a coupon
+                                            What you can sell on Susty
                                         </p>
                                     </div>
                                 </div>
@@ -652,65 +497,117 @@ const HowSellingWorks = () => {
                             </Disclosure.Button>
                             <Disclosure.Panel className="max-w-3xl p-4">
                                 <h1 className="text-3xl font-bold mt-0 mb-2">
-                                    Using a coupon
+                                    What you can sell on Susty
                                 </h1>
                                 <p className="pt-4">
-                                    We appreciate you spreading the word about
-                                    Susty and we’ll be happy to send you a
-                                    coupon for inviting your friend to Susty.{' '}
+                                    Our Catalog Rules allow selling:
                                 </p>
 
-                                <h1 className="text-xl mt-6 mb-2 font-semibold">
-                                    To use a coupon:
-                                </h1>
                                 <ul className="pl-4 p-2 list-decimal">
                                     <li className="pt-1">
-                                        Simply find an item you love and press
-                                        Buy now.
+                                        Women’s, men’s, and children’s clothing, footwear, and accessories
                                     </li>
                                     <li className="pt-1">
-                                        The coupon will be applied to the
-                                        purchase automatically. You’ll see it at
-                                        the checkout screen after entering your
-                                        payment details.
+                                        Children’s toys, furniture, and childcare equipment
+                                    </li>
+                                    <li className="pt-1">
+                                        New cosmetics, perfumes, and other beauty products or gadgets
+                                    </li>
+                                    <li className="pt-1">
+                                        Small tech accessories (e.g., headphones, smartwatches, phone cases)
+                                    </li>
+                                    <li className="pt-1">
+                                        Homeware
+                                    </li>
+                                    <li className="pt-1">
+                                        Entertainment goods
                                     </li>
                                 </ul>
-
-                                <h1 className="text-xl mt-6 mb-2 font-semibold">
-                                    I can’t see my coupon{' '}
-                                </h1>
-                                <p className="pt-4">
-                                    Sometimes the reason you don’t see your
-                                    coupon is because the invited users didn’t
-                                    sign up using the link. If your coupon seems
-                                    to be missing, please send us the username
-                                    of the member you invited, and a screenshot
-                                    proving that you shared your invitation link
-                                    with them.
-                                </p>
-
-                                <h1 className="text-xl mt-6 mb-2 font-semibold">
-                                    Good to know:
-                                </h1>
-                                <ul className="pl-4 p-2 list-disc">
-                                    <li className="pt-1">
-                                        Coupons can be used to buy items that
-                                        cost at least $15
-                                    </li>
-                                    <li className="pt-1">
-                                        Coupons only cover the item’s price (not
-                                        postage costs or the Buyer Protection
-                                        fee)
-                                    </li>
-                                    <li className="pt-1">
-                                        Coupons are eligible for 30 days (their
-                                        expiry date is in the coupon message)
-                                    </li>
-                                    <li className="pt-1">
-                                        Only 1 coupon can be used at a time, and
-                                        it can't be redeemed in cash
-                                    </li>
-                                </ul>
+                                <div>
+                                    <h1 className="text-xl mt-6 mb-2 font-semibold">
+                                        What you cannot sell
+                                    </h1>
+                                    <ul className="pl-4 p-2 list-disc">
+                                        <li className="pt-1">
+                                            Items that do not comply with applicable laws
+                                        </li>
+                                        <li className="pt-1">
+                                            Counterfeits and items that infringe on copyright or intellectual property
+                                            (IP) rights
+                                        </li>
+                                        <li className="pt-1">
+                                            Creative works reproduced without the copyright/IP holder’s consent (e.g.,
+                                            books, movies, music, video games)
+                                        </li>
+                                        <li className="pt-1">
+                                            Items subject to age-rating classification with the age-rating labels
+                                            missing (e.g., video games, movies)
+                                        </li>
+                                        <li className="pt-1">
+                                            Food, drinks, and other perishables
+                                        </li>
+                                        <li className="pt-1">
+                                            Detergents and cleaning chemicals
+                                        </li>
+                                        <li className="pt-1">
+                                            Medications, professional medical supplies, prescription products, vitamins,
+                                            and food supplements
+                                        </li>
+                                        <li className="pt-1">
+                                            Live animals and pets
+                                        </li>
+                                        <li className="pt-1">
+                                            Items for pets, wild animals, or farm animals
+                                        </li>
+                                        <li className="pt-1">
+                                            Items that promote or display violence, discrimination, hatred, crime,
+                                            terrorism, or a terrorist organization
+                                        </li>
+                                        <li className="pt-1">
+                                            Items received for free, such as promotional or complimentary items
+                                        </li>
+                                        <li className="pt-1">
+                                            Items that do not comply with hygiene standards, or pose risk to one’s
+                                            health (e.g., used cosmetics, underwear bottoms, bedding, towels, piercings,
+                                            etc.,)
+                                        </li>
+                                        <li className="pt-1">
+                                            Animal fur, reptile skin, shell, or ivory products
+                                        </li>
+                                        <li className="pt-1">
+                                            Electronic and high-tech products
+                                        </li>
+                                        <li className="pt-1">
+                                            Music and sports equipment for adults
+                                        </li>
+                                        <li className="pt-1">
+                                            EKitchen tools or accessories used to make and store food
+                                        </li>
+                                        <li className="pt-1">
+                                            Furniture for adults, and garden or power tools
+                                        </li>
+                                        <li className="pt-1">
+                                            Recalled products
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className='py-5'>
+                                    <p className='text-base font-semibold'>Did you see a similar item uploaded by another member?</p>
+                                    <p className='text-base pt-4'>We are constantly monitoring the catalog and removing any prohibited items. However, we don’t always notice them immediately. It would be a huge help if you could report listings that violate our rules.</p>
+                                </div>
+                                <div className='py-5'>
+                                    <p className='text-base font-semibold'>Make sure your items are clean</p>
+                                    <p className='text-base pt-4'>In general, all items that you put on sale should be clean. We recommend washing or disinfecting them in a way suitable to the item’s material.</p>
+                                    <p className='text-base pt-4'>Any stains, defects, or similar flaws that don’t wash off must be mentioned in the item’s description. Please be aware that if they’re not noted, we may have to cancel the order.</p>
+                                </div>
+                                <div className='py-5'>
+                                    <p className='text-base font-semibold'>Make sure your electronics are safe to use</p>
+                                    <p className='text-base pt-4'>Damaged electrical devices are a health risk. If your socket-plug or battery-powered device gives off heat and has frayed or loose cables (or any other damage), it cannot be sold.</p>
+                                </div>
+                                <div className='py-5'>
+                                    <p className='text-base font-semibold'>Prohibited items and refunds</p>
+                                    <p className='text-base pt-4'>We cannot refund the cost of Bumps, Closet Spotlights, or bundles if they include prohibited items that we’ve had to hide or delete.</p>
+                                </div>
                             </Disclosure.Panel>
                         </>
                     )}
