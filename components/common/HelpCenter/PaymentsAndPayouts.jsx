@@ -9,7 +9,7 @@ const PaymentsAndPayouts = () => {
                 <h1 className="text-3xl font-bold mt-0 mb-4">
                     Payments & Payouts
                 </h1>
-                <div className="text-xs text-gray-500 py-2">
+                <div className="text-xs text-gray-500 mb-4">
                     Recommended for you
                 </div>
                 <div>

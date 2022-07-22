@@ -7,7 +7,7 @@ const Covid = () => {
         <div className={'p-4 bg-white'}>
             <div className={'bg-white text-left'}>
                 <h1 className="text-3xl font-bold mt-0 mb-4">Covid-19</h1>
-                <div className="text-xs text-gray-500 py-2">
+                <div className="text-xs text-gray-500 mb-4">
                     Privacy settings
                 </div>
 
