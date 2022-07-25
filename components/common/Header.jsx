@@ -88,21 +88,42 @@ const catalogMobileArrayStaticData = [
 ]
 
 const userDropdown = [
-    {id: '86a66b51-14df-4947-9580-2f6f44e70e07', name: 'Account', path: '#'},
+    {
+        id: '86a66b51-14df-4947-9580-2f6f44e70e07',
+        name: 'Account',
+        path: '/',
+        disableStatus: true,
+    },
     {
         id: '03380728-d104-473b-bb9c-b7671185d114',
         name: 'Profile',
         path: '/profile',
+        disableStatus: false,
     },
-    {id: 'd0960412-44f7-4120-8851-b605328b2738', name: 'Settings', path: '#'},
+    {
+        id: 'd0960412-44f7-4120-8851-b605328b2738',
+        name: 'Settings',
+        path: '/settings',
+        disableStatus: false,
+    },
     {
         id: '6417e8c7-b9b8-46de-a25a-829700003b79',
-        name: 'Personalization',
+        name: 'Purchase History',
         path: '#',
+        disableStatus: false,
     },
-    {id: '3236825c-ac12-4656-b099-4a395adb2eb0', name: 'Wallet', path: '#'},
-    {id: 'bbced0e1-2e6b-4525-99e9-6b2006ad0c42', name: 'Donations', path: '#'},
-    {id: '8c69d15d-3669-4ec8-a5c5-308f16cbb3aa', name: 'Log out', path: '#'},
+    {
+        id: '3236825c-ac12-4656-b099-4a395adb2eb0',
+        name: 'Wallet',
+        path: '#',
+        disableStatus: false,
+    },
+    {
+        id: '8c69d15d-3669-4ec8-a5c5-308f16cbb3aa',
+        name: 'Log out',
+        path: '#',
+        disableStatus: false,
+    },
 ]
 
 const languageDropdown = [
@@ -232,31 +253,55 @@ const HeaderSection = () => {
                                             <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none overflow-visible z-50">
                                                 <div className="py-1">
                                                     {userActivityArray.map(
-                                                        (item, idx) => {
+                                                        (item) => {
                                                             return (
                                                                 <Menu.Item
                                                                     key={
                                                                         item.id
                                                                     }
+                                                                    disabled={
+                                                                        item.disableStatus
+                                                                    }
                                                                 >
                                                                     {({
                                                                         active,
                                                                     }) => (
-                                                                        <a
-                                                                            href={
-                                                                                item.path
-                                                                            }
-                                                                            className={classNames(
-                                                                                active
-                                                                                    ? 'bg-gray-100 text-gray-900'
-                                                                                    : 'text-gray-700',
-                                                                                'block px-4 py-2 text-sm'
+                                                                        <>
+                                                                            {item.name ===
+                                                                            'Log out' ? (
+                                                                                <a
+                                                                                    href={
+                                                                                        item.path
+                                                                                    }
+                                                                                    className={classNames(
+                                                                                        active
+                                                                                            ? 'bg-gray-100 text-red-900'
+                                                                                            : 'text-red-700',
+                                                                                        'group hover:bg-gray-100 block px-4 py-2 text-sm'
+                                                                                    )}
+                                                                                >
+                                                                                    {
+                                                                                        item.name
+                                                                                    }
+                                                                                </a>
+                                                                            ) : (
+                                                                                <a
+                                                                                    href={
+                                                                                        item.path
+                                                                                    }
+                                                                                    className={classNames(
+                                                                                        active
+                                                                                            ? 'bg-gray-100 text-gray-900'
+                                                                                            : 'text-gray-700',
+                                                                                        'group hover:bg-gray-100 block px-4 py-2 text-sm'
+                                                                                    )}
+                                                                                >
+                                                                                    {
+                                                                                        item.name
+                                                                                    }
+                                                                                </a>
                                                                             )}
-                                                                        >
-                                                                            {
-                                                                                item.name
-                                                                            }
-                                                                        </a>
+                                                                        </>
                                                                     )}
                                                                 </Menu.Item>
                                                             )
