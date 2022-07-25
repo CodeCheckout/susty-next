@@ -1,18 +1,30 @@
-import React, {Fragment} from 'react';
-import { Dialog, Transition } from '@headlessui/react'
+import React, {Fragment} from 'react'
+import {Dialog, Transition} from '@headlessui/react'
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-const SettingsSideBarWrapper = ({arrayElements,sidebarOpen,sidebarElement,selectedItem, setSidebarOpen,setSidebarElement,setSelectedItem}) => {
+const SettingsSideBarWrapper = ({
+    arrayElements,
+    sidebarOpen,
+    sidebarElement,
+    selectedItem,
+    setSidebarOpen,
+    setSidebarElement,
+    setSelectedItem,
+}) => {
     return (
         <div className={'lg:mx-44 min-h-max'}>
-            <div className='h-full overflow-hidden'>
+            <div className="h-full overflow-hidden">
                 <div className="flex ">
                     <Transition.Root show={sidebarOpen} as={Fragment}>
-                        <Dialog as="div" className="fixed inset-0 flex z-40 lg:hidden" onClose={setSidebarOpen}>
+                        <Dialog
+                            as="div"
+                            className="fixed inset-0 flex z-40 lg:hidden"
+                            onClose={setSidebarOpen}
+                        >
                             <Transition.Child
                                 as={Fragment}
                                 enter="transition-opacity ease-linear duration-300"
@@ -47,47 +59,68 @@ const SettingsSideBarWrapper = ({arrayElements,sidebarOpen,sidebarElement,select
                                             <button
                                                 type="button"
                                                 className="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                                                onClick={() => setSidebarOpen(false)}
+                                                onClick={() =>
+                                                    setSidebarOpen(false)
+                                                }
                                             >
-                                                <span className="sr-only">Close sidebar</span>
-                                                <AiOutlineClose className="h-6 w-6 text-white" aria-hidden="true" />
+                                                <span className="sr-only">
+                                                    Close sidebar
+                                                </span>
+                                                <AiOutlineClose
+                                                    className="h-6 w-6 text-white"
+                                                    aria-hidden="true"
+                                                />
                                             </button>
                                         </div>
                                     </Transition.Child>
                                     <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                                         <div className="flex-shrink-0 flex items-center px-4">
-                                            <p className='font-semibold text-xl'>Settings</p>
+                                            <p className="font-semibold text-xl">
+                                                Settings
+                                            </p>
                                         </div>
-                                        <nav aria-label="Sidebar" className="mt-5">
+                                        <nav
+                                            aria-label="Sidebar"
+                                            className="mt-5"
+                                        >
                                             <div className="px-2 space-y-1 text-lg">
-                                                {arrayElements.map((item, idx) => (
-                                                    <a
-                                                        key={item.name}
-                                                        //   href={item.href}
-                                                        onClick = {() => {
-                                                            setSidebarElement(item.component)
-                                                            setSelectedItem(idx)
-                                                            setSidebarOpen(false)
-                                                        }
-                                                        }
-
-                                                        className={classNames(
-                                                            selectedItem === idx
-                                                                ? 'text-gray-900 font-semibold cursor-pointer'
-                                                                : 'text-gray-500 hover:bg-gray-200 ',
-                                                            'group flex items-center px-5 py-2 rounded-md cursor-pointer'
-                                                        )}
-
-                                                    >
-                                                        {item.name}
-                                                    </a>
-                                                ))}
+                                                {arrayElements.map(
+                                                    (item, idx) => (
+                                                        <a
+                                                            key={item.name}
+                                                            //   href={item.href}
+                                                            onClick={() => {
+                                                                setSidebarElement(
+                                                                    item.component
+                                                                )
+                                                                setSelectedItem(
+                                                                    idx
+                                                                )
+                                                                setSidebarOpen(
+                                                                    false
+                                                                )
+                                                            }}
+                                                            className={classNames(
+                                                                selectedItem ===
+                                                                    idx
+                                                                    ? 'text-gray-900 font-semibold cursor-pointer'
+                                                                    : 'text-gray-500 hover:bg-gray-200 ',
+                                                                'group flex items-center px-5 py-2 rounded-md cursor-pointer'
+                                                            )}
+                                                        >
+                                                            {item.name}
+                                                        </a>
+                                                    )
+                                                )}
                                             </div>
                                         </nav>
                                     </div>
                                 </div>
                             </Transition.Child>
-                            <div className="flex-shrink-0 w-14" aria-hidden="true">
+                            <div
+                                className="flex-shrink-0 w-14"
+                                aria-hidden="true"
+                            >
                                 {/* Force sidebar to shrink to fit close icon */}
                             </div>
                         </Dialog>
@@ -99,7 +132,9 @@ const SettingsSideBarWrapper = ({arrayElements,sidebarOpen,sidebarElement,select
                             <div className="flex-1 flex flex-col min-h-full">
                                 <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto ">
                                     <div className="flex items-center flex-shrink-0 px-4">
-                                        <p className='font-semibold text-2xl'>Settings</p>
+                                        <p className="font-semibold text-2xl">
+                                            Settings
+                                        </p>
                                     </div>
                                     <nav className="mt-5" aria-label="Sidebar">
                                         <div className="px-4 space-y-4">
@@ -107,19 +142,18 @@ const SettingsSideBarWrapper = ({arrayElements,sidebarOpen,sidebarElement,select
                                                 <a
                                                     key={item.name}
                                                     // href={item.href}
-                                                    onClick = {() => {
-                                                        setSidebarElement(item.component)
+                                                    onClick={() => {
+                                                        setSidebarElement(
+                                                            item.component
+                                                        )
                                                         setSelectedItem(idx)
-                                                    }
-                                                    }
-
+                                                    }}
                                                     className={classNames(
                                                         selectedItem === idx
                                                             ? 'text-gray-800 font-semibold cursor-pointer'
                                                             : 'text-gray-500 hover:bg-gray-200 ',
                                                         'group flex items-center px-5 py-2 cursor-pointer'
                                                     )}
-
                                                 >
                                                     {item.name}
                                                 </a>
@@ -133,8 +167,7 @@ const SettingsSideBarWrapper = ({arrayElements,sidebarOpen,sidebarElement,select
                     <div className="flex flex-col min-w-0 flex-1">
                         <div className="block lg:hidden">
                             <div className="flex items-center justify-between bg-gray-50 border-b border-gray-200 px-4 py-1.5">
-
-                                <div className='text-gray-800 font-normal text-xl capitalize'>
+                                <div className="text-gray-800 font-normal text-xl capitalize">
                                     Settings
                                 </div>
                                 <div>
@@ -143,8 +176,13 @@ const SettingsSideBarWrapper = ({arrayElements,sidebarOpen,sidebarElement,select
                                         className="-mr-3 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900"
                                         onClick={() => setSidebarOpen(true)}
                                     >
-                                        <span className="sr-only">Open sidebar</span>
-                                        <AiOutlineMenu className="h-6 w-6" aria-hidden="true" />
+                                        <span className="sr-only">
+                                            Open sidebar
+                                        </span>
+                                        <AiOutlineMenu
+                                            className="h-6 w-6"
+                                            aria-hidden="true"
+                                        />
                                     </button>
                                 </div>
                             </div>
@@ -154,7 +192,6 @@ const SettingsSideBarWrapper = ({arrayElements,sidebarOpen,sidebarElement,select
                                 {/* Start main area*/}
 
                                 <div className="inset-0 px-4 sm:px-6 lg:px-8 overflow-y-auto scrollbar-hide">
-
                                     {sidebarElement}
                                 </div>
                                 {/* End main area */}
@@ -164,7 +201,7 @@ const SettingsSideBarWrapper = ({arrayElements,sidebarOpen,sidebarElement,select
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default SettingsSideBarWrapper;
+export default SettingsSideBarWrapper

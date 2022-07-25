@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 import {Switch} from '@headlessui/react'
 
 const EnableEmailNotifications = () => {
@@ -6,12 +6,14 @@ const EnableEmailNotifications = () => {
 
     return (
         <div>
-            <div className={"w-full bg-white"}>
-                <div className={"grid grid-cols-5 gap-2 p-5"}>
-                    <div className={"col-span-4"}>
-                        <p className={"font-medium text-gray-800"}>Enable email notifications</p>
+            <div className={'w-full bg-white'}>
+                <div className={'grid grid-cols-5 gap-2 p-5'}>
+                    <div className={'col-span-4'}>
+                        <p className={'font-medium text-gray-800'}>
+                            Enable email notifications
+                        </p>
                     </div>
-                    <div className={"col-span-1 ml-auto"}>
+                    <div className={'col-span-1 ml-auto'}>
                         <Switch
                             checked={enabled}
                             onChange={setEnabled}
@@ -21,7 +23,11 @@ const EnableEmailNotifications = () => {
                             <span className="sr-only">Use setting</span>
                             <span
                                 aria-hidden="true"
-                                className={`${enabled ? 'translate-x-[1.53rem]' : 'translate-x-0'}
+                                className={`${
+                                    enabled
+                                        ? 'translate-x-[1.53rem]'
+                                        : 'translate-x-0'
+                                }
                             pointer-events-none inline-block h-[20px] w-[20px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
                             />
                         </Switch>
@@ -29,7 +35,7 @@ const EnableEmailNotifications = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default EnableEmailNotifications;
+export default EnableEmailNotifications

@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {Switch} from "@headlessui/react";
+import React, {useState} from 'react'
+import {Switch} from '@headlessui/react'
 
 const Location = () => {
-    const [enabled, setEnabled] = useState(false);
-    const [countryInput, setCountryInput] = useState('New Zealand');
-    const [townInput, setTownInput] = useState('Wellington');
+    const [enabled, setEnabled] = useState(false)
+    const [countryInput, setCountryInput] = useState('New Zealand')
+    const [townInput, setTownInput] = useState('Wellington')
 
     const countryHandler = (e) => {
         setCountryInput(e.target.value)
@@ -16,7 +16,7 @@ const Location = () => {
 
     return (
         <div className="mt-10 sm:mt-0 bg-white px-6 py-2">
-            <p className='pt-3 text-sm text-gray-500'>My Location</p>
+            <p className="pt-3 text-sm text-gray-500">My Location</p>
             <div className="md:grid md:grid-cols-3 md:gap-3 py-2 border-b border-gray-200">
                 <div className="md:col-span-1 flex items-center">
                     <div className="px-4 sm:px-0">
@@ -38,8 +38,12 @@ const Location = () => {
                                         autoComplete="country-name"
                                         className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none ring-none focus:ring-susty focus:border-red-400 sm:text-sm"
                                     >
-                                        <option value={'New Zealand'}>New Zealand</option>
-                                        <option value={'Australia'}>Australia</option>
+                                        <option value={'New Zealand'}>
+                                            New Zealand
+                                        </option>
+                                        <option value={'Australia'}>
+                                            Australia
+                                        </option>
                                         <option value={'Canada'}>Canada</option>
                                         <option value={'Mexico'}>Mexico</option>
                                     </select>
@@ -72,10 +76,16 @@ const Location = () => {
                                         autoComplete="town-name"
                                         className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none ring-none focus:ring-susty focus:border-red-400 sm:text-sm"
                                     >
-                                        <option value={'Wellington'}>Wellington</option>
-                                        <option value={'Canberra'}>Canberra</option>
+                                        <option value={'Wellington'}>
+                                            Wellington
+                                        </option>
+                                        <option value={'Canberra'}>
+                                            Canberra
+                                        </option>
                                         <option value={'Ottawa'}>Ottawa</option>
-                                        <option value={'Mexico City'}>Mexico City</option>
+                                        <option value={'Mexico City'}>
+                                            Mexico City
+                                        </option>
                                     </select>
                                 </div>
                                 <div className="col-span-6 sm:col-span-3"></div>
@@ -101,15 +111,20 @@ const Location = () => {
                                     <Switch
                                         checked={enabled}
                                         onChange={setEnabled}
-                                        className={`${enabled ? 'bg-susty' : 'bg-gray-300'} 
+                                        className={`${
+                                            enabled ? 'bg-susty' : 'bg-gray-300'
+                                        } 
                         relative inline-flex h-[24px] w-[48px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
                                     >
-                        <span
-                            aria-hidden="true"
-                            className={`${
-                                enabled ? 'translate-x-[1.53rem]' : 'translate-x-0'}
+                                        <span
+                                            aria-hidden="true"
+                                            className={`${
+                                                enabled
+                                                    ? 'translate-x-[1.53rem]'
+                                                    : 'translate-x-0'
+                                            }
                             pointer-events-none inline-block h-[20px] w-[20px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
-                        />
+                                        />
                                     </Switch>
                                 </div>
 
@@ -120,7 +135,7 @@ const Location = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Location;
+export default Location
