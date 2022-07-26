@@ -14,7 +14,7 @@ import Notification from './Header/Notification'
 
 import Link from 'next/link'
 import LoginSignupButton from '../buttons/LoginSignupButton'
-import CatDropDown from "./flyoutmenu/CatDropDown";
+import CatDropDown from './flyoutmenu/CatDropDown'
 
 const searchBarStaticOptions = [
     {id: 1, name: 'Catalog  '},
@@ -517,7 +517,7 @@ const HeaderSection = () => {
                         </Popover.Panel>
                     </Transition>
                 </Popover>
-                <CatDropDown/>
+                <CatDropDown />
             </div>
         </>
     )

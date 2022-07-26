@@ -1,13 +1,13 @@
-import React from 'react';
-import BasicPageWrapper from "../../../../components/layouts/BasicPageWrapper";
-import ProductItemsFilterSection from "../../../../components/filter/ProductItemsFilterSection";
+import React from 'react'
+import BasicPageWrapper from '../../../../components/layouts/BasicPageWrapper'
+import ProductItemsFilterSection from '../../../../components/filter/ProductItemsFilterSection'
 
 const Subsectionpage = () => {
     return (
         <BasicPageWrapper>
-            <ProductItemsFilterSection/>
+            <ProductItemsFilterSection />
         </BasicPageWrapper>
-    );
-};
+    )
+}
 
-export default Subsectionpage;
+export default Subsectionpage
