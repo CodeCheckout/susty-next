@@ -1,18 +1,18 @@
-import React, {Fragment, useEffect, useState} from 'react';
-import { Dialog, Transition } from "@headlessui/react";
-import Items from "./items";
+import React, {Fragment, useEffect, useState} from 'react'
+import {Dialog, Transition} from '@headlessui/react'
+import Items from './items'
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
+    return classes.filter(Boolean).join(' ')
 }
 
-const Dropdown = ({ subCategory }) => {
-    const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [subCatArray, setSubCatArray] = useState([]);
+const Dropdown = ({subCategory}) => {
+    const [sidebarOpen, setSidebarOpen] = useState(false)
+    const [subCatArray, setSubCatArray] = useState([])
 
     useEffect(() => {
-        setSubCatArray(subCategory[0].sections);
-    }, []);
+        setSubCatArray(subCategory[0].sections)
+    }, [])
 
     return (
         <div className="h-full flex flex-row min-w-max bg-white">
@@ -62,24 +62,26 @@ const Dropdown = ({ subCategory }) => {
                                                 <span
                                                     key={subcat.id}
                                                     onClick={() => {
-                                                        setSubCatArray(subcat.sections);
+                                                        setSubCatArray(
+                                                            subcat.sections
+                                                        )
                                                     }}
                                                 >
-                            <a
-                                className={classNames(
-                                    subcat.current
-                                        ? "bg-gray-200 text-gray-900"
-                                        : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-                                    "group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-x-3"
-                                )}
-                            >
-                              <div className="flex flex-row items center gap-3">
-                                {subcat.icon}
-                              </div>
+                                                    <a
+                                                        className={classNames(
+                                                            subcat.current
+                                                                ? 'bg-gray-200 text-gray-900'
+                                                                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                                                            'group flex items-center px-2 py-2 text-sm font-medium rounded-md gap-x-3'
+                                                        )}
+                                                    >
+                                                        <div className="flex flex-row items center gap-3">
+                                                            {subcat.icon}
+                                                        </div>
 
-                                {subcat.name}
-                            </a>
-                          </span>
+                                                        {subcat.name}
+                                                    </a>
+                                                </span>
                                             ))}
                                     </>
                                 </div>
@@ -93,7 +95,7 @@ const Dropdown = ({ subCategory }) => {
                 <Items sections={subCatArray} />
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Dropdown;
+export default Dropdown

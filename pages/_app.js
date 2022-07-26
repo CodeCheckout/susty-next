@@ -4,13 +4,13 @@ import Footer from '../components/common/Footer'
 
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import CatDropDown from "./flyoutmenu/catdropdown";
+import CatDropDown from './flyoutmenu/catdropdown'
 
 function MyApp({Component, pageProps}) {
     return (
         <>
             <Header />
-            <CatDropDown/>
+            <CatDropDown />
             <ToastContainer limit={2} />
             <Component {...pageProps} />
             <Footer />

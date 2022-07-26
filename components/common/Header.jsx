@@ -119,7 +119,7 @@ const userDropdown = [
         disableStatus: false,
     },
     {
-        id: "27adb8c1-8422-4953-9f86-3f791b8c997c",
+        id: '27adb8c1-8422-4953-9f86-3f791b8c997c',
         name: 'Invite Friends',
         path: '#',
         disableStatus: false,
@@ -213,7 +213,7 @@ const HeaderSection = () => {
                                         </Link>
                                     </div>
                                     <div className="mx-1">
-                                        <Notification/>
+                                        <Notification />
                                     </div>
                                     <div className="mx-1">
                                         <Link href="/favourites/">
@@ -231,8 +231,7 @@ const HeaderSection = () => {
                                         className="relative inline-block text-left mx-1 hidden lg:block"
                                     >
                                         <div>
-                                            <Menu.Button
-                                                className="inline-flex justify-center -my-1 pl-2 md:pl-0 md:mr-8 md:pr-2 w-full rounded-md ring-0 text-sm font-medium text-gray-700">
+                                            <Menu.Button className="inline-flex justify-center -my-1 pl-2 md:pl-0 md:mr-8 md:pr-2 w-full rounded-md ring-0 text-sm font-medium text-gray-700">
                                                 <img
                                                     alt="User"
                                                     className="rounded-full"
@@ -257,8 +256,7 @@ const HeaderSection = () => {
                                             leaveFrom="transform opacity-100 scale-100"
                                             leaveTo="transform opacity-0 scale-95"
                                         >
-                                            <Menu.Items
-                                                className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none overflow-visible z-50">
+                                            <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none overflow-visible z-50">
                                                 <div className="py-1">
                                                     {userActivityArray.map(
                                                         (item) => {
@@ -272,8 +270,8 @@ const HeaderSection = () => {
                                                                     }
                                                                 >
                                                                     {({
-                                                                          active,
-                                                                      }) => (
+                                                                        active,
+                                                                    }) => (
                                                                         <>
                                                                             {item.name ===
                                                                             'Log out' ? (
@@ -323,8 +321,7 @@ const HeaderSection = () => {
                             )}
 
                             <div className="-mr-2 -my-2 lg:hidden">
-                                <Popover.Button
-                                    className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-400">
+                                <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-400">
                                     <span className="sr-only">Open menu</span>
                                     <HiMenu
                                         className="h-6 w-6"
@@ -366,8 +363,7 @@ const HeaderSection = () => {
                             className="hidden lg:block relative inline-block text-left mx-1"
                         >
                             <div>
-                                <Menu.Button
-                                    className="inline-flex justify-center -my-1 pl-2 md:pl-0 md:mr-0 md:pr-0 w-full rounded-md ring-0 text-sm font-medium text-gray-700">
+                                <Menu.Button className="inline-flex justify-center -my-1 pl-2 md:pl-0 md:mr-0 md:pr-0 w-full rounded-md ring-0 text-sm font-medium text-gray-700">
                                     <div>{selectedLanguage}</div>
                                     <HiChevronDown
                                         color="#a3a3a3"
@@ -386,8 +382,7 @@ const HeaderSection = () => {
                                 leaveFrom="transform opacity-100 scale-100"
                                 leaveTo="transform opacity-0 scale-95"
                             >
-                                <Menu.Items
-                                    className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none overflow-visible z-50">
+                                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none overflow-visible z-50">
                                     <div className="py-1">
                                         {languageArray.map((item, idx) => {
                                             return (
@@ -440,13 +435,11 @@ const HeaderSection = () => {
                             focus
                             className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-50"
                         >
-                            <div
-                                className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+                            <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                                 <div className="pt-5 pb-6 px-5">
                                     <div className="flex items-center justify-end">
                                         <div className="-mr-2">
-                                            <Popover.Button
-                                                className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-400">
+                                            <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-400">
                                                 <span className="sr-only">
                                                     Close menu
                                                 </span>
@@ -467,7 +460,7 @@ const HeaderSection = () => {
                                     >
                                         Sell&nbsp;now
                                     </button>
-                                    <LoginSignupButton/>
+                                    <LoginSignupButton />
 
                                     <div className="mt-6">
                                         <p className="text-slate-400 mb-4">
@@ -485,7 +478,7 @@ const HeaderSection = () => {
                                                             {item.name}
                                                         </div>
                                                     </a>
-                                                    <hr className="-my-1 "/>
+                                                    <hr className="-my-1 " />
                                                 </div>
                                             ))}
                                         </nav>
@@ -513,7 +506,7 @@ const HeaderSection = () => {
                                                             {item.name}
                                                         </div>
                                                     </a>
-                                                    <hr className="-my-1 "/>
+                                                    <hr className="-my-1 " />
                                                 </div>
                                             ))}
                                         </nav>

@@ -25,8 +25,8 @@ export const dSearch = () => {
                 </g>
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const menskinny = () => {
     return (
@@ -61,8 +61,8 @@ export const menskinny = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const shirt1 = () => {
     return (
@@ -72,7 +72,11 @@ export const shirt1 = () => {
             height="25"
             viewBox="0 0 49.245 45.942"
         >
-            <g id="Group_359" data-name="Group 359" transform="translate(1.5 1.5)">
+            <g
+                id="Group_359"
+                data-name="Group 359"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_965"
                     data-name="Path 965"
@@ -119,8 +123,8 @@ export const shirt1 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const shirt2 = () => {
     return (
         <svg
@@ -129,7 +133,11 @@ export const shirt2 = () => {
             height="25"
             viewBox="0 0 49.484 45.942"
         >
-            <g id="Group_360" data-name="Group 360" transform="translate(1.5 1.5)">
+            <g
+                id="Group_360"
+                data-name="Group 360"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_967"
                     data-name="Path 967"
@@ -198,8 +206,8 @@ export const shirt2 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const shirt3 = () => {
     return (
         <svg
@@ -208,7 +216,11 @@ export const shirt3 = () => {
             height="25"
             viewBox="0 0 49.245 49.858"
         >
-            <g id="Group_361" data-name="Group 361" transform="translate(1.5 2.113)">
+            <g
+                id="Group_361"
+                data-name="Group 361"
+                transform="translate(1.5 2.113)"
+            >
                 <path
                     id="Path_969"
                     data-name="Path 969"
@@ -310,8 +322,8 @@ export const shirt3 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const shirt4 = () => {
     return (
         <svg
@@ -320,7 +332,11 @@ export const shirt4 = () => {
             height="25"
             viewBox="0 0 49.245 49.858"
         >
-            <g id="Group_362" data-name="Group 362" transform="translate(1.5 2.113)">
+            <g
+                id="Group_362"
+                data-name="Group 362"
+                transform="translate(1.5 2.113)"
+            >
                 <path
                     id="Path_972"
                     data-name="Path 972"
@@ -422,8 +438,8 @@ export const shirt4 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const shirt5 = () => {
     return (
         <svg
@@ -432,7 +448,11 @@ export const shirt5 = () => {
             height="25"
             viewBox="0 0 49.593 49.662"
         >
-            <g id="Group_363" data-name="Group 363" transform="translate(1.5 1.917)">
+            <g
+                id="Group_363"
+                data-name="Group 363"
+                transform="translate(1.5 1.917)"
+            >
                 <path
                     id="Path_975"
                     data-name="Path 975"
@@ -534,8 +554,8 @@ export const shirt5 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const shirt6 = () => {
     return (
         <svg
@@ -544,7 +564,11 @@ export const shirt6 = () => {
             height="25"
             viewBox="0 0 49.297 49.245"
         >
-            <g id="Group_364" data-name="Group 364" transform="translate(1.5 1.5)">
+            <g
+                id="Group_364"
+                data-name="Group 364"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_978"
                     data-name="Path 978"
@@ -735,8 +759,8 @@ export const shirt6 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const shirt7 = () => {
     return (
         <svg
@@ -745,7 +769,11 @@ export const shirt7 = () => {
             height="49.245"
             viewBox="0 0 49.245 49.245"
         >
-            <g id="Group_365" data-name="Group 365" transform="translate(1.5 1.5)">
+            <g
+                id="Group_365"
+                data-name="Group 365"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_979"
                     data-name="Path 979"
@@ -893,8 +921,8 @@ export const shirt7 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const blouse1 = () => {
     return (
@@ -904,7 +932,11 @@ export const blouse1 = () => {
             height="49.245"
             viewBox="0 0 32.729 49.245"
         >
-            <g id="Group_367" data-name="Group 367" transform="translate(1.5 1.5)">
+            <g
+                id="Group_367"
+                data-name="Group 367"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_984"
                     data-name="Path 984"
@@ -929,8 +961,8 @@ export const blouse1 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const blouse2 = () => {
     return (
         <svg
@@ -939,7 +971,11 @@ export const blouse2 = () => {
             height="49.245"
             viewBox="0 0 32.729 49.245"
         >
-            <g id="Group_366" data-name="Group 366" transform="translate(1.5 1.5)">
+            <g
+                id="Group_366"
+                data-name="Group 366"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_982"
                     data-name="Path 982"
@@ -964,8 +1000,8 @@ export const blouse2 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const blouse03 = () => {
     return (
         <svg
@@ -974,7 +1010,11 @@ export const blouse03 = () => {
             height="45.942"
             viewBox="0 0 49.245 45.942"
         >
-            <g id="Group_368" data-name="Group 368" transform="translate(1.5 1.5)">
+            <g
+                id="Group_368"
+                data-name="Group 368"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_986"
                     data-name="Path 986"
@@ -1010,8 +1050,8 @@ export const blouse03 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const blouse04 = () => {
     return (
         <svg
@@ -1020,7 +1060,11 @@ export const blouse04 = () => {
             height="45.942"
             viewBox="0 0 49.245 45.942"
         >
-            <g id="Group_369" data-name="Group 369" transform="translate(1.5 1.5)">
+            <g
+                id="Group_369"
+                data-name="Group 369"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_989"
                     data-name="Path 989"
@@ -1078,8 +1122,8 @@ export const blouse04 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const blouse05 = () => {
     return (
         <svg
@@ -1088,7 +1132,11 @@ export const blouse05 = () => {
             height="49.858"
             viewBox="0 0 49.245 49.858"
         >
-            <g id="Group_370" data-name="Group 370" transform="translate(1.5 2.113)">
+            <g
+                id="Group_370"
+                data-name="Group 370"
+                transform="translate(1.5 2.113)"
+            >
                 <path
                     id="Path_992"
                     data-name="Path 992"
@@ -1190,8 +1238,8 @@ export const blouse05 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const blouse06 = () => {
     return (
         <svg
@@ -1200,7 +1248,11 @@ export const blouse06 = () => {
             height="49.858"
             viewBox="0 0 49.593 49.858"
         >
-            <g id="Group_371" data-name="Group 371" transform="translate(1.5 2.113)">
+            <g
+                id="Group_371"
+                data-name="Group 371"
+                transform="translate(1.5 2.113)"
+            >
                 <path
                     id="Path_997"
                     data-name="Path 997"
@@ -1302,8 +1354,8 @@ export const blouse06 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const frock01 = () => {
     return (
@@ -1313,7 +1365,11 @@ export const frock01 = () => {
             height="25"
             viewBox="0 0 36.032 49.56"
         >
-            <g id="Group_372" data-name="Group 372" transform="translate(1.5 1.5)">
+            <g
+                id="Group_372"
+                data-name="Group 372"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_1002"
                     data-name="Path 1002"
@@ -1373,8 +1429,8 @@ export const frock01 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const frock02 = () => {
     return (
         <svg
@@ -1383,7 +1439,11 @@ export const frock02 = () => {
             height="25"
             viewBox="0 0 36.032 49.438"
         >
-            <g id="Group_373" data-name="Group 373" transform="translate(1.5 1.95)">
+            <g
+                id="Group_373"
+                data-name="Group 373"
+                transform="translate(1.5 1.95)"
+            >
                 <path
                     id="Path_1004"
                     data-name="Path 1004"
@@ -1465,8 +1525,8 @@ export const frock02 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const short = () => {
     return (
@@ -1561,8 +1621,8 @@ export const short = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const trouser = () => {
     return (
@@ -1572,7 +1632,11 @@ export const trouser = () => {
             height="49.245"
             viewBox="0 0 29.426 49.245"
         >
-            <g id="Group_375" data-name="Group 375" transform="translate(1.5 1.5)">
+            <g
+                id="Group_375"
+                data-name="Group 375"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_1009"
                     data-name="Path 1009"
@@ -1652,8 +1716,8 @@ export const trouser = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const skirt01 = () => {
     return (
         <svg
@@ -1662,7 +1726,11 @@ export const skirt01 = () => {
             height="39.728"
             viewBox="0 0 50.056 39.728"
         >
-            <g id="Group_377" data-name="Group 377" transform="translate(1.906 1.32)">
+            <g
+                id="Group_377"
+                data-name="Group 377"
+                transform="translate(1.906 1.32)"
+            >
                 <rect
                     id="Rectangle_822"
                     data-name="Rectangle 822"
@@ -1769,8 +1837,8 @@ export const skirt01 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const skirt02 = () => {
     return (
         <svg
@@ -1779,7 +1847,11 @@ export const skirt02 = () => {
             height="39.728"
             viewBox="0 0 50.056 39.728"
         >
-            <g id="Group_376" data-name="Group 376" transform="translate(1.906 1.32)">
+            <g
+                id="Group_376"
+                data-name="Group 376"
+                transform="translate(1.906 1.32)"
+            >
                 <rect
                     id="Rectangle_821"
                     data-name="Rectangle 821"
@@ -1862,8 +1934,8 @@ export const skirt02 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const underdress01 = () => {
     return (
         <svg
@@ -1872,7 +1944,11 @@ export const underdress01 = () => {
             height="34.578"
             viewBox="0 0 49.654 34.578"
         >
-            <g id="Group_378" data-name="Group 378" transform="translate(1.799 1.66)">
+            <g
+                id="Group_378"
+                data-name="Group 378"
+                transform="translate(1.799 1.66)"
+            >
                 <rect
                     id="Rectangle_823"
                     data-name="Rectangle 823"
@@ -1933,8 +2009,8 @@ export const underdress01 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const underdress02 = () => {
     return (
         <svg
@@ -1943,7 +2019,11 @@ export const underdress02 = () => {
             height="33.231"
             viewBox="0 0 50.462 33.231"
         >
-            <g id="Group_379" data-name="Group 379" transform="translate(1.76 1.569)">
+            <g
+                id="Group_379"
+                data-name="Group 379"
+                transform="translate(1.76 1.569)"
+            >
                 <rect
                     id="Rectangle_824"
                     data-name="Rectangle 824"
@@ -2017,8 +2097,8 @@ export const underdress02 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const underdress03 = () => {
     return (
         <svg
@@ -2027,7 +2107,11 @@ export const underdress03 = () => {
             height="26.123"
             viewBox="0 0 49.297 26.123"
         >
-            <g id="Group_380" data-name="Group 380" transform="translate(1.5 1.5)">
+            <g
+                id="Group_380"
+                data-name="Group 380"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_1022"
                     data-name="Path 1022"
@@ -2063,8 +2147,8 @@ export const underdress03 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const underdress04 = () => {
     return (
         <svg
@@ -2157,8 +2241,8 @@ export const underdress04 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const bag = () => {
     return (
@@ -2168,7 +2252,11 @@ export const bag = () => {
             height="48.487"
             viewBox="0 0 33 48.487"
         >
-            <g id="Group_382" data-name="Group 382" transform="translate(1.5 1.5)">
+            <g
+                id="Group_382"
+                data-name="Group 382"
+                transform="translate(1.5 1.5)"
+            >
                 <rect
                     id="Rectangle_825"
                     data-name="Rectangle 825"
@@ -2205,8 +2293,8 @@ export const bag = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const bag2 = () => {
     return (
@@ -2216,7 +2304,11 @@ export const bag2 = () => {
             height="49.845"
             viewBox="0 0 40 49.845"
         >
-            <g id="Group_383" data-name="Group 383" transform="translate(1.5 1.652)">
+            <g
+                id="Group_383"
+                data-name="Group 383"
+                transform="translate(1.5 1.652)"
+            >
                 <path
                     id="Path_1028"
                     data-name="Path 1028"
@@ -2264,8 +2356,8 @@ export const bag2 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const bag03 = () => {
     return (
         <svg
@@ -2274,7 +2366,11 @@ export const bag03 = () => {
             height="45.294"
             viewBox="0 0 49.245 45.294"
         >
-            <g id="Group_384" data-name="Group 384" transform="translate(1.5 1.684)">
+            <g
+                id="Group_384"
+                data-name="Group 384"
+                transform="translate(1.5 1.684)"
+            >
                 <path
                     id="Path_1030"
                     data-name="Path 1030"
@@ -2368,8 +2464,8 @@ export const bag03 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const bag4 = () => {
     return (
         <svg
@@ -2378,7 +2474,11 @@ export const bag4 = () => {
             height="48.487"
             viewBox="0 0 36 48.487"
         >
-            <g id="Group_385" data-name="Group 385" transform="translate(1.5 1.5)">
+            <g
+                id="Group_385"
+                data-name="Group 385"
+                transform="translate(1.5 1.5)"
+            >
                 <rect
                     id="Rectangle_831"
                     data-name="Rectangle 831"
@@ -2460,8 +2560,8 @@ export const bag4 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const bag05 = () => {
     return (
         <svg
@@ -2470,7 +2570,11 @@ export const bag05 = () => {
             height="25"
             viewBox="0 0 26 49"
         >
-            <g id="Group_386" data-name="Group 386" transform="translate(1.5 1.601)">
+            <g
+                id="Group_386"
+                data-name="Group 386"
+                transform="translate(1.5 1.601)"
+            >
                 <rect
                     id="Rectangle_834"
                     data-name="Rectangle 834"
@@ -2568,8 +2672,8 @@ export const bag05 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const purse01 = () => {
     return (
         <svg
@@ -2578,7 +2682,11 @@ export const purse01 = () => {
             height="25"
             viewBox="0 0 50 47.768"
         >
-            <g id="Group_387" data-name="Group 387" transform="translate(1.5 1.5)">
+            <g
+                id="Group_387"
+                data-name="Group 387"
+                transform="translate(1.5 1.5)"
+            >
                 <rect
                     id="Rectangle_838"
                     data-name="Rectangle 838"
@@ -2637,8 +2745,8 @@ export const purse01 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const purse02 = () => {
     return (
         <svg
@@ -2647,7 +2755,11 @@ export const purse02 = () => {
             height="25"
             viewBox="0 0 48.948 37.684"
         >
-            <g id="Group_388" data-name="Group 388" transform="translate(1.5 1.5)">
+            <g
+                id="Group_388"
+                data-name="Group 388"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_1036"
                     data-name="Path 1036"
@@ -2715,8 +2827,8 @@ export const purse02 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const purse03 = () => {
     return (
         <svg
@@ -2725,7 +2837,11 @@ export const purse03 = () => {
             height="25"
             viewBox="0 0 49.245 40.705"
         >
-            <g id="Group_389" data-name="Group 389" transform="translate(1.5 1.142)">
+            <g
+                id="Group_389"
+                data-name="Group 389"
+                transform="translate(1.5 1.142)"
+            >
                 <path
                     id="Path_1037"
                     data-name="Path 1037"
@@ -2825,8 +2941,8 @@ export const purse03 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const childdress = () => {
     return (
@@ -2836,7 +2952,11 @@ export const childdress = () => {
             height="25"
             viewBox="0 0 49.245 40.705"
         >
-            <g id="Group_389" data-name="Group 389" transform="translate(1.5 1.142)">
+            <g
+                id="Group_389"
+                data-name="Group 389"
+                transform="translate(1.5 1.142)"
+            >
                 <path
                     id="Path_1037"
                     data-name="Path 1037"
@@ -2936,8 +3056,8 @@ export const childdress = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const shoes1 = () => {
     return (
@@ -2947,7 +3067,11 @@ export const shoes1 = () => {
             height="25"
             viewBox="0 0 46.029 40.987"
         >
-            <g id="Group_390" data-name="Group 390" transform="translate(1.505 1.5)">
+            <g
+                id="Group_390"
+                data-name="Group 390"
+                transform="translate(1.505 1.5)"
+            >
                 <path
                     id="Path_1039"
                     data-name="Path 1039"
@@ -3038,8 +3162,8 @@ export const shoes1 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const shoes02 = () => {
     return (
         <svg
@@ -3048,7 +3172,11 @@ export const shoes02 = () => {
             height="25"
             viewBox="0 0 49.287 24.471"
         >
-            <g id="Group_391" data-name="Group 391" transform="translate(1.542 1.5)">
+            <g
+                id="Group_391"
+                data-name="Group 391"
+                transform="translate(1.542 1.5)"
+            >
                 <path
                     id="Path_1043"
                     data-name="Path 1043"
@@ -3108,8 +3236,8 @@ export const shoes02 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const shoes03 = () => {
     return (
@@ -3119,7 +3247,11 @@ export const shoes03 = () => {
             height="29.868"
             viewBox="0 0 49.484 29.868"
         >
-            <g id="Group_392" data-name="Group 392" transform="translate(1.5 1.5)">
+            <g
+                id="Group_392"
+                data-name="Group 392"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_1046"
                     data-name="Path 1046"
@@ -3279,8 +3411,8 @@ export const shoes03 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const shoes04 = () => {
     return (
         <svg
@@ -3289,7 +3421,11 @@ export const shoes04 = () => {
             height="27.667"
             viewBox="0 0 49.287 27.667"
         >
-            <g id="Group_393" data-name="Group 393" transform="translate(1.542 1.5)">
+            <g
+                id="Group_393"
+                data-name="Group 393"
+                transform="translate(1.542 1.5)"
+            >
                 <path
                     id="Path_1049"
                     data-name="Path 1049"
@@ -3361,8 +3497,8 @@ export const shoes04 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const shoes05 = () => {
     return (
         <svg
@@ -3371,7 +3507,11 @@ export const shoes05 = () => {
             height="25"
             viewBox="0 0 49.355 27.667"
         >
-            <g id="Group_394" data-name="Group 394" transform="translate(1.5 1.5)">
+            <g
+                id="Group_394"
+                data-name="Group 394"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_1052"
                     data-name="Path 1052"
@@ -3397,8 +3537,8 @@ export const shoes05 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const shoes06 = () => {
     return (
         <svg
@@ -3407,7 +3547,11 @@ export const shoes06 = () => {
             height="25"
             viewBox="0 0 49.245 39.916"
         >
-            <g id="Group_395" data-name="Group 395" transform="translate(1.5 2.08)">
+            <g
+                id="Group_395"
+                data-name="Group 395"
+                transform="translate(1.5 2.08)"
+            >
                 <path
                     id="Path_1053"
                     data-name="Path 1053"
@@ -3443,8 +3587,8 @@ export const shoes06 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const shoes07 = () => {
     return (
         <svg
@@ -3453,7 +3597,11 @@ export const shoes07 = () => {
             height="34.381"
             viewBox="0 0 49.297 34.381"
         >
-            <g id="Group_396" data-name="Group 396" transform="translate(1.5 1.5)">
+            <g
+                id="Group_396"
+                data-name="Group 396"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_1055"
                     data-name="Path 1055"
@@ -3524,8 +3672,8 @@ export const shoes07 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const shoes08 = () => {
     return (
         <svg
@@ -3534,7 +3682,11 @@ export const shoes08 = () => {
             height="44.441"
             viewBox="0 0 49.404 44.441"
         >
-            <g id="Group_397" data-name="Group 397" transform="translate(1.659 1.5)">
+            <g
+                id="Group_397"
+                data-name="Group 397"
+                transform="translate(1.659 1.5)"
+            >
                 <rect
                     id="Rectangle_843"
                     data-name="Rectangle 843"
@@ -3637,8 +3789,8 @@ export const shoes08 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const socks = () => {
     return (
         <svg
@@ -3647,7 +3799,11 @@ export const socks = () => {
             height="49.306"
             viewBox="0 0 34.664 49.306"
         >
-            <g id="Group_398" data-name="Group 398" transform="translate(1.784 1.5)">
+            <g
+                id="Group_398"
+                data-name="Group 398"
+                transform="translate(1.784 1.5)"
+            >
                 <path
                     id="Path_1058"
                     data-name="Path 1058"
@@ -3694,8 +3850,8 @@ export const socks = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const gloves = () => {
     return (
         <svg
@@ -3704,7 +3860,11 @@ export const gloves = () => {
             height="49.484"
             viewBox="0 0 42.356 49.484"
         >
-            <g id="Group_399" data-name="Group 399" transform="translate(1.5 1.5)">
+            <g
+                id="Group_399"
+                data-name="Group 399"
+                transform="translate(1.5 1.5)"
+            >
                 <rect
                     id="Rectangle_844"
                     data-name="Rectangle 844"
@@ -3777,8 +3937,8 @@ export const gloves = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const shawls = () => {
     return (
@@ -3788,7 +3948,11 @@ export const shawls = () => {
             height="49"
             viewBox="0 0 49 49"
         >
-            <g id="Group_400" data-name="Group 400" transform="translate(1.5 1.5)">
+            <g
+                id="Group_400"
+                data-name="Group 400"
+                transform="translate(1.5 1.5)"
+            >
                 <rect
                     id="Rectangle_845"
                     data-name="Rectangle 845"
@@ -3961,8 +4125,8 @@ export const shawls = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const hat = () => {
     return (
         <svg
@@ -3971,7 +4135,11 @@ export const hat = () => {
             height="25"
             viewBox="0 0 49 49"
         >
-            <g id="Group_401" data-name="Group 401" transform="translate(1.5 1.5)">
+            <g
+                id="Group_401"
+                data-name="Group 401"
+                transform="translate(1.5 1.5)"
+            >
                 <rect
                     id="Rectangle_847"
                     data-name="Rectangle 847"
@@ -4096,8 +4264,8 @@ export const hat = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const tie = () => {
     return (
         <svg
@@ -4106,7 +4274,11 @@ export const tie = () => {
             height="49.245"
             viewBox="0 0 19.516 49.245"
         >
-            <g id="Group_402" data-name="Group 402" transform="translate(1.5 1.5)">
+            <g
+                id="Group_402"
+                data-name="Group 402"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_1064"
                     data-name="Path 1064"
@@ -4179,8 +4351,8 @@ export const tie = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const bow = () => {
     return (
         <svg
@@ -4189,7 +4361,11 @@ export const bow = () => {
             height="25"
             viewBox="0 0 49.245 30"
         >
-            <g id="Group_403" data-name="Group 403" transform="translate(1.5 1.5)">
+            <g
+                id="Group_403"
+                data-name="Group 403"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Path_1066"
                     data-name="Path 1066"
@@ -4307,8 +4483,8 @@ export const bow = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const hat02 = () => {
     return (
         <svg
@@ -4317,7 +4493,11 @@ export const hat02 = () => {
             height="25"
             viewBox="0 0 49 38"
         >
-            <g id="Group_404" data-name="Group 404" transform="translate(1.5 1.5)">
+            <g
+                id="Group_404"
+                data-name="Group 404"
+                transform="translate(1.5 1.5)"
+            >
                 <path
                     id="Rectangle_850"
                     data-name="Rectangle 850"
@@ -4354,8 +4534,8 @@ export const hat02 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 export const hat03 = () => {
     return (
         <svg
@@ -4364,7 +4544,11 @@ export const hat03 = () => {
             height="25"
             viewBox="0 0 49.865 31.982"
         >
-            <g id="Group_405" data-name="Group 405" transform="translate(2.119 1.5)">
+            <g
+                id="Group_405"
+                data-name="Group 405"
+                transform="translate(2.119 1.5)"
+            >
                 <path
                     id="Path_1068"
                     data-name="Path 1068"
@@ -4434,8 +4618,8 @@ export const hat03 = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const seeall = () => {
     return (
@@ -4445,7 +4629,11 @@ export const seeall = () => {
             height="25"
             viewBox="0 0 15 15"
         >
-            <g id="Group_286" data-name="Group 286" transform="translate(-252 -49)">
+            <g
+                id="Group_286"
+                data-name="Group 286"
+                transform="translate(-252 -49)"
+            >
                 <g
                     id="Rectangle_758"
                     data-name="Rectangle 758"
@@ -4455,7 +4643,13 @@ export const seeall = () => {
                     strokeWidth="0.9"
                 >
                     <rect width="7" height="7" stroke="none" />
-                    <rect x="0.45" y="0.45" width="6.1" height="6.1" fill="none" />
+                    <rect
+                        x="0.45"
+                        y="0.45"
+                        width="6.1"
+                        height="6.1"
+                        fill="none"
+                    />
                 </g>
                 <g
                     id="Rectangle_759"
@@ -4466,7 +4660,13 @@ export const seeall = () => {
                     strokeWidth="0.9"
                 >
                     <rect width="7" height="7" stroke="none" />
-                    <rect x="0.45" y="0.45" width="6.1" height="6.1" fill="none" />
+                    <rect
+                        x="0.45"
+                        y="0.45"
+                        width="6.1"
+                        height="6.1"
+                        fill="none"
+                    />
                 </g>
                 <g
                     id="Rectangle_760"
@@ -4477,7 +4677,13 @@ export const seeall = () => {
                     strokeWidth="0.9"
                 >
                     <rect width="7" height="7" stroke="none" />
-                    <rect x="0.45" y="0.45" width="6.1" height="6.1" fill="none" />
+                    <rect
+                        x="0.45"
+                        y="0.45"
+                        width="6.1"
+                        height="6.1"
+                        fill="none"
+                    />
                 </g>
                 <g
                     id="Rectangle_761"
@@ -4488,12 +4694,18 @@ export const seeall = () => {
                     strokeWidth="0.9"
                 >
                     <rect width="7" height="7" stroke="none" />
-                    <rect x="0.45" y="0.45" width="6.1" height="6.1" fill="none" />
+                    <rect
+                        x="0.45"
+                        y="0.45"
+                        width="6.1"
+                        height="6.1"
+                        fill="none"
+                    />
                 </g>
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const toy = () => {
     return (
@@ -4504,7 +4716,7 @@ export const toy = () => {
             y={0}
             viewBox="0 0 32 32"
             style={{
-                enableBackground: "new 0 0 32 32",
+                enableBackground: 'new 0 0 32 32',
             }}
             xmlSpace="preserve"
             width="25"
@@ -4512,7 +4724,7 @@ export const toy = () => {
         >
             <style>
                 {
-                    ".st0{fill:none;stroke:#f08080;stroke-width:2;strokeLinecap:round;strokeLinejoin:round;stroke-miterlimit:10}"
+                    '.st0{fill:none;stroke:#f08080;stroke-width:2;strokeLinecap:round;strokeLinejoin:round;stroke-miterlimit:10}'
                 }
             </style>
             <g
@@ -4536,8 +4748,8 @@ export const toy = () => {
                 />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const strollers = () => {
     return (
@@ -4551,9 +4763,8 @@ export const strollers = () => {
                 <path d="M19 16a3 3 0 1 0 3 3 3 3 0 0 0-3-3Zm0 4a1 1 0 1 1 1-1 1 1 0 0 1-1 1ZM9 16a3 3 0 1 0 3 3 3 3 0 0 0-3-3Zm0 4a1 1 0 1 1 1-1 1 1 0 0 1-1 1ZM22 8.5A6.51 6.51 0 0 0 15.5 2H15a1 1 0 0 0-1 1v5H7.52L6.27 4.65A1 1 0 0 0 5.33 4H3a1 1 0 0 0 0 2h1.64l1.25 3.37.51 1.37v.09A6.44 6.44 0 0 0 12.5 15h3A6.49 6.49 0 0 0 22 8.5Zm-3.32 3.18A4.47 4.47 0 0 1 15.5 13h-3a4.47 4.47 0 0 1-4.16-2.8.14.14 0 0 1 0-.06L8.26 10h11.48a4.32 4.32 0 0 1-1.06 1.68ZM16 8V4a4.49 4.49 0 0 1 4 4Z" />
             </g>
         </svg>
-    );
-};
-
+    )
+}
 
 export const rideon = () => {
     return (
@@ -4564,7 +4775,7 @@ export const rideon = () => {
             y={0}
             viewBox="0 0 32 32"
             style={{
-                enableBackground: "new 0 0 32 32",
+                enableBackground: 'new 0 0 32 32',
             }}
             xmlSpace="preserve"
             width="25"
@@ -4572,7 +4783,7 @@ export const rideon = () => {
         >
             <style>
                 {
-                    ".st0{fill:none;stroke:#000;stroke-width:2;strokeLinecap:round;strokeLinejoin:round;stroke-miterlimit:10}"
+                    '.st0{fill:none;stroke:#000;stroke-width:2;strokeLinecap:round;strokeLinejoin:round;stroke-miterlimit:10}'
                 }
             </style>
             <circle className="st0" cx={9} cy={25} r={4} />
@@ -4586,8 +4797,8 @@ export const rideon = () => {
                 d="M26 25h3v-1c0-4.4-3.6-8-8-8h0c-2.5-3.7-6.7-6-11.2-6H6c-1.7 0-3 1.3-3 3v9c0 1.3.8 2.4 2 2.8M13 25h5"
             />
         </svg>
-    );
-};
+    )
+}
 
 export const babychair = () => {
     return (
@@ -4598,7 +4809,7 @@ export const babychair = () => {
             y={0}
             viewBox="0 0 32 32"
             style={{
-                enableBackground: "new 0 0 32 32",
+                enableBackground: 'new 0 0 32 32',
             }}
             xmlSpace="preserve"
             width="25"
@@ -4606,7 +4817,7 @@ export const babychair = () => {
         >
             <style>
                 {
-                    ".st0{fill:none;stroke:#f08080;stroke-width:2;strokeLinecap:round;strokeLinejoin:round;stroke-miterlimit:10}"
+                    '.st0{fill:none;stroke:#f08080;stroke-width:2;strokeLinecap:round;strokeLinejoin:round;stroke-miterlimit:10}'
                 }
             </style>
             <ellipse className="st0" cx={16} cy={12.9} rx={8} ry={8.1} />
@@ -4635,8 +4846,8 @@ export const babychair = () => {
                 d="M9 21.4V21c0-1.1.3-2.2.7-3.1M20.2 26.6C19 27.5 17.6 28 16 28s-3-.5-4.2-1.4M22.3 17.9c.5.9.7 2 .7 3.1v.4M6.2 21.3c-.1-.4-.2-.9-.2-1.3 0-2 1.1-3.7 2.6-4M23.4 16c1.5.2 2.6 1.9 2.6 4 0 .4-.1.9-.2 1.3M10 18c0-2.2 2.7-4 6-4s6 1.8 6 4"
             />
         </svg>
-    );
-};
+    )
+}
 
 export const kidsfurniture = () => {
     return (
@@ -4653,8 +4864,8 @@ export const kidsfurniture = () => {
                 <path d="M56 7H29a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h27a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1Zm-1 15H30V9h25Z" />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const scoolitems = () => {
     return (
@@ -4667,18 +4878,18 @@ export const scoolitems = () => {
             <defs>
                 <style>
                     {
-                        ".a{fill:none;stroke:#f08080;strokeLinecap:round;strokeLinejoin:round}"
+                        '.a{fill:none;stroke:#f08080;strokeLinecap:round;strokeLinejoin:round}'
                     }
                 </style>
             </defs>
-            <title>{"design-tool-pen-station"}</title>
+            <title>{'design-tool-pen-station'}</title>
             <path
                 className="a"
                 d="M17 12.5h1a3 3 0 0 1 0 6h-1M17 21.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V11a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 .5.5ZM16.881.564c1.033 1.574-.5 2.437-.853 3.282a1.548 1.548 0 0 0 .885 2.129c2.9 1.225 3.764-4.493-.032-5.411ZM14 10.5l2.609-4.687M17.641 6.156 16 10.5M8 10.5H5l-1.5-3-.5-3L5.5 6 8 10.5zM3.5 7.5l2-1.5M13 1a.5.5 0 0 0-.5-.5h-3A.5.5 0 0 0 9 1v9.5h4ZM13 2.5h-2M13 4.5h-1M13 6.5h-2M13 8.5h-1"
             />
         </svg>
-    );
-};
+    )
+}
 
 export const babycare = () => {
     return (
@@ -4689,7 +4900,7 @@ export const babycare = () => {
             y={0}
             viewBox="0 0 32 32"
             style={{
-                enableBackground: "new 0 0 32 32",
+                enableBackground: 'new 0 0 32 32',
             }}
             xmlSpace="preserve"
             width="25"
@@ -4697,7 +4908,7 @@ export const babycare = () => {
         >
             <style>
                 {
-                    ".st0{fill:none;stroke:#000;stroke-width:2;strokeLinecap:round;strokeLinejoin:round;stroke-miterlimit:10}"
+                    '.st0{fill:none;stroke:#000;stroke-width:2;strokeLinecap:round;strokeLinejoin:round;stroke-miterlimit:10}'
                 }
             </style>
             <path
@@ -4705,8 +4916,8 @@ export const babycare = () => {
                 d="M18 29h-4c-2.2 0-4-1.8-4-4v-6c0-2.2 1.8-4 4-4h4c2.2 0 4 1.8 4 4v6c0 2.2-1.8 4-4 4zM19 15h-6c-1.1 0-2-.9-2-2v0c0-1.1.9-2 2-2h6c1.1 0 2 .9 2 2v0c0 1.1-.9 2-2 2zM18 6h0c0-1.1-.9-2-2-2h0c-1.1 0-2 .9-2 2v0c0 1.3-.2 2.6-.6 3.9L13 11h6l-.4-1.1C18.2 8.6 18 7.3 18 6zM14 19h2M14 22h1M14 25h2"
             />
         </svg>
-    );
-};
+    )
+}
 
 export const textiles = () => {
     return (
@@ -4729,8 +4940,8 @@ export const textiles = () => {
                 </g>
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const homeaccessories = () => {
     return (
@@ -4738,7 +4949,7 @@ export const homeaccessories = () => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 64 64"
             style={{
-                enableBackground: "new 0 0 64 64",
+                enableBackground: 'new 0 0 64 64',
             }}
             xmlSpace="preserve"
             width="25"
@@ -4753,8 +4964,8 @@ export const homeaccessories = () => {
                 <path d="M53 6a2.98 2.98 0 0 0-2 .78A2.98 2.98 0 0 0 49 6c-1.654 0-3 1.346-3 3h2a1.001 1.001 0 0 1 2 0h2a1.001 1.001 0 0 1 2 0h2c0-1.654-1.346-3-3-3zM21 30h2v4h-2zM31 30h2v4h-2zM41 30h2v4h-2zM13 30h2v14h-2zM5 30h2v10H5zM59 30h2v22h-2zM51 30h2v18h-2zM5 42h2v2H5zM5 46h2v2H5zM13 46h2v2h-2zM13 50h2v2h-2zM51 50h2v2h-2zM51 54h2v2h-2zM59 58h2v2h-2zM59 54h2v2h-2z" />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const tableware = () => {
     return (
@@ -4762,7 +4973,7 @@ export const tableware = () => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 64 64"
             style={{
-                enableBackground: "new 0 0 64 64",
+                enableBackground: 'new 0 0 64 64',
             }}
             xmlSpace="preserve"
             width="25"
@@ -4776,8 +4987,8 @@ export const tableware = () => {
                 <path d="m81.667 46.667 1.666-13.333h-10L75 46.667h-8.333l1.666-13.333h-10L60 46.667H49.736a26.428 26.428 0 0 0 3.597-13.333H16.667c0 4.883 1.328 9.434 3.594 13.333H10v6.666h6.667v30h5l1.11-10H77.22l1.113 10h5v-30H90v-6.666h-8.333zm-5.186 20H23.519L25 53.333h50l1.481 13.334zM28.333 20A8.332 8.332 0 0 0 20 28.334h16.667A8.333 8.333 0 0 0 28.333 20zM49.297 28.334A8.309 8.309 0 0 0 50 25a8.332 8.332 0 0 0-8.333-8.333 8.27 8.27 0 0 0-4.782 1.523c2.897 2.448 4.782 6.062 4.782 10.144h7.63z" />
             </g>
         </svg>
-    );
-};
+    )
+}
 
 export const videogame = () => {
     return (
@@ -4788,7 +4999,7 @@ export const videogame = () => {
             y={0}
             viewBox="0 0 32 32"
             style={{
-                enableBackground: "new 0 0 32 32",
+                enableBackground: 'new 0 0 32 32',
             }}
             xmlSpace="preserve"
             width="25"
@@ -4796,7 +5007,7 @@ export const videogame = () => {
         >
             <style>
                 {
-                    ".st0{fill:none;stroke:#f08080;stroke-width:2;strokeLinecap:round;strokeLinejoin:round;stroke-miterlimit:10}"
+                    '.st0{fill:none;stroke:#f08080;stroke-width:2;strokeLinecap:round;strokeLinejoin:round;stroke-miterlimit:10}'
                 }
             </style>
             <path
@@ -4808,8 +5019,8 @@ export const videogame = () => {
                 d="M16 16v-2c0-2.2-1.8-4-4-4H9c-2.2 0-4-1.8-4-4V3"
             />
         </svg>
-    );
-};
+    )
+}
 
 export const game = () => {
     return (
@@ -4820,7 +5031,7 @@ export const game = () => {
             y={0}
             viewBox="0 0 32 32"
             style={{
-                enableBackground: "new 0 0 32 32",
+                enableBackground: 'new 0 0 32 32',
             }}
             xmlSpace="preserve"
             width="25"
@@ -4831,7 +5042,7 @@ export const game = () => {
         >
             <style>
                 {
-                    ".st0{fill:none;stroke:#f08080;stroke-width:2;strokeLinecap:round;strokeLinejoin:round;stroke-miterlimit:10}"
+                    '.st0{fill:none;stroke:#f08080;stroke-width:2;strokeLinecap:round;strokeLinejoin:round;stroke-miterlimit:10}'
                 }
             </style>
             <path
@@ -4847,8 +5058,8 @@ export const game = () => {
                 d="M10 9h12v8H10zM10.1 20.9 13 18l3 3-3 3-2.8-2.8M21.8 21.2 19 24l-3-3 3-3 2.9 2.9M11 26l2-2 3 3-3 3-2-2M21 28l-2 2-3-3 3-3 2 2"
             />
         </svg>
-    );
-};
+    )
+}
 
 export const music = () => {
     return (
@@ -4856,7 +5067,7 @@ export const music = () => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 118.28 122.88"
             style={{
-                enableBackground: "new 0 0 118.28 122.88",
+                enableBackground: 'new 0 0 118.28 122.88',
             }}
             xmlSpace="preserve"
             width="25"
@@ -4867,8 +5078,8 @@ export const music = () => {
         >
             <path d="M111.85 108.77a28.952 28.952 0 0 1-14.13 10.48c-.26.12-.55.18-.84.18-.28 0-.56-.06-.82-.17v.06c0 1.96-1.6 3.56-3.57 3.56h-7.68c-1.96 0-3.57-1.6-3.57-3.56V64.19c0-1.96 1.6-3.57 3.57-3.57h7.68c1.96 0 3.57 1.6 3.57 3.57v.34c.26-.12.54-.18.82-.18.22 0 .44.04.64.1v.01c4.36 1.45 8.26 3.92 11.42 7.11V59.15c0-14.89-4.99-27.63-13.81-36.6l-3.91 5.83c-7.95-8.75-19.4-14.27-32.08-14.27-12.76 0-24.29 5.59-32.24 14.45l-4.73-5.78c-8.7 8.87-13.63 21.43-13.63 36.37V73.4c3.4-4.08 7.92-7.22 13.07-8.93v-.01c.21-.07.43-.11.64-.11.28 0 .57.06.82.17v-.34c0-1.96 1.61-3.57 3.57-3.57h7.68c1.96 0 3.57 1.6 3.57 3.57v55.13c0 1.96-1.61 3.56-3.57 3.56h-7.68c-1.96 0-3.57-1.6-3.57-3.56v-.06a2.04 2.04 0 0 1-1.65-.01 28.952 28.952 0 0 1-14.13-10.48 28.656 28.656 0 0 1-4.17-8.37H0V59.15C0 42.88 6.65 28.1 17.37 17.38 28.09 6.66 42.88 0 59.14 0c16.27 0 31.06 6.66 41.77 17.37 10.72 10.72 17.37 25.5 17.37 41.77v41.25h-2.27c-.91 3-2.33 5.84-4.16 8.38z" />
         </svg>
-    );
-};
+    )
+}
 
 export const books = () => {
     return (
@@ -4880,70 +5091,70 @@ export const books = () => {
         >
             <path
                 style={{
-                    color: "#f08080",
-                    fontStyle: "normal",
-                    fontVariant: "normal",
+                    color: '#f08080',
+                    fontStyle: 'normal',
+                    fontVariant: 'normal',
                     fontWeight: 400,
-                    fontStretch: "normal",
-                    fontSize: "medium",
-                    lineHeight: "normal",
-                    fontFamily: "sans-serif",
-                    fontVariantLigatures: "normal",
-                    fontVariantPosition: "normal",
-                    fontVariantCaps: "normal",
-                    fontVariantNumeric: "normal",
-                    fontVariantAlternates: "normal",
-                    fontFeatureSettings: "normal",
+                    fontStretch: 'normal',
+                    fontSize: 'medium',
+                    lineHeight: 'normal',
+                    fontFamily: 'sans-serif',
+                    fontVariantLigatures: 'normal',
+                    fontVariantPosition: 'normal',
+                    fontVariantCaps: 'normal',
+                    fontVariantNumeric: 'normal',
+                    fontVariantAlternates: 'normal',
+                    fontFeatureSettings: 'normal',
                     textIndent: 0,
-                    textAlign: "start",
-                    textDecoration: "none",
-                    textDecorationLine: "none",
-                    textDecorationStyle: "solid",
-                    textDecorationColor: "#f08080",
-                    letterSpacing: "normal",
-                    wordSpacing: "normal",
-                    textTransform: "none",
-                    writingMode: "lr-tb",
-                    direction: "ltr",
-                    textOrientation: "mixed",
-                    dominantBaseline: "auto",
-                    baselineShift: "baseline",
-                    textAnchor: "start",
-                    whiteSpace: "normal",
+                    textAlign: 'start',
+                    textDecoration: 'none',
+                    textDecorationLine: 'none',
+                    textDecorationStyle: 'solid',
+                    textDecorationColor: '#f08080',
+                    letterSpacing: 'normal',
+                    wordSpacing: 'normal',
+                    textTransform: 'none',
+                    writingMode: 'lr-tb',
+                    direction: 'ltr',
+                    textOrientation: 'mixed',
+                    dominantBaseline: 'auto',
+                    baselineShift: 'baseline',
+                    textAnchor: 'start',
+                    whiteSpace: 'normal',
                     shapePadding: 0,
-                    clipRule: "nonzero",
-                    display: "inline",
-                    overflow: "visible",
-                    visibility: "visible",
+                    clipRule: 'nonzero',
+                    display: 'inline',
+                    overflow: 'visible',
+                    visibility: 'visible',
                     opacity: 1,
-                    isolation: "auto",
-                    mixBlendMode: "normal",
-                    colorInterpolation: "sRGB",
-                    colorInterpolationFilters: "linearRGB",
-                    solidColor: "#f08080",
+                    isolation: 'auto',
+                    mixBlendMode: 'normal',
+                    colorInterpolation: 'sRGB',
+                    colorInterpolationFilters: 'linearRGB',
+                    solidColor: '#f08080',
                     solidOpacity: 1,
-                    vectorEffect: "none",
-                    fill: "#f08080",
+                    vectorEffect: 'none',
+                    fill: '#f08080',
                     fillOpacity: 1,
-                    fillRule: "nonzero",
-                    stroke: "none",
+                    fillRule: 'nonzero',
+                    stroke: 'none',
                     strokeWidth: 0.26458335,
-                    strokeLinecap: "round",
-                    strokeLinejoin: "miter",
+                    strokeLinecap: 'round',
+                    strokeLinejoin: 'miter',
                     strokeMiterlimit: 4,
-                    strokeDasharray: "none",
+                    strokeDasharray: 'none',
                     strokeDashoffset: 0,
                     strokeOpacity: 1,
-                    paintOrder: "normal",
-                    colorRendering: "auto",
-                    imageRendering: "auto",
-                    shapeRendering: "auto",
-                    textRendering: "auto",
-                    enableBackground: "accumulate",
+                    paintOrder: 'normal',
+                    colorRendering: 'auto',
+                    imageRendering: 'auto',
+                    shapeRendering: 'auto',
+                    textRendering: 'auto',
+                    enableBackground: 'accumulate',
                 }}
                 d="M3.316 289.062v1.472h-.47v-.583H.529V296.471H5.021v-4.937l1.271 4.937 1.646-.474-1.631-6.331-1.286.37v-.974zm.406.43h.892v.214h-.892Zm0 .647h.892v5.339h-.892v-4.944zm2.3.054 1.416 5.502-.857.248-1.417-5.502zm-5.083.188h1.497v.497H.939Zm1.907.586h.47v5.074h-.47v-.274zm-1.907.34h1.497v.255H.939Zm0 .688h1.497v2.656H.939Zm0 3.085h1.497v.255H.939Zm0 .687h1.497v.274H.939Zm2.783.14h.892v.134h-.892Z"
                 transform="translate(0 -288.533)"
             />
         </svg>
-    );
-};
+    )
+}
