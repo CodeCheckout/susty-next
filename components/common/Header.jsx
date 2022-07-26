@@ -14,6 +14,7 @@ import Notification from './Header/Notification'
 
 import Link from 'next/link'
 import LoginSignupButton from '../buttons/LoginSignupButton'
+import CatDropDown from './flyoutmenu/CatDropDown'
 
 const searchBarStaticOptions = [
     {id: 1, name: 'Catalog  '},
@@ -172,7 +173,7 @@ const HeaderSection = () => {
         <>
             <div
                 className={
-                    'px-2 py-3 sm:px-4 lg:px-14 sticky top-0 z-40 bg-white'
+                    'px-2 pt-3 sm:px-4 lg:px-14 sticky top-0 z-40 bg-white border-b border-gray-100'
                 }
             >
                 <Popover className="relative ">
@@ -516,6 +517,7 @@ const HeaderSection = () => {
                         </Popover.Panel>
                     </Transition>
                 </Popover>
+                <CatDropDown />
             </div>
         </>
     )

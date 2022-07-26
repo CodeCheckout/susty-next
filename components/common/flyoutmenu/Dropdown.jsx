@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect, useState} from 'react'
 import {Dialog, Transition} from '@headlessui/react'
-import Items from './items'
+import Items from './Items'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
