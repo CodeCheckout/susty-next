@@ -1,3 +1,5 @@
+import * as Icons2 from '../assets/svg/icon'
+
 export const categoryObj = [
     {
         id: '463e989a-c4f2-4616-85c5-0cb610c5fff0',
@@ -6,12 +8,168 @@ export const categoryObj = [
             {
                 id: '91ba7308-b68e-4d0c-85d8-0cc8272c6bc8',
                 name: 'All',
-                icon: 'AllIcon',
+                icon: <Icons2.seeall />,
+                href: 'Women'.split(' ').join('-').trim().toLowerCase(),
+                sections: [
+                    {
+                        id: '9b7a7a58-04a1-4aba-ba68-0e6b1390021e',
+                        name: 'All',
+                        href: 'Women/Clothes/All'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'e5556122-66cd-4177-9214-5b42b33c60cf',
+                        name: 'Jumpers and Sweaters',
+                        href: 'Women/Clothes/Jumpers and Sweaters'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'ce861278-0beb-4170-be35-ab740d2b06f6',
+                        name: 'Dresses',
+                        href: 'Women/Clothes/Dresses'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'a0536f05-795c-46ca-82d6-778676cdd6fb',
+                        name: 'Tops & T-shirts',
+                        href: 'Women/Clothes/Tops & T-shirts'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '64d6f083-4be4-40d0-a6d8-efc3d0213f66',
+                        name: 'Pants & leggings',
+                        href: 'Women/Clothes/Pants & leggings'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '507aa5a8-aff9-4230-8ee3-6488ff07f0c3',
+                        name: 'Jumpsuits & rompers',
+                        href: 'Women/Clothes/Jumpsuits & rompers'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'a0d1635d-5121-4553-ba9a-56d4755f09cf',
+                        name: 'Lingerie & nightwear',
+                        href: 'Women/Clothes/Lingerie & nightwear'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '55d2c126-79fa-4dc3-b025-c8452801bc08',
+                        name: 'Activewear',
+                        href: 'Women/Clothes/Activewear'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '1bf587f1-3306-4f0c-a2f6-4d9c9429f337',
+                        name: 'Other clothing',
+                        href: 'Women/Clothes/Other clothing'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '4f8b8fb7-761e-4b02-add2-99c163288a3d',
+                        name: 'Coats & jackets',
+                        href: 'Women/Clothes/Coats & jackets'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'd1ec5c94-3407-436d-87a7-4872a73b50c8',
+                        name: 'Suits & blazers',
+                        href: 'Women/Clothes/Suits & blazers'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '25673599-b218-4c62-b9f8-372939922701',
+                        name: 'Skirts',
+                        href: 'Women/Clothes/Skirts'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '73b6e18a-1a34-4a11-9e9b-75c7fe87c971',
+                        name: 'Jeans',
+                        href: 'Women/Clothes/Jeans'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '8db58871-e32a-4e6c-ac61-c998f4fcca1b',
+                        name: 'Shorts & cropped pants',
+                        href: 'Women/Clothes/Shorts & cropped pants'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '5c2f06a8-0665-4796-94d6-2293cfd6aeaf',
+                        name: 'Swimwear',
+                        href: 'Women/Clothes/Swimwear'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'eb2dcbf2-1233-470b-bf41-fc3b3c43d0f4',
+                        name: 'Maternity clothes',
+                        href: 'Women/Clothes/Maternity clothes'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '3126db52-aba6-4133-8d78-9ae0f8f4ac07',
+                        name: 'Costumes & special outfits',
+                        href: 'Women/Clothes/Costumes & special outfits'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                ],
             },
             {
                 id: '0e0712c5-0b5a-4d4e-acf5-3d7faf2caa2a',
                 name: 'Clothes',
-                icon: 'ClothesIcon',
+                icon: <Icons2.frock01 />,
                 sections: [
                     {
                         id: '9b7a7a58-04a1-4aba-ba68-0e6b1390021e',
@@ -171,7 +329,7 @@ export const categoryObj = [
             {
                 id: '1a386489-d2bd-4ffb-bfbc-e590a91815e3',
                 name: 'Shoes',
-                icon: 'ShoesIcon',
+                icon: <Icons2.shoes06 />,
                 sections: [
                     {
                         id: 'a67a36a1-601c-420d-a9b7-c00b2b1c34f7',
@@ -277,7 +435,7 @@ export const categoryObj = [
             {
                 id: '8fb6d22d-7942-408d-b77a-549d377f43b9',
                 name: 'Bags',
-                icon: 'BagsIcon',
+                icon: <Icons2.purse01 />,
                 sections: [
                     {
                         id: 'a59e0514-edc6-4d3d-b530-9d3675609fd0',
@@ -298,7 +456,7 @@ export const categoryObj = [
                             .toLowerCase(),
                     },
                     {
-                        id: '0a778fc2-0d51-4afa-b556-5a6507dc7916',
+                        id: '0a778fc2-0d51-4afa-b556-5a6507dc7917',
                         name: 'Tote bags',
                         href: 'Women/Bags/Tote bags'
                             .split(' ')
@@ -307,7 +465,7 @@ export const categoryObj = [
                             .toLowerCase(),
                     },
                     {
-                        id: '84e77ab3-d514-4001-8814-d526b18e6c11',
+                        id: '84e77ab3-d514-4001-8814-d526b18e6c12',
                         name: 'Purses & wallets',
                         href: 'Women/Bags/Purses & wallets'
                             .split(' ')
@@ -410,7 +568,7 @@ export const categoryObj = [
             {
                 id: '4e9911c7-3c2d-4429-a13f-b677ad3d8837',
                 name: 'Accessories',
-                icon: 'AccessoriesIcon',
+                icon: <Icons2.bag05 />,
                 sections: [
                     {
                         id: 'd4301694-a163-4e61-90cd-281fc10d3ead',
@@ -534,7 +692,7 @@ export const categoryObj = [
             {
                 id: '4687669c-9d1f-4d21-8427-bd65fd896208',
                 name: 'Beauty',
-                icon: 'BeautyIcon',
+                icon: <Icons2.hat02 />,
                 sections: [
                     {
                         id: '084ab2e4-5118-45c8-994c-bde471412a73',
@@ -637,12 +795,132 @@ export const categoryObj = [
             {
                 id: '436d0989-3dee-47bb-a08e-7d1f5f97d70e',
                 name: 'All',
-                icon: 'AllIcon',
+                icon: <Icons2.seeall />,
+                href: 'Men'.split(' ').join('-').trim().toLowerCase(),
+                sections: [
+                    {
+                        id: '6f1494ef-3201-444f-9f51-d5c1fa4d1114',
+                        name: 'All',
+                        href: 'Men/Clothes/All'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '3b426fea-ec43-410f-8bb5-a0e26c352540',
+                        name: 'Coats & jackets',
+                        href: 'Men/Clothes/Coats & jackets'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '234cde04-0a20-4510-9e4e-8e295c94aa18',
+                        name: 'Suits & blazers',
+                        href: 'Men/Clothes/Suits & blazers'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '0a1f2a3b-853f-4fa5-833c-21e419368d54',
+                        name: 'Pants',
+                        href: 'Men/Clothes/Pants'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'e15db106-6d15-4cd3-9ac1-73bd35b4c0d5',
+                        name: 'Socks & underwear',
+                        href: 'Men/Clothes/Socks & underwear'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '508fd965-671e-4d13-9bb3-dd46ab31a958',
+                        name: 'Activewear',
+                        href: 'Men/Clothes/Activewear'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '84326a23-3dee-4a10-9160-9744e9344589',
+                        name: "Other men's clothing",
+                        href: "Men/Clothes/Other men's clothing"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'aa090eac-621b-4271-8c83-85d99890f4cf',
+                        name: 'Jeans',
+                        href: 'Men/Clothes/Jeans'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'a3204413-d73d-4518-aa22-6bfd92658d31',
+                        name: 'Tops & T-shirts',
+                        href: 'Men/Clothes/Tops & T-shirts'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '7c953c8c-ff36-46d8-82b1-b8a0356c8bde',
+                        name: 'Jumpers & sweaters',
+                        href: 'Men/Clothes/Jumpers & sweaters'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '2e53e43d-16aa-4e59-ac22-f02c3af123ee',
+                        name: 'Shorts',
+                        href: 'Men/Clothes/Shorts'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '017678d1-4fea-4b66-b7dd-96221496679f',
+                        name: 'Swimwear',
+                        href: 'Men/Clothes/Swimwear'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '3c4d2992-e103-4bcd-85fa-80d444f55da3',
+                        name: 'Costumes & special outfits',
+                        href: 'Men/Clothes/Costumes & special outfits'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                ],
             },
             {
                 id: 'd4b0922b-934a-4456-bbb4-01d55b29ca67',
                 name: 'Clothes',
-                icon: 'ClothesIcon',
+                icon: <Icons2.shirt4 />,
                 sections: [
                     {
                         id: '6f1494ef-3201-444f-9f51-d5c1fa4d1114',
@@ -766,7 +1044,7 @@ export const categoryObj = [
             {
                 id: '7cbeb3cb-22f7-4050-b3ad-abf9ab021392',
                 name: 'Shoes',
-                icon: 'ShoesIcon',
+                icon: <Icons2.shoes06 />,
                 sections: [
                     {
                         id: '919b0429-461e-4428-a001-47b8c0b017c6',
@@ -854,7 +1132,7 @@ export const categoryObj = [
             {
                 id: '913fde0d-5f93-4f57-8523-80398e650403',
                 name: 'Accessories',
-                icon: 'AccessoriesIcon',
+                icon: <Icons2.purse01 />,
                 sections: [
                     {
                         id: 'd33127ab-7e50-4003-9020-6b3b54a5ec46',
@@ -960,7 +1238,7 @@ export const categoryObj = [
             {
                 id: 'e910d613-1135-4bf4-86b0-a7e192ff9c72',
                 name: 'Grooming',
-                icon: 'GroomingIcon',
+                icon: <Icons2.bag05 />,
                 sections: [
                     {
                         id: '562d99f1-0fb5-4563-a56a-b42f1e10bd76',
@@ -1063,12 +1341,195 @@ export const categoryObj = [
             {
                 id: '77b47071-b078-437a-a4b4-5fa855bd4b99',
                 name: 'All',
-                icon: 'AllIcon',
+                icon: <Icons2.seeall />,
+                href: 'Kids'.split(' ').join('-').trim().toLowerCase(),
+                sections: [
+                    {
+                        id: 'e12de64f-fe3f-4f28-82bd-aa9443ff0cfc',
+                        name: 'All',
+                        href: "Kids/Girls' clothing/All"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '28184ba2-2f70-4c5d-9989-a81a8737dd72',
+                        name: 'Shoes',
+                        href: "Kids/Girls' clothing/Shoes"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '0d81f64c-37d9-42a7-9a99-6cab759a963e',
+                        name: 'Sweaters & hoodies',
+                        href: "Kids/Girls' clothing/Sweaters & hoodies"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '9aeea8a6-19f8-4d59-b358-fcaba267c89f',
+                        name: 'Dresses',
+                        href: "Kids/Girls' clothing/Dresses"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '29182c68-1318-4b1d-8ba5-d5cc891487f6',
+                        name: 'Pants & shorts',
+                        href: "Kids/Girls' clothing/Pants & shorts"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '23430e20-d905-4422-b723-34a6f424ab70',
+                        name: 'Accessories',
+                        href: "Kids/Girls' clothing/Accessories"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'd53a966b-93a8-410e-b888-13faca0815b2',
+                        name: 'Underwear & socks',
+                        href: "Kids/Girls' clothing/Underwear & socks"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'e94f870c-a761-485f-833f-3761397760b5',
+                        name: 'Sportswear',
+                        href: "Kids/Girls' clothing/Sportswear"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '21c547fe-9d0e-4838-b81c-6df2fd574f1e',
+                        name: 'Clothing for twins',
+                        href: "Kids/Girls' clothing/Clothing for twins"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '706989f1-78da-4bac-a6c7-d8838a92c9c6',
+                        name: 'Formal wear & special occasions',
+                        href: "Kids/Girls' clothing/Formal wear & special occasions"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '74577092-7f7c-44ad-bb20-095242c60e34',
+                        name: 'Baby clothing',
+                        href: "Kids/Girls' clothing/Baby clothing"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'b39f1478-ee4a-4be1-8d0a-807feccff816',
+                        name: 'Coats & jackets',
+                        href: "Kids/Girls' clothing/Coats & jackets"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '65e85b9e-d1d7-471e-aadd-0a5478556be1',
+                        name: 'Tops & T-shirts',
+                        href: "Kids/Girls' clothing/Tops & T-shirts"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '788eaec9-93ba-4ae7-8198-27ec77838da7',
+                        name: 'Skirts',
+                        href: "Kids/Girls' clothing/Skirts"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'a0fd2762-70a2-429c-bbcd-551a0c795558',
+                        name: 'Bags & backpacks',
+                        href: "Kids/Girls' clothing/Bags & backpacks"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '017bc1ee-cb11-46f3-b27b-4b2261826d12',
+                        name: 'Swimwear',
+                        href: "Kids/Girls' clothing/Swimwear"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'f6cdcc98-4871-4656-b37c-5f0ebc926362',
+                        name: 'Sleepwear',
+                        href: "Kids/Girls' clothing/Sleepwear"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '026fd68a-5fff-4e91-96f9-de4fb7609af4',
+                        name: 'Clothing bundles',
+                        href: "Kids/Girls' clothing/Clothing bundles"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '920827ac-0886-40b7-83cd-6a23ca06de19',
+                        name: 'Fancy dress & costumes',
+                        href: "Kids/Girls' clothing/Fancy dress & costumes"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'b09484e3-bc4d-48fd-8e86-1e4715496e49',
+                        name: "Other girls' clothing",
+                        href: "Kids/Girls' clothing/Other girls' clothing"
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                ],
             },
             {
                 id: '8b40743a-3b06-49b8-b43c-35c0a8d0264f',
                 name: "Girls' clothing",
-                icon: "Girls' clothingIcon",
+                icon: <Icons2.frock01 />,
                 sections: [
                     {
                         id: 'e12de64f-fe3f-4f28-82bd-aa9443ff0cfc',
@@ -1255,7 +1716,7 @@ export const categoryObj = [
             {
                 id: '41f3dcc8-9f44-41fd-b030-f052ae9df1dd',
                 name: "Boys' clothing",
-                icon: "Boys' clothingIcon",
+                icon: <Icons2.shirt6 />,
                 sections: [
                     {
                         id: 'e2b9aa85-1431-4733-8df6-1b0f91730955',
@@ -1424,7 +1885,7 @@ export const categoryObj = [
             {
                 id: '94a39167-50d0-49f3-b010-a969053901e8',
                 name: 'Toys & games',
-                icon: 'Toys & gamesIcon',
+                icon: <Icons2.toy />,
                 sections: [
                     {
                         id: 'd42a7126-6fd8-4921-8889-81423284ba8e',
@@ -1539,7 +2000,7 @@ export const categoryObj = [
             {
                 id: 'bc26d2f8-e277-4691-b989-967efb255231',
                 name: 'Baby care',
-                icon: 'Baby careIcon',
+                icon: <Icons2.babycare />,
                 sections: [
                     {
                         id: 'dcdce7f5-9df6-43dd-8936-fd042da29a04',
@@ -1618,7 +2079,7 @@ export const categoryObj = [
             {
                 id: '5fa3d406-b348-4447-b3ed-4ff6633d65da',
                 name: 'Strollers',
-                icon: 'StrollersIcon',
+                icon: <Icons2.strollers />,
                 sections: [
                     {
                         id: 'a1872e18-742c-48e5-8146-f988ba0b343b',
@@ -1679,7 +2140,7 @@ export const categoryObj = [
             {
                 id: '49e606f2-736a-44e1-addf-7d72dc76ff36',
                 name: 'Ride-on toys',
-                icon: 'Ride-on toysIcon',
+                icon: <Icons2.rideon />,
                 sections: [
                     {
                         id: '2503b3a4-5a8c-42cb-8f0c-6a379d0eb3b3',
@@ -1727,7 +2188,7 @@ export const categoryObj = [
                             .toLowerCase(),
                     },
                     {
-                        id: '2be6913d-067b-462b-866a-c547b782b256',
+                        id: '2be6913d-067b-462b-866a-c547b782b255',
                         name: 'Baby walkers',
                         href: 'Kids/Ride-on toys/Baby walkers'
                             .split(' ')
@@ -1776,7 +2237,7 @@ export const categoryObj = [
             {
                 id: '8a479fda-1a4d-49a6-bd09-63f8b7048a02',
                 name: 'Chairs',
-                icon: 'ChairsIcon',
+                icon: <Icons2.babychair />,
                 sections: [
                     {
                         id: '9935e695-2a37-43a3-b8ed-b71824b1014a',
@@ -1788,7 +2249,7 @@ export const categoryObj = [
                             .toLowerCase(),
                     },
                     {
-                        id: '9935e695-2a37-43a3-b8ed-b71824b1014a',
+                        id: '9935e695-2a37-43a3-b8ed-b71824b1014b',
                         name: 'Feeding chairs',
                         href: 'Kids/Chairs/Feeding chairs'
                             .split(' ')
@@ -1801,7 +2262,7 @@ export const categoryObj = [
             {
                 id: '60e22138-bb3a-446c-9d2b-d16694214e86',
                 name: "Kids' furniture",
-                icon: "Kids' furnitureIcon",
+                icon: <Icons2.kidsfurniture />,
                 sections: [
                     {
                         id: 'd8233b2c-b0bb-442a-9d52-9947556296b4',
@@ -1853,7 +2314,7 @@ export const categoryObj = [
             {
                 id: '0a92396a-df99-402e-be82-43490d5bc4d5',
                 name: 'School supplies',
-                icon: 'School suppliesIcon',
+                icon: <Icons2.scoolitems />,
                 sections: [
                     {
                         id: '4733d771-a345-4d8b-8028-cb7552da978e',
@@ -1884,11 +2345,6 @@ export const categoryObj = [
                     },
                 ],
             },
-            {
-                id: 'b825c65f-7b2c-4f17-82d5-6b547b4dc4fd',
-                name: "Other kids' items",
-                icon: "Other kids' itemsIcon",
-            },
         ],
     },
     {
@@ -1898,12 +2354,87 @@ export const categoryObj = [
             {
                 id: '494c8c94-3d50-4a43-8477-29529f5200f9',
                 name: 'All',
-                icon: 'AllIcon',
+                icon: <Icons2.seeall />,
+                href: 'Home'.split(' ').join('-').trim().toLowerCase(),
+                sections: [
+                    {
+                        id: '9c286464-1c82-405a-8ca5-3ef0b0203b7e',
+                        name: 'All',
+                        href: 'Home/Home accessories/All'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '438ad2e1-6839-42c0-97b1-6f13921874e2',
+                        name: 'Clocks',
+                        href: 'Home/Home accessories/Clocks'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '2fd86205-59a9-46c1-aab1-8b28d0a78b1d',
+                        name: 'Picture & photo frames',
+                        href: 'Home/Home accessories/Picture & photo frames'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'aef342a5-17bc-467f-ae9d-53b704e64043',
+                        name: 'Storage',
+                        href: 'Home/Home accessories/Storage'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '515efe99-6c0e-45ec-86ba-5c9bd297f43f',
+                        name: 'Candles & candle holders',
+                        href: 'Home/Home accessories/Candles & candle holders'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '490eb424-f450-4a48-a792-572533492298',
+                        name: 'Display shelves',
+                        href: 'Home/Home accessories/Display shelves'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'cf86aad9-d682-41af-9873-4bc474f36095',
+                        name: 'Mirrors',
+                        href: 'Home/Home accessories/Mirrors'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '34770de1-1f40-4ca0-989f-37fdb017797c',
+                        name: 'Vases',
+                        href: 'Home/Home accessories/Vases'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                ],
             },
             {
                 id: '176ad67a-72ca-43a9-9006-e4b5e992dfe4',
                 name: 'Textiles',
-                icon: 'TextilesIcon',
+                icon: <Icons2.textiles />,
                 sections: [
                     {
                         id: 'ac02d408-82c6-473a-a628-eeef279d906a',
@@ -1991,7 +2522,7 @@ export const categoryObj = [
             {
                 id: '5f40b607-a0a0-43b9-a0a1-e46b6d2725b2',
                 name: 'Home accessories',
-                icon: 'Home accessoriesIcon',
+                icon: <Icons2.homeaccessories />,
                 sections: [
                     {
                         id: '9c286464-1c82-405a-8ca5-3ef0b0203b7e',
@@ -2070,7 +2601,7 @@ export const categoryObj = [
             {
                 id: 'affed912-7e53-454d-9d5f-e26826052c8a',
                 name: 'Tableware',
-                icon: 'TablewareIcon',
+                icon: <Icons2.tableware />,
                 sections: [
                     {
                         id: 'adaf58a2-97b8-4b72-99d6-7ea26ba21324',
@@ -2119,12 +2650,159 @@ export const categoryObj = [
             {
                 id: '7d7f1abe-07d9-4064-8cf7-6fb3e45f8b80',
                 name: 'All',
-                icon: 'AllIcon',
+                icon: <Icons2.seeall />,
+                href: 'Entertainment'.split(' ').join('-').trim().toLowerCase(),
+                sections: [
+                    {
+                        id: '7eaac6a5-e5a6-4e1b-8430-7af4c3dadaca',
+                        name: 'All',
+                        href: 'Entertainment/Video games & consoles/All'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '0c65b5e1-cbb6-4f7b-819f-1a8bd7b706ad',
+                        name: 'Xbox One',
+                        href: 'Entertainment/Video games & consoles/Xbox One'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'a4ac68ec-8253-4a82-920e-82eb69d37c8d',
+                        name: 'PlayStation 5',
+                        href: 'Entertainment/Video games & consoles/PlayStation 5'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '4dc1b9a3-6d0a-46b5-8199-5b83973bacdc',
+                        name: 'Older PlayStation',
+                        href: 'Entertainment/Video games & consoles/Older PlayStation'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '36fd28bb-03a7-4c89-a958-afe527e7603e',
+                        name: 'Nintendo Wii & Wii U',
+                        href: 'Entertainment/Video games & consoles/Nintendo Wii & Wii U'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'e4407aa3-e284-4e06-aa91-9509ba3bf127',
+                        name: 'Nintendo Game Boy',
+                        href: 'Entertainment/Video games & consoles/Nintendo Game Boy'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '9c93c392-9438-4456-9b3c-4f4365a860d0',
+                        name: 'Sega',
+                        href: 'Entertainment/Video games & consoles/Sega'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'b143d138-d7c4-458e-bba7-7b741fe757a8',
+                        name: 'Virtual reality',
+                        href: 'Entertainment/Video games & consoles/Virtual reality'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '2d4e4a77-0518-4142-a6e0-032c7c0d502c',
+                        name: 'Xbox Series X & S',
+                        href: 'Entertainment/Video games & consoles/Xbox Series X & S'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'db7e5517-66c3-4a71-b0be-1402cfc2f88e',
+                        name: 'Older Xbox',
+                        href: 'Entertainment/Video games & consoles/Older Xbox'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '776661dc-94c4-4d26-958c-eff1cabcf699',
+                        name: 'PlayStation 4',
+                        href: 'Entertainment/Video games & consoles/PlayStation 4'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '19700843-6d59-4fee-bd5e-aec7e607e6d7',
+                        name: 'Nintendo Switch',
+                        href: 'Entertainment/Video games & consoles/Nintendo Switch'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '0bea8a5e-bc89-4a61-9df2-d106e9564c40',
+                        name: 'Nintendo 3DS & 2DS',
+                        href: 'Entertainment/Video games & consoles/Nintendo 3DS & 2DS'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: '574ef1c5-e205-49b3-aeba-301013ab33b4',
+                        name: 'Older Nintendo',
+                        href: 'Entertainment/Video games & consoles/Older Nintendo'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'ef7df814-1604-4550-9c74-7dc407639cad',
+                        name: 'PC games',
+                        href: 'Entertainment/Video games & consoles/PC games'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                    {
+                        id: 'df1e5539-3f3d-4ce8-94d5-75766870760a',
+                        name: 'Retro gaming',
+                        href: 'Entertainment/Video games & consoles/Retro gaming'
+                            .split(' ')
+                            .join('-')
+                            .trim()
+                            .toLowerCase(),
+                    },
+                ],
             },
             {
-                id: '7d7f1abe-07d9-4064-8cf7-6fb3e45f8b80',
+                id: '7d7f1abe-07d9-4064-8cf7-6fb3e45f8b81',
                 name: 'Video games & consoles',
-                icon: 'Video games & consolesIcon',
+                icon: <Icons2.videogame />,
                 sections: [
                     {
                         id: '7eaac6a5-e5a6-4e1b-8430-7af4c3dadaca',
@@ -2275,7 +2953,7 @@ export const categoryObj = [
             {
                 id: 'ec258d66-99ec-49ef-9d67-f3dbf4aa74ec',
                 name: 'Games & puzzles',
-                icon: 'Games & puzzlesIcon',
+                icon: <Icons2.game />,
                 sections: [
                     {
                         id: 'All',
@@ -2372,7 +3050,7 @@ export const categoryObj = [
             {
                 id: 'e4996c13-681f-4077-b8d7-28fe196cb496',
                 name: 'Music & video',
-                icon: 'Music & videoIcon',
+                icon: <Icons2.music />,
                 sections: [
                     {
                         id: '2f649168-fcb7-4224-a7ea-074fde40d9e8',
@@ -2406,7 +3084,7 @@ export const categoryObj = [
             {
                 id: 'adb8f982-acc5-49ff-8680-a1b2e32d8c25',
                 name: 'Books',
-                icon: 'BooksIcon',
+                icon: <Icons2.books />,
                 sections: [
                     {
                         id: '0fe00382-1114-4980-abbd-f1fae3bfa70f',

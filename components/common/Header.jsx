@@ -119,6 +119,12 @@ const userDropdown = [
         disableStatus: false,
     },
     {
+        id: '27adb8c1-8422-4953-9f86-3f791b8c997c',
+        name: 'Invite Friends',
+        path: '#',
+        disableStatus: false,
+    },
+    {
         id: '8c69d15d-3669-4ec8-a5c5-308f16cbb3aa',
         name: 'Log out',
         path: '#',
@@ -182,7 +188,7 @@ const HeaderSection = () => {
                             </a>
                         </div>
 
-                        <div className={'hidden md:block w-full pl-4'}>
+                        <div className={'hidden lg:block w-full pl-4'}>
                             <SearchBar
                                 selectedSearchBarOption={
                                     selectedSearchBarOption
@@ -222,7 +228,7 @@ const HeaderSection = () => {
 
                                     <Menu
                                         as="div"
-                                        className="relative inline-block text-left mx-1 hidden md:block"
+                                        className="relative inline-block text-left mx-1 hidden lg:block"
                                     >
                                         <div>
                                             <Menu.Button className="inline-flex justify-center -my-1 pl-2 md:pl-0 md:mr-8 md:pr-2 w-full rounded-md ring-0 text-sm font-medium text-gray-700">
@@ -314,7 +320,7 @@ const HeaderSection = () => {
                                 </>
                             )}
 
-                            <div className="-mr-2 -my-2 md:hidden">
+                            <div className="-mr-2 -my-2 lg:hidden">
                                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-400">
                                     <span className="sr-only">Open menu</span>
                                     <HiMenu
@@ -325,7 +331,7 @@ const HeaderSection = () => {
                             </div>
                         </div>
 
-                        <div className="hidden md:flex items-center justify-end md:flex-1 gap-3">
+                        <div className="hidden lg:flex items-center justify-end md:flex-1 gap-3">
                             <LoginSignupButton
                                 loggedIn={loggedIn}
                                 setLoggedIn={setLoggedIn}
@@ -341,7 +347,7 @@ const HeaderSection = () => {
                             </button>
                         </div>
 
-                        <div className="hidden md:block mx-3">
+                        <div className="hidden lg:block mx-3">
                             <Link href="/helpcenter/">
                                 <a>
                                     <AiOutlineQuestionCircle
@@ -354,7 +360,7 @@ const HeaderSection = () => {
 
                         <Menu
                             as="div"
-                            className="hidden md:block relative inline-block text-left mx-1"
+                            className="hidden lg:block relative inline-block text-left mx-1"
                         >
                             <div>
                                 <Menu.Button className="inline-flex justify-center -my-1 pl-2 md:pl-0 md:mr-0 md:pr-0 w-full rounded-md ring-0 text-sm font-medium text-gray-700">
@@ -406,7 +412,7 @@ const HeaderSection = () => {
                             </Transition>
                         </Menu>
                     </div>
-                    <div className={'md:hidden block mt-1'}>
+                    <div className={'block lg:hidden mt-1'}>
                         <SearchBar
                             selectedSearchBarOption={selectedSearchBarOption}
                             setSelectedSearchBarOption={
