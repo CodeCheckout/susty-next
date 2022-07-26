@@ -12,8 +12,8 @@ const CatDropDown = () => {
     const [mainCatArray, setMainCatArray] = useState([]);
 
     return (
-        <div className={'md:px-2 lg:px-10'}>
-            <div className="hidden md:block z-10 bg-white">
+        <div className={'md:px-2 lg:px-10 bg-white'}>
+            <div className="hidden lg:block z-10">
                 <div className="flex flex-row gap-2 md:w-3/4 lg:w-1/4">
                     {categoryObj.map((singleMainCategory) => (
                         <Popover className="relative" key={singleMainCategory.id}>
