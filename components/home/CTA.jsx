@@ -81,7 +81,9 @@ const CTA = () => {
                                 Sell Now
                             </motion.button>
                             <div
-                                onClick={async () => await router.push(`/common/learnhowitworks`)}
+                                onClick={async () =>
+                                    await router.push(`/common/learnhowitworks`)
+                                }
                                 className="text-red-400 underline text-sm pt-10 hover:text-black no-underline"
                             >
                                 Learn How it works
