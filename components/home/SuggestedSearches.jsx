@@ -1,5 +1,6 @@
 import React, {useRef, useState} from 'react'
 import {HiChevronLeft, HiChevronRight} from 'react-icons/hi'
+import Link from "next/link";
 
 const searchesStaticData = [
     {
@@ -122,34 +123,35 @@ const SuggestedSearches = () => {
                                 'absolute h-8 w-8 grid place-items-center left-[1.75rem] top-[0.5rem] bg-black bg-opacity-70 rounded-full cursor-pointer'
                             }
                         >
-                            <HiChevronLeft className={'text-white w-8 h-8'} />
+                            <HiChevronLeft className={'text-white w-8 h-8'}/>
                         </div>
                     </div>
 
                     {searches.map((search) => (
-                        <div
-                            key={search.id}
-                            className={
-                                'px-3 py-1.5 bg-white hover:bg-gray-50 border border-gray-200 shadow-inner-sm rounded-sm cursor-pointer'
-                            }
-                        >
+                        <Link href={'/items'} key={search.id}>
                             <div
                                 className={
-                                    'flex flex-col shrink min-w-max gap-1'
+                                    'px-3 py-1.5 bg-white hover:bg-gray-50 border border-gray-200 shadow-inner-sm rounded-sm cursor-pointer'
                                 }
                             >
-                                <div className={'text-sm font-medium'}>
-                                    {search.name}
-                                </div>
                                 <div
                                     className={
-                                        'text-xs text-gray-600 font-medium'
+                                        'flex flex-col shrink min-w-max gap-1'
                                     }
                                 >
-                                    {search.views}
+                                    <div className={'text-sm font-medium'}>
+                                        {search.name}
+                                    </div>
+                                    <div
+                                        className={
+                                            'text-xs text-gray-600 font-medium'
+                                        }
+                                    >
+                                        {search.views}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                     <div className={`absolute -right-[0.5rem] lg:right-[1rem]`}>
                         <div
@@ -160,7 +162,7 @@ const SuggestedSearches = () => {
                                 'absolute h-8 w-8 place-items-center right-[1.75rem] top-[0.5rem] bg-black bg-opacity-70 rounded-full cursor-pointer'
                             }
                         >
-                            <HiChevronRight className={'text-white w-8 h-8'} />
+                            <HiChevronRight className={'text-white w-8 h-8'}/>
                         </div>
                     </div>
                 </div>
