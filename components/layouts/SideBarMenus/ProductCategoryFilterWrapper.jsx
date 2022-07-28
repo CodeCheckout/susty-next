@@ -213,13 +213,13 @@ const sortByFilterStaticData = [
 ]
 
 const ProductCategoryFilterWrapper = ({
-    children,
-    topic,
-    noOfItems,
-    pagePath,
-    productResult,
-    setProductResult,
-}) => {
+                                          children,
+                                          topic,
+                                          noOfItems,
+                                          pagePath,
+                                          productResult,
+                                          setProductResult,
+                                      }) => {
     const [sortOptions, setSortOptions] = useState(sortOptionsStaticData)
     const [subCategories, setSubCategories] = useState(subCategoriesStaticData)
     const [filters, setFilters] = useState(filtersStaticData)
@@ -240,7 +240,7 @@ const ProductCategoryFilterWrapper = ({
     const [sortBy, setSortBy] = useState()
 
     //TODO check this axios call again
-    useEffect(async () => {
+    useEffect(() => {
         const data = {
             mainCat,
             subCatOne: subCat1,
@@ -255,12 +255,17 @@ const ProductCategoryFilterWrapper = ({
             priceTo: inputPriceTo,
         }
 
-        await axios
-            .get('/api/product/filter-products', {params: data})
-            .then((result) => setProductResult(result.data.result))
-            .catch((err) => {
-                console.log(err)
-            })
+        async function fetchData() {
+            await axios
+                .get('/api/product/filter-products', {params: data})
+                .then((result) => setProductResult(result.data.result))
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        fetchData();
+
     }, [
         color,
         brand,
@@ -291,7 +296,7 @@ const ProductCategoryFilterWrapper = ({
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                         >
-                            <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
+                            <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25"/>
                         </Transition.Child>
 
                         <Transition.Child
@@ -303,7 +308,8 @@ const ProductCategoryFilterWrapper = ({
                             leaveFrom="translate-x-0"
                             leaveTo="translate-x-full"
                         >
-                            <div className="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto">
+                            <div
+                                className="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-4 pb-12 flex flex-col overflow-y-auto">
                                 <div className="px-4 flex items-center justify-between">
                                     <h2 className="text-lg font-medium text-gray-900">
                                         Filters
@@ -353,7 +359,8 @@ const ProductCategoryFilterWrapper = ({
                                             {({open}) => (
                                                 <>
                                                     <h3 className="-mx-2 -my-3 flow-root">
-                                                        <Disclosure.Button className="px-2 py-3 bg-white w-full flex items-center justify-between text-gray-400 hover:text-gray-500">
+                                                        <Disclosure.Button
+                                                            className="px-2 py-3 bg-white w-full flex items-center justify-between text-gray-400 hover:text-gray-500">
                                                             <span className="font-medium text-gray-900">
                                                                 {section.name}
                                                             </span>
@@ -498,7 +505,8 @@ const ProductCategoryFilterWrapper = ({
                                         {({open}) => (
                                             <>
                                                 <h3 className="-mx-2 -my-3 flow-root">
-                                                    <Disclosure.Button className="px-2 py-3 bg-white w-full flex items-center justify-between text-gray-400 hover:text-gray-500">
+                                                    <Disclosure.Button
+                                                        className="px-2 py-3 bg-white w-full flex items-center justify-between text-gray-400 hover:text-gray-500">
                                                         <span className="font-medium text-gray-900">
                                                             Price
                                                         </span>
@@ -519,7 +527,8 @@ const ProductCategoryFilterWrapper = ({
                                                 </h3>
                                                 <Disclosure.Panel className="pt-6">
                                                     <div className="space-y-6">
-                                                        <div className="flex flex-row justify-between gap-4 items-center">
+                                                        <div
+                                                            className="flex flex-row justify-between gap-4 items-center">
                                                             <div
                                                                 className={
                                                                     'flex flex-col gap-2 items-center'
@@ -605,7 +614,8 @@ const ProductCategoryFilterWrapper = ({
                                         {({open}) => (
                                             <>
                                                 <h3 className="-mx-2 -my-3 flow-root">
-                                                    <Disclosure.Button className="px-2 py-3 bg-white w-full flex items-center justify-between text-gray-400 hover:text-gray-500">
+                                                    <Disclosure.Button
+                                                        className="px-2 py-3 bg-white w-full flex items-center justify-between text-gray-400 hover:text-gray-500">
                                                         <span className="font-medium text-gray-900">
                                                             Swap
                                                         </span>
@@ -626,7 +636,8 @@ const ProductCategoryFilterWrapper = ({
                                                 </h3>
                                                 <Disclosure.Panel className="pt-6">
                                                     <div className="space-y-6">
-                                                        <div className="flex flex-row justify-between gap-4 items-center">
+                                                        <div
+                                                            className="flex flex-row justify-between gap-4 items-center">
                                                             <label
                                                                 htmlFor={
                                                                     'filter-mobile-swap-items'
@@ -679,7 +690,8 @@ const ProductCategoryFilterWrapper = ({
                                         {({open}) => (
                                             <>
                                                 <h3 className="-mx-2 -my-3 flow-root">
-                                                    <Disclosure.Button className="px-2 py-3 bg-white w-full flex items-center justify-between text-gray-400 hover:text-gray-500">
+                                                    <Disclosure.Button
+                                                        className="px-2 py-3 bg-white w-full flex items-center justify-between text-gray-400 hover:text-gray-500">
                                                         <span className="font-medium text-gray-900">
                                                             Sort By
                                                         </span>
@@ -798,7 +810,7 @@ const ProductCategoryFilterWrapper = ({
                                                         viewBox="0 0 20 20"
                                                         aria-hidden="true"
                                                     >
-                                                        <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+                                                        <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z"/>
                                                     </svg>
                                                     <a
                                                         href={page.href}
@@ -827,13 +839,14 @@ const ProductCategoryFilterWrapper = ({
                                     whileTap={{scale: 0.98}}
                                     className={`inline-flex justify-center items-center px-2 sm:px-4 py-1.5 min-w-full border border-gray-300 shadow-sm text-xs sm:text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
                                 >
-                                    <HiBookmarkAlt className="w-3 h-3 sm:w-5 sm:h-5 mr-2 items-center" />
+                                    <HiBookmarkAlt className="w-3 h-3 sm:w-5 sm:h-5 mr-2 items-center"/>
                                     Save Search
                                 </motion.button>
                             </div>
                         </div>
                     </AnimatePresence>
-                    <div className="relative z-8 flex items-baseline justify-between pt-6 pb-6 border-b border-gray-200">
+                    <div
+                        className="relative z-8 flex items-baseline justify-between pt-6 pb-6 border-b border-gray-200">
                         <div
                             className={
                                 'flex flex-row gap-2 sm:gap-4 items-center'
@@ -854,7 +867,8 @@ const ProductCategoryFilterWrapper = ({
                                 className="relative inline-block text-left"
                             >
                                 <div>
-                                    <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                                    <Menu.Button
+                                        className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                                         Sort
                                         <HiChevronDown
                                             className="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"
@@ -872,7 +886,8 @@ const ProductCategoryFilterWrapper = ({
                                     leaveFrom="transform opacity-100 scale-100"
                                     leaveTo="transform opacity-0 scale-95"
                                 >
-                                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                    <Menu.Items
+                                        className="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                                         <div className="py-1">
                                             {sortOptions.map((option) => (
                                                 <Menu.Item key={option.id}>
@@ -951,7 +966,8 @@ const ProductCategoryFilterWrapper = ({
                                         {({open}) => (
                                             <>
                                                 <h3 className="-my-3 flow-root">
-                                                    <Disclosure.Button className="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500">
+                                                    <Disclosure.Button
+                                                        className="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500">
                                                         <span className="font-medium text-gray-900">
                                                             {section.name}
                                                         </span>
@@ -1084,7 +1100,7 @@ const ProductCategoryFilterWrapper = ({
                                                                     <span
                                                                         className={classNames(
                                                                             option.colorTag +
-                                                                                ' w-4 h-4 rounded-full'
+                                                                            ' w-4 h-4 rounded-full'
                                                                         )}
                                                                     />
                                                                 </div>
@@ -1103,7 +1119,8 @@ const ProductCategoryFilterWrapper = ({
                                     {({open}) => (
                                         <>
                                             <h3 className="-my-3 flow-root">
-                                                <Disclosure.Button className="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500">
+                                                <Disclosure.Button
+                                                    className="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500">
                                                     <span className="font-medium text-gray-900">
                                                         Price
                                                     </span>
@@ -1208,7 +1225,8 @@ const ProductCategoryFilterWrapper = ({
                                     {({open}) => (
                                         <>
                                             <h3 className="-my-3 flow-root">
-                                                <Disclosure.Button className="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500">
+                                                <Disclosure.Button
+                                                    className="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500">
                                                     <span className="font-medium text-gray-900">
                                                         Swap
                                                     </span>
@@ -1280,7 +1298,8 @@ const ProductCategoryFilterWrapper = ({
                                     {({open}) => (
                                         <>
                                             <h3 className="-my-3 flow-root">
-                                                <Disclosure.Button className="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500">
+                                                <Disclosure.Button
+                                                    className="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500">
                                                     <span className="font-medium text-gray-900">
                                                         Sort By
                                                     </span>

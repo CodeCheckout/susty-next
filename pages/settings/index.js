@@ -8,29 +8,25 @@ import PrivacySettingsHome from './privacysettings'
 import SettingsSideBarWrapper from '../../components/layouts/SideBarMenus/SettingsSideBarWrapper'
 
 const navigation = [
-    {name: 'Profile', href: '', component: <ProfileHome />, current: false},
+    {name: 'Profile', component: <ProfileHome />, current: false},
     {
         name: 'Account',
-        href: '/settings/account/home',
         component: <AccountHome />,
         current: false,
     },
-    {name: 'Shipping', href: '#', component: <ShippingHome />, current: false},
+    {name: 'Shipping', component: <ShippingHome />, current: false},
     {
         name: 'Select discount',
-        href: '#',
         component: <SelectDiscountHome />,
         current: false,
     },
     {
         name: 'Notifications',
-        href: '#',
         component: <NotificationHome />,
         current: false,
     },
     {
         name: 'Privacy Settings',
-        href: '#',
         component: <PrivacySettingsHome />,
         current: false,
     },

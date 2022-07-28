@@ -1,23 +1,27 @@
 import React, {useState} from 'react'
 import {useRouter} from 'next/router'
 import {AnimatePresence, motion} from 'framer-motion'
+import Link from "next/link";
 
 const slidesStaticData = [
     {
         id: 1,
         title: 'Women',
+        href: 'women',
         src: 'https://firebasestorage.googleapis.com/v0/b/susty-next.appspot.com/o/Slide1.png?alt=media&token=54dc1d99-b1f2-4059-a261-a8f2b6be3365',
         alt: 'Women with Cloths Image',
     },
     {
         id: 2,
         title: 'Men',
+        href: 'men',
         src: 'https://firebasestorage.googleapis.com/v0/b/susty-next.appspot.com/o/Slide2.png?alt=media&token=c23cb27e-4493-4084-90b4-740fb58cb2f5',
         alt: 'Mens with Cloths Image',
     },
     {
         id: 3,
         title: 'Kids',
+        href: 'kids',
         src: 'https://firebasestorage.googleapis.com/v0/b/susty-next.appspot.com/o/Slide3.png?alt=media&token=11651c89-7afd-4107-934e-74f8e62ea817',
         alt: 'Kids with Cloths Image',
     },
@@ -36,25 +40,23 @@ const CTA = () => {
                         <AnimatePresence>
                             <div className="flex flex-col gap-3 w-full">
                                 {slides.map((slide) => (
-                                    <motion.div
-                                        key={slide.id}
-                                        whileHover={{
-                                            scale: 1.01,
-                                        }}
-                                        className="relative w-full group bg-gray-800 duration-300 cursor-pointer"
-                                        onClick={async () =>
-                                            await router.push(`/`)
-                                        }
-                                    >
-                                        <p className="absolute bottom-3 left-16 text-white text-2xl transition ease-in-out delay-150 group-hover:underline group-hover:-translate-y-2">
-                                            {slide.title}
-                                        </p>
-                                        <img
-                                            src={slide.src}
-                                            className="w-full h-full my-auto object-cover group-hover:opacity-40 transition-opacity"
-                                            alt={slide.alt}
-                                        />
-                                    </motion.div>
+                                    <Link href={`${slide.href}`} key={slide.id}>
+                                        <motion.div
+                                            whileHover={{
+                                                scale: 1.01,
+                                            }}
+                                            className="relative w-full group bg-gray-800 duration-300 cursor-pointer"
+                                        >
+                                            <p className="absolute bottom-3 left-16 text-white text-2xl transition ease-in-out delay-150 group-hover:underline group-hover:-translate-y-2">
+                                                {slide.title}
+                                            </p>
+                                            <img
+                                                src={slide.src}
+                                                className="w-full h-full my-auto object-cover group-hover:opacity-40 transition-opacity"
+                                                alt={slide.alt}
+                                            />
+                                        </motion.div>
+                                    </Link>
                                 ))}
                             </div>
                         </AnimatePresence>
@@ -116,7 +118,7 @@ const CTA = () => {
                                 Sell Now
                             </motion.button>
                             <div
-                                onClick={async () => await router.push(`/`)}
+                                onClick={async () => await router.push(`/common/learnhowitworks`)}
                                 className="text-red-400 underline text-sm mt-10 hover:text-black no-underline"
                             >
                                 Learn How it works
@@ -127,25 +129,23 @@ const CTA = () => {
                         <AnimatePresence>
                             <div className="flex flex-row gap-3 h-[12rem] w-full">
                                 {slides.map((slide) => (
-                                    <motion.div
-                                        key={slide.id}
-                                        whileHover={{
-                                            scale: 1.01,
-                                        }}
-                                        className="relative h-full w-full group bg-gray-800 duration-300 cursor-pointer"
-                                        onClick={async () =>
-                                            await router.push(`/`)
-                                        }
-                                    >
-                                        <p className="absolute bottom-3 left-16 text-white text-xl sm:text-2xl transition ease-in-out delay-150 group-hover:underline group-hover:-translate-y-2">
-                                            {slide.title}
-                                        </p>
-                                        <img
-                                            src={slide.src}
-                                            className="w-full h-full object-cover object-center group-hover:opacity-40 transition-opacity"
-                                            alt={slide.alt}
-                                        />
-                                    </motion.div>
+                                    <Link href={`${slide.href}`} key={slide.id}>
+                                        <motion.div
+                                            whileHover={{
+                                                scale: 1.01,
+                                            }}
+                                            className="relative h-full w-full group bg-gray-800 duration-300 cursor-pointer"
+                                        >
+                                            <p className="absolute bottom-3 left-16 text-white text-xl sm:text-2xl transition ease-in-out delay-150 group-hover:underline group-hover:-translate-y-2">
+                                                {slide.title}
+                                            </p>
+                                            <img
+                                                src={slide.src}
+                                                className="w-full h-full object-cover object-center group-hover:opacity-40 transition-opacity"
+                                                alt={slide.alt}
+                                            />
+                                        </motion.div>
+                                    </Link>
                                 ))}
                             </div>
                         </AnimatePresence>
