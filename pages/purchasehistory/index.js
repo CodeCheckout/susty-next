@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import PurchaseHistoryWrapper from '../../components/layouts/SideBarMenus/PurchaseHistoryWrapper'
 import Buyer from '../../components/common/PurchaseHistory/Buyer'
 import Seller from '../../components/common/PurchaseHistory/Seller'
-import ReceivedOrders from "../../components/common/PurchaseHistory/ReceivedOrders";
+import ReceivedOrders from '../../components/common/PurchaseHistory/ReceivedOrders'
 
 const navigation = [
     {

@@ -1,6 +1,6 @@
-import React from 'react';
-import {Dialog} from "@headlessui/react";
-import {AnimatePresence, motion} from "framer-motion";
+import React from 'react'
+import {Dialog} from '@headlessui/react'
+import {AnimatePresence, motion} from 'framer-motion'
 
 const ReceivedOrdersModal = ({item, isOpen, setIsOpen}) => {
     return (
@@ -51,90 +51,110 @@ const ReceivedOrdersModal = ({item, isOpen, setIsOpen}) => {
                                 <div className="my-4">
                                     <table>
                                         <tbody>
-                                        <tr>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    Order ID &nbsp;
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    : &nbsp; {item.orderId.length > 20 ? item.orderId.slice(0, 30) + '...' : item.orderId}
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    Buyer ID &nbsp;
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    : &nbsp; {item.buyerId.length > 20 ? item.buyerId.slice(0, 30) + '...' : item.buyerId}
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    Product Name &nbsp;
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    : &nbsp; {item.product}
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    Order Amount &nbsp;
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    : &nbsp; {item.amount}
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    Order Date &nbsp;
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    : &nbsp; {item.createdAt.slice(0, 10)}
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    Payment Status &nbsp;
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    : &nbsp; {item.paymentStatus}
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    Order Status &nbsp;
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p className="my-1 text-xs text-gray-500">
-                                                    : &nbsp; {item.orderStatus}
-                                                </p>
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        Order ID &nbsp;
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        : &nbsp;{' '}
+                                                        {item.orderId.length >
+                                                        20
+                                                            ? item.orderId.slice(
+                                                                  0,
+                                                                  30
+                                                              ) + '...'
+                                                            : item.orderId}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        Buyer ID &nbsp;
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        : &nbsp;{' '}
+                                                        {item.buyerId.length >
+                                                        20
+                                                            ? item.buyerId.slice(
+                                                                  0,
+                                                                  30
+                                                              ) + '...'
+                                                            : item.buyerId}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        Product Name &nbsp;
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        : &nbsp; {item.product}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        Order Amount &nbsp;
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        : &nbsp; {item.amount}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        Order Date &nbsp;
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        : &nbsp;{' '}
+                                                        {item.createdAt.slice(
+                                                            0,
+                                                            10
+                                                        )}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        Payment Status &nbsp;
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        : &nbsp;{' '}
+                                                        {item.paymentStatus}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        Order Status &nbsp;
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p className="my-1 text-xs text-gray-500">
+                                                        : &nbsp;{' '}
+                                                        {item.orderStatus}
+                                                    </p>
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -144,7 +164,7 @@ const ReceivedOrdersModal = ({item, isOpen, setIsOpen}) => {
                 </Dialog>
             )}
         </AnimatePresence>
-    );
-};
+    )
+}
 
-export default ReceivedOrdersModal;
+export default ReceivedOrdersModal
