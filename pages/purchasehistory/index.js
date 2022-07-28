@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import PurchaseHistoryWrapper from '../../components/layouts/SideBarMenus/PurchaseHistoryWrapper'
 import Buyer from '../../components/common/PurchaseHistory/Buyer'
 import Seller from '../../components/common/PurchaseHistory/Seller'
+import ReceivedOrders from "../../components/common/PurchaseHistory/ReceivedOrders";
 
 const navigation = [
     {
@@ -16,6 +17,13 @@ const navigation = [
         name: 'Sell items',
         href: '',
         component: <Seller />,
+        current: false,
+    },
+    {
+        id: 'd71c9d94-0011-47ac-a204-f39c0210c48a',
+        name: 'Received Orders',
+        href: '',
+        component: <ReceivedOrders />,
         current: false,
     },
 ]

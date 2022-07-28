@@ -1,40 +1,6 @@
 import React, {useState} from 'react'
 import {HiChevronRight} from 'react-icons/hi'
 import PurchaseHistoryModal from './PurchaseHistoryModal'
-
-const historyItems = [
-    {
-        sellerName: 'Lindsay Walton',
-        productTitle: 'A throuser',
-        productPrice: 12.99,
-        date: '2022/05/04',
-    },
-    {
-        sellerName: 'John Wilston',
-        productTitle: 'Nike shoe',
-        productPrice: 52.99,
-        date: '2022/05/17',
-    },
-    {
-        sellerName: 'Lisa',
-        productTitle: 'Hat with bow',
-        productPrice: 20,
-        date: '2022/07/04',
-    },
-    {
-        sellerName: 'Ann',
-        productTitle: 'Top',
-        productPrice: 17.5,
-        date: '2022/02/02',
-    },
-    {
-        sellerName: 'Peterson',
-        productTitle: 'Game controller',
-        productPrice: 50.2,
-        date: '2022/01/24',
-    },
-]
-
 const PurchaseHistoryMobile = ({title, description, data}) => {
     const [isOpen, setIsOpen] = useState(false)
     const [modalData, setModalData] = useState({})
