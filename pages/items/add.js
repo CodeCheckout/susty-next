@@ -237,10 +237,10 @@ const AddProduct = () => {
 
     return (
         <div
-            className={`w-screen grid place-content-center font-susty p-4 w-[98vw]`}
+            className={`w-screen grid place-content-center font-susty p-4 w-[98vw] bg-gray-50`}
         >
             <>
-                <span className="font-semibold text-3xl py-4">
+                <span className="font-semibold text-2xl md:text-3xl py-4 text-gray-900">
                     Sell an item
                 </span>
                 <div className="max-w-4xl pb-4">

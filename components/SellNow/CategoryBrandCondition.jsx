@@ -110,15 +110,17 @@ const CategoryBrandCondition = ({
     setSize,
 }) => {
     return (
-        <div className={`bg-gray-50 w-54 p-4 shadow rounded-sm grid gap-2`}>
+        <div className={`bg-white w-54 p-4 shadow rounded-sm grid gap-2`}>
             <div className={`grid grid-cols-5 pb-2`}>
-                <p className={`font-medium text-lg`}>Main Category</p>
+                <p className={`font-medium text-sm sm:text-base`}>
+                    Main Category
+                </p>
                 <div className="flex items-center col-start-3 w-full col-span-3">
                     <Listbox value={categoryOne} onChange={setCategoryOne}>
                         {({open}) => (
                             <>
                                 <div className="mt-1 relative w-full">
-                                    <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-0 focus:ring-susty focus:border-susty sm:text-sm">
+                                    <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-0 focus:ring-susty focus:border-susty text-sm">
                                         <span className="w-full inline-flex truncate">
                                             <span className="truncate">
                                                 {categoryOne}
@@ -211,13 +213,15 @@ const CategoryBrandCondition = ({
             </div>
 
             <div className={`grid grid-cols-5 pb-2`}>
-                <p className={`font-medium text-lg`}>Sub Category 1</p>
+                <p className={`font-medium text-sm sm:text-base`}>
+                    Sub Category 1
+                </p>
                 <div className="flex items-center col-start-3 w-full col-span-3">
                     <Listbox value={categoryTwo} onChange={setCategoryTwo}>
                         {({open}) => (
                             <>
                                 <div className="mt-1 relative w-full">
-                                    <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-0 focus:ring-susty focus:border-susty sm:text-sm">
+                                    <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-0 focus:ring-susty focus:border-susty text-sm">
                                         <span className="w-full inline-flex truncate">
                                             <span className="truncate">
                                                 {categoryTwo}
@@ -310,13 +314,15 @@ const CategoryBrandCondition = ({
             </div>
 
             <div className={`grid grid-cols-5 pb-2`}>
-                <p className={`font-medium text-lg`}>Sub Category 2</p>
+                <p className={`font-medium text-sm sm:text-base`}>
+                    Sub Category 2
+                </p>
                 <div className="flex items-center col-start-3 w-full col-span-3">
                     <Listbox value={categoryThree} onChange={setCategoryThree}>
                         {({open}) => (
                             <>
                                 <div className="mt-1 relative w-full">
-                                    <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-0 focus:ring-susty focus:border-susty sm:text-sm">
+                                    <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-0 focus:ring-susty focus:border-susty text-sm">
                                         <span className="w-full inline-flex truncate">
                                             <span className="truncate">
                                                 {categoryThree}
@@ -411,12 +417,12 @@ const CategoryBrandCondition = ({
             <hr />
 
             <div className={`grid grid-cols-5 py-2`}>
-                <p className={`font-medium text-lg`}>Brand</p>
+                <p className={`font-medium text-sm sm:text-base`}>Brand</p>
                 <div className="flex items-center col-start-3 col-span-3">
                     <input
                         name="brand"
                         id="brand"
-                        className="pl-2 focus:outline-none focus:ring-0 focus:ring-red-500 focus:border-red-500 block w-full rounded-md sm:text-sm border border-gray-300 h-10 col-start-3 col-span-3"
+                        className="pl-2 focus:outline-none focus:ring-0 focus:ring-red-500 focus:border-red-500 block w-full rounded-md text-sm border border-gray-300 h-10 col-start-3 col-span-3"
                         placeholder="Brand"
                         onChange={(e) => setBrand(e.target.value)}
                     />
@@ -425,14 +431,14 @@ const CategoryBrandCondition = ({
 
             <hr />
 
-            <div className={`grid grid-cols-5 pb-2`}>
-                <p className={`font-medium text-lg`}>Size</p>
+            <div className={`grid grid-cols-5 pb-2 items-center`}>
+                <p className={`font-medium text-sm sm:text-base`}>Size</p>
                 <div className="flex items-center col-start-3 w-full col-span-3">
                     <Listbox value={size} onChange={setSize}>
                         {({open}) => (
                             <>
                                 <div className="mt-1 relative w-full">
-                                    <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-0 focus:ring-susty focus:border-susty sm:text-sm">
+                                    <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-0 focus:ring-susty focus:border-susty text-sm">
                                         <span className="w-full inline-flex truncate">
                                             <span className="truncate">
                                                 {size}
@@ -525,13 +531,13 @@ const CategoryBrandCondition = ({
             <hr />
 
             <div className={`grid grid-cols-5 pt-2`}>
-                <p className={`font-medium text-lg`}>Condition</p>
+                <p className={`font-medium text-sm sm:text-base`}>Condition</p>
                 <div className={`flex items-center col-start-3 col-span-3`}>
                     <Listbox value={selected} onChange={setSelected}>
                         {({open}) => (
                             <>
                                 <div className="mt-1 relative w-full">
-                                    <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-0 focus:ring-susty focus:border-susty sm:text-sm">
+                                    <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-0 focus:ring-susty focus:border-susty text-sm">
                                         <span className="w-full inline-flex truncate">
                                             <span className="truncate">
                                                 {selected.name}

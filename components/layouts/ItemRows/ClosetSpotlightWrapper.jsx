@@ -56,32 +56,40 @@ const ClosetSpotlightWrapper = ({children}) => {
                                 key={personD.id}
                                 className={'flex flex-row gap-2'}
                             >
-                                <img
-                                    src={personD.profileImg}
-                                    alt={personD.profileAlt}
-                                    className={'w-[3rem] h-[3rem] rounded-full'}
-                                />
-                                <div className={'flex flex-col'}>
-                                    <div className={'font-medium'}>
-                                        {personD.username}
-                                    </div>
-                                    <RatesInClosetSpotlight
-                                        id={personD.id}
-                                        personD={personD}
-                                        person={person}
+                                <Link href={'/profile'}>
+                                    <img
+                                        src={personD.profileImg}
+                                        alt={personD.profileAlt}
+                                        className={
+                                            'w-[3rem] h-[3rem] rounded-full'
+                                        }
                                     />
-                                </div>
+                                </Link>
+                                <Link href={'/profile'}>
+                                    <div className={'flex flex-col'}>
+                                        <div className={'font-medium'}>
+                                            {personD.username}
+                                        </div>
+                                        <RatesInClosetSpotlight
+                                            id={personD.id}
+                                            personD={personD}
+                                            person={person}
+                                        />
+                                    </div>
+                                </Link>
                             </div>
                         ))}
                     </div>
-                    <button
-                        className={
-                            'inline-flex gap-1 items-center px-2.5 py-1.5 rounded-md text-white text-xs font-semibold bg-susty'
-                        }
-                    >
-                        <HiPlus className={'w-4 h-4'} />
-                        Follow
-                    </button>
+                    <Link href={'/profile'}>
+                        <button
+                            className={
+                                'inline-flex gap-1 items-center px-2.5 py-1.5 rounded-md text-white text-xs font-semibold bg-susty'
+                            }
+                        >
+                            <HiPlus className={'w-4 h-4'} />
+                            Follow
+                        </button>
+                    </Link>
                 </div>
             </div>
             <div

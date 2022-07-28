@@ -11,7 +11,6 @@ function classNames(...classes) {
 const UploadPhotos = ({imageList, setImageList}) => {
     const [photosArray, setPhotosArray] = useState([])
     const [openTipsModal, setOpenTipsModal] = useState(false)
-    // const [imageList, setImageList] = useState([])
     const [inputList, setInputList] = useState([])
     const [removeItem, setRemoveItem] = useState([])
 
@@ -30,43 +29,6 @@ const UploadPhotos = ({imageList, setImageList}) => {
         } else {
             console.log('Maximum length exceeded')
         }
-
-        // const storageRef = getStorage(firebaseApp);
-        // const fileRef = ref(storageRef, `images/${Date.now()}-${file.name}`);
-        //
-        // uploadBytes(fileRef, file).then((snapshot) => {
-        //     getDownloadURL(snapshot.ref).then((url) => {
-        //         toast.success('Image upload Success!', {
-        //             position: "top-right",
-        //             autoClose: 3000,
-        //             hideProgressBar: true,
-        //             closeOnClick: true,
-        //             pauseOnHover: true,
-        //             draggable: true,
-        //             progress: undefined
-        //         });
-        //
-        //         return url;
-        //     }).then((url) => {
-        //         setImageList((prev) => {
-        //             return [...prev, {
-        //                 name: file.name,
-        //                 url: url
-        //             }]
-        //         })
-        //         console.log("image uploaded")
-        //     }).catch((error) => {
-        //         toast.error('Image upload Failed!', {
-        //             position: "top-right",
-        //             autoClose: 3000,
-        //             hideProgressBar: true,
-        //             closeOnClick: true,
-        //             pauseOnHover: true,
-        //             draggable: true,
-        //             progress: undefined
-        //         });
-        //     })
-        // })
     }
 
     useEffect(() => {
@@ -97,10 +59,12 @@ const UploadPhotos = ({imageList, setImageList}) => {
 
     return (
         <>
-            <div className={`bg-gray-50 w-full px-5 pb-2 shadow rounded-sm `}>
+            <div className={`bg-white w-full px-5 pb-2 shadow rounded-sm`}>
                 <div className={`grid grid-cols-5 grid-rows-6 pb-2`}>
-                    <div className={`flex col-span-5`}>
-                        <p className={`self-center font-medium text-lg`}>
+                    <div className={`flex col-span-5 row-span-1`}>
+                        <p
+                            className={`self-center font-medium text-sm sm:text-base`}
+                        >
                             Add up to 20 photos.&nbsp;
                             <span
                                 onClick={() => setOpenTipsModal(true)}
@@ -119,18 +83,12 @@ const UploadPhotos = ({imageList, setImageList}) => {
                         )}
                     >
                         {!imageList.length > 0 ? (
-                            <div className={`col-start-3`}>
-                                {/* <motion.button
-                                            whileHover={{scale: 1.02}}
-                                            whileTap={{scale: 0.98}}
-                                            className={`inline-flex items-center px-5 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50 my-32`}>
-                                            <PlusIcon className={`h-4 w-4 `} aria-hidden={true}/>&nbsp;Add Photos
-                                        </motion.button> */}
+                            <div className={`col-start-2 lg:col-start-3`}>
                                 <label
                                     htmlFor="file-upload"
                                     className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none "
                                 >
-                                    <span className="inline-flex items-center px-5 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50 my-32 transition-all ease-in-out">
+                                    <span className="col-start-2 col-span-2 md:col-span-1 inline-flex items-center w-max px-5 py-2 border border-gray-300 shadow-sm text-sm md:text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50 my-32 transition-all ease-in-out">
                                         <HiPlus
                                             className={`h-4 w-4 `}
                                             aria-hidden={true}

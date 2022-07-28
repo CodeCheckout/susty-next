@@ -1,33 +1,26 @@
 import React, {useState} from 'react'
-import ProfileHome from './profile'
-import AccountHome from './account'
-import ShippingHome from './shipping'
-import SelectDiscountHome from './selectdiscount'
-import NotificationHome from './notifications'
-import PrivacySettingsHome from './privacysettings'
-import SettingsSideBarWrapper from '../../components/layouts/SideBarMenus/SettingsSideBarWrapper'
+import WalletSubSection from '../../components/common/Wallet/WalletSubSection'
+import SetupSubSection from '../../components/common/Wallet/SetupSubSection'
+import IncomeSection from '../../components/common/Wallet/IncomeSection'
+import WalletSideBarWrapper from '../../components/layouts/SideBarMenus/WalletSideBarWrapper'
 
 const navigation = [
-    {name: 'Profile', component: <ProfileHome />, current: false},
     {
-        name: 'Account',
-        component: <AccountHome />,
-        current: false,
-    },
-    {name: 'Shipping', component: <ShippingHome />, current: false},
-    {
-        name: 'Select discount',
-        component: <SelectDiscountHome />,
+        id: 1,
+        name: 'My Wallet',
+        component: <WalletSubSection />,
         current: false,
     },
     {
-        name: 'Notifications',
-        component: <NotificationHome />,
+        id: 2,
+        name: 'Set up Information',
+        component: <SetupSubSection />,
         current: false,
     },
     {
-        name: 'Privacy Settings',
-        component: <PrivacySettingsHome />,
+        id: 3,
+        name: 'Income',
+        component: <IncomeSection />,
         current: false,
     },
 ]
@@ -42,7 +35,7 @@ const Index = () => {
 
     return (
         <div className={'bg-gray-100'}>
-            <SettingsSideBarWrapper
+            <WalletSideBarWrapper
                 arrayElements={arrayElements}
                 sidebarOpen={sidebarOpen}
                 sidebarElement={sidebarElement}
@@ -52,7 +45,7 @@ const Index = () => {
                 setSelectedItem={setSelectedItem}
             >
                 {sidebarElement}
-            </SettingsSideBarWrapper>
+            </WalletSideBarWrapper>
         </div>
     )
 }

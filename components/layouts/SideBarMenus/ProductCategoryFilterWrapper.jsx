@@ -240,7 +240,7 @@ const ProductCategoryFilterWrapper = ({
     const [sortBy, setSortBy] = useState()
 
     //TODO check this axios call again
-    useEffect(async () => {
+    useEffect(() => {
         const data = {
             mainCat,
             subCatOne: subCat1,
@@ -255,12 +255,16 @@ const ProductCategoryFilterWrapper = ({
             priceTo: inputPriceTo,
         }
 
-        await axios
-            .get('/api/product/filter-products', {params: data})
-            .then((result) => setProductResult(result.data.result))
-            .catch((err) => {
-                console.log(err)
-            })
+        async function fetchData() {
+            await axios
+                .get('/api/product/filter-products', {params: data})
+                .then((result) => setProductResult(result.data.result))
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        fetchData()
     }, [
         color,
         brand,

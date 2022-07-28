@@ -116,7 +116,7 @@ const userDropdown = [
     {
         id: '3236825c-ac12-4656-b099-4a395adb2eb0',
         name: 'Wallet',
-        path: '#',
+        path: '/wallet',
         disableStatus: false,
     },
     {
