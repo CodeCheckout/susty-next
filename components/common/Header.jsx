@@ -122,7 +122,7 @@ const userDropdown = [
     {
         id: '27adb8c1-8422-4953-9f86-3f791b8c997c',
         name: 'Invite Friends',
-        path: '#',
+        path: '/common/invite',
         disableStatus: false,
     },
     {
