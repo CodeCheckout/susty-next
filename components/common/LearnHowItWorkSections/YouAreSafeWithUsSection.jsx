@@ -1,7 +1,7 @@
 import React from 'react';
 import BasicPageWrapper from "../../layouts/BasicPageWrapper";
 import {AiOutlineLock} from 'react-icons/ai'
-import {FaRegFlag} from 'react-icons/fa'
+import {RiFlag2Line} from 'react-icons/ri'
 import Link from "next/link";
 
 const descriptionDetails = [
@@ -13,7 +13,7 @@ const descriptionDetails = [
     },
     {
         id: 2,
-        icon: <FaRegFlag className={`text-susty w-8 h-8`}/>,
+        icon: <RiFlag2Line className={`text-susty w-8 h-8`}/>,
         title: 'Reliable refund policy',
         content: 'Your order is protected when you pay through Susty. You’ll get a refund if your item doesn’t arrive, was damaged in transit, or is significantly not as described. Let us know within 2 days of delivery if something isn’t right. Unless otherwise agreed, the buyer covers the return cost.\n'
     },
