@@ -49,7 +49,7 @@ const Buy = () => {
                                             >
                                                 Your Order
                                             </h2>
-                                            <Disclosure.Button className="font-medium text-indigo-600 hover:text-indigo-500">
+                                            <Disclosure.Button className="font-medium text-red-600 hover:text-red-500">
                                                 {open ? (
                                                     <span>
                                                         Hide full summary
@@ -107,14 +107,14 @@ const Buy = () => {
                                                             <div className="flex space-x-4">
                                                                 <button
                                                                     type="button"
-                                                                    className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                                                                    className="text-sm font-medium text-susty hover:text-red-500"
                                                                 >
                                                                     Edit
                                                                 </button>
                                                                 <div className="flex border-l border-gray-300 pl-4">
                                                                     <button
                                                                         type="button"
-                                                                        className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                                                                        className="text-sm font-medium text-susty hover:text-red-500"
                                                                     >
                                                                         Remove
                                                                     </button>
@@ -137,11 +137,11 @@ const Buy = () => {
                                                         type="text"
                                                         id="discount-code-mobile"
                                                         name="discount-code-mobile"
-                                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                                                     />
                                                     <button
                                                         type="submit"
-                                                        className="bg-gray-200 text-sm font-medium text-gray-600 rounded-md px-4 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                                                        className="bg-gray-200 text-sm font-medium text-gray-600 rounded-md px-4 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-red-500"
                                                     >
                                                         Apply
                                                     </button>
@@ -255,14 +255,14 @@ const Buy = () => {
                                                     <div className="flex space-x-4">
                                                         <button
                                                             type="button"
-                                                            className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                                                            className="text-sm font-medium text-susty hover:text-red-500"
                                                         >
                                                             Edit
                                                         </button>
                                                         <div className="flex border-l border-gray-300 pl-4">
                                                             <button
                                                                 type="button"
-                                                                className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                                                                className="text-sm font-medium text-susty hover:text-red-500"
                                                             >
                                                                 Remove
                                                             </button>
@@ -286,11 +286,11 @@ const Buy = () => {
                                                     type="text"
                                                     id="discount-code"
                                                     name="discount-code"
-                                                    className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                                    className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                                                 />
                                                 <button
                                                     type="submit"
-                                                    className="bg-gray-200 text-sm font-medium text-gray-600 rounded-md px-4 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                                                    className="bg-gray-200 text-sm font-medium text-gray-600 rounded-md px-4 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-red-500"
                                                 >
                                                     Apply
                                                 </button>
