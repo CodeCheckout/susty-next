@@ -110,7 +110,7 @@ const userDropdown = [
     {
         id: '6417e8c7-b9b8-46de-a25a-829700003b79',
         name: 'Purchase History',
-        path: '#',
+        path: '/purchasehistory',
         disableStatus: false,
     },
     {
