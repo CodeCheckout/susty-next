@@ -17,7 +17,7 @@ const PurchaseHistoryWrapper = ({
     pageTitle,
 }) => {
     return (
-        <div className={'lg:mx-44 min-h-max'}>
+        <div className={'lg:mx-32 min-h-max'}>
             <div className="h-full overflow-hidden">
                 <div className="flex ">
                     <Transition.Root show={sidebarOpen} as={Fragment}>
