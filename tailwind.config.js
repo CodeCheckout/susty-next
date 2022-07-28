@@ -10,7 +10,7 @@ module.exports = {
         extend: {
             colors: {
                 susty: '#f08080',
-            }
+            },
         },
     },
     plugins: [
