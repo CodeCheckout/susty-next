@@ -62,7 +62,9 @@ const UploadPhotos = ({imageList, setImageList}) => {
             <div className={`bg-white w-full px-5 pb-2 shadow rounded-sm`}>
                 <div className={`grid grid-cols-5 grid-rows-6 pb-2`}>
                     <div className={`flex col-span-5 row-span-1`}>
-                        <p className={`self-center font-medium text-sm sm:text-base`}>
+                        <p
+                            className={`self-center font-medium text-sm sm:text-base`}
+                        >
                             Add up to 20 photos.&nbsp;
                             <span
                                 onClick={() => setOpenTipsModal(true)}

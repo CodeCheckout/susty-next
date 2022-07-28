@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useRouter} from 'next/router'
 import {AnimatePresence, motion} from 'framer-motion'
-import Link from "next/link";
+import Link from 'next/link'
 
 const slidesStaticData = [
     {
@@ -118,7 +118,9 @@ const CTA = () => {
                                 Sell Now
                             </motion.button>
                             <div
-                                onClick={async () => await router.push(`/common/learnhowitworks`)}
+                                onClick={async () =>
+                                    await router.push(`/common/learnhowitworks`)
+                                }
                                 className="text-red-400 underline text-sm mt-10 hover:text-black no-underline"
                             >
                                 Learn How it works

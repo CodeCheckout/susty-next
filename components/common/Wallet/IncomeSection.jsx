@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const IncomeSection = () => {
     return (
@@ -8,7 +8,7 @@ const IncomeSection = () => {
                 <div className="text-xs text-gray-500 mb-4">Earnings</div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default IncomeSection;
+export default IncomeSection

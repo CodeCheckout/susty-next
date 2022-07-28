@@ -22,7 +22,9 @@ const TitleAndDescription = ({
             <hr />
 
             <div className={`grid grid-cols-5 pt-2`}>
-                <p className={`font-medium text-sm sm:text-base`}>Describe your item</p>
+                <p className={`font-medium text-sm sm:text-base`}>
+                    Describe your item
+                </p>
                 <textarea
                     rows={5}
                     name="comment"

@@ -1,29 +1,29 @@
-import React, {useState} from 'react';
-import WalletSubSection from "../../components/common/Wallet/WalletSubSection";
-import SetupSubSection from "../../components/common/Wallet/SetupSubSection";
-import IncomeSection from "../../components/common/Wallet/IncomeSection";
-import WalletSideBarWrapper from "../../components/layouts/SideBarMenus/WalletSideBarWrapper";
+import React, {useState} from 'react'
+import WalletSubSection from '../../components/common/Wallet/WalletSubSection'
+import SetupSubSection from '../../components/common/Wallet/SetupSubSection'
+import IncomeSection from '../../components/common/Wallet/IncomeSection'
+import WalletSideBarWrapper from '../../components/layouts/SideBarMenus/WalletSideBarWrapper'
 
 const navigation = [
     {
         id: 1,
         name: 'My Wallet',
-        component: <WalletSubSection/>,
+        component: <WalletSubSection />,
         current: false,
     },
     {
         id: 2,
         name: 'Set up Information',
-        component: <SetupSubSection/>,
+        component: <SetupSubSection />,
         current: false,
     },
     {
         id: 3,
         name: 'Income',
-        component: <IncomeSection/>,
+        component: <IncomeSection />,
         current: false,
     },
-];
+]
 
 const Index = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -47,7 +47,7 @@ const Index = () => {
                 {sidebarElement}
             </WalletSideBarWrapper>
         </div>
-    );
-};
+    )
+}
 
-export default Index;
+export default Index

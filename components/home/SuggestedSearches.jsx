@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react'
 import {HiChevronLeft, HiChevronRight} from 'react-icons/hi'
-import Link from "next/link";
+import Link from 'next/link'
 
 const searchesStaticData = [
     {
@@ -123,7 +123,7 @@ const SuggestedSearches = () => {
                                 'absolute h-8 w-8 grid place-items-center left-[1.75rem] top-[0.5rem] bg-black bg-opacity-70 rounded-full cursor-pointer'
                             }
                         >
-                            <HiChevronLeft className={'text-white w-8 h-8'}/>
+                            <HiChevronLeft className={'text-white w-8 h-8'} />
                         </div>
                     </div>
 
@@ -162,7 +162,7 @@ const SuggestedSearches = () => {
                                 'absolute h-8 w-8 place-items-center right-[1.75rem] top-[0.5rem] bg-black bg-opacity-70 rounded-full cursor-pointer'
                             }
                         >
-                            <HiChevronRight className={'text-white w-8 h-8'}/>
+                            <HiChevronRight className={'text-white w-8 h-8'} />
                         </div>
                     </div>
                 </div>

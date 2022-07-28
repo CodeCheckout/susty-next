@@ -112,7 +112,9 @@ const CategoryBrandCondition = ({
     return (
         <div className={`bg-white w-54 p-4 shadow rounded-sm grid gap-2`}>
             <div className={`grid grid-cols-5 pb-2`}>
-                <p className={`font-medium text-sm sm:text-base`}>Main Category</p>
+                <p className={`font-medium text-sm sm:text-base`}>
+                    Main Category
+                </p>
                 <div className="flex items-center col-start-3 w-full col-span-3">
                     <Listbox value={categoryOne} onChange={setCategoryOne}>
                         {({open}) => (
@@ -211,7 +213,9 @@ const CategoryBrandCondition = ({
             </div>
 
             <div className={`grid grid-cols-5 pb-2`}>
-                <p className={`font-medium text-sm sm:text-base`}>Sub Category 1</p>
+                <p className={`font-medium text-sm sm:text-base`}>
+                    Sub Category 1
+                </p>
                 <div className="flex items-center col-start-3 w-full col-span-3">
                     <Listbox value={categoryTwo} onChange={setCategoryTwo}>
                         {({open}) => (
@@ -310,7 +314,9 @@ const CategoryBrandCondition = ({
             </div>
 
             <div className={`grid grid-cols-5 pb-2`}>
-                <p className={`font-medium text-sm sm:text-base`}>Sub Category 2</p>
+                <p className={`font-medium text-sm sm:text-base`}>
+                    Sub Category 2
+                </p>
                 <div className="flex items-center col-start-3 w-full col-span-3">
                     <Listbox value={categoryThree} onChange={setCategoryThree}>
                         {({open}) => (

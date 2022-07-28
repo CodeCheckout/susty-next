@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import Link from "next/link";
+import Link from 'next/link'
 
 const brandsStaticData = [
     {id: 1, name: 'Vans'},

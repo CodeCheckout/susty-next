@@ -1,17 +1,17 @@
 import React, {useState} from 'react'
 import {HiInformationCircle} from 'react-icons/hi'
-import Link from "next/link";
+import Link from 'next/link'
 
 const NewsFeedItemCard = ({
-                              username,
-                              profileImg,
-                              profileAlt,
-                              src,
-                              alt,
-                              price,
-                              size,
-                              brand,
-                          }) => {
+    username,
+    profileImg,
+    profileAlt,
+    src,
+    alt,
+    price,
+    size,
+    brand,
+}) => {
     const [isFavourite, setIsFavourite] = useState(false)
     let favCount = 2
 
@@ -24,7 +24,9 @@ const NewsFeedItemCard = ({
             >
                 <div className={'flex flex-col gap-2'}>
                     <Link href={'/profile'}>
-                        <div className={'flex flex-row gap-2 pl-4 items-center'}>
+                        <div
+                            className={'flex flex-row gap-2 pl-4 items-center'}
+                        >
                             <img
                                 src={profileImg}
                                 alt={profileAlt}

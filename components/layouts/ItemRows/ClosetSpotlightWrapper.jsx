@@ -60,7 +60,9 @@ const ClosetSpotlightWrapper = ({children}) => {
                                     <img
                                         src={personD.profileImg}
                                         alt={personD.profileAlt}
-                                        className={'w-[3rem] h-[3rem] rounded-full'}
+                                        className={
+                                            'w-[3rem] h-[3rem] rounded-full'
+                                        }
                                     />
                                 </Link>
                                 <Link href={'/profile'}>
@@ -84,7 +86,7 @@ const ClosetSpotlightWrapper = ({children}) => {
                                 'inline-flex gap-1 items-center px-2.5 py-1.5 rounded-md text-white text-xs font-semibold bg-susty'
                             }
                         >
-                            <HiPlus className={'w-4 h-4'}/>
+                            <HiPlus className={'w-4 h-4'} />
                             Follow
                         </button>
                     </Link>

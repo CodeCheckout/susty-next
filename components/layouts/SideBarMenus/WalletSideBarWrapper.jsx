@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment} from 'react'
 import {Dialog, Transition} from '@headlessui/react'
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
 
@@ -7,9 +7,14 @@ function classNames(...classes) {
 }
 
 const WalletSideBarWrapper = ({
-                                  arrayElements, sidebarOpen, sidebarElement, selectedItem,
-                                  setSidebarOpen, setSidebarElement, setSelectedItem,
-                              }) => {
+    arrayElements,
+    sidebarOpen,
+    sidebarElement,
+    selectedItem,
+    setSidebarOpen,
+    setSidebarElement,
+    setSelectedItem,
+}) => {
     return (
         <div className={'lg:mx-44 min-h-max'}>
             <div className="h-full overflow-hidden">
@@ -97,7 +102,7 @@ const WalletSideBarWrapper = ({
                                                             }}
                                                             className={classNames(
                                                                 selectedItem ===
-                                                                idx
+                                                                    idx
                                                                     ? 'text-gray-900 font-semibold cursor-pointer'
                                                                     : 'text-gray-500 hover:bg-gray-200 ',
                                                                 'group flex items-center px-5 py-2 rounded-md cursor-pointer'
@@ -196,7 +201,7 @@ const WalletSideBarWrapper = ({
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default WalletSideBarWrapper;
+export default WalletSideBarWrapper
