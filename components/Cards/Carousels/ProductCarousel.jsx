@@ -11,9 +11,9 @@ const ProductCarousel = ({productImageArray}) => {
             {/* Image selector */}
             <div className="hidden mt-6 w-full max-w-2xl mx-auto sm:block lg:max-w-none">
                 <Tab.List className="grid grid-cols-4 gap-6">
-                    {productImageArray.map((image) => (
+                    {productImageArray && productImageArray.map((image, index) => (
                         <Tab
-                            key={image._id}
+                            key={index}
                             className="relative h-24 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-red-200"
                         >
                             {({selected}) => (

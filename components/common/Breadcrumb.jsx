@@ -24,7 +24,7 @@ const Breadcrumb = ({pagePathArray}) => {
                         </a>
                     </div>
                 </li>
-                {pagePathArray.map((page) => (
+                {pagePathArray && pagePathArray.map((page) => (
                     <li key={page}>
                         <div className="flex items-center">
                             <HiChevronRight
