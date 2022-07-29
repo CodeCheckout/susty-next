@@ -40,3 +40,5 @@ yarn-error.log*
 package.json
 .idea
 /.idea
+.history
+.env

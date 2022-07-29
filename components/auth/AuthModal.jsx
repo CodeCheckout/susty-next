@@ -20,6 +20,12 @@ const AuthModal = ({openState, setOpenModal}) => {
         key: 'susty',
         defaultValue: {},
     })
+    const [fullName, setFullName] = useState('')
+    const [username, setUsername] = useState('')
+    const [address, setAddress] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
 
     //1st check
     const [isRegisterStatus, setIsRegisterStatus] = useState(true)
@@ -46,7 +52,6 @@ const AuthModal = ({openState, setOpenModal}) => {
                 // The signed-in user info.
                 const user = result.user
                 // ...
-
                 return result.user
             })
             .then(async (userDetails) => {
@@ -56,6 +61,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                         displayName: userDetails.displayName,
                         photoURL: userDetails.photoURL,
                         email: userDetails.email,
+                        // address: "My Address"
                     })
                     .then((res) => {
                         setSustyAuth(res.data.user)
@@ -65,6 +71,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                 closeModalHandler()
             })
             .catch((error) => {
+                console.log(error)
                 // Handle Errors here.
                 const errorCode = error.code
                 const errorMessage = error.message
@@ -75,6 +82,23 @@ const AuthModal = ({openState, setOpenModal}) => {
                 // ...
             })
     }
+
+    const onContinueClick = async() => {
+        await axios.post('/api/user/adduser', {name: fullName, email, address, fullName, password}).then((result) => {
+            console.log("User registered successfully!", result)
+        })
+    }
+
+    const onEmailLogIn = async() => {
+        await axios.post('/api/user/emailSignIn', {email, password}).then((result) => {
+            if(result.data.success == true){
+                setSustyAuth(result.data.user)
+                closeModalHandler()
+            }
+        })
+    }
+
+    console.log(sustyAuth)
 
     return (
         <AnimatePresence>
@@ -96,7 +120,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                     }}
                 >
                     <div className={'fixed inset-0 overflow-y-auto font-susty'}>
-                        <div className="flex min-h-full items-center justify-center p-4 text-center bg-gray-700 bg-opacity-80">
+                        <div className="flex  min-h-full overflow-y-auto items-center justify-center p-4 text-center bg-gray-700 bg-opacity-80">
                             <motion.div
                                 key={`modal-for-email`}
                                 initial={{scale: 0, opacity: 0, y: -500}}
@@ -113,11 +137,11 @@ const AuthModal = ({openState, setOpenModal}) => {
                                     opacity: 0,
                                     y: 600,
                                 }}
-                                className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+                                className="mt-20 w-fit max-w-lg transform overflow-y-auto rounded-2xl bg-white p-5 text-left align-middle shadow-xl transition-all"
                             >
                                 <Dialog.Title as="h3" className={`mb-2`}>
                                     <span
-                                        className="flex justify-end text-xl font-medium leading-5 mr-2 cursor-pointer text-susty"
+                                        className="flex justify-end text-base font-medium leading-5 mr-2 cursor-pointer text-susty"
                                         onClick={closeModalHandler}
                                     >
                                         Close
@@ -129,7 +153,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                 <>
                                                     <p
                                                         className={
-                                                            'flex flex-col gap-3 text-3xl font-medium mt-5 pt-2'
+                                                            'flex flex-col gap-3 text-2xl font-medium mt-5 pt-2'
                                                         }
                                                     >
                                                         <span
@@ -153,7 +177,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                 <>
                                                     <p
                                                         className={
-                                                            'flex justify-center text-3xl font-medium mt-5 pt-2'
+                                                            'flex justify-center text-xl font-medium mt-5 pt-2'
                                                         }
                                                     >
                                                         Register with email
@@ -167,7 +191,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                 <>
                                                     <p
                                                         className={
-                                                            'flex justify-center text-3xl font-medium mt-5 pt-2'
+                                                            'flex justify-center text-xl font-medium mt-5 pt-2'
                                                         }
                                                     >
                                                         Welcome back!
@@ -180,8 +204,10 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         <>
                                                             <p
                                                                 className={
-                                                                    'flex justify-center text-3xl font-medium mt-5 pt-2'
+                                                                    'flex justify-center text-2xl font-medium mt-5 pt-2'
                                                                 }
+
+                                                                onClick = {onEmailLogIn}
                                                             >
                                                                 Log in
                                                             </p>
@@ -190,7 +216,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         <>
                                                             <p
                                                                 className={
-                                                                    'flex justify-center text-3xl font-medium mt-5 pt-2'
+                                                                    'flex justify-center text-xl font-medium mt-5 pt-2'
                                                                 }
                                                             >
                                                                 Forgot your
@@ -222,8 +248,8 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                 fill={'none'}
-                                                                width={48}
-                                                                height={48}
+                                                                width={38}
+                                                                height={38}
                                                                 viewBox="0 0 48 48"
                                                             >
                                                                 <path
@@ -235,7 +261,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     d="M29.368,24H26v12h-5V24h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H30v4h-2.287 C26.104,16,26,16.6,26,17.723V20h4L29.368,24z"
                                                                 ></path>
                                                             </svg>
-                                                            <p className="text-lg font-medium ml-4 text-gray-700">
+                                                            <p className="text-base font-medium ml-4 text-gray-700">
                                                                 Continue with
                                                                 Facebook
                                                             </p>
@@ -251,8 +277,8 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                 fill={'none'}
-                                                                width={48}
-                                                                height={48}
+                                                                width={38}
+                                                                height={38}
                                                                 viewBox="0 0 48 48"
                                                             >
                                                                 <path
@@ -272,7 +298,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
                                                                 ></path>
                                                             </svg>
-                                                            <p className="text-lg font-medium ml-4 text-gray-700">
+                                                            <p className="text-base font-medium ml-4 text-gray-700">
                                                                 Continue with
                                                                 Google
                                                             </p>
@@ -284,10 +310,10 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         >
                                                             <img
                                                                 src="https://img.icons8.com/fluency-systems-filled/48/000000/mac-client.png"
-                                                                width={'40'}
-                                                                height={'40'}
+                                                                width={'38'}
+                                                                height={'38'}
                                                             />
-                                                            <p className="text-lg font-medium ml-4 text-gray-700">
+                                                            <p className="text-base font-medium ml-4 text-gray-700">
                                                                 Continue with
                                                                 Apple
                                                             </p>
@@ -314,6 +340,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 placeholder={
                                                                     'Full name'
                                                                 }
+                                                                onChange = {(e) => {setFullName(e.target.value)}}
                                                             />
                                                             <span
                                                                 className={
@@ -338,6 +365,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 placeholder={
                                                                     'Username'
                                                                 }
+                                                                onChange = {(e) => {setUsername(e.target.value)}}
                                                             />
                                                             <span
                                                                 className={
@@ -355,6 +383,18 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         </div>
                                                         <div>
                                                             <input
+                                                                type={'text'}
+                                                                className={
+                                                                    'px-8 py-1.5 min-w-full rounded-md shadow-sm border border-gray-300 focus:border-susty focus:ring-susty focus:ring-offset-susty'
+                                                                }
+                                                                placeholder={
+                                                                    'Address'
+                                                                }
+                                                                onChange = {(e) => {setAddress(e.target.value)}}
+                                                            />
+                                                        </div>
+                                                        <div>
+                                                            <input
                                                                 type={'email'}
                                                                 className={
                                                                     'px-8 py-1.5 min-w-full rounded-md shadow-sm border border-gray-300 focus:border-susty focus:ring-susty focus:ring-offset-susty'
@@ -362,6 +402,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 placeholder={
                                                                     'Email'
                                                                 }
+                                                                onChange = {(e) => {setEmail(e.target.value)}}
                                                             />
                                                         </div>
                                                         <div
@@ -379,6 +420,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 placeholder={
                                                                     'Password'
                                                                 }
+                                                                onChange = {(e) => {setPassword(e.target.value)}}
                                                             />
                                                             <span
                                                                 className={
@@ -402,11 +444,11 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 id="checkbox"
                                                                 name="checkbox"
                                                                 type="checkbox"
-                                                                className="focus:ring-red-400 h-6 w-6 text-susty border-gray-300 rounded"
+                                                                className="focus:ring-red-400 h-5 w-5 text-susty border-gray-300 rounded"
                                                             />
                                                             <span
                                                                 className={
-                                                                    'pl-1 text-lg text-gray-500'
+                                                                    'pl-1 text-base text-gray-500'
                                                                 }
                                                             >
                                                                 Subscribe to
@@ -430,8 +472,8 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                 fill={'none'}
-                                                                width={48}
-                                                                height={48}
+                                                                width={38}
+                                                                height={38}
                                                                 viewBox="0 0 48 48"
                                                             >
                                                                 <path
@@ -443,7 +485,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     d="M29.368,24H26v12h-5V24h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H30v4h-2.287 C26.104,16,26,16.6,26,17.723V20h4L29.368,24z"
                                                                 ></path>
                                                             </svg>
-                                                            <p className="text-lg font-medium ml-4 text-gray-700">
+                                                            <p className="text-base font-medium ml-4 text-gray-700">
                                                                 Continue with
                                                                 Facebook
                                                             </p>
@@ -459,8 +501,8 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                 fill={'none'}
-                                                                width={48}
-                                                                height={48}
+                                                                width={38}
+                                                                height={38}
                                                                 viewBox="0 0 48 48"
                                                             >
                                                                 <path
@@ -480,7 +522,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
                                                                 ></path>
                                                             </svg>
-                                                            <p className="text-lg font-medium ml-4 text-gray-700">
+                                                            <p className="text-base font-medium ml-4 text-gray-700">
                                                                 Continue with
                                                                 Google
                                                             </p>
@@ -492,10 +534,10 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         >
                                                             <img
                                                                 src="https://img.icons8.com/fluency-systems-filled/48/000000/mac-client.png"
-                                                                width={'40'}
-                                                                height={'40'}
+                                                                width={'38'}
+                                                                height={'38'}
                                                             />
-                                                            <p className="text-lg font-medium ml-4 text-gray-700">
+                                                            <p className="text-base font-medium ml-4 text-gray-700">
                                                                 Continue with
                                                                 Apple
                                                             </p>
@@ -522,6 +564,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     placeholder={
                                                                         'Email or username'
                                                                     }
+                                                                    onChange = {(e) => setEmail(e.target.value)}
                                                                 />
                                                                 <input
                                                                     type={
@@ -533,6 +576,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     placeholder={
                                                                         'Password'
                                                                     }
+                                                                    onChange = {(e) => setPassword(e.target.value)}
                                                                 />
                                                             </div>
                                                         </>
@@ -546,6 +590,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 placeholder={
                                                                     'Enter your email address'
                                                                 }
+                                                                onChange = {(e) => setEmail(e.target.value)}
                                                             />
                                                         </>
                                                     )}
@@ -566,7 +611,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                     >
                                                         <div
                                                             className={
-                                                                'text-lg text-gray-500 font-medium mx-auto'
+                                                                'text-base text-gray-500 font-medium mx-auto'
                                                             }
                                                         >
                                                             Or register with{' '}
@@ -585,7 +630,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         </div>
                                                         <div
                                                             className={
-                                                                'text-lg text-gray-500 font-medium mx-auto cursor-pointer'
+                                                                'text-base text-gray-500 font-medium mx-auto cursor-pointer'
                                                             }
                                                         >
                                                             Already have an
@@ -618,7 +663,8 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             Send
                                                             confirmation
                                                             email
-                                                            className={`flex justify-center min-w-full px-28 py-3.5 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                                            className={`flex justify-center min-w-full px-28 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                                            onClick = {() => {onContinueClick()}}
                                                         >
                                                             Continue
                                                         </motion.button>
@@ -635,7 +681,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         >
                                                             By registering, I
                                                             confirm that I
-                                                            accept Susty's
+                                                            accept Susty's {' '}
                                                             <Link href={'/'}>
                                                                 <span
                                                                     className={
@@ -662,7 +708,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         </div>
                                                         <div
                                                             className={
-                                                                'text-lg font-medium mx-auto text-susty hover:underline'
+                                                                'text-base font-medium mx-auto text-susty hover:underline'
                                                             }
                                                         >
                                                             Having trouble?
@@ -682,7 +728,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                     >
                                                         <div
                                                             className={
-                                                                'text-lg text-gray-500 font-medium mx-auto'
+                                                                'text-base text-gray-500 font-medium mx-auto'
                                                             }
                                                         >
                                                             Or log in with{' '}
@@ -704,7 +750,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         </div>
                                                         <div
                                                             className={
-                                                                'text-lg text-gray-500 font-medium mx-auto'
+                                                                'text-base text-gray-500 font-medium mx-auto'
                                                             }
                                                         >
                                                             Don't have an
@@ -743,7 +789,8 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     Send
                                                                     confirmation
                                                                     email
-                                                                    className={`flex justify-center min-w-full px-28 py-3.5 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                                                    className={`flex justify-center min-w-full px-28 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                                                    onClick = {onEmailLogIn}
                                                                 >
                                                                     Continue
                                                                 </motion.button>
@@ -760,7 +807,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                         )
                                                                     }}
                                                                     className={
-                                                                        'text-lg font-medium mx-auto text-susty hover:underline cursor-pointer'
+                                                                        'text-base font-medium mx-auto text-susty hover:underline cursor-pointer'
                                                                     }
                                                                 >
                                                                     Forgotten
@@ -769,7 +816,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 </div>
                                                                 <div
                                                                     className={
-                                                                        'text-lg font-medium mx-auto text-susty hover:underline cursor-pointer'
+                                                                        'text-sm font-medium mx-auto text-susty hover:underline cursor-pointer'
                                                                     }
                                                                 >
                                                                     Having
@@ -790,13 +837,14 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     Send
                                                                     confirmation
                                                                     email
-                                                                    className={`flex justify-center min-w-full px-28 py-3.5 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                                                    className={`flex justify-center min-w-full px-28 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
                                                                 >
                                                                     Continue
                                                                 </motion.button>
                                                             </div>
                                                         </>
                                                     )}
+
                                                 </>
                                             )}
                                         </>
