@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import FavouriteItemCard from '../../Cards/Item/FavouriteItemCard'
-import axios from "axios";
+import axios from 'axios'
 
 const FavouriteItems = () => {
     const [items, setItems] = useState([])
@@ -8,23 +8,25 @@ const FavouriteItems = () => {
     //TODO check how to get the current user id - localstorage.getitem()
     useEffect(() => {
         const fetchFavProducts = async () => {
-            await axios.get('/api/favourites/fetch-favourites-product-list', {params: {userId: "6295a5df23a7b8fc7496408c"}})
+            await axios
+                .get('/api/favourites/fetch-favourites-product-list', {
+                    params: {userId: '6295a5df23a7b8fc7496408c'},
+                })
                 .then((result) => {
-                    setTimeout(() =>
-                        setItems(result.data.favourites), 1000);
-                }).then((result)=>{
-                    if (!result.data.favourites){
-                        return null;
+                    setTimeout(() => setItems(result.data.favourites), 1000)
+                })
+                .then((result) => {
+                    if (!result.data.favourites) {
+                        return null
                     }
                 })
                 .catch((err) => {
-                    console.log(err);
+                    console.log(err)
                 })
         }
 
-        fetchFavProducts();
-
-    }, []);
+        fetchFavProducts()
+    }, [])
 
     return (
         <div className="max-w-7xl m-auto">
@@ -36,7 +38,7 @@ const FavouriteItems = () => {
             >
                 {items.map((item) => (
                     <div key={item}>
-                        <FavouriteItemCard id={item}/>
+                        <FavouriteItemCard id={item} />
                     </div>
                 ))}
             </div>

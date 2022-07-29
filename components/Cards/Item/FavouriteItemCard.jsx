@@ -1,32 +1,35 @@
 import React, {useEffect, useState} from 'react'
 import {HiInformationCircle} from 'react-icons/hi'
-import axios from "axios";
-import {useRouter} from "next/router";
+import axios from 'axios'
+import {useRouter} from 'next/router'
 
 const FavouriteItemCard = ({id}) => {
     //TODO Is single product receive an array or object
-    const [singleProduct, setSingleProduct] = useState({});
+    const [singleProduct, setSingleProduct] = useState({})
     const [isFavourite, setIsFavourite] = useState(false)
 
     const router = useRouter()
 
     useEffect(() => {
         const fetchSingleFavProduct = async () => {
-            await axios.get('/api/product/fetch-single-product', {params: {productId: id}})
+            await axios
+                .get('/api/product/fetch-single-product', {
+                    params: {productId: id},
+                })
                 .then((results) => {
-                    setSingleProduct(results.data.product);
-                }).catch((err) => {
-                    console.log(err);
+                    setSingleProduct(results.data.product)
+                })
+                .catch((err) => {
+                    console.log(err)
                 })
         }
 
-        fetchSingleFavProduct();
-
-    }, []);
+        fetchSingleFavProduct()
+    }, [])
 
     return (
         <>
-            {singleProduct &&
+            {singleProduct && (
                 <div
                     onClick={async () => {
                         await router.push({
@@ -40,15 +43,19 @@ const FavouriteItemCard = ({id}) => {
                         'box-content w-[10.5rem] sm:w-[18rem] md:w-[13.5rem] lg:w-[14.5rem] min-h-max'
                     }
                 >
-                    {singleProduct.images &&
+                    {singleProduct.images && (
                         <div>
                             <img
                                 className={
                                     'h-[16.5rem] sm:h-[18rem] md:h-[22rem] lg:h-[22rem] w-[10.5rem] sm:w-[18rem] md:w-[13.5rem] lg:w-[14.5rem] object-cover'
                                 }
-                                src={singleProduct.images[0].url} alt={singleProduct.images[0].name}
-                                width={'full'} height={'full'}/>
-                        </div>}
+                                src={singleProduct.images[0].url}
+                                alt={singleProduct.images[0].name}
+                                width={'full'}
+                                height={'full'}
+                            />
+                        </div>
+                    )}
                     <div className={'p-3 grid grid-cols-3'}>
                         <div className={'col-start-1 col-end-3'}>
                             <div className={'flex flex-col gap-0.5'}>
@@ -62,8 +69,12 @@ const FavouriteItemCard = ({id}) => {
                                         }
                                     />
                                 </div>
-                                <div className={'text-gray-500 text-xs'}>{singleProduct.size}</div>
-                                <div className={'text-gray-500 text-xs'}>{singleProduct.brand}</div>
+                                <div className={'text-gray-500 text-xs'}>
+                                    {singleProduct.size}
+                                </div>
+                                <div className={'text-gray-500 text-xs'}>
+                                    {singleProduct.brand}
+                                </div>
                             </div>
                         </div>
                         <div className={'col-start-3 col-end-4'}>
@@ -113,29 +124,30 @@ const FavouriteItemCard = ({id}) => {
                                 )}
                                 {isFavourite === true ? (
                                     <>
-                                <span
-                                    className={
-                                        'text-gray-500 font-medium text-sm'
-                                    }
-                                >
-                                    {singleProduct.favouriteCount + 1}
-                                </span>
+                                        <span
+                                            className={
+                                                'text-gray-500 font-medium text-sm'
+                                            }
+                                        >
+                                            {singleProduct.favouriteCount + 1}
+                                        </span>
                                     </>
                                 ) : (
                                     <>
-                                <span
-                                    className={
-                                        'text-gray-500 font-medium text-sm'
-                                    }
-                                >
-                                    {singleProduct.favouriteCount}
-                                </span>
+                                        <span
+                                            className={
+                                                'text-gray-500 font-medium text-sm'
+                                            }
+                                        >
+                                            {singleProduct.favouriteCount}
+                                        </span>
                                     </>
                                 )}
                             </div>
                         </div>
                     </div>
-                </div>}
+                </div>
+            )}
         </>
     )
 }
