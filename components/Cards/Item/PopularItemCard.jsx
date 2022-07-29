@@ -66,9 +66,9 @@ const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
                             }
                         >
                             {isFavourite === true ? (
-                                <HiHeart className={`text-susty`}/>
+                                <HiHeart className={`text-susty`} />
                             ) : (
-                                <HiOutlineHeart className={`text-susty`}/>
+                                <HiOutlineHeart className={`text-susty`} />
                             )}
                             <span
                                 className={'text-gray-500 font-medium text-sm'}
@@ -89,7 +89,8 @@ const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
                             },
                         })
                     }}
-                    className={'flex flex-col w-56 py-3 '}>
+                    className={'flex flex-col w-56 py-3 '}
+                >
                     <img
                         className={'h-80 object-fit '}
                         src={src}
@@ -104,9 +105,7 @@ const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
                                     ${price}
                                 </div>
                                 <HiInformationCircle
-                                    className={
-                                        'w-6 h-6 text-gray-500 text-sm'
-                                    }
+                                    className={'w-6 h-6 text-gray-500 text-sm'}
                                 />
                             </div>
                             <div>
@@ -114,11 +113,11 @@ const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
                                     onClick={() => {
                                         isFavourite
                                             ? setFavouriteCount(
-                                                favouriteCount - 1
-                                            )
+                                                  favouriteCount - 1
+                                              )
                                             : setFavouriteCount(
-                                                favouriteCount + 1
-                                            )
+                                                  favouriteCount + 1
+                                              )
                                         setIsFavourite(!isFavourite)
                                     }}
                                     className={
@@ -126,7 +125,7 @@ const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
                                     }
                                 >
                                     {isFavourite === true ? (
-                                        <HiHeart className={`text-susty`}/>
+                                        <HiHeart className={`text-susty`} />
                                     ) : (
                                         <HiOutlineHeart
                                             className={`text-susty`}
@@ -137,17 +136,13 @@ const PopularItemCard = ({id, src, alt, price, size, brand, favCount}) => {
                                             'text-gray-500 font-medium text-sm'
                                         }
                                     >
-                                            {favouriteCount}
-                                        </span>
+                                        {favouriteCount}
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <div className={'text-gray-500 text-xs'}>
-                            {size}
-                        </div>
-                        <div className={'text-gray-500 text-xs'}>
-                            {brand}
-                        </div>
+                        <div className={'text-gray-500 text-xs'}>{size}</div>
+                        <div className={'text-gray-500 text-xs'}>{brand}</div>
                     </div>
                 </div>
             </div>

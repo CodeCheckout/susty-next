@@ -11,36 +11,37 @@ const ProductCarousel = ({productImageArray}) => {
             {/* Image selector */}
             <div className="hidden mt-6 w-full max-w-2xl mx-auto sm:block lg:max-w-none">
                 <Tab.List className="grid grid-cols-4 gap-6">
-                    {productImageArray && productImageArray.map((image, index) => (
-                        <Tab
-                            key={index}
-                            className="relative h-24 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-red-200"
-                        >
-                            {({selected}) => (
-                                <>
-                                    <span className="sr-only">
-                                        {image.name}
-                                    </span>
-                                    <span className="absolute inset-0 rounded-md overflow-hidden">
-                                        <img
-                                            src={image.url}
-                                            alt=""
-                                            className="w-full h-full object-center object-cover"
+                    {productImageArray &&
+                        productImageArray.map((image, index) => (
+                            <Tab
+                                key={index}
+                                className="relative h-24 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-red-200"
+                            >
+                                {({selected}) => (
+                                    <>
+                                        <span className="sr-only">
+                                            {image.name}
+                                        </span>
+                                        <span className="absolute inset-0 rounded-md overflow-hidden">
+                                            <img
+                                                src={image.url}
+                                                alt=""
+                                                className="w-full h-full object-center object-cover"
+                                            />
+                                        </span>
+                                        <span
+                                            className={classNames(
+                                                selected
+                                                    ? 'ring-susty'
+                                                    : 'ring-transparent',
+                                                'absolute inset-0 rounded-md ring-2 ring-offset-2 pointer-events-none focus:ring-susty'
+                                            )}
                                         />
-                                    </span>
-                                    <span
-                                        className={classNames(
-                                            selected
-                                                ? 'ring-susty'
-                                                : 'ring-transparent',
-                                            'absolute inset-0 rounded-md ring-2 ring-offset-2 pointer-events-none focus:ring-susty'
-                                        )}
-                                    />
-                                    aria-hidden="true" />
-                                </>
-                            )}
-                        </Tab>
-                    ))}
+                                        aria-hidden="true" />
+                                    </>
+                                )}
+                            </Tab>
+                        ))}
                 </Tab.List>
             </div>
 

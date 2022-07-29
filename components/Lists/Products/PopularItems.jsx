@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import PopularItemWrapper from "../../layouts/ItemRows/PopularItemWrapper";
+import PopularItemWrapper from '../../layouts/ItemRows/PopularItemWrapper'
 import axios from 'axios'
 import PopularItemCard from '../../Cards/Item/PopularItemCard'
 
