@@ -2,10 +2,10 @@ import React, {useRef} from 'react'
 import {HiChevronLeft, HiChevronRight} from 'react-icons/hi'
 
 const PopularItemWrapper = ({children}) => {
-    const ref = useRef(null)
+    const innerRef = useRef(null)
 
     const scroll = (scrollOffset) => {
-        ref.current.scrollLeft += scrollOffset
+        innerRef.current.scrollLeft += scrollOffset
     }
 
     return (
@@ -15,10 +15,10 @@ const PopularItemWrapper = ({children}) => {
                 className={
                     'overflow-x-hidden overflow-y-hidden scroll-smooth  flex flex-row gap-3 scrollbar-hide'
                 }
-                ref={ref}
+                ref={innerRef}
             >
                 <div
-                    className={`lg:hidden absolute -left-[0.5rem] lg:left-[1rem]`}
+                    className={`block lg:hidden absolute -left-[0.5rem] lg:left-[1rem]`}
                 >
                     <div
                         onClick={() => {
@@ -42,7 +42,7 @@ const PopularItemWrapper = ({children}) => {
                     <div className={'text-gray-500'}>See all popular items</div>
                 </div>
                 <div
-                    className={`lg:hidden absolute -right-[0.5rem] lg:right-[1rem]`}
+                    className={`block lg:hidden absolute -right-[0.5rem] lg:right-[1rem]`}
                 >
                     <div
                         onClick={() => {

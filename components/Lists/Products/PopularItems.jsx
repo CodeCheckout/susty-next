@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import PopularItemLayout from '../../layouts/ItemRows/PopularItemLayout'
+import PopularItemWrapper from '../../layouts/ItemRows/PopularItemWrapper'
 import axios from 'axios'
 import PopularItemCard from '../../Cards/Item/PopularItemCard'
-import Link from 'next/link'
 
 const PopularItems = () => {
     const [items, setItems] = useState([])
@@ -20,11 +19,11 @@ const PopularItems = () => {
     }, [])
 
     return (
-        <PopularItemLayout>
+        <PopularItemWrapper>
             {items.length > 0 && (
                 <>
                     {items.slice(0, 5).map((item) => (
-                        <Link href={'/items/view'} key={item._id}>
+                        <div key={item._id}>
                             <PopularItemCard
                                 id={item._id}
                                 src={item.images[0]?.url}
@@ -34,11 +33,11 @@ const PopularItems = () => {
                                 brand={item.brand}
                                 favCount={item.favouriteCount}
                             />
-                        </Link>
+                        </div>
                     ))}
                 </>
             )}
-        </PopularItemLayout>
+        </PopularItemWrapper>
     )
 }
 
