@@ -14,6 +14,7 @@ import Notification from './Header/Notification'
 
 import Link from 'next/link'
 import LoginSignupButton from '../buttons/LoginSignupButton'
+import CatDropDown from './flyoutmenu/CatDropDown'
 
 const searchBarStaticOptions = [
     {id: 1, name: 'Catalog  '},
@@ -78,7 +79,7 @@ const catalogMobileArrayStaticData = [
     {
         id: 4,
         name: 'Help center',
-        path: '#',
+        path: '/helpcenter',
     },
     {
         id: 5,
@@ -88,21 +89,48 @@ const catalogMobileArrayStaticData = [
 ]
 
 const userDropdown = [
-    {id: '86a66b51-14df-4947-9580-2f6f44e70e07', name: 'Account', path: '#'},
+    {
+        id: '86a66b51-14df-4947-9580-2f6f44e70e07',
+        name: 'Account',
+        path: '/',
+        disableStatus: true,
+    },
     {
         id: '03380728-d104-473b-bb9c-b7671185d114',
         name: 'Profile',
         path: '/profile',
+        disableStatus: false,
     },
-    {id: 'd0960412-44f7-4120-8851-b605328b2738', name: 'Settings', path: '#'},
+    {
+        id: 'd0960412-44f7-4120-8851-b605328b2738',
+        name: 'Settings',
+        path: '/settings',
+        disableStatus: false,
+    },
     {
         id: '6417e8c7-b9b8-46de-a25a-829700003b79',
-        name: 'Personalization',
-        path: '#',
+        name: 'Purchase History',
+        path: '/purchasehistory',
+        disableStatus: false,
     },
-    {id: '3236825c-ac12-4656-b099-4a395adb2eb0', name: 'Wallet', path: '#'},
-    {id: 'bbced0e1-2e6b-4525-99e9-6b2006ad0c42', name: 'Donations', path: '#'},
-    {id: '8c69d15d-3669-4ec8-a5c5-308f16cbb3aa', name: 'Log out', path: '#'},
+    {
+        id: '3236825c-ac12-4656-b099-4a395adb2eb0',
+        name: 'Wallet',
+        path: '/wallet',
+        disableStatus: false,
+    },
+    {
+        id: '27adb8c1-8422-4953-9f86-3f791b8c997c',
+        name: 'Invite Friends',
+        path: '/common/invite',
+        disableStatus: false,
+    },
+    {
+        id: '8c69d15d-3669-4ec8-a5c5-308f16cbb3aa',
+        name: 'Log out',
+        path: '#',
+        disableStatus: false,
+    },
 ]
 
 const languageDropdown = [
@@ -145,7 +173,7 @@ const HeaderSection = () => {
         <>
             <div
                 className={
-                    'px-2 py-3 sm:px-4 lg:px-14 sticky top-0 z-40 bg-white'
+                    'px-2 pt-3 sm:px-4 lg:px-14 sticky top-0 z-40 bg-white border-b border-gray-100'
                 }
             >
                 <Popover className="relative ">
@@ -161,7 +189,7 @@ const HeaderSection = () => {
                             </a>
                         </div>
 
-                        <div className={'hidden md:block w-full pl-4'}>
+                        <div className={'hidden lg:block w-full pl-4'}>
                             <SearchBar
                                 selectedSearchBarOption={
                                     selectedSearchBarOption
@@ -201,7 +229,7 @@ const HeaderSection = () => {
 
                                     <Menu
                                         as="div"
-                                        className="relative inline-block text-left mx-1 hidden md:block"
+                                        className="relative inline-block text-left mx-1 hidden lg:block"
                                     >
                                         <div>
                                             <Menu.Button className="inline-flex justify-center -my-1 pl-2 md:pl-0 md:mr-8 md:pr-2 w-full rounded-md ring-0 text-sm font-medium text-gray-700">
@@ -232,31 +260,55 @@ const HeaderSection = () => {
                                             <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none overflow-visible z-50">
                                                 <div className="py-1">
                                                     {userActivityArray.map(
-                                                        (item, idx) => {
+                                                        (item) => {
                                                             return (
                                                                 <Menu.Item
                                                                     key={
                                                                         item.id
                                                                     }
+                                                                    disabled={
+                                                                        item.disableStatus
+                                                                    }
                                                                 >
                                                                     {({
                                                                         active,
                                                                     }) => (
-                                                                        <a
-                                                                            href={
-                                                                                item.path
-                                                                            }
-                                                                            className={classNames(
-                                                                                active
-                                                                                    ? 'bg-gray-100 text-gray-900'
-                                                                                    : 'text-gray-700',
-                                                                                'block px-4 py-2 text-sm'
+                                                                        <>
+                                                                            {item.name ===
+                                                                            'Log out' ? (
+                                                                                <a
+                                                                                    href={
+                                                                                        item.path
+                                                                                    }
+                                                                                    className={classNames(
+                                                                                        active
+                                                                                            ? 'bg-gray-100 text-red-900'
+                                                                                            : 'text-red-700',
+                                                                                        'group hover:bg-gray-100 block px-4 py-2 text-sm'
+                                                                                    )}
+                                                                                >
+                                                                                    {
+                                                                                        item.name
+                                                                                    }
+                                                                                </a>
+                                                                            ) : (
+                                                                                <a
+                                                                                    href={
+                                                                                        item.path
+                                                                                    }
+                                                                                    className={classNames(
+                                                                                        active
+                                                                                            ? 'bg-gray-100 text-gray-900'
+                                                                                            : 'text-gray-700',
+                                                                                        'group hover:bg-gray-100 block px-4 py-2 text-sm'
+                                                                                    )}
+                                                                                >
+                                                                                    {
+                                                                                        item.name
+                                                                                    }
+                                                                                </a>
                                                                             )}
-                                                                        >
-                                                                            {
-                                                                                item.name
-                                                                            }
-                                                                        </a>
+                                                                        </>
                                                                     )}
                                                                 </Menu.Item>
                                                             )
@@ -269,7 +321,7 @@ const HeaderSection = () => {
                                 </>
                             )}
 
-                            <div className="-mr-2 -my-2 md:hidden">
+                            <div className="-mr-2 -my-2 lg:hidden">
                                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-400">
                                     <span className="sr-only">Open menu</span>
                                     <HiMenu
@@ -280,7 +332,7 @@ const HeaderSection = () => {
                             </div>
                         </div>
 
-                        <div className="hidden md:flex items-center justify-end md:flex-1 gap-3">
+                        <div className="hidden lg:flex items-center justify-end md:flex-1 gap-3">
                             <LoginSignupButton
                                 loggedIn={loggedIn}
                                 setLoggedIn={setLoggedIn}
@@ -296,7 +348,7 @@ const HeaderSection = () => {
                             </button>
                         </div>
 
-                        <div className="hidden md:block mx-3">
+                        <div className="hidden lg:block mx-3">
                             <Link href="/helpcenter/">
                                 <a>
                                     <AiOutlineQuestionCircle
@@ -309,7 +361,7 @@ const HeaderSection = () => {
 
                         <Menu
                             as="div"
-                            className="hidden md:block relative inline-block text-left mx-1"
+                            className="hidden lg:block relative inline-block text-left mx-1"
                         >
                             <div>
                                 <Menu.Button className="inline-flex justify-center -my-1 pl-2 md:pl-0 md:mr-0 md:pr-0 w-full rounded-md ring-0 text-sm font-medium text-gray-700">
@@ -361,7 +413,7 @@ const HeaderSection = () => {
                             </Transition>
                         </Menu>
                     </div>
-                    <div className={'md:hidden block mt-1'}>
+                    <div className={'block lg:hidden mt-1'}>
                         <SearchBar
                             selectedSearchBarOption={selectedSearchBarOption}
                             setSelectedSearchBarOption={
@@ -465,6 +517,7 @@ const HeaderSection = () => {
                         </Popover.Panel>
                     </Transition>
                 </Popover>
+                <CatDropDown />
             </div>
         </>
     )

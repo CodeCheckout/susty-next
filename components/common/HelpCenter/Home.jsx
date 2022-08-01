@@ -5,7 +5,7 @@ import Feedback from './home/Feedback'
 
 const Home = () => {
     return (
-        <div>
+        <div className={'p-4 bg-white'}>
             <HelpCenterSearchBar />
             <GeneralTopics />
             <Feedback />

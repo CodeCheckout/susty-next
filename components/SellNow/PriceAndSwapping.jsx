@@ -9,9 +9,9 @@ const PriceAndSwapping = ({
     setSwapping,
 }) => {
     return (
-        <div className={`bg-gray-50 w-54 p-4 shadow rounded-sm`}>
+        <div className={`bg-white w-54 p-4 shadow rounded-sm`}>
             <div className={`grid grid-cols-5 pb-2`}>
-                <p className={`font-medium text-lg`}>Price</p>
+                <p className={`font-medium text-sm sm:text-base`}>Price</p>
 
                 <div className="mt-1 relative rounded-md shadow-sm col-start-3 col-span-3">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -43,7 +43,7 @@ const PriceAndSwapping = ({
                 </div>
             </div>
             <div className="grid grid-cols-5 pb-2">
-                <div className="flex items-center col-start-3">
+                <div className="flex items-center col-span-3 col-start-3">
                     <input
                         id="remember-me"
                         name="remember-me"

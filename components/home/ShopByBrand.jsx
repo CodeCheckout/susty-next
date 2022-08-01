@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Link from 'next/link'
 
 const brandsStaticData = [
     {id: 1, name: 'Vans'},
@@ -29,14 +30,15 @@ const ShopByBrand = () => {
             <div className={'text-2xl pt-12 pb-5'}>Shop by brand</div>
             <div className={'flex flex-wrap gap-2'}>
                 {brands.map((brand) => (
-                    <div
-                        key={brand.id}
-                        className={
-                            'px-3 py-1.5 text-sm bg-white hover:bg-gray-50 border border-gray-200 shadow-inner-sm rounded-sm hover:cursor-pointer'
-                        }
-                    >
-                        {brand.name}
-                    </div>
+                    <Link href={`${brand.name}`} key={brand.id}>
+                        <div
+                            className={
+                                'px-3 py-1.5 text-sm bg-white hover:bg-gray-50 border border-gray-200 shadow-inner-sm rounded-sm hover:cursor-pointer'
+                            }
+                        >
+                            {brand.name}
+                        </div>
+                    </Link>
                 ))}
             </div>
         </>

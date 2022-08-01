@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {HiInformationCircle} from 'react-icons/hi'
+import Link from 'next/link'
 
 const NewsFeedItemCard = ({
     username,
@@ -22,18 +23,22 @@ const NewsFeedItemCard = ({
                 }
             >
                 <div className={'flex flex-col gap-2'}>
-                    <div className={'flex flex-row gap-2 pl-4 items-center'}>
-                        <img
-                            src={profileImg}
-                            alt={profileAlt}
-                            className={
-                                'w-[1.75rem] h-[1.75rem] rounded-full object-cover'
-                            }
-                        />
-                        <p className={'text-xs text-gray-500 font-medium'}>
-                            {username}
-                        </p>
-                    </div>
+                    <Link href={'/profile'}>
+                        <div
+                            className={'flex flex-row gap-2 pl-4 items-center'}
+                        >
+                            <img
+                                src={profileImg}
+                                alt={profileAlt}
+                                className={
+                                    'w-[1.75rem] h-[1.75rem] rounded-full object-cover'
+                                }
+                            />
+                            <p className={'text-xs text-gray-500 font-medium'}>
+                                {username}
+                            </p>
+                        </div>
+                    </Link>
                     <img
                         className={
                             'h-[16.5rem] sm:h-[18rem] md:h-[22rem] lg:h-[22rem] w-[10.5rem] sm:w-[18rem] md:w-[13.5rem] lg:w-[14.5rem] object-cover'

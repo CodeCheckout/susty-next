@@ -26,7 +26,6 @@ const AuthModal = ({openState, setOpenModal}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-
     //1st check
     const [isRegisterStatus, setIsRegisterStatus] = useState(true)
 
@@ -83,19 +82,29 @@ const AuthModal = ({openState, setOpenModal}) => {
             })
     }
 
-    const onContinueClick = async() => {
-        await axios.post('/api/user/adduser', {name: fullName, email, address, fullName, password}).then((result) => {
-            console.log("User registered successfully!", result)
-        })
+    const onContinueClick = async () => {
+        await axios
+            .post('/api/user/adduser', {
+                name: fullName,
+                email,
+                address,
+                fullName,
+                password,
+            })
+            .then((result) => {
+                console.log('User registered successfully!', result)
+            })
     }
 
-    const onEmailLogIn = async() => {
-        await axios.post('/api/user/emailSignIn', {email, password}).then((result) => {
-            if(result.data.success == true){
-                setSustyAuth(result.data.user)
-                closeModalHandler()
-            }
-        })
+    const onEmailLogIn = async () => {
+        await axios
+            .post('/api/user/emailSignIn', {email, password})
+            .then((result) => {
+                if (result.data.success == true) {
+                    setSustyAuth(result.data.user)
+                    closeModalHandler()
+                }
+            })
     }
 
     console.log(sustyAuth)
@@ -206,8 +215,9 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 className={
                                                                     'flex justify-center text-2xl font-medium mt-5 pt-2'
                                                                 }
-
-                                                                onClick = {onEmailLogIn}
+                                                                onClick={
+                                                                    onEmailLogIn
+                                                                }
                                                             >
                                                                 Log in
                                                             </p>
@@ -340,7 +350,14 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 placeholder={
                                                                     'Full name'
                                                                 }
-                                                                onChange = {(e) => {setFullName(e.target.value)}}
+                                                                onChange={(
+                                                                    e
+                                                                ) => {
+                                                                    setFullName(
+                                                                        e.target
+                                                                            .value
+                                                                    )
+                                                                }}
                                                             />
                                                             <span
                                                                 className={
@@ -365,7 +382,14 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 placeholder={
                                                                     'Username'
                                                                 }
-                                                                onChange = {(e) => {setUsername(e.target.value)}}
+                                                                onChange={(
+                                                                    e
+                                                                ) => {
+                                                                    setUsername(
+                                                                        e.target
+                                                                            .value
+                                                                    )
+                                                                }}
                                                             />
                                                             <span
                                                                 className={
@@ -390,7 +414,14 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 placeholder={
                                                                     'Address'
                                                                 }
-                                                                onChange = {(e) => {setAddress(e.target.value)}}
+                                                                onChange={(
+                                                                    e
+                                                                ) => {
+                                                                    setAddress(
+                                                                        e.target
+                                                                            .value
+                                                                    )
+                                                                }}
                                                             />
                                                         </div>
                                                         <div>
@@ -402,7 +433,14 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 placeholder={
                                                                     'Email'
                                                                 }
-                                                                onChange = {(e) => {setEmail(e.target.value)}}
+                                                                onChange={(
+                                                                    e
+                                                                ) => {
+                                                                    setEmail(
+                                                                        e.target
+                                                                            .value
+                                                                    )
+                                                                }}
                                                             />
                                                         </div>
                                                         <div
@@ -420,7 +458,14 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 placeholder={
                                                                     'Password'
                                                                 }
-                                                                onChange = {(e) => {setPassword(e.target.value)}}
+                                                                onChange={(
+                                                                    e
+                                                                ) => {
+                                                                    setPassword(
+                                                                        e.target
+                                                                            .value
+                                                                    )
+                                                                }}
                                                             />
                                                             <span
                                                                 className={
@@ -564,7 +609,15 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     placeholder={
                                                                         'Email or username'
                                                                     }
-                                                                    onChange = {(e) => setEmail(e.target.value)}
+                                                                    onChange={(
+                                                                        e
+                                                                    ) =>
+                                                                        setEmail(
+                                                                            e
+                                                                                .target
+                                                                                .value
+                                                                        )
+                                                                    }
                                                                 />
                                                                 <input
                                                                     type={
@@ -576,7 +629,15 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     placeholder={
                                                                         'Password'
                                                                     }
-                                                                    onChange = {(e) => setPassword(e.target.value)}
+                                                                    onChange={(
+                                                                        e
+                                                                    ) =>
+                                                                        setPassword(
+                                                                            e
+                                                                                .target
+                                                                                .value
+                                                                        )
+                                                                    }
                                                                 />
                                                             </div>
                                                         </>
@@ -590,7 +651,12 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 placeholder={
                                                                     'Enter your email address'
                                                                 }
-                                                                onChange = {(e) => setEmail(e.target.value)}
+                                                                onChange={(e) =>
+                                                                    setEmail(
+                                                                        e.target
+                                                                            .value
+                                                                    )
+                                                                }
                                                             />
                                                         </>
                                                     )}
@@ -664,7 +730,9 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             confirmation
                                                             email
                                                             className={`flex justify-center min-w-full px-28 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
-                                                            onClick = {() => {onContinueClick()}}
+                                                            onClick={() => {
+                                                                onContinueClick()
+                                                            }}
                                                         >
                                                             Continue
                                                         </motion.button>
@@ -681,7 +749,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         >
                                                             By registering, I
                                                             confirm that I
-                                                            accept Susty's {' '}
+                                                            accept Susty's{' '}
                                                             <Link href={'/'}>
                                                                 <span
                                                                     className={
@@ -790,7 +858,9 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     confirmation
                                                                     email
                                                                     className={`flex justify-center min-w-full px-28 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
-                                                                    onClick = {onEmailLogIn}
+                                                                    onClick={
+                                                                        onEmailLogIn
+                                                                    }
                                                                 >
                                                                     Continue
                                                                 </motion.button>
@@ -844,7 +914,6 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             </div>
                                                         </>
                                                     )}
-
                                                 </>
                                             )}
                                         </>

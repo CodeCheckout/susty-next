@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import PopularItemLayout from '../../layouts/ItemRows/PopularItemLayout'
+import PopularItemWrapper from '../../layouts/ItemRows/PopularItemWrapper'
 import axios from 'axios'
 import PopularItemCard from '../../Cards/Item/PopularItemCard'
 
@@ -19,10 +19,10 @@ const PopularItems = () => {
     }, [])
 
     return (
-        <PopularItemLayout>
+        <PopularItemWrapper>
             {items.length > 0 && (
                 <>
-                    {items.map((item) => (
+                    {items.slice(0, 5).map((item) => (
                         <div key={item._id}>
                             <PopularItemCard
                                 id={item._id}
@@ -37,7 +37,7 @@ const PopularItems = () => {
                     ))}
                 </>
             )}
-        </PopularItemLayout>
+        </PopularItemWrapper>
     )
 }
 
