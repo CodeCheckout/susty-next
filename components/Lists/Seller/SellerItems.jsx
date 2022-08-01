@@ -1,41 +1,41 @@
-import React, { useState, Fragment, useEffect } from 'react';
-import { Listbox, Transition } from '@headlessui/react';
-import { HiCheck, HiSelector } from 'react-icons/hi';
-import { categoryObj } from '../../../services/categoryObj';
-import SellerItemCard from '../../Cards/Item/SellerItemCard';
-import axios from 'axios';
+import React, {useState, Fragment, useEffect} from 'react'
+import {Listbox, Transition} from '@headlessui/react'
+import {HiCheck, HiSelector} from 'react-icons/hi'
+import {categoryObj} from '../../../services/categoryObj'
+import SellerItemCard from '../../Cards/Item/SellerItemCard'
+import axios from 'axios'
 
 const sortBy = [
-    { id: 1, name: 'Relevance' },
-    { id: 2, name: 'Price: high to low' },
-    { id: 3, name: 'Price: low to high' },
-    { id: 4, name: 'Newest first' },
-];
+    {id: 1, name: 'Relevance'},
+    {id: 2, name: 'Price: high to low'},
+    {id: 3, name: 'Price: low to high'},
+    {id: 4, name: 'Newest first'},
+]
 
-const categories = categoryObj;
+const categories = categoryObj
 
-const SellerItems = ({ userId, isSameUser }) => {
-    const [selected, setSelected] = useState(sortBy[0]);
-    const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+const SellerItems = ({userId, isSameUser}) => {
+    const [selected, setSelected] = useState(sortBy[0])
+    const [selectedCategory, setSelectedCategory] = useState(categories[0])
     const [selectedSubCategory, setSelectedSubCategory] = useState(
         selectedCategory.subCategory[0]
-    );
-    const [userDetails, setUserDetails] = useState({});
-    const [retrieveStatus, setRetrieveStatus] = useState(false);
+    )
+    const [userDetails, setUserDetails] = useState({})
+    const [retrieveStatus, setRetrieveStatus] = useState(false)
 
     useEffect(() => {
         async function getUserDetails() {
             await axios
                 .get('/api/user/fetch-seller-products', {
-                    params: { userId: userId },
+                    params: {userId: userId},
                 })
                 .then((result) => {
-                    setUserDetails(result.data.products);
-                    setRetrieveStatus(result.data.success);
-                });
+                    setUserDetails(result.data.products)
+                    setRetrieveStatus(result.data.success)
+                })
         }
-        getUserDetails();
-    }, []);
+        getUserDetails()
+    }, [])
 
     return (
         <>
@@ -351,7 +351,7 @@ const SellerItems = ({ userId, isSameUser }) => {
                 </>
             )}
         </>
-    );
-};
+    )
+}
 
-export default SellerItems;
+export default SellerItems

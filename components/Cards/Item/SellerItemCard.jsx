@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { HiInformationCircle } from 'react-icons/hi';
-import { FiRefreshCw } from 'react-icons/fi';
-import { motion } from 'framer-motion';
-import axios from 'axios';
+import React, {useEffect, useState} from 'react'
+import {HiInformationCircle} from 'react-icons/hi'
+import {FiRefreshCw} from 'react-icons/fi'
+import {motion} from 'framer-motion'
+import axios from 'axios'
 
-const SellerItemCard = ({ views, productId }) => {
-    const [itemDetails, setItemDetails] = useState();
+const SellerItemCard = ({views, productId}) => {
+    const [itemDetails, setItemDetails] = useState()
 
     useEffect(() => {
         async function getDetails() {
             await axios
                 .get('/api/product/fetch-single-product', {
-                    params: { productId: productId },
+                    params: {productId: productId},
                 })
                 .then((result) => {
-                    setItemDetails(result.data.product);
-                });
+                    setItemDetails(result.data.product)
+                })
         }
-        getDetails();
-    }, []);
+        getDetails()
+    }, [])
 
     return (
         <>
@@ -78,8 +78,8 @@ const SellerItemCard = ({ views, productId }) => {
 
                 <div className="mt-4 max-w-max px-1">
                     <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
+                        whileHover={{scale: 1.02}}
+                        whileTap={{scale: 0.98}}
                         className={`inline-flex min-w-max items-center rounded-md border border-susty bg-white px-14 py-1.5 text-base font-medium text-susty shadow-sm hover:border-gray-300 hover:bg-susty hover:text-white focus:border-susty focus:bg-red-50 focus:text-red-400 sm:px-28`}
                     >
                         Bump
@@ -87,7 +87,7 @@ const SellerItemCard = ({ views, productId }) => {
                 </div>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default SellerItemCard;
+export default SellerItemCard
