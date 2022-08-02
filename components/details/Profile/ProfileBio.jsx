@@ -75,13 +75,14 @@ const ProfileBio = () => {
     const [isSameUser, setIsSameUser] = useState(false)
     const [isFollow, setIsFollow] = useState(false)
     const [anyReviews, setAnyReviews] = useState(true)
+    const [userId, setUserId] = useState('629a8c2f26b267cc90f62991') // get user id
 
     return (
         <>
             <div className={'hidden md:block'}>
                 <div
                     className={
-                        'grid grid-cols-10 lg:grid-cols-11 gap-1 lg:gap-8 my-5 items-center'
+                        'my-5 grid grid-cols-10 items-center gap-1 lg:grid-cols-11 lg:gap-8'
                     }
                 >
                     <div className={'col-span-3 lg:col-span-2'}>
@@ -91,14 +92,14 @@ const ProfileBio = () => {
                             width={196}
                             height={196}
                             className={
-                                'w-52 h-52 object-cover rounded-full mx-3'
+                                'mx-3 h-52 w-52 rounded-full object-cover'
                             }
                         />
                     </div>
                     <div className={'col-span-7 lg:col-span-9'}>
                         <div
                             className={
-                                'grid grid-rows-2 lg:flex lg:justify-between items-center pb-5'
+                                'grid grid-rows-2 items-center pb-5 lg:flex lg:justify-between'
                             }
                         >
                             <div className={'flex flex-col gap-1'}>
@@ -114,9 +115,9 @@ const ProfileBio = () => {
                                     <motion.button
                                         whileHover={{scale: 1.02}}
                                         whileTap={{scale: 0.98}}
-                                        className={`inline-flex items-center max-w-fit px-4 py-1.5 mr-16 border border-red-300 shadow-sm text-sm font-medium rounded-md text-susty bg-red-100 hover:bg-susty hover:text-white hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                        className={`mr-16 inline-flex max-w-fit items-center rounded-md border border-red-300 bg-red-100 px-4 py-1.5 text-sm font-medium text-susty shadow-sm hover:border-susty hover:bg-susty hover:text-white focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                     >
-                                        <HiPencil className={`h-5 w-5 mr-2`} />
+                                        <HiPencil className={`mr-2 h-5 w-5`} />
                                         Edit profile
                                     </motion.button>
                                 </>
@@ -124,16 +125,16 @@ const ProfileBio = () => {
                                 <>
                                     <div
                                         className={
-                                            'flex flex-row lg:justify-end items-center gap-2'
+                                            'flex flex-row items-center gap-2 lg:justify-end'
                                         }
                                     >
                                         <motion.button
                                             whileHover={{scale: 1.02}}
                                             whileTap={{scale: 0.98}}
-                                            className={`inline-flex items-center px-4 py-1.5 border border-red-300 shadow-sm text-sm font-medium rounded-md text-susty bg-red-100 hover:bg-susty hover:text-white hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                            className={`inline-flex items-center rounded-md border border-red-300 bg-red-100 px-4 py-1.5 text-sm font-medium text-susty shadow-sm hover:border-susty hover:bg-susty hover:text-white focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                         >
                                             <HiChatAlt
-                                                className={`h-5 w-5 mr-2`}
+                                                className={`mr-2 h-5 w-5`}
                                             />
                                             Message
                                         </motion.button>
@@ -145,7 +146,7 @@ const ProfileBio = () => {
                                                     }}
                                                     whileHover={{scale: 1.02}}
                                                     whileTap={{scale: 0.98}}
-                                                    className={`inline-flex items-center px-4 py-1.5 border border-red-300 shadow-sm text-sm font-medium rounded-md text-white hover:text-susty bg-susty hover:bg-red-100 hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                                    className={`inline-flex items-center rounded-md border border-red-300 bg-susty px-4 py-1.5 text-sm font-medium text-white shadow-sm hover:border-susty hover:bg-red-100 hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                 >
                                                     Following
                                                 </motion.button>
@@ -158,7 +159,7 @@ const ProfileBio = () => {
                                                     }}
                                                     whileHover={{scale: 1.02}}
                                                     whileTap={{scale: 0.98}}
-                                                    className={`inline-flex items-center px-4 py-1.5 border border-red-300 shadow-sm text-sm font-medium rounded-md text-white hover:text-susty bg-susty hover:bg-red-100 hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                                    className={`inline-flex items-center rounded-md border border-red-300 bg-susty px-4 py-1.5 text-sm font-medium text-white shadow-sm hover:border-susty hover:bg-red-100 hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                 >
                                                     Follow
                                                 </motion.button>
@@ -195,7 +196,7 @@ const ProfileBio = () => {
                                                             leaveFrom="opacity-100 translate-y-0"
                                                             leaveTo="opacity-0 translate-y-1"
                                                         >
-                                                            <Popover.Panel className="absolute left-3/5 z-10 mt-3 max-w-sm -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-lg">
+                                                            <Popover.Panel className="left-3/5 absolute z-10 mt-3 max-w-sm -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-lg">
                                                                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                                                     <div className="relative flex flex-col gap-2 bg-white px-3 py-2">
                                                                         {solutions.map(
@@ -235,7 +236,7 @@ const ProfileBio = () => {
                         </div>
                         <div
                             className={
-                                'text-gray-500 text-xs grid grid-cols-6 lg:grid-cols-7 gap-3'
+                                'grid grid-cols-6 gap-3 text-xs text-gray-500 lg:grid-cols-7'
                             }
                         >
                             <div className={'col-span-3 lg:col-span-2'}>
@@ -243,20 +244,20 @@ const ProfileBio = () => {
                                 <div className={'flex flex-col gap-1'}>
                                     <div className={'flex flex-row gap-1'}>
                                         <HiLocationMarker
-                                            className={'w-5 h-5'}
+                                            className={'h-5 w-5'}
                                         />
                                         <div className={'text-sm'}>
                                             {sellerData.storeLocation}
                                         </div>
                                     </div>
                                     <div className={'flex flex-row gap-1'}>
-                                        <HiClock className={'w-5 h-5'} />
+                                        <HiClock className={'h-5 w-5'} />
                                         <div className={'text-sm'}>
                                             Last seen 1 hour ago
                                         </div>
                                     </div>
                                     <div className={'flex flex-row gap-1'}>
-                                        <HiRss className={'w-5 h-5'} />
+                                        <HiRss className={'h-5 w-5'} />
                                         <div className={'text-sm'}>
                                             <Link href={'#'}>
                                                 <a
@@ -285,7 +286,7 @@ const ProfileBio = () => {
                             <div className={'col-span-3 lg:col-span-5'}>
                                 <div className={'my-3'}>Verified info:</div>
                                 <div className={'flex flex-row gap-1'}>
-                                    <HiCheckCircle className={'w-5 h-5'} />
+                                    <HiCheckCircle className={'h-5 w-5'} />
                                     <div className={'text-sm'}>Email</div>
                                 </div>
                             </div>
@@ -294,7 +295,7 @@ const ProfileBio = () => {
                 </div>
                 <div className="max-w-full px-2 py-16 sm:px-0">
                     <Tab.Group>
-                        <Tab.List className="flex space-x-1 max-w-[12rem] bg-white p-1">
+                        <Tab.List className="flex max-w-[12rem] space-x-1 bg-white p-1">
                             {Object.keys(tabs).map((tab) => (
                                 <Tab
                                     key={tab}
@@ -303,7 +304,7 @@ const ProfileBio = () => {
                                             'w-full py-2.5 text-sm font-medium leading-5 text-gray-900',
                                             'ring-white ring-opacity-60 focus:outline-none focus:ring-2',
                                             selected
-                                                ? 'bg-white border-b border-susty'
+                                                ? 'border-b border-susty bg-white'
                                                 : 'text-gray-400 hover:bg-gray-50'
                                         )
                                     }
@@ -321,6 +322,7 @@ const ProfileBio = () => {
                             >
                                 <ul>
                                     <ProfileCloset
+                                        userId={userId}
                                         isSameUser={isSameUser}
                                         percentage={discountFromBundles}
                                     />
@@ -344,10 +346,10 @@ const ProfileBio = () => {
                     </Tab.Group>
                 </div>
             </div>
-            <div className={'block md:hidden divide-y-2 divide-gray-200'}>
+            <div className={'block divide-y-2 divide-gray-200 md:hidden'}>
                 <div className="max-w-full px-0 py-4">
                     <Tab.Group>
-                        <Tab.List className="flex space-x-1 max-w-full bg-white p-1">
+                        <Tab.List className="flex max-w-full space-x-1 bg-white p-1">
                             {Object.keys(tabs).map((tab) => (
                                 <Tab
                                     key={tab}
@@ -356,7 +358,7 @@ const ProfileBio = () => {
                                             'w-full py-2.5 text-sm font-medium leading-5 text-gray-900',
                                             'ring-white ring-opacity-60 focus:outline-none focus:ring-2',
                                             selected
-                                                ? 'bg-white border-b border-susty'
+                                                ? 'border-b border-susty bg-white'
                                                 : 'text-gray-400 hover:bg-gray-50'
                                         )
                                     }
@@ -375,12 +377,12 @@ const ProfileBio = () => {
                                 <ul>
                                     <div
                                         className={
-                                            'flex flex-col gap-5 items-center py-2 my-2'
+                                            'my-2 flex flex-col items-center gap-5 py-2'
                                         }
                                     >
                                         <div
                                             className={
-                                                'flex flex-row gap-3 items-center'
+                                                'flex flex-row items-center gap-3'
                                             }
                                         >
                                             <img
@@ -389,12 +391,12 @@ const ProfileBio = () => {
                                                 width={50}
                                                 height={50}
                                                 className={
-                                                    'w-16 h-16 object-cover rounded-full items-center'
+                                                    'h-16 w-16 items-center rounded-full object-cover'
                                                 }
                                             />
                                             <div
                                                 className={
-                                                    'flex flex-col gap-1 font-medium pr-5'
+                                                    'flex flex-col gap-1 pr-5 font-medium'
                                                 }
                                             >
                                                 <div
@@ -418,11 +420,13 @@ const ProfileBio = () => {
                                                         whileHover={{
                                                             scale: 1.02,
                                                         }}
-                                                        whileTap={{scale: 0.98}}
-                                                        className={`inline-flex items-center px-4 py-1.5 mr-2 border border-red-300 shadow-sm text-sm font-medium rounded-md text-susty bg-red-100 hover:bg-susty hover:text-white hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                                        whileTap={{
+                                                            scale: 0.98,
+                                                        }}
+                                                        className={`mr-2 inline-flex items-center rounded-md border border-red-300 bg-red-100 px-4 py-1.5 text-sm font-medium text-susty shadow-sm hover:border-susty hover:bg-susty hover:text-white focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                     >
                                                         <HiPencil
-                                                            className={`h-5 w-5 mr-2`}
+                                                            className={`mr-2 h-5 w-5`}
                                                         />
                                                         Edit profile
                                                     </motion.button>
@@ -431,7 +435,7 @@ const ProfileBio = () => {
                                                 <>
                                                     <div
                                                         className={
-                                                            'flex flex-row justify-center items-center gap-2'
+                                                            'flex flex-row items-center justify-center gap-2'
                                                         }
                                                     >
                                                         <motion.button
@@ -441,10 +445,10 @@ const ProfileBio = () => {
                                                             whileTap={{
                                                                 scale: 0.98,
                                                             }}
-                                                            className={`inline-flex items-center px-4 py-1.5 border border-red-300 shadow-sm text-sm font-medium rounded-md text-susty bg-red-100 hover:bg-susty hover:text-white hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                                            className={`inline-flex items-center rounded-md border border-red-300 bg-red-100 px-4 py-1.5 text-sm font-medium text-susty shadow-sm hover:border-susty hover:bg-susty hover:text-white focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                         >
                                                             <HiChatAlt
-                                                                className={`h-5 w-5 mr-2`}
+                                                                className={`mr-2 h-5 w-5`}
                                                             />
                                                             Message
                                                         </motion.button>
@@ -462,7 +466,7 @@ const ProfileBio = () => {
                                                                     whileTap={{
                                                                         scale: 0.98,
                                                                     }}
-                                                                    className={`inline-flex items-center px-4 py-1.5 border border-red-300 shadow-sm text-sm font-medium rounded-md text-white hover:text-susty bg-susty hover:bg-red-100 hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                                                    className={`inline-flex items-center rounded-md border border-red-300 bg-susty px-4 py-1.5 text-sm font-medium text-white shadow-sm hover:border-susty hover:bg-red-100 hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                                 >
                                                                     Following
                                                                 </motion.button>
@@ -481,7 +485,7 @@ const ProfileBio = () => {
                                                                     whileTap={{
                                                                         scale: 0.98,
                                                                     }}
-                                                                    className={`inline-flex items-center px-4 py-1.5 border border-red-300 shadow-sm text-sm font-medium rounded-md text-white hover:text-susty bg-susty hover:bg-red-100 hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                                                    className={`inline-flex items-center rounded-md border border-red-300 bg-susty px-4 py-1.5 text-sm font-medium text-white shadow-sm hover:border-susty hover:bg-red-100 hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                                 >
                                                                     Follow
                                                                 </motion.button>
@@ -520,7 +524,7 @@ const ProfileBio = () => {
                                                                             leaveFrom="opacity-100 translate-y-0"
                                                                             leaveTo="opacity-0 translate-y-1"
                                                                         >
-                                                                            <Popover.Panel className="absolute left-3/5 z-10 mt-3 max-w-sm -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-lg">
+                                                                            <Popover.Panel className="left-3/5 absolute z-10 mt-3 max-w-sm -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-lg">
                                                                                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                                                                     <div className="relative flex flex-col gap-2 bg-white px-3 py-2">
                                                                                         {solutions.map(
@@ -561,12 +565,12 @@ const ProfileBio = () => {
                                     </div>
                                     <div
                                         className={
-                                            'flex flex-col gap-0.5 text-gray-500 py-4'
+                                            'flex flex-col gap-0.5 py-4 text-gray-500'
                                         }
                                     >
                                         <div className={'flex flex-row gap-1'}>
                                             <HiCheckCircle
-                                                className={'w-5 h-5'}
+                                                className={'h-5 w-5'}
                                             />
                                             <div className={'text-sm'}>
                                                 Email
@@ -574,14 +578,14 @@ const ProfileBio = () => {
                                         </div>
                                         <div className={'flex flex-row gap-1'}>
                                             <HiLocationMarker
-                                                className={'w-5 h-5'}
+                                                className={'h-5 w-5'}
                                             />
                                             <div className={'text-sm'}>
                                                 {sellerData.storeLocation}
                                             </div>
                                         </div>
                                         <div className={'flex flex-row gap-1'}>
-                                            <HiRss className={'w-5 h-5'} />
+                                            <HiRss className={'h-5 w-5'} />
                                             <div className={'text-sm'}>
                                                 <Link href={'#'}>
                                                     <a
@@ -607,6 +611,7 @@ const ProfileBio = () => {
                                         </div>
                                     </div>
                                     <ProfileCloset
+                                        userId={userId}
                                         isSameUser={isSameUser}
                                         percentage={discountFromBundles}
                                     />
