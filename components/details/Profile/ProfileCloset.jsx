@@ -3,7 +3,7 @@ import {TbArrowBigUpLine} from 'react-icons/tb'
 import {BiChevronRight} from 'react-icons/bi'
 import SellerItems from '../../Lists/Seller/SellerItems'
 
-const ProfileCloset = ({isSameUser, percentage}) => {
+const ProfileCloset = ({userId, isSameUser, percentage}) => {
     return (
         <>
             <div className={'border border-gray-100 hover:bg-gray-50'}>
@@ -11,17 +11,17 @@ const ProfileCloset = ({isSameUser, percentage}) => {
                     <>
                         <div
                             className={
-                                'flex flex-row justify-between items-center p-3'
+                                'flex flex-row items-center justify-between p-3'
                             }
                         >
-                            <div className={'flex flex-row gap-5 items-center'}>
+                            <div className={'flex flex-row items-center gap-5'}>
                                 <div
                                     className={
-                                        'px-3 py-3 bg-green-200 rounded-full'
+                                        'rounded-full bg-green-200 px-3 py-3'
                                     }
                                 >
                                     <TbArrowBigUpLine
-                                        className={'w-8 h-8 text-green-900'}
+                                        className={'h-8 w-8 text-green-900'}
                                     />
                                 </div>
                                 <div className={'flex flex-col'}>
@@ -36,7 +36,7 @@ const ProfileCloset = ({isSameUser, percentage}) => {
                                 </div>
                             </div>
                             <BiChevronRight
-                                className={'w-8 h-8 text-gray-400'}
+                                className={'h-8 w-8 text-gray-400'}
                             />
                         </div>
                     </>
@@ -44,7 +44,7 @@ const ProfileCloset = ({isSameUser, percentage}) => {
                     <>
                         <div
                             className={
-                                'flex flex-row justify-between items-center p-3'
+                                'flex flex-row items-center justify-between p-3'
                             }
                         >
                             <div className={'flex flex-col'}>
@@ -54,14 +54,14 @@ const ProfileCloset = ({isSameUser, percentage}) => {
                                 </div>
                             </div>
                             <BiChevronRight
-                                className={'w-8 h-8 text-gray-400'}
+                                className={'h-8 w-8 text-gray-400'}
                             />
                         </div>
                     </>
                 )}
             </div>
-            <div className={'px-2 md:px-0 pt-8 pb-6'}>
-                <SellerItems isSameUser={isSameUser} />
+            <div className={'px-2 pt-8 pb-6 md:px-0'}>
+                <SellerItems userId={userId} isSameUser={isSameUser} />
             </div>
         </>
     )
