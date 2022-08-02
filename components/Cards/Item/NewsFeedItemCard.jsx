@@ -1,19 +1,26 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {HiInformationCircle} from 'react-icons/hi'
 import Link from 'next/link'
+import axios from 'axios'
 
 const NewsFeedItemCard = ({
-    username,
-    profileImg,
-    profileAlt,
     src,
     alt,
     price,
     size,
     brand,
+    userId,
 }) => {
+
     const [isFavourite, setIsFavourite] = useState(false)
+    const [userDetails, setUserDetails] = useState({})
     let favCount = 2
+
+    useEffect(() => {
+        axios.get('/api/user/fetch-user-details', {params: {userId}}).then((result) => {
+            setUserDetails(result.data.user)
+            })
+    }, [])
 
     return (
         <>
@@ -27,15 +34,18 @@ const NewsFeedItemCard = ({
                         <div
                             className={'flex flex-row gap-2 pl-4 items-center'}
                         >
-                            <img
-                                src={profileImg}
-                                alt={profileAlt}
-                                className={
-                                    'w-[1.75rem] h-[1.75rem] rounded-full object-cover'
-                                }
-                            />
+                            {userDetails.image && 
+                                <img
+                                    src={userDetails.image.url}
+                                    alt={userDetails.image.name}
+                                    className={
+                                        'w-[1.75rem] h-[1.75rem] rounded-full object-cover'
+                                    }
+                                />
+                            }
+                                
                             <p className={'text-xs text-gray-500 font-medium'}>
-                                {username}
+                                {userDetails.name}
                             </p>
                         </div>
                     </Link>
