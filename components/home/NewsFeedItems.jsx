@@ -3,16 +3,16 @@ import React, {useEffect, useState} from 'react'
 import NewsFeedItemCard from '../Cards/Item/NewsFeedItemCard'
 
 const NewsFeedItems = () => {
-
     const [products, setProducts] = useState([])
     const [productLimit, setProductLimit] = useState(10)
 
     useEffect(() => {
         async function getProducts() {
-            await axios.get('/api/product/fetch-products', {params: {productLimit}}).then((result) => 
-            setProducts(result.data.products))
+            await axios
+                .get('/api/product/fetch-products', {params: {productLimit}})
+                .then((result) => setProducts(result.data.products))
         }
-        getProducts();
+        getProducts()
     }, [])
 
     return (
@@ -24,11 +24,10 @@ const NewsFeedItems = () => {
                 }
             >
                 {products.map((item) => (
-                      <>
-                        <div key={item.id} 
-                        >
+                    <>
+                        <div key={item.id}>
                             <NewsFeedItemCard
-                                userId = {item.owner}
+                                userId={item.owner}
                                 src={item.images[0].url}
                                 alt={item.images[0].name}
                                 price={item.price}
