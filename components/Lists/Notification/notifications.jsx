@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react'
 
 const Notifications = () => {
     return (
@@ -122,7 +122,7 @@ const Notifications = () => {
                 </div>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default Notifications;
+export default Notifications
