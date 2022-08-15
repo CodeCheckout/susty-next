@@ -1,51 +1,53 @@
-import React, {useEffect, useState} from 'react'
-import {HiInformationCircle} from 'react-icons/hi'
-import Link from 'next/link'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react';
+import { HiInformationCircle } from 'react-icons/hi';
+import Link from 'next/link';
+import axios from 'axios';
 
-const NewsFeedItemCard = ({src, alt, price, size, brand, userId}) => {
-    const [isFavourite, setIsFavourite] = useState(false)
-    const [userDetails, setUserDetails] = useState({})
-    let favCount = 2
+const NewsFeedItemCard = ({ src, alt, price, size, brand, userId }) => {
+    const [isFavourite, setIsFavourite] = useState(false);
+    const [userDetails, setUserDetails] = useState({});
+    let favCount = 2;
 
     useEffect(() => {
         axios
-            .get('/api/user/fetch-user-details', {params: {userId}})
+            .get('/api/user/fetch-user-details', { params: { userId } })
             .then((result) => {
-                setUserDetails(result.data.user)
-            })
-    }, [])
+                setUserDetails(result.data.user);
+            });
+    }, []);
 
     return (
         <>
             <div
                 className={
-                    'box-content w-[10.5rem] sm:w-[18rem] md:w-[13.5rem] lg:w-[14.5rem] min-h-max'
+                    'box-content min-h-max w-[10.5rem] sm:w-[18rem] md:w-[13.5rem] lg:w-[14.5rem]'
                 }
             >
                 <div className={'flex flex-col gap-2'}>
                     <Link href={'/profile'}>
                         <div
-                            className={'flex flex-row gap-2 pl-4 items-center'}
+                            className={'flex flex-row items-center gap-2 pl-4'}
                         >
                             {userDetails.image && (
-                                <img
-                                    src={userDetails.image.url}
-                                    alt={userDetails.image.name}
-                                    className={
-                                        'w-[1.75rem] h-[1.75rem] rounded-full object-cover'
-                                    }
-                                />
+                                <>
+                                    <img
+                                        src={userDetails.image.url}
+                                        alt={userDetails.image.name}
+                                        className={
+                                            'h-[1.75rem] w-[1.75rem] rounded-full object-cover'
+                                        }
+                                    />
+                                </>
                             )}
 
-                            <p className={'text-xs text-gray-500 font-medium'}>
+                            <p className={'text-xs font-medium text-gray-500'}>
                                 {userDetails.name}
                             </p>
                         </div>
                     </Link>
                     <img
                         className={
-                            'h-[16.5rem] sm:h-[18rem] md:h-[22rem] lg:h-[22rem] w-[10.5rem] sm:w-[18rem] md:w-[13.5rem] lg:w-[14.5rem] object-cover'
+                            'h-[16.5rem] w-[10.5rem] object-cover sm:h-[18rem] sm:w-[18rem] md:h-[22rem] md:w-[13.5rem] lg:h-[22rem] lg:w-[14.5rem]'
                         }
                         src={src}
                         alt={alt}
@@ -53,23 +55,23 @@ const NewsFeedItemCard = ({src, alt, price, size, brand, userId}) => {
                         height={'full'}
                     />
                 </div>
-                <div className={'p-3 grid grid-cols-3'}>
+                <div className={'grid grid-cols-3 p-3'}>
                     <div className={'col-start-1 col-end-3'}>
                         <div className={'flex flex-col gap-0.5'}>
                             <div className={'flex flex-row gap-1'}>
-                                <div className={'font-semibold text-sm'}>
+                                <div className={'text-sm font-semibold'}>
                                     ${price}
                                 </div>
                                 <HiInformationCircle
                                     className={
-                                        'w-[1.25rem] h-[1.25rem] text-gray-500 text-sm'
+                                        'h-[1.25rem] w-[1.25rem] text-sm text-gray-500'
                                     }
                                 />
                             </div>
-                            <div className={'text-gray-500 text-xs'}>
+                            <div className={'text-xs text-gray-500'}>
                                 {size}
                             </div>
-                            <div className={'text-gray-500 text-xs'}>
+                            <div className={'text-xs text-gray-500'}>
                                 {brand}
                             </div>
                         </div>
@@ -77,7 +79,7 @@ const NewsFeedItemCard = ({src, alt, price, size, brand, userId}) => {
                     <div className={'col-start-3 col-end-4'}>
                         <div
                             className={
-                                'flex flex-row justify-end items-center gap-0.5 text-gray-400'
+                                'flex flex-row items-center justify-end gap-0.5 text-gray-400'
                             }
                         >
                             {isFavourite === true ? (
@@ -87,7 +89,7 @@ const NewsFeedItemCard = ({src, alt, price, size, brand, userId}) => {
                                         className="h-5 w-5 text-red-900"
                                         viewBox="0 0 20 20"
                                         onClick={() => {
-                                            setIsFavourite(false)
+                                            setIsFavourite(false);
                                         }}
                                         fill="currentColor"
                                     >
@@ -105,7 +107,7 @@ const NewsFeedItemCard = ({src, alt, price, size, brand, userId}) => {
                                         className="h-5 w-5"
                                         fill="none"
                                         onClick={() => {
-                                            setIsFavourite(true)
+                                            setIsFavourite(true);
                                         }}
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
@@ -123,7 +125,7 @@ const NewsFeedItemCard = ({src, alt, price, size, brand, userId}) => {
                                 <>
                                     <span
                                         className={
-                                            'text-gray-500 font-medium text-sm'
+                                            'text-sm font-medium text-gray-500'
                                         }
                                     >
                                         {favCount + 1}
@@ -133,7 +135,7 @@ const NewsFeedItemCard = ({src, alt, price, size, brand, userId}) => {
                                 <>
                                     <span
                                         className={
-                                            'text-gray-500 font-medium text-sm'
+                                            'text-sm font-medium text-gray-500'
                                         }
                                     >
                                         {favCount}
@@ -145,7 +147,7 @@ const NewsFeedItemCard = ({src, alt, price, size, brand, userId}) => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default NewsFeedItemCard
+export default NewsFeedItemCard;
