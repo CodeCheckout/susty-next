@@ -2,34 +2,35 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 
+
 const Notifications = () => {
-    const [notifications, setNotifications] = useState([]);
+    const [notifications, setNotifications] = useState([])
 
     //TODO check how to get the current user id - localstorage.getitem()
     useEffect(() => {
         const fetchNotifications = async () => {
             await axios
                 .get('/api/notification/getNotification', {
-                    params: { userId: 'Nuwan Chamikara' },
+                    params: {userId: 'Nuwan Chamikara'},
                 })
                 .then((result) => {
                     setTimeout(
                         () => setNotifications(result.data.notification),
                         1000
-                    );
+                    )
                 })
                 .then((result) => {
                     if (!result.data.notification) {
-                        return null;
+                        return null
                     }
                 })
                 .catch((err) => {
-                    console.log(err);
-                });
-        };
+                    console.log(err)
+                })
+        }
 
-        fetchNotifications();
-    }, []);
+        fetchNotifications()
+    }, [])
 
     return (
         <>
@@ -66,10 +67,8 @@ const Notifications = () => {
                                                 >
                                                     <span className="text-susty">
                                                         {item.partnerId}
-                                                    </span>
-                                                    {" "}
+                                                    </span>{' '}
                                                     <span>{item.message}</span>
-                                                    
                                                 </a>
                                                 <a
                                                     href="#"
@@ -87,7 +86,7 @@ const Notifications = () => {
                 </div>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default Notifications;
+export default Notifications
