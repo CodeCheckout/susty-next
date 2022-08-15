@@ -17,6 +17,7 @@
     "country-flag-icons": "^1.5.5",
     "firebase": "9.8.3",
     "framer-motion": "6.3.11",
+    "moment": "^2.29.4",
     "next": "latest",
     "next-http-proxy-middleware": "1.2.4",
     "react": "18.2.0",
