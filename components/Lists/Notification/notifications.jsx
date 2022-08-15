@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import moment from 'moment';
-
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
+import moment from 'moment'
 
 const Notifications = () => {
     const [notifications, setNotifications] = useState([])
@@ -74,7 +73,9 @@ const Notifications = () => {
                                                     href="#"
                                                     className="block w-full px-1 py-2 text-left"
                                                 >
-                                                {moment(item.createdAt).startOf('minute').fromNow()}
+                                                    {moment(item.createdAt)
+                                                        .startOf('minute')
+                                                        .fromNow()}
                                                 </a>
                                             </div>
                                         </button>
