@@ -2,6 +2,7 @@ import React from 'react'
 import {HiStar} from 'react-icons/hi'
 
 const RatesInClosetSpotlight = ({person, personD, id}) => {
+
     return (
         <div className={'flex flex-row items-center'} key={id}>
             {Array(Math.ceil(parseFloat(personD.rating)))
