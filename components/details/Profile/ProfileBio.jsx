@@ -14,6 +14,8 @@ import Link from 'next/link'
 import ProfileCloset from './ProfileCloset'
 import ProfileReviews from './ProfileReviews'
 import {BsThreeDots} from 'react-icons/bs'
+import {useEffect} from 'react'
+import axios from 'axios'
 
 const solutions = [
     {id: 1, name: 'Report', href: '#'},
@@ -55,17 +57,6 @@ const tabsStaticData = {
     ],
 }
 
-const sellerData = {
-    id: 1,
-    username: 'susty94',
-    profileImg:
-        'https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half-caption/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=0hb44OrI',
-    profileAlt: 'profile image',
-    storeLocation: 'PHILADELPHIA, PA, United States',
-}
-
-const discountFromBundles = '25%'
-
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
@@ -76,6 +67,20 @@ const ProfileBio = () => {
     const [isFollow, setIsFollow] = useState(false)
     const [anyReviews, setAnyReviews] = useState(true)
     const [userId, setUserId] = useState('629a8c2f26b267cc90f62991') // get user id
+    const [userDetails, setUserDetails] = useState()
+    const [discountFromBundles, setDiscountFromBundles] = useState('25%')
+
+    // get user details
+    useEffect(() => {
+        async function getUserDetails() {
+            await axios
+                .get('/api/user/fetch-user-details', {params: {userId}})
+                .then((result) => {
+                    setUserDetails(result.data.user)
+                })
+        }
+        getUserDetails()
+    }, [])
 
     return (
         <>
@@ -86,15 +91,23 @@ const ProfileBio = () => {
                     }
                 >
                     <div className={'col-span-3 lg:col-span-2'}>
-                        <img
-                            src={sellerData.profileImg}
-                            alt={sellerData.profileAlt}
-                            width={196}
-                            height={196}
-                            className={
-                                'mx-3 h-52 w-52 rounded-full object-cover'
-                            }
-                        />
+                        {userDetails && (
+                            <>
+                                {userDetails.image && (
+                                    <>
+                                        <img
+                                            src={userDetails.image.url}
+                                            alt={userDetails.image.name}
+                                            width={196}
+                                            height={196}
+                                            className={
+                                                'mx-3 h-52 w-52 rounded-full object-cover'
+                                            }
+                                        />
+                                    </>
+                                )}
+                            </>
+                        )}
                     </div>
                     <div className={'col-span-7 lg:col-span-9'}>
                         <div
@@ -103,9 +116,12 @@ const ProfileBio = () => {
                             }
                         >
                             <div className={'flex flex-col gap-1'}>
-                                <div className={'text-2xl font-medium'}>
-                                    {sellerData.username}
-                                </div>
+                                {userDetails && (
+                                    <div className={'text-2xl font-medium'}>
+                                        {userDetails.name}
+                                    </div>
+                                )}
+
                                 <div className={'text-sm text-gray-500'}>
                                     No reviews yet
                                 </div>
@@ -242,14 +258,17 @@ const ProfileBio = () => {
                             <div className={'col-span-3 lg:col-span-2'}>
                                 <div className={'my-3'}>About:</div>
                                 <div className={'flex flex-col gap-1'}>
-                                    <div className={'flex flex-row gap-1'}>
-                                        <HiLocationMarker
-                                            className={'h-5 w-5'}
-                                        />
-                                        <div className={'text-sm'}>
-                                            {sellerData.storeLocation}
+                                    {userDetails && (
+                                        <div className={'flex flex-row gap-1'}>
+                                            <HiLocationMarker
+                                                className={'h-5 w-5'}
+                                            />
+                                            <div className={'text-sm'}>
+                                                {userDetails.address}
+                                            </div>
                                         </div>
-                                    </div>
+                                    )}
+
                                     <div className={'flex flex-row gap-1'}>
                                         <HiClock className={'h-5 w-5'} />
                                         <div className={'text-sm'}>
@@ -265,7 +284,15 @@ const ProfileBio = () => {
                                                         'text-susty hover:underline'
                                                     }
                                                 >
-                                                    {0}
+                                                    {userDetails && (
+                                                        <>
+                                                            {
+                                                                userDetails
+                                                                    .followers
+                                                                    .length
+                                                            }
+                                                        </>
+                                                    )}
                                                 </a>
                                             </Link>{' '}
                                             followers,{' '}
@@ -275,7 +302,15 @@ const ProfileBio = () => {
                                                         'text-susty hover:underline'
                                                     }
                                                 >
-                                                    {0}
+                                                    {userDetails && (
+                                                        <>
+                                                            {
+                                                                userDetails
+                                                                    .following
+                                                                    .length
+                                                            }
+                                                        </>
+                                                    )}
                                                 </a>
                                             </Link>{' '}
                                             following
@@ -286,8 +321,25 @@ const ProfileBio = () => {
                             <div className={'col-span-3 lg:col-span-5'}>
                                 <div className={'my-3'}>Verified info:</div>
                                 <div className={'flex flex-row gap-1'}>
-                                    <HiCheckCircle className={'h-5 w-5'} />
-                                    <div className={'text-sm'}>Email</div>
+                                    {userDetails && (
+                                        <>
+                                            {userDetails.emailVerified ==
+                                            true ? (
+                                                <>
+                                                    <HiCheckCircle
+                                                        className={'h-5 w-5'}
+                                                    />
+                                                    <div className={'text-sm'}>
+                                                        Email
+                                                    </div>
+                                                </>
+                                            ) : (
+                                                <div className="text-red-600">
+                                                    Nothing
+                                                </div>
+                                            )}
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -338,7 +390,7 @@ const ProfileBio = () => {
                                     <ProfileReviews
                                         isSameUser={isSameUser}
                                         anyReviews={anyReviews}
-                                        seller={sellerData}
+                                        seller={userDetails}
                                     />
                                 </ul>
                             </Tab.Panel>
@@ -385,27 +437,43 @@ const ProfileBio = () => {
                                                 'flex flex-row items-center gap-3'
                                             }
                                         >
-                                            <img
-                                                src={sellerData.profileImg}
-                                                alt={sellerData.profileAlt}
-                                                width={50}
-                                                height={50}
-                                                className={
-                                                    'h-16 w-16 items-center rounded-full object-cover'
-                                                }
-                                            />
+                                            {userDetails && (
+                                                <>
+                                                    {userDetails.image && (
+                                                        <img
+                                                            src={
+                                                                userDetails
+                                                                    .image.url
+                                                            }
+                                                            alt={
+                                                                userDetails
+                                                                    .image.name
+                                                            }
+                                                            width={50}
+                                                            height={50}
+                                                            className={
+                                                                'h-16 w-16 items-center rounded-full object-cover'
+                                                            }
+                                                        />
+                                                    )}
+                                                </>
+                                            )}
+
                                             <div
                                                 className={
                                                     'flex flex-col gap-1 pr-5 font-medium'
                                                 }
                                             >
-                                                <div
-                                                    className={
-                                                        'text-2xl font-medium'
-                                                    }
-                                                >
-                                                    {sellerData.username}
-                                                </div>
+                                                {userDetails && (
+                                                    <div
+                                                        className={
+                                                            'text-2xl font-medium'
+                                                        }
+                                                    >
+                                                        {userDetails.name}
+                                                    </div>
+                                                )}
+
                                                 <div
                                                     className={'text-gray-500'}
                                                 >
@@ -576,14 +644,21 @@ const ProfileBio = () => {
                                                 Email
                                             </div>
                                         </div>
-                                        <div className={'flex flex-row gap-1'}>
-                                            <HiLocationMarker
-                                                className={'h-5 w-5'}
-                                            />
-                                            <div className={'text-sm'}>
-                                                {sellerData.storeLocation}
+                                        {userDetails && (
+                                            <div
+                                                className={
+                                                    'flex flex-row gap-1'
+                                                }
+                                            >
+                                                <HiLocationMarker
+                                                    className={'h-5 w-5'}
+                                                />
+                                                <div className={'text-sm'}>
+                                                    {userDetails.address}
+                                                </div>
                                             </div>
-                                        </div>
+                                        )}
+
                                         <div className={'flex flex-row gap-1'}>
                                             <HiRss className={'h-5 w-5'} />
                                             <div className={'text-sm'}>
@@ -593,7 +668,15 @@ const ProfileBio = () => {
                                                             'text-susty hover:underline'
                                                         }
                                                     >
-                                                        {0}
+                                                        {userDetails && (
+                                                            <>
+                                                                {
+                                                                    userDetails
+                                                                        .followers
+                                                                        .length
+                                                                }
+                                                            </>
+                                                        )}
                                                     </a>
                                                 </Link>{' '}
                                                 followers,{' '}
@@ -603,7 +686,15 @@ const ProfileBio = () => {
                                                             'text-susty hover:underline'
                                                         }
                                                     >
-                                                        {0}
+                                                        {userDetails && (
+                                                            <>
+                                                                {
+                                                                    userDetails
+                                                                        .following
+                                                                        .length
+                                                                }
+                                                            </>
+                                                        )}
                                                     </a>
                                                 </Link>{' '}
                                                 following
@@ -627,7 +718,7 @@ const ProfileBio = () => {
                                     <ProfileReviews
                                         isSameUser={isSameUser}
                                         anyReviews={anyReviews}
-                                        seller={sellerData}
+                                        seller={userDetails}
                                     />
                                 </ul>
                             </Tab.Panel>
