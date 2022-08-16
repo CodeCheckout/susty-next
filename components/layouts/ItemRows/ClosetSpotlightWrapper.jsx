@@ -24,8 +24,6 @@ const ClosetSpotlightWrapper = ({ children, seller }) => {
         ref.current.scrollLeft += scrollOffset;
     };
 
-    console.log(seller.products.length);
-
     return (
         <div className={'py-[2rem]'}>
             <div className={'flex flex-col gap-3'}>

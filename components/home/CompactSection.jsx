@@ -30,10 +30,10 @@ const CompactSection = () => {
     return (
         <>
             {sellers.map((seller, index) => (
-                <>
+                <div key={seller._id}>
                     <ClosetSpotlightItems seller={seller} />
                     <CommonItems items={items} />
-                    {(index + 1) % 1 == 0 && (
+                    {(index + 1) % 3 == 0 && (
                         <div className="flex items-center justify-center">
                             <button
                                 className={
@@ -44,11 +44,11 @@ const CompactSection = () => {
                                 }}
                             >
                                 <HiPlus className={'h-4 w-4'} />
-                                See more...
+                                See more
                             </button>
                         </div>
                     )}
-                </>
+                </div>
             ))}
         </>
     );

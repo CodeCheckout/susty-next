@@ -9,7 +9,7 @@ const CommonItems = ({ items }) => {
             }
         >
             {items.map((item) => (
-                <div key={item.id}>
+                <div key={item._id}>
                     <CommonItemCard
                         userId={item.owner}
                         src={item.images[0].url}
