@@ -1,6 +1,6 @@
-import React, {Fragment, useState} from 'react'
-import {Popover, Transition, Tab} from '@headlessui/react'
-import {motion} from 'framer-motion'
+import React, { Fragment, useState } from 'react';
+import { Popover, Transition, Tab } from '@headlessui/react';
+import { motion } from 'framer-motion';
 import {
     HiCheckCircle,
     HiClock,
@@ -8,17 +8,19 @@ import {
     HiPencil,
     HiRss,
     HiChatAlt,
-} from 'react-icons/hi'
+} from 'react-icons/hi';
 
-import Link from 'next/link'
-import ProfileCloset from './ProfileCloset'
-import ProfileReviews from './ProfileReviews'
-import {BsThreeDots} from 'react-icons/bs'
+import Link from 'next/link';
+import ProfileCloset from './ProfileCloset';
+import ProfileReviews from './ProfileReviews';
+import { BsThreeDots } from 'react-icons/bs';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 const solutions = [
-    {id: 1, name: 'Report', href: '#'},
-    {id: 2, name: 'Block', href: '#'},
-]
+    { id: 1, name: 'Report', href: '#' },
+    { id: 2, name: 'Block', href: '#' },
+];
 
 const tabsStaticData = {
     Closet: [
@@ -53,29 +55,32 @@ const tabsStaticData = {
             shareCount: 12,
         },
     ],
-}
-
-const sellerData = {
-    id: 1,
-    username: 'susty94',
-    profileImg:
-        'https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half-caption/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=0hb44OrI',
-    profileAlt: 'profile image',
-    storeLocation: 'PHILADELPHIA, PA, United States',
-}
-
-const discountFromBundles = '25%'
+};
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(' ');
 }
 
 const ProfileBio = () => {
-    const [tabs, setTabs] = useState(tabsStaticData)
-    const [isSameUser, setIsSameUser] = useState(false)
-    const [isFollow, setIsFollow] = useState(false)
-    const [anyReviews, setAnyReviews] = useState(true)
-    const [userId, setUserId] = useState('629a8c2f26b267cc90f62991') // get user id
+    const [tabs, setTabs] = useState(tabsStaticData);
+    const [isSameUser, setIsSameUser] = useState(false);
+    const [isFollow, setIsFollow] = useState(false);
+    const [anyReviews, setAnyReviews] = useState(true);
+    const [userId, setUserId] = useState('629a8c2f26b267cc90f62991'); // get user id
+    const [userDetails, setUserDetails] = useState();
+    const [discountFromBundles, setDiscountFromBundles] = useState('25%')
+
+    // get user details
+    useEffect(() => {
+        async function getUserDetails() {
+            await axios
+                .get('/api/user/fetch-user-details', { params: { userId } })
+                .then((result) => {
+                    setUserDetails(result.data.user);
+                });
+        }
+        getUserDetails();
+    }, []);
 
     return (
         <>
@@ -86,15 +91,23 @@ const ProfileBio = () => {
                     }
                 >
                     <div className={'col-span-3 lg:col-span-2'}>
-                        <img
-                            src={sellerData.profileImg}
-                            alt={sellerData.profileAlt}
-                            width={196}
-                            height={196}
-                            className={
-                                'mx-3 h-52 w-52 rounded-full object-cover'
-                            }
-                        />
+                        {userDetails && (
+                            <>
+                                {userDetails.image && (
+                                    <>
+                                        <img
+                                            src={userDetails.image.url}
+                                            alt={userDetails.image.name}
+                                            width={196}
+                                            height={196}
+                                            className={
+                                                'mx-3 h-52 w-52 rounded-full object-cover'
+                                            }
+                                        />
+                                    </>
+                                )}
+                            </>
+                        )}
                     </div>
                     <div className={'col-span-7 lg:col-span-9'}>
                         <div
@@ -103,9 +116,12 @@ const ProfileBio = () => {
                             }
                         >
                             <div className={'flex flex-col gap-1'}>
-                                <div className={'text-2xl font-medium'}>
-                                    {sellerData.username}
-                                </div>
+                                {userDetails && (
+                                    <div className={'text-2xl font-medium'}>
+                                        {userDetails.name}
+                                    </div>
+                                )}
+
                                 <div className={'text-sm text-gray-500'}>
                                     No reviews yet
                                 </div>
@@ -113,8 +129,8 @@ const ProfileBio = () => {
                             {isSameUser === true ? (
                                 <>
                                     <motion.button
-                                        whileHover={{scale: 1.02}}
-                                        whileTap={{scale: 0.98}}
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
                                         className={`mr-16 inline-flex max-w-fit items-center rounded-md border border-red-300 bg-red-100 px-4 py-1.5 text-sm font-medium text-susty shadow-sm hover:border-susty hover:bg-susty hover:text-white focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                     >
                                         <HiPencil className={`mr-2 h-5 w-5`} />
@@ -129,8 +145,8 @@ const ProfileBio = () => {
                                         }
                                     >
                                         <motion.button
-                                            whileHover={{scale: 1.02}}
-                                            whileTap={{scale: 0.98}}
+                                            whileHover={{ scale: 1.02 }}
+                                            whileTap={{ scale: 0.98 }}
                                             className={`inline-flex items-center rounded-md border border-red-300 bg-red-100 px-4 py-1.5 text-sm font-medium text-susty shadow-sm hover:border-susty hover:bg-susty hover:text-white focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                         >
                                             <HiChatAlt
@@ -142,10 +158,10 @@ const ProfileBio = () => {
                                             <>
                                                 <motion.button
                                                     onClick={() => {
-                                                        setIsFollow(false)
+                                                        setIsFollow(false);
                                                     }}
-                                                    whileHover={{scale: 1.02}}
-                                                    whileTap={{scale: 0.98}}
+                                                    whileHover={{ scale: 1.02 }}
+                                                    whileTap={{ scale: 0.98 }}
                                                     className={`inline-flex items-center rounded-md border border-red-300 bg-susty px-4 py-1.5 text-sm font-medium text-white shadow-sm hover:border-susty hover:bg-red-100 hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                 >
                                                     Following
@@ -155,10 +171,10 @@ const ProfileBio = () => {
                                             <>
                                                 <motion.button
                                                     onClick={() => {
-                                                        setIsFollow(true)
+                                                        setIsFollow(true);
                                                     }}
-                                                    whileHover={{scale: 1.02}}
-                                                    whileTap={{scale: 0.98}}
+                                                    whileHover={{ scale: 1.02 }}
+                                                    whileTap={{ scale: 0.98 }}
                                                     className={`inline-flex items-center rounded-md border border-red-300 bg-susty px-4 py-1.5 text-sm font-medium text-white shadow-sm hover:border-susty hover:bg-red-100 hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                 >
                                                     Follow
@@ -171,7 +187,7 @@ const ProfileBio = () => {
                                             }
                                         >
                                             <Popover>
-                                                {({open}) => (
+                                                {({ open }) => (
                                                     <>
                                                         <Popover.Button
                                                             className={`${
@@ -242,14 +258,17 @@ const ProfileBio = () => {
                             <div className={'col-span-3 lg:col-span-2'}>
                                 <div className={'my-3'}>About:</div>
                                 <div className={'flex flex-col gap-1'}>
-                                    <div className={'flex flex-row gap-1'}>
-                                        <HiLocationMarker
-                                            className={'h-5 w-5'}
-                                        />
-                                        <div className={'text-sm'}>
-                                            {sellerData.storeLocation}
+                                    {userDetails && (
+                                        <div className={'flex flex-row gap-1'}>
+                                            <HiLocationMarker
+                                                className={'h-5 w-5'}
+                                            />
+                                            <div className={'text-sm'}>
+                                                {userDetails.address}
+                                            </div>
                                         </div>
-                                    </div>
+                                    )}
+
                                     <div className={'flex flex-row gap-1'}>
                                         <HiClock className={'h-5 w-5'} />
                                         <div className={'text-sm'}>
@@ -265,7 +284,15 @@ const ProfileBio = () => {
                                                         'text-susty hover:underline'
                                                     }
                                                 >
-                                                    {0}
+                                                    {userDetails && (
+                                                        <>
+                                                            {
+                                                                userDetails
+                                                                    .followers
+                                                                    .length
+                                                            }
+                                                        </>
+                                                    )}
                                                 </a>
                                             </Link>{' '}
                                             followers,{' '}
@@ -275,7 +302,15 @@ const ProfileBio = () => {
                                                         'text-susty hover:underline'
                                                     }
                                                 >
-                                                    {0}
+                                                    {userDetails && (
+                                                        <>
+                                                            {
+                                                                userDetails
+                                                                    .following
+                                                                    .length
+                                                            }
+                                                        </>
+                                                    )}
                                                 </a>
                                             </Link>{' '}
                                             following
@@ -286,8 +321,26 @@ const ProfileBio = () => {
                             <div className={'col-span-3 lg:col-span-5'}>
                                 <div className={'my-3'}>Verified info:</div>
                                 <div className={'flex flex-row gap-1'}>
-                                    <HiCheckCircle className={'h-5 w-5'} />
-                                    <div className={'text-sm'}>Email</div>
+                                    {userDetails && (
+                                        <>
+                                            {userDetails.emailVerified ==
+                                                true ? (
+                                                <>
+                                                    <HiCheckCircle
+                                                        className={'h-5 w-5'}
+                                                    />
+                                                    <div className={'text-sm'}>
+                                                        Email
+                                                    </div>
+                                                </>
+                                            ): <div className='text-red-600'>
+                                                Nothing
+                                            </div>
+                                            
+                                            }
+                                        </>
+                                    )
+                                }
                                 </div>
                             </div>
                         </div>
@@ -299,7 +352,7 @@ const ProfileBio = () => {
                             {Object.keys(tabs).map((tab) => (
                                 <Tab
                                     key={tab}
-                                    className={({selected}) =>
+                                    className={({ selected }) =>
                                         classNames(
                                             'w-full py-2.5 text-sm font-medium leading-5 text-gray-900',
                                             'ring-white ring-opacity-60 focus:outline-none focus:ring-2',
@@ -338,7 +391,7 @@ const ProfileBio = () => {
                                     <ProfileReviews
                                         isSameUser={isSameUser}
                                         anyReviews={anyReviews}
-                                        seller={sellerData}
+                                        seller={userDetails}
                                     />
                                 </ul>
                             </Tab.Panel>
@@ -353,7 +406,7 @@ const ProfileBio = () => {
                             {Object.keys(tabs).map((tab) => (
                                 <Tab
                                     key={tab}
-                                    className={({selected}) =>
+                                    className={({ selected }) =>
                                         classNames(
                                             'w-full py-2.5 text-sm font-medium leading-5 text-gray-900',
                                             'ring-white ring-opacity-60 focus:outline-none focus:ring-2',
@@ -385,27 +438,43 @@ const ProfileBio = () => {
                                                 'flex flex-row items-center gap-3'
                                             }
                                         >
-                                            <img
-                                                src={sellerData.profileImg}
-                                                alt={sellerData.profileAlt}
-                                                width={50}
-                                                height={50}
-                                                className={
-                                                    'h-16 w-16 items-center rounded-full object-cover'
-                                                }
-                                            />
+                                            {userDetails && (
+                                                <>
+                                                    {userDetails.image && (
+                                                        <img
+                                                            src={
+                                                                userDetails
+                                                                    .image.url
+                                                            }
+                                                            alt={
+                                                                userDetails
+                                                                    .image.name
+                                                            }
+                                                            width={50}
+                                                            height={50}
+                                                            className={
+                                                                'h-16 w-16 items-center rounded-full object-cover'
+                                                            }
+                                                        />
+                                                    )}
+                                                </>
+                                            )}
+
                                             <div
                                                 className={
                                                     'flex flex-col gap-1 pr-5 font-medium'
                                                 }
                                             >
-                                                <div
-                                                    className={
-                                                        'text-2xl font-medium'
-                                                    }
-                                                >
-                                                    {sellerData.username}
-                                                </div>
+                                                {userDetails && (
+                                                    <div
+                                                        className={
+                                                            'text-2xl font-medium'
+                                                        }
+                                                    >
+                                                        {userDetails.name}
+                                                    </div>
+                                                )}
+
                                                 <div
                                                     className={'text-gray-500'}
                                                 >
@@ -458,7 +527,7 @@ const ProfileBio = () => {
                                                                     onClick={() => {
                                                                         setIsFollow(
                                                                             false
-                                                                        )
+                                                                        );
                                                                     }}
                                                                     whileHover={{
                                                                         scale: 1.02,
@@ -477,7 +546,7 @@ const ProfileBio = () => {
                                                                     onClick={() => {
                                                                         setIsFollow(
                                                                             true
-                                                                        )
+                                                                        );
                                                                     }}
                                                                     whileHover={{
                                                                         scale: 1.02,
@@ -497,7 +566,7 @@ const ProfileBio = () => {
                                                             }
                                                         >
                                                             <Popover>
-                                                                {({open}) => (
+                                                                {({ open }) => (
                                                                     <>
                                                                         <Popover.Button
                                                                             className={`${
@@ -576,14 +645,21 @@ const ProfileBio = () => {
                                                 Email
                                             </div>
                                         </div>
-                                        <div className={'flex flex-row gap-1'}>
-                                            <HiLocationMarker
-                                                className={'h-5 w-5'}
-                                            />
-                                            <div className={'text-sm'}>
-                                                {sellerData.storeLocation}
+                                        {userDetails && (
+                                            <div
+                                                className={
+                                                    'flex flex-row gap-1'
+                                                }
+                                            >
+                                                <HiLocationMarker
+                                                    className={'h-5 w-5'}
+                                                />
+                                                <div className={'text-sm'}>
+                                                    {userDetails.address}
+                                                </div>
                                             </div>
-                                        </div>
+                                        )}
+
                                         <div className={'flex flex-row gap-1'}>
                                             <HiRss className={'h-5 w-5'} />
                                             <div className={'text-sm'}>
@@ -593,7 +669,15 @@ const ProfileBio = () => {
                                                             'text-susty hover:underline'
                                                         }
                                                     >
-                                                        {0}
+                                                        {userDetails && (
+                                                            <>
+                                                                {
+                                                                    userDetails
+                                                                        .followers
+                                                                        .length
+                                                                }
+                                                            </>
+                                                        )}
                                                     </a>
                                                 </Link>{' '}
                                                 followers,{' '}
@@ -603,7 +687,15 @@ const ProfileBio = () => {
                                                             'text-susty hover:underline'
                                                         }
                                                     >
-                                                        {0}
+                                                        {userDetails && (
+                                                            <>
+                                                                {
+                                                                    userDetails
+                                                                        .following
+                                                                        .length
+                                                                }
+                                                            </>
+                                                        )}
                                                     </a>
                                                 </Link>{' '}
                                                 following
@@ -627,7 +719,7 @@ const ProfileBio = () => {
                                     <ProfileReviews
                                         isSameUser={isSameUser}
                                         anyReviews={anyReviews}
-                                        seller={sellerData}
+                                        seller={userDetails}
                                     />
                                 </ul>
                             </Tab.Panel>
@@ -636,7 +728,7 @@ const ProfileBio = () => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default ProfileBio
+export default ProfileBio;
