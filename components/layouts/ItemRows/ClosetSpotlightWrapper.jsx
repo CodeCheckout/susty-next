@@ -15,8 +15,8 @@ const personData = [
     },
 ]
 
-const ClosetSpotlightWrapper = ({children}) => {
-    const [person, setPerson] = useState(personData)
+const ClosetSpotlightWrapper = ({children, seller}) => {
+    const [person, setPerson] = useState([seller])
 
     const ref = useRef(null)
 
@@ -29,7 +29,7 @@ const ClosetSpotlightWrapper = ({children}) => {
             <div className={'flex flex-col gap-3'}>
                 <div
                     className={
-                        'flex flex-row justify-between items-center py-5'
+                        'flex flex-row items-center justify-between py-5'
                     }
                 >
                     <p className={'text-2xl font-medium capitalize'}>
@@ -37,7 +37,7 @@ const ClosetSpotlightWrapper = ({children}) => {
                     </p>
                     <div
                         className={
-                            'px-2.5 py-1 mr-10 text-sm text-susty hover:bg-red-50'
+                            'mr-10 px-2.5 py-1 text-sm text-susty hover:bg-red-50'
                         }
                     >
                         <Link href="#">
@@ -47,46 +47,47 @@ const ClosetSpotlightWrapper = ({children}) => {
                 </div>
                 <div
                     className={
-                        'flex flex-row justify-between items-center py-5 mr-4'
+                        'mr-4 flex flex-row items-center justify-between py-5'
                     }
                 >
-                    <div>
-                        {person.map((personD) => (
-                            <div
-                                key={personD.id}
-                                className={'flex flex-row gap-2'}
-                            >
-                                <Link href={'/profile'}>
+                    {person.map((personD) => (
+                        <div
+                            key={personD._id}
+                            className={'flex flex-row gap-2'}
+                        >
+                            <Link href={'/profile'}>
+                                {personD.image && (
                                     <img
-                                        src={personD.profileImg}
-                                        alt={personD.profileAlt}
+                                        src={personD.image.url}
+                                        alt={personD.image.name}
                                         className={
-                                            'w-[3rem] h-[3rem] rounded-full'
+                                            'h-[3rem] w-[3rem] rounded-full'
                                         }
                                     />
-                                </Link>
-                                <Link href={'/profile'}>
-                                    <div className={'flex flex-col'}>
-                                        <div className={'font-medium'}>
-                                            {personD.username}
-                                        </div>
-                                        <RatesInClosetSpotlight
-                                            id={personD.id}
-                                            personD={personD}
-                                            person={person}
-                                        />
+                                )}
+                            </Link>
+                            <Link href={'/profile'}>
+                                <div className={'flex flex-col'}>
+                                    <div className={'font-medium'}>
+                                        {personD.name}
                                     </div>
-                                </Link>
-                            </div>
-                        ))}
-                    </div>
+                                    <RatesInClosetSpotlight
+                                        id={personD._id}
+                                        personD={personD}
+                                        person={person}
+                                    />
+                                </div>
+                            </Link>
+                        </div>
+                    ))}
+
                     <Link href={'/profile'}>
                         <button
                             className={
-                                'inline-flex gap-1 items-center px-2.5 py-1.5 rounded-md text-white text-xs font-semibold bg-susty'
+                                'inline-flex items-center gap-1 rounded-md bg-susty px-2.5 py-1.5 text-xs font-semibold text-white'
                             }
                         >
-                            <HiPlus className={'w-4 h-4'} />
+                            <HiPlus className={'h-4 w-4'} />
                             Follow
                         </button>
                     </Link>
@@ -94,47 +95,51 @@ const ClosetSpotlightWrapper = ({children}) => {
             </div>
             <div
                 className={
-                    'overflow-x-hidden overflow-y-hidden scroll-smooth max-w-[36rem] sm:max-w-[42rem] lg:max-w-[80rem] flex flex-row gap-3  '
+                    'flex max-w-[36rem] flex-row gap-3 overflow-x-hidden overflow-y-hidden scroll-smooth sm:max-w-[42rem] lg:max-w-[80rem]  '
                 }
                 ref={ref}
             >
                 <div
-                    className={`lg:hidden absolute -left-[0.5rem] lg:left-[1rem]`}
+                    className={`absolute -left-[0.5rem] lg:left-[1rem] lg:hidden`}
                 >
                     <div
                         onClick={() => {
                             scroll(-100)
                         }}
                         className={
-                            'absolute h-[2.5rem] w-[2.5rem] grid place-items-center left-[1rem] top-[9rem] bg-black bg-opacity-70 rounded-full cursor-pointer'
+                            'absolute left-[1rem] top-[9rem] grid h-[2.5rem] w-[2.5rem] cursor-pointer place-items-center rounded-full bg-black bg-opacity-70'
                         }
                     >
                         <HiChevronLeft
-                            className={'text-white w-[2.5rem] h-[2.5rem]'}
+                            className={'h-[2.5rem] w-[2.5rem] text-white'}
                         />
                     </div>
                 </div>
                 {children}
                 <div
                     className={
-                        'min-w-max lg:w-[12.5rem] h-[18rem] px-8 my-3 lg:my-0 bg-gray-200 inline-flex items-center place-content-center'
+                        'my-3 inline-flex h-[18rem] min-w-max place-content-center items-center bg-gray-200 px-8 lg:my-0 lg:w-[12.5rem]'
                     }
                 >
-                    <div className={'text-gray-500'}>View all {309} items</div>
+                    {seller.products && (
+                        <div className={'text-gray-500'}>
+                            View all {seller.products.length} items
+                        </div>
+                    )}
                 </div>
                 <div
-                    className={`lg:hidden absolute -right-[0.5rem] lg:right-[1rem]`}
+                    className={`absolute -right-[0.5rem] lg:right-[1rem] lg:hidden`}
                 >
                     <div
                         onClick={() => {
                             scroll(100)
                         }}
                         className={
-                            'absolute h-[2.5rem] w-[2.5rem] place-items-center right-[1rem] top-[9rem] bg-black bg-opacity-70 rounded-full cursor-pointer'
+                            'absolute right-[1rem] top-[9rem] h-[2.5rem] w-[2.5rem] cursor-pointer place-items-center rounded-full bg-black bg-opacity-70'
                         }
                     >
                         <HiChevronRight
-                            className={'text-white w-[2.5rem] h-[2.5rem]'}
+                            className={'h-[2.5rem] w-[2.5rem] text-white'}
                         />
                     </div>
                 </div>
