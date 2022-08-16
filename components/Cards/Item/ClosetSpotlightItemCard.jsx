@@ -1,25 +1,25 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { HiInformationCircle } from 'react-icons/hi';
+import axios from 'axios'
+import React, {useState} from 'react'
+import {useEffect} from 'react'
+import {HiInformationCircle} from 'react-icons/hi'
 
-const ClosetSpotlightItemCard = ({ item }) => {
-    const [isFavourite, setIsFavourite] = useState(false);
-    const [product, setProduct] = useState();
-    let favCount = 2;
+const ClosetSpotlightItemCard = ({item}) => {
+    const [isFavourite, setIsFavourite] = useState(false)
+    const [product, setProduct] = useState()
+    let favCount = 2
 
     useEffect(() => {
         async function getDetails() {
             await axios
                 .get('/api/product/fetch-single-product', {
-                    params: { productId: item },
+                    params: {productId: item},
                 })
                 .then((result) => {
-                    setProduct(result.data.product);
-                });
+                    setProduct(result.data.product)
+                })
         }
-        getDetails();
-    }, []);
+        getDetails()
+    }, [])
 
     return (
         <>
@@ -72,7 +72,7 @@ const ClosetSpotlightItemCard = ({ item }) => {
                                         className="h-5 w-5 text-red-900"
                                         viewBox="0 0 20 20"
                                         onClick={() => {
-                                            setIsFavourite(false);
+                                            setIsFavourite(false)
                                         }}
                                         fill="currentColor"
                                     >
@@ -90,7 +90,7 @@ const ClosetSpotlightItemCard = ({ item }) => {
                                         className="h-5 w-5"
                                         fill="none"
                                         onClick={() => {
-                                            setIsFavourite(true);
+                                            setIsFavourite(true)
                                         }}
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
@@ -179,7 +179,7 @@ const ClosetSpotlightItemCard = ({ item }) => {
                                                             onClick={() => {
                                                                 setIsFavourite(
                                                                     false
-                                                                );
+                                                                )
                                                             }}
                                                             fill="currentColor"
                                                         >
@@ -199,7 +199,7 @@ const ClosetSpotlightItemCard = ({ item }) => {
                                                             onClick={() => {
                                                                 setIsFavourite(
                                                                     true
-                                                                );
+                                                                )
                                                             }}
                                                             viewBox="0 0 24 24"
                                                             stroke="currentColor"
@@ -250,7 +250,7 @@ const ClosetSpotlightItemCard = ({ item }) => {
                 </div>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default ClosetSpotlightItemCard;
+export default ClosetSpotlightItemCard

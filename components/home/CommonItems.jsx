@@ -1,7 +1,7 @@
-import React from 'react';
-import CommonItemCard from '../Cards/Item/CommonItemCard';
+import React from 'react'
+import CommonItemCard from '../Cards/Item/CommonItemCard'
 
-const CommonItems = ({ items }) => {
+const CommonItems = ({items}) => {
     return (
         <div
             className={
@@ -21,7 +21,7 @@ const CommonItems = ({ items }) => {
                 </div>
             ))}
         </div>
-    );
-};
+    )
+}
 
-export default CommonItems;
+export default CommonItems

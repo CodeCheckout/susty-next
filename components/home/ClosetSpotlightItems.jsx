@@ -1,8 +1,8 @@
-import React from 'react';
-import ClosetSpotlightWrapper from '../layouts/ItemRows/ClosetSpotlightWrapper';
-import ClosetSpotlightItemCard from '../Cards/Item/ClosetSpotlightItemCard';
+import React from 'react'
+import ClosetSpotlightWrapper from '../layouts/ItemRows/ClosetSpotlightWrapper'
+import ClosetSpotlightItemCard from '../Cards/Item/ClosetSpotlightItemCard'
 
-const ClosetSpotlightItems = ({ seller }) => {
+const ClosetSpotlightItems = ({seller}) => {
     return (
         <>
             <ClosetSpotlightWrapper seller={seller} key={seller._id}>
@@ -13,7 +13,7 @@ const ClosetSpotlightItems = ({ seller }) => {
                 ))}
             </ClosetSpotlightWrapper>
         </>
-    );
-};
+    )
+}
 
-export default ClosetSpotlightItems;
+export default ClosetSpotlightItems

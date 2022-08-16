@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
-import { HiChevronLeft, HiChevronRight, HiPlus } from 'react-icons/hi';
-import Link from 'next/link';
-import RatesInClosetSpotlight from '../../details/RatesInClosetSpotlight';
+import React, {useRef, useState} from 'react'
+import {HiChevronLeft, HiChevronRight, HiPlus} from 'react-icons/hi'
+import Link from 'next/link'
+import RatesInClosetSpotlight from '../../details/RatesInClosetSpotlight'
 
 const personData = [
     {
@@ -13,16 +13,16 @@ const personData = [
         rating: 2.1,
         noOfVotes: 50,
     },
-];
+]
 
-const ClosetSpotlightWrapper = ({ children, seller }) => {
-    const [person, setPerson] = useState([seller]);
+const ClosetSpotlightWrapper = ({children, seller}) => {
+    const [person, setPerson] = useState([seller])
 
-    const ref = useRef(null);
+    const ref = useRef(null)
 
     const scroll = (scrollOffset) => {
-        ref.current.scrollLeft += scrollOffset;
-    };
+        ref.current.scrollLeft += scrollOffset
+    }
 
     return (
         <div className={'py-[2rem]'}>
@@ -104,7 +104,7 @@ const ClosetSpotlightWrapper = ({ children, seller }) => {
                 >
                     <div
                         onClick={() => {
-                            scroll(-100);
+                            scroll(-100)
                         }}
                         className={
                             'absolute left-[1rem] top-[9rem] grid h-[2.5rem] w-[2.5rem] cursor-pointer place-items-center rounded-full bg-black bg-opacity-70'
@@ -132,7 +132,7 @@ const ClosetSpotlightWrapper = ({ children, seller }) => {
                 >
                     <div
                         onClick={() => {
-                            scroll(100);
+                            scroll(100)
                         }}
                         className={
                             'absolute right-[1rem] top-[9rem] h-[2.5rem] w-[2.5rem] cursor-pointer place-items-center rounded-full bg-black bg-opacity-70'
@@ -145,7 +145,7 @@ const ClosetSpotlightWrapper = ({ children, seller }) => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default ClosetSpotlightWrapper;
+export default ClosetSpotlightWrapper
