@@ -19,7 +19,7 @@ const CompactSection = () => {
 
     const onSeeMoreClick = (number) => {
         axios
-            .get('/api/product/fetchProductFor', {
+            .get('/api/product/fetch-continuos-products', {
                 params: { productsFrom: number },
             })
             .then((result) => {
