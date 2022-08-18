@@ -1,45 +1,45 @@
-import { Fragment } from 'react';
-import { Popover, Transition } from '@headlessui/react';
-import { IoNotificationsOutline } from 'react-icons/io5';
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import moment from 'moment';
+import {Fragment} from 'react'
+import {Popover, Transition} from '@headlessui/react'
+import {IoNotificationsOutline} from 'react-icons/io5'
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
+import moment from 'moment'
 
 const Notification = () => {
-    const [notifications, setNotifications] = useState([]);
+    const [notifications, setNotifications] = useState([])
 
     //TODO check how to get the current user id - localstorage.getitem()
     useEffect(() => {
         const fetchNotifications = async () => {
             await axios
                 .get('/api/notification/getNotification', {
-                    params: { user: '62de47ab819e077df87d0661' },
+                    params: {user: '62de47ab819e077df87d0661'},
                 })
                 .then((result) => {
                     setTimeout(
                         () => setNotifications(result.data.notification),
                         1000
-                    );
+                    )
                 })
                 .then((result) => {
                     if (!result.data.notification) {
-                        return null;
+                        return null
                     }
                 })
                 .catch((err) => {
-                    console.log(err);
-                });
-        };
+                    console.log(err)
+                })
+        }
 
-        fetchNotifications();
-    }, []);
+        fetchNotifications()
+    }, [])
 
     function classNames(...classes) {
-        return classes.filter(Boolean).join(' ');
+        return classes.filter(Boolean).join(' ')
     }
     return (
         <Popover className="relative">
-            {({ open }) => (
+            {({open}) => (
                 <>
                     <Popover.Button
                         className={classNames(
@@ -120,7 +120,7 @@ const Notification = () => {
                 </>
             )}
         </Popover>
-    );
-};
+    )
+}
 
-export default Notification;
+export default Notification
