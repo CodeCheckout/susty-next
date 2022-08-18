@@ -10,7 +10,7 @@ const Notifications = () => {
         const fetchNotifications = async () => {
             await axios
                 .get('/api/notification/getNotification', {
-                    params: {userId: 'Nuwan Chamikara'},
+                    params: {user: '62de47ab819e077df87d0661'},
                 })
                 .then((result) => {
                     setTimeout(
