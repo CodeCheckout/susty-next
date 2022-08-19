@@ -91,7 +91,9 @@ const Setup = () => {
                                                         {monthList.map(
                                                             (month, index) => (
                                                                 <div
-                                                                    key={month.id}
+                                                                    key={
+                                                                        month.id
+                                                                    }
                                                                 >
                                                                     <div>
                                                                         <Listbox.Option

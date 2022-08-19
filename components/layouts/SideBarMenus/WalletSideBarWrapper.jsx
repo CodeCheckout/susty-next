@@ -121,46 +121,47 @@ const WalletSideBarWrapper = ({
                                                                                     (
                                                                                         subItem,
                                                                                         idx
-                                                                                    ) =>  (
-                                                                                            <div key={subItem.id}>
-                                                                                                {subItem.id && (
+                                                                                    ) => (
+                                                                                        <div
+                                                                                            key={
+                                                                                                subItem.id
+                                                                                            }
+                                                                                        >
+                                                                                            {subItem.id && (
+                                                                                                <div
+                                                                                                    key={
+                                                                                                        subItem.id
+                                                                                                    }
+                                                                                                >
                                                                                                     <div
-                                                                                                        key={
-                                                                                                            subItem.id
-                                                                                                        }
+                                                                                                        onClick={() => {
+                                                                                                            setSidebarElement(
+                                                                                                                subItem.component
+                                                                                                            )
+                                                                                                            setSelectedItem(
+                                                                                                                subItem.id
+                                                                                                            )
+                                                                                                        }}
+                                                                                                        className={classNames(
+                                                                                                            selectedItem ===
+                                                                                                                subItem.id
+                                                                                                                ? 'cursor-pointer font-semibold text-gray-700'
+                                                                                                                : 'text-gray-500 hover:bg-slate-200 ',
+                                                                                                            'group flex cursor-pointer items-center rounded-md px-4 py-2'
+                                                                                                        )}
                                                                                                     >
-                                                                                                        <div
-                                                                                                            onClick={() => {
-                                                                                                                setSidebarElement(
-                                                                                                                    subItem.component
-                                                                                                                )
-                                                                                                                setSelectedItem(
-                                                                                                                    subItem.id
-                                                                                                                )
-                                                                                                            }}
-                                                                                                            className={classNames(
-                                                                                                                selectedItem ===
-                                                                                                                    subItem.id
-                                                                                                                    ? 'cursor-pointer font-semibold text-gray-700'
-                                                                                                                    : 'text-gray-500 hover:bg-slate-200 ',
-                                                                                                                'group flex cursor-pointer items-center rounded-md px-4 py-2'
-                                                                                                            )}
-                                                                                                        >
-                                                                                                            <div>
-                                                                                                                <p className="cursor-pointer text-left text-gray-500 transition ease-in-out">
-                                                                                                                    {
-                                                                                                                        subItem.name
-                                                                                                                    }
-                                                                                                                </p>
-                                                                                                            </div>
+                                                                                                        <div>
+                                                                                                            <p className="cursor-pointer text-left text-gray-500 transition ease-in-out">
+                                                                                                                {
+                                                                                                                    subItem.name
+                                                                                                                }
+                                                                                                            </p>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                )}
-
-                                                                                            </div>
-                                                                                        )
-                                                                                    
-
+                                                                                                </div>
+                                                                                            )}
+                                                                                        </div>
+                                                                                    )
                                                                                 )}
                                                                         </Disclosure.Panel>
                                                                     </>
@@ -231,7 +232,11 @@ const WalletSideBarWrapper = ({
                                                                                 idx
                                                                             ) => {
                                                                                 return (
-                                                                                    <div key={subItem.id}>
+                                                                                    <div
+                                                                                        key={
+                                                                                            subItem.id
+                                                                                        }
+                                                                                    >
                                                                                         {subItem.id && (
                                                                                             <div
                                                                                                 key={
@@ -265,10 +270,8 @@ const WalletSideBarWrapper = ({
                                                                                                 </div>
                                                                                             </div>
                                                                                         )}
-
                                                                                     </div>
-                                                                                );
-
+                                                                                )
                                                                             }
                                                                         )}
                                                                 </Disclosure.Panel>
