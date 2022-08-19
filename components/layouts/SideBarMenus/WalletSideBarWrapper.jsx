@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import { Dialog, Disclosure, Transition } from '@headlessui/react';
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import React, {Fragment} from 'react'
+import {Dialog, Disclosure, Transition} from '@headlessui/react'
+import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ');
+    return classes.filter(Boolean).join(' ')
 }
 
 const WalletSideBarWrapper = ({
@@ -88,7 +88,7 @@ const WalletSideBarWrapper = ({
                                                     (item, idx) => (
                                                         <div key={item.id}>
                                                             <Disclosure>
-                                                                {({ open }) => (
+                                                                {({open}) => (
                                                                     <>
                                                                         <Disclosure.Button
                                                                             key={
@@ -97,10 +97,10 @@ const WalletSideBarWrapper = ({
                                                                             onClick={() => {
                                                                                 setSidebarElement(
                                                                                     item.component
-                                                                                );
+                                                                                )
                                                                                 setSelectedItem(
                                                                                     item.id
-                                                                                );
+                                                                                )
                                                                             }}
                                                                             className={classNames(
                                                                                 selectedItem ===
@@ -133,10 +133,10 @@ const WalletSideBarWrapper = ({
                                                                                                             onClick={() => {
                                                                                                                 setSidebarElement(
                                                                                                                     subItem.component
-                                                                                                                );
+                                                                                                                )
                                                                                                                 setSelectedItem(
                                                                                                                     subItem.id
-                                                                                                                );
+                                                                                                                )
                                                                                                             }}
                                                                                                             className={classNames(
                                                                                                                 selectedItem ===
@@ -156,9 +156,11 @@ const WalletSideBarWrapper = ({
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 )}
+
                                                                                             </div>
                                                                                         )
                                                                                     
+
                                                                                 )}
                                                                         </Disclosure.Panel>
                                                                     </>
@@ -196,7 +198,7 @@ const WalletSideBarWrapper = ({
                                             {arrayElements.map((item, idx) => (
                                                 <div key={item.id}>
                                                     <Disclosure>
-                                                        {({ open }) => (
+                                                        {({open}) => (
                                                             <>
                                                                 <Disclosure.Button
                                                                     key={
@@ -205,10 +207,10 @@ const WalletSideBarWrapper = ({
                                                                     onClick={() => {
                                                                         setSidebarElement(
                                                                             item.component
-                                                                        );
+                                                                        )
                                                                         setSelectedItem(
                                                                             item.id
-                                                                        );
+                                                                        )
                                                                     }}
                                                                     className={classNames(
                                                                         selectedItem ===
@@ -240,10 +242,10 @@ const WalletSideBarWrapper = ({
                                                                                                     onClick={() => {
                                                                                                         setSidebarElement(
                                                                                                             subItem.component
-                                                                                                        );
+                                                                                                        )
                                                                                                         setSelectedItem(
                                                                                                             subItem.id
-                                                                                                        );
+                                                                                                        )
                                                                                                     }}
                                                                                                     className={classNames(
                                                                                                         selectedItem ===
@@ -263,8 +265,10 @@ const WalletSideBarWrapper = ({
                                                                                                 </div>
                                                                                             </div>
                                                                                         )}
+
                                                                                     </div>
                                                                                 );
+
                                                                             }
                                                                         )}
                                                                 </Disclosure.Panel>
@@ -316,7 +320,7 @@ const WalletSideBarWrapper = ({
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default WalletSideBarWrapper;
+export default WalletSideBarWrapper

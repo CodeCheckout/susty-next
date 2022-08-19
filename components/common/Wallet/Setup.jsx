@@ -1,30 +1,30 @@
-import React, { Fragment, useState } from 'react';
-import { AiOutlinePlus } from 'react-icons/ai';
-import { Menu, Popover, Transition, Listbox } from '@headlessui/react';
-import { HiSelector } from 'react-icons/hi';
+import React, {Fragment, useState} from 'react'
+import {AiOutlinePlus} from 'react-icons/ai'
+import {Menu, Popover, Transition, Listbox} from '@headlessui/react'
+import {HiSelector} from 'react-icons/hi'
 
 const month = [
-    { id: '15261cf9-8af5-437a-b74a-57c1c67acccc', name: 'January' },
-    { id: '7525a3fb-4b3b-4cc9-bf76-469505cc2a0d', name: 'February' },
-    { id: 'deec776c-b19f-4489-97c6-88460df93088', name: 'March' },
-    { id: 'b07f174a-3d9c-4fee-ae64-93af554dfbb5', name: 'April' },
-    { id: '0279a461-5844-435b-835d-c745f4bf6318', name: 'May' },
-    { id: '4c4faf19-f859-4a63-9388-5719be6394d1', name: 'June' },
-    { id: '718d1e9c-6cc9-4337-b4c8-289343bf0b0b', name: 'July' },
-    { id: '449075c5-aef2-48de-a494-161ec62dd837', name: 'August' },
-    { id: '70f90482-1441-4c28-bfb4-7d0b77a53fbf', name: 'September' },
-    { id: '717df3f6-9798-4f4b-96fa-6d2c09c3b0a7', name: 'Octomber' },
-    { id: '5b82ed7f-e52f-4565-82c8-3fcae640f3b3', name: 'November' },
-    { id: '5411e173-04c6-4722-be0d-35bd6b9c3269', name: 'December' },
-];
+    {id: '15261cf9-8af5-437a-b74a-57c1c67acccc', name: 'January'},
+    {id: '7525a3fb-4b3b-4cc9-bf76-469505cc2a0d', name: 'February'},
+    {id: 'deec776c-b19f-4489-97c6-88460df93088', name: 'March'},
+    {id: 'b07f174a-3d9c-4fee-ae64-93af554dfbb5', name: 'April'},
+    {id: '0279a461-5844-435b-835d-c745f4bf6318', name: 'May'},
+    {id: '4c4faf19-f859-4a63-9388-5719be6394d1', name: 'June'},
+    {id: '718d1e9c-6cc9-4337-b4c8-289343bf0b0b', name: 'July'},
+    {id: '449075c5-aef2-48de-a494-161ec62dd837', name: 'August'},
+    {id: '70f90482-1441-4c28-bfb4-7d0b77a53fbf', name: 'September'},
+    {id: '717df3f6-9798-4f4b-96fa-6d2c09c3b0a7', name: 'Octomber'},
+    {id: '5b82ed7f-e52f-4565-82c8-3fcae640f3b3', name: 'November'},
+    {id: '5411e173-04c6-4722-be0d-35bd6b9c3269', name: 'December'},
+]
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ');
+    return classes.filter(Boolean).join(' ')
 }
 
 const Setup = () => {
-    const [monthList, setMonthList] = useState(month);
-    const [selectedMonth, setSelectedMonth] = useState(month[0].name);
+    const [monthList, setMonthList] = useState(month)
+    const [selectedMonth, setSelectedMonth] = useState(month[0].name)
 
     return (
         <>
@@ -35,9 +35,7 @@ const Setup = () => {
                     </div>
 
                     <div className={`my-4 grid grid-cols-5 pb-2`}>
-                        <p
-                            className={`col-span-2 text-sm sm:text-base`}
-                        >
+                        <p className={`col-span-2 text-sm sm:text-base`}>
                             Account holder's name
                         </p>
                         <input
@@ -47,7 +45,7 @@ const Setup = () => {
                             placeholder="Susty spy"
                         />
                     </div>
-                    
+
                     <div className={`my-4 grid grid-cols-5 pb-2`}>
                         <p className={`col-span-2 text-sm sm:text-base`}>
                             Date of birth
@@ -65,7 +63,7 @@ const Setup = () => {
                                     value={selectedMonth}
                                     onChange={setSelectedMonth}
                                 >
-                                    {({ open }) => (
+                                    {({open}) => (
                                         <>
                                             <div className="relative mt-1 w-full">
                                                 <Listbox.Button className="relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left text-sm shadow-sm focus:border-susty focus:outline-none focus:ring-0 focus:ring-susty">
@@ -174,9 +172,7 @@ const Setup = () => {
                         </div>
                     </div>
                     <div className={`my-4 grid grid-cols-5 pb-2`}>
-                        <p
-                            className={`col-span-2 text-sm sm:text-base `}
-                        >
+                        <p className={`col-span-2 text-sm sm:text-base `}>
                             Social Security number (last 4 digits)
                         </p>
                         <div className="col-span-3 col-start-3 inline-flex ">
@@ -209,7 +205,7 @@ const Setup = () => {
                 </div>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default Setup;
+export default Setup

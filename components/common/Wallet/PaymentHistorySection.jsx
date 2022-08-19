@@ -1,5 +1,5 @@
-import React from 'react';
-import { RiHistoryFill } from 'react-icons/ri';
+import React from 'react'
+import {RiHistoryFill} from 'react-icons/ri'
 
 const PaymentHistorySection = () => {
     return (
@@ -8,16 +8,16 @@ const PaymentHistorySection = () => {
                 <h1 className="mt-0 mb-4 text-3xl font-bold">
                     Payment history
                 </h1>
-                <div className='grid justify-center mb-4 mt-8'>
-                    <div className='grid justify-center'>
+                <div className="grid justify-center mb-4 mt-8">
+                    <div className="grid justify-center">
                         <RiHistoryFill size={80} />
                     </div>
-                    
-                    <p className='text-sm'>You don't have payments yet!</p>
+
+                    <p className="text-sm">You don't have payments yet!</p>
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default PaymentHistorySection;
+export default PaymentHistorySection
