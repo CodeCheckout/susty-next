@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { Dialog } from '@headlessui/react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { HiArrowRight, HiStar } from 'react-icons/hi';
-import axios from 'axios';
+import React, {useEffect, useState} from 'react'
+import {Dialog} from '@headlessui/react'
+import {AnimatePresence, motion} from 'framer-motion'
+import {HiArrowRight, HiStar} from 'react-icons/hi'
+import axios from 'axios'
 
-const ReviewFromOneCustomer = ({ isSameUser, customer }) => {
-    const [openReviewReplyModal, setOpenReviewReplyModal] = useState(false);
-    const [replyInput, setReplyInput] = useState('');
-    const [reviewerDetails, setReviewerDetails] = useState();
+const ReviewFromOneCustomer = ({isSameUser, customer}) => {
+    const [openReviewReplyModal, setOpenReviewReplyModal] = useState(false)
+    const [replyInput, setReplyInput] = useState('')
+    const [reviewerDetails, setReviewerDetails] = useState()
 
     useEffect(() => {
         async function getReviewer() {
             await axios
                 .get('/api/user/fetch-user-details', {
-                    params: { userId: customer.reviewerId },
+                    params: {userId: customer.reviewerId},
                 })
                 .then((result) => {
-                    setReviewerDetails(result.data.user);
-                });
+                    setReviewerDetails(result.data.user)
+                })
         }
-        getReviewer();
-    }, []);
+        getReviewer()
+    }, [])
 
     return (
         <div
@@ -62,7 +62,7 @@ const ReviewFromOneCustomer = ({ isSameUser, customer }) => {
                                                     'h-5 w-5 text-amber-400'
                                                 }
                                             />
-                                        );
+                                        )
                                     })}
                                 {Array(5 - parseInt(customer.rating))
                                     .fill(0)
@@ -74,7 +74,7 @@ const ReviewFromOneCustomer = ({ isSameUser, customer }) => {
                                                     'h-5 w-5 text-gray-300'
                                                 }
                                             />
-                                        );
+                                        )
                                     })}
                             </div>
                             <div className={'text-sm lg:text-base'}>
@@ -90,7 +90,7 @@ const ReviewFromOneCustomer = ({ isSameUser, customer }) => {
                             <>
                                 <div
                                     onClick={() => {
-                                        setOpenReviewReplyModal(true);
+                                        setOpenReviewReplyModal(true)
                                     }}
                                     className={
                                         'text-sm text-susty hover:underline'
@@ -118,7 +118,7 @@ const ReviewFromOneCustomer = ({ isSameUser, customer }) => {
                                         }}
                                         exit={{
                                             opacity: 0,
-                                            transition: { duration: 0.4 },
+                                            transition: {duration: 0.4},
                                         }}
                                     >
                                         <div className="font-susty fixed inset-0 overflow-y-auto">
@@ -220,7 +220,7 @@ const ReviewFromOneCustomer = ({ isSameUser, customer }) => {
                                                                             e
                                                                                 .target
                                                                                 .value
-                                                                        );
+                                                                        )
                                                                     }}
                                                                     type="text"
                                                                     className={
@@ -252,7 +252,7 @@ const ReviewFromOneCustomer = ({ isSameUser, customer }) => {
                 </>
             )}
         </div>
-    );
-};
+    )
+}
 
-export default ReviewFromOneCustomer;
+export default ReviewFromOneCustomer

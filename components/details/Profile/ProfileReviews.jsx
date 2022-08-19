@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { FiStar } from 'react-icons/fi';
-import ReviewFromOneCustomer from './ReviewFromOneCustomer';
+import React, {useState} from 'react'
+import {FiStar} from 'react-icons/fi'
+import ReviewFromOneCustomer from './ReviewFromOneCustomer'
 
-const ProfileReviews = ({ isSameUser, anyReviews, seller }) => {
-    const [reviewData, setReviewData] = useState(seller.reviews);
+const ProfileReviews = ({isSameUser, anyReviews, seller}) => {
+    const [reviewData, setReviewData] = useState(seller.reviews)
 
     return (
         <>
@@ -77,7 +77,7 @@ const ProfileReviews = ({ isSameUser, anyReviews, seller }) => {
                 </>
             )}
         </>
-    );
-};
+    )
+}
 
-export default ProfileReviews;
+export default ProfileReviews
