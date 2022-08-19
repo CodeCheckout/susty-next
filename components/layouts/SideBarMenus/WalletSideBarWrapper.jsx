@@ -121,9 +121,8 @@ const WalletSideBarWrapper = ({
                                                                                     (
                                                                                         subItem,
                                                                                         idx
-                                                                                    ) => {
-                                                                                        return (
-                                                                                            <>
+                                                                                    ) =>  (
+                                                                                            <div key={subItem.id}>
                                                                                                 {subItem.id && (
                                                                                                     <div
                                                                                                         key={
@@ -157,9 +156,9 @@ const WalletSideBarWrapper = ({
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 )}
-                                                                                            </>
-                                                                                        );
-                                                                                    }
+                                                                                            </div>
+                                                                                        )
+                                                                                    
                                                                                 )}
                                                                         </Disclosure.Panel>
                                                                     </>
@@ -230,7 +229,7 @@ const WalletSideBarWrapper = ({
                                                                                 idx
                                                                             ) => {
                                                                                 return (
-                                                                                    <>
+                                                                                    <div key={subItem.id}>
                                                                                         {subItem.id && (
                                                                                             <div
                                                                                                 key={
@@ -264,7 +263,7 @@ const WalletSideBarWrapper = ({
                                                                                                 </div>
                                                                                             </div>
                                                                                         )}
-                                                                                    </>
+                                                                                    </div>
                                                                                 );
                                                                             }
                                                                         )}

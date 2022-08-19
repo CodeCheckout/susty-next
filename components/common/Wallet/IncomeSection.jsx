@@ -17,7 +17,7 @@ const IncomeSection = () => {
                 <div className="mb-4 text-xs text-gray-500">Earnings</div>
 
                 {earnings.map((item, idx) => (
-                    <>
+                    <div key={item.id}>
                         <div className="flex w-full justify-between pl-2">
                             <div>{item.month} 2022 Income Report </div>
                             <button
@@ -30,7 +30,7 @@ const IncomeSection = () => {
                             </button>
                         </div>
                         <hr className="my-3" />
-                    </>
+                    </div>
                 ))}
             </div>
         </div>
