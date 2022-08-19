@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import WalletSubSection from '../../components/common/Wallet/WalletSubSection';
-import IncomeSection from '../../components/common/Wallet/IncomeSection';
-import WalletSideBarWrapper from '../../components/layouts/SideBarMenus/WalletSideBarWrapper';
-import PaymentHistorySection from '../../components/common/Wallet/PaymentHistorySection';
-import InvoicesSection from '../../components/common/Wallet/InvoicesSection';
-import Setup from '../../components/common/Wallet/Setup';
+import React, {useState} from 'react'
+import WalletSubSection from '../../components/common/Wallet/WalletSubSection'
+import IncomeSection from '../../components/common/Wallet/IncomeSection'
+import WalletSideBarWrapper from '../../components/layouts/SideBarMenus/WalletSideBarWrapper'
+import PaymentHistorySection from '../../components/common/Wallet/PaymentHistorySection'
+import InvoicesSection from '../../components/common/Wallet/InvoicesSection'
+import Setup from '../../components/common/Wallet/Setup'
 
 const navigation = [
     {
@@ -43,15 +43,15 @@ const navigation = [
         component: <IncomeSection />,
         current: false,
     },
-];
+]
 
 const Index = () => {
-    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(false)
     const [sidebarElement, setSidebarElement] = useState(
         navigation[0].component
-    );
-    const [selectedItem, setSelectedItem] = useState(navigation[0].id);
-    const [arrayElements, setArrayElements] = useState(navigation);
+    )
+    const [selectedItem, setSelectedItem] = useState(navigation[0].id)
+    const [arrayElements, setArrayElements] = useState(navigation)
 
     return (
         <div className={'bg-gray-100'}>
@@ -67,7 +67,7 @@ const Index = () => {
                 {sidebarElement}
             </WalletSideBarWrapper>
         </div>
-    );
-};
+    )
+}
 
-export default Index;
+export default Index

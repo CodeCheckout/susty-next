@@ -1,5 +1,5 @@
-import React from 'react';
-import { RiHistoryFill } from 'react-icons/ri';
+import React from 'react'
+import {RiHistoryFill} from 'react-icons/ri'
 
 const InvoicesSection = () => {
     return (
@@ -16,7 +16,7 @@ const InvoicesSection = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default InvoicesSection;
+export default InvoicesSection

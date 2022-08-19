@@ -1,10 +1,12 @@
-import React from 'react';
+import React from 'react'
 
 const WalletSubSection = () => {
     return (
         <div className={'m-3 bg-white p-4'}>
             <div className=" bg-white text-left">
-                <h1 className="mt-0 mb-4 text-base font-semibold">August 2022</h1>
+                <h1 className="mt-0 mb-4 text-base font-semibold">
+                    August 2022
+                </h1>
 
                 <div className="flex w-full justify-between pl-2">
                     <div>Pending balance </div>
@@ -21,9 +23,7 @@ const WalletSubSection = () => {
                             className={
                                 'flex items-center gap-1 rounded-md bg-susty px-2.5 py-1.5 text-xs font-semibold text-white'
                             }
-                            onClick={() => {
-                                
-                            }}
+                            onClick={() => {}}
                         >
                             Activate Wallet
                         </button>
@@ -31,7 +31,7 @@ const WalletSubSection = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default WalletSubSection;
+export default WalletSubSection
