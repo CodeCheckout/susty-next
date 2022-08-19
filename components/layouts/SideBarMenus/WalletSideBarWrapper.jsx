@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import {Dialog, Transition} from '@headlessui/react'
+import {Dialog, Disclosure, Transition} from '@headlessui/react'
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
 
 function classNames(...classes) {
@@ -16,13 +16,13 @@ const WalletSideBarWrapper = ({
     setSelectedItem,
 }) => {
     return (
-        <div className={'lg:mx-44 min-h-max'}>
+        <div className={'min-h-max lg:mx-44'}>
             <div className="h-full overflow-hidden">
                 <div className="flex ">
                     <Transition.Root show={sidebarOpen} as={Fragment}>
                         <Dialog
                             as="div"
-                            className="fixed inset-0 flex z-40 lg:hidden"
+                            className="fixed inset-0 z-40 flex lg:hidden"
                             onClose={setSidebarOpen}
                         >
                             <Transition.Child
@@ -45,7 +45,7 @@ const WalletSideBarWrapper = ({
                                 leaveFrom="translate-x-0"
                                 leaveTo="-translate-x-full"
                             >
-                                <div className="relative flex-1 flex flex-col max-w-xs w-full bg-white focus:outline-none">
+                                <div className="relative flex w-full max-w-xs flex-1 flex-col bg-white focus:outline-none">
                                     <Transition.Child
                                         as={Fragment}
                                         enter="ease-in-out duration-300"
@@ -58,7 +58,7 @@ const WalletSideBarWrapper = ({
                                         <div className="absolute top-0 right-0 -mr-12 pt-2">
                                             <button
                                                 type="button"
-                                                className="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                                                className="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                                                 onClick={() =>
                                                     setSidebarOpen(false)
                                                 }
@@ -73,9 +73,9 @@ const WalletSideBarWrapper = ({
                                             </button>
                                         </div>
                                     </Transition.Child>
-                                    <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
-                                        <div className="flex-shrink-0 flex items-center px-4">
-                                            <p className="font-semibold text-xl">
+                                    <div className="h-0 flex-1 overflow-y-auto pt-5 pb-4">
+                                        <div className="flex flex-shrink-0 items-center px-4">
+                                            <p className="text-xl font-semibold">
                                                 Wallet
                                             </p>
                                         </div>
@@ -83,33 +83,89 @@ const WalletSideBarWrapper = ({
                                             aria-label="Sidebar"
                                             className="mt-5"
                                         >
-                                            <div className="px-2 space-y-1 text-lg">
+                                            <div className="space-y-1 px-2 text-lg">
                                                 {arrayElements.map(
                                                     (item, idx) => (
-                                                        <a
-                                                            key={item.name}
-                                                            //   href={item.href}
-                                                            onClick={() => {
-                                                                setSidebarElement(
-                                                                    item.component
-                                                                )
-                                                                setSelectedItem(
-                                                                    idx
-                                                                )
-                                                                setSidebarOpen(
-                                                                    false
-                                                                )
-                                                            }}
-                                                            className={classNames(
-                                                                selectedItem ===
-                                                                    idx
-                                                                    ? 'text-gray-900 font-semibold cursor-pointer'
-                                                                    : 'text-gray-500 hover:bg-gray-200 ',
-                                                                'group flex items-center px-5 py-2 rounded-md cursor-pointer'
-                                                            )}
-                                                        >
-                                                            {item.name}
-                                                        </a>
+                                                        <div key={item.id}>
+                                                            <Disclosure>
+                                                                {({open}) => (
+                                                                    <>
+                                                                        <Disclosure.Button
+                                                                            key={
+                                                                                item.name
+                                                                            }
+                                                                            onClick={() => {
+                                                                                setSidebarElement(
+                                                                                    item.component
+                                                                                )
+                                                                                setSelectedItem(
+                                                                                    item.id
+                                                                                )
+                                                                            }}
+                                                                            className={classNames(
+                                                                                selectedItem ===
+                                                                                    item.id
+                                                                                    ? 'cursor-pointer font-semibold text-gray-700'
+                                                                                    : 'text-gray-500 hover:bg-gray-200 ',
+                                                                                'group flex cursor-pointer items-center px-5 py-2'
+                                                                            )}
+                                                                        >
+                                                                            {
+                                                                                item.name
+                                                                            }
+                                                                        </Disclosure.Button>
+
+                                                                        <Disclosure.Panel className="pl-6 text-sm">
+                                                                            {item.subItems &&
+                                                                                item.subItems.map(
+                                                                                    (
+                                                                                        subItem,
+                                                                                        idx
+                                                                                    ) => {
+                                                                                        return (
+                                                                                            <>
+                                                                                                {subItem.id && (
+                                                                                                    <div
+                                                                                                        key={
+                                                                                                            subItem.id
+                                                                                                        }
+                                                                                                    >
+                                                                                                        <div
+                                                                                                            onClick={() => {
+                                                                                                                setSidebarElement(
+                                                                                                                    subItem.component
+                                                                                                                )
+                                                                                                                setSelectedItem(
+                                                                                                                    subItem.id
+                                                                                                                )
+                                                                                                            }}
+                                                                                                            className={classNames(
+                                                                                                                selectedItem ===
+                                                                                                                    subItem.id
+                                                                                                                    ? 'cursor-pointer font-semibold text-gray-700'
+                                                                                                                    : 'text-gray-500 hover:bg-slate-200 ',
+                                                                                                                'group flex cursor-pointer items-center rounded-md px-4 py-2'
+                                                                                                            )}
+                                                                                                        >
+                                                                                                            <div>
+                                                                                                                <p className="cursor-pointer text-left text-gray-500 transition ease-in-out">
+                                                                                                                    {
+                                                                                                                        subItem.name
+                                                                                                                    }
+                                                                                                                </p>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                )}
+                                                                                            </>
+                                                                                        )
+                                                                                    }
+                                                                                )}
+                                                                        </Disclosure.Panel>
+                                                                    </>
+                                                                )}
+                                                            </Disclosure>
+                                                        </div>
                                                     )
                                                 )}
                                             </div>
@@ -118,7 +174,7 @@ const WalletSideBarWrapper = ({
                                 </div>
                             </Transition.Child>
                             <div
-                                className="flex-shrink-0 w-14"
+                                className="w-14 flex-shrink-0"
                                 aria-hidden="true"
                             >
                                 {/* Force sidebar to shrink to fit close icon */}
@@ -126,37 +182,97 @@ const WalletSideBarWrapper = ({
                         </Dialog>
                     </Transition.Root>
                     {/* Static sidebar for desktop */}
-                    <div className="hidden lg:block lg:flex-shrink-0 min-h-screen">
-                        <div className="flex flex-col w-64">
+                    <div className="hidden min-h-screen lg:block lg:flex-shrink-0">
+                        <div className="flex w-64 flex-col">
                             {/* Sidebar component, swap this element with another sidebar if you like */}
-                            <div className="flex-1 flex flex-col min-h-full">
-                                <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto ">
-                                    <div className="flex items-center flex-shrink-0 px-4">
-                                        <p className="font-semibold text-2xl">
+                            <div className="flex min-h-full flex-1 flex-col">
+                                <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4 ">
+                                    <div className="flex flex-shrink-0 items-center px-4">
+                                        <p className="text-2xl font-semibold">
                                             Wallet
                                         </p>
                                     </div>
                                     <nav className="mt-5" aria-label="Sidebar">
-                                        <div className="px-4 space-y-4">
+                                        <div className="space-y-4 px-4">
                                             {arrayElements.map((item, idx) => (
-                                                <a
-                                                    key={item.name}
-                                                    // href={item.href}
-                                                    onClick={() => {
-                                                        setSidebarElement(
-                                                            item.component
-                                                        )
-                                                        setSelectedItem(idx)
-                                                    }}
-                                                    className={classNames(
-                                                        selectedItem === idx
-                                                            ? 'text-gray-800 font-semibold cursor-pointer'
-                                                            : 'text-gray-500 hover:bg-gray-200 ',
-                                                        'group flex items-center px-5 py-2 cursor-pointer'
-                                                    )}
-                                                >
-                                                    {item.name}
-                                                </a>
+                                                <div key={item.id}>
+                                                    <Disclosure>
+                                                        {({open}) => (
+                                                            <>
+                                                                <Disclosure.Button
+                                                                    key={
+                                                                        item.name
+                                                                    }
+                                                                    onClick={() => {
+                                                                        setSidebarElement(
+                                                                            item.component
+                                                                        )
+                                                                        setSelectedItem(
+                                                                            item.id
+                                                                        )
+                                                                    }}
+                                                                    className={classNames(
+                                                                        selectedItem ===
+                                                                            item.id
+                                                                            ? 'cursor-pointer font-semibold text-gray-700'
+                                                                            : 'text-gray-500 hover:bg-gray-200 ',
+                                                                        'group flex cursor-pointer items-center px-5 py-2'
+                                                                    )}
+                                                                >
+                                                                    {item.name}
+                                                                </Disclosure.Button>
+
+                                                                <Disclosure.Panel className="pl-6 text-sm">
+                                                                    {item.subItems &&
+                                                                        item.subItems.map(
+                                                                            (
+                                                                                subItem,
+                                                                                idx
+                                                                            ) => {
+                                                                                return (
+                                                                                    <>
+                                                                                        {subItem.id && (
+                                                                                            <div
+                                                                                                key={
+                                                                                                    subItem.id
+                                                                                                }
+                                                                                            >
+                                                                                                <div
+                                                                                                    onClick={() => {
+                                                                                                        setSidebarElement(
+                                                                                                            subItem.component
+                                                                                                        )
+                                                                                                        setSelectedItem(
+                                                                                                            subItem.id
+                                                                                                        )
+                                                                                                    }}
+                                                                                                    className={classNames(
+                                                                                                        selectedItem ===
+                                                                                                            subItem.id
+                                                                                                            ? 'cursor-pointer font-semibold text-gray-700'
+                                                                                                            : 'text-gray-500 hover:bg-slate-200 ',
+                                                                                                        'group flex cursor-pointer items-center rounded-md px-4 py-2'
+                                                                                                    )}
+                                                                                                >
+                                                                                                    <div>
+                                                                                                        <p className="cursor-pointer text-left text-gray-500 transition ease-in-out">
+                                                                                                            {
+                                                                                                                subItem.name
+                                                                                                            }
+                                                                                                        </p>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        )}
+                                                                                    </>
+                                                                                )
+                                                                            }
+                                                                        )}
+                                                                </Disclosure.Panel>
+                                                            </>
+                                                        )}
+                                                    </Disclosure>
+                                                </div>
                                             ))}
                                         </div>
                                     </nav>
@@ -164,16 +280,16 @@ const WalletSideBarWrapper = ({
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col min-w-0 flex-1">
+                    <div className="flex min-w-0 flex-1 flex-col">
                         <div className="block lg:hidden">
-                            <div className="flex items-center justify-between bg-gray-50 border-b border-gray-200 px-4 py-1.5">
-                                <div className="text-gray-800 font-normal text-xl capitalize">
+                            <div className="flex items-center justify-between border-b border-gray-200 bg-gray-50 px-4 py-1.5">
+                                <div className="text-xl font-normal capitalize text-gray-800">
                                     Wallet
                                 </div>
                                 <div>
                                     <button
                                         type="button"
-                                        className="-mr-3 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900"
+                                        className="-mr-3 inline-flex h-12 w-12 items-center justify-center rounded-md text-gray-500 hover:text-gray-900"
                                         onClick={() => setSidebarOpen(true)}
                                     >
                                         <span className="sr-only">
@@ -187,11 +303,11 @@ const WalletSideBarWrapper = ({
                                 </div>
                             </div>
                         </div>
-                        <div className="flex-1 relative z-0 flex">
-                            <main className="flex-1 relative z-0 focus:outline-none xl:order-last">
+                        <div className="relative z-0 flex flex-1">
+                            <main className="relative z-0 flex-1 focus:outline-none xl:order-last">
                                 {/* Start main area*/}
 
-                                <div className="inset-0 px-4 sm:px-6 lg:px-8 overflow-y-auto scrollbar-hide">
+                                <div className="scrollbar-hide inset-0 overflow-y-auto px-4 sm:px-6 lg:px-8">
                                     {sidebarElement}
                                 </div>
                                 {/* End main area */}
