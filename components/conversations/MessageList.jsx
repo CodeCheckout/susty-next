@@ -1,118 +1,121 @@
-import React, {useState} from 'react'
-import {HiPlusSm} from 'react-icons/hi'
-import router from 'next/router'
-import Link from 'next/link'
-
-const messagesStaticData = [
-    {
-        id: '18c02338-655e-461a-b48f-f42aa6a84844',
-        src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        alt: 'profile picture',
-        name: 'Susty',
-        message: "Let's get started on vinted",
-        createdAt: '1 week ago',
-    },
-    {
-        id: '32304678-b2e3-4551-b16b-1f93cdce44ed',
-        src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        alt: 'profile picture',
-        name: 'John Smith',
-        message: 'Invite friends and get vouchers',
-        createdAt: '1 week ago',
-    },
-    {
-        id: '634629e1-941f-42ba-8477-b8a8daf1e732',
-        src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        alt: 'profile picture',
-        name: 'David Rodenas',
-        message: 'A gift to help you sell faster',
-        createdAt: '1 week ago',
-    },
-    {
-        id: '5c7d2b1a-6330-4b6c-8285-bbe7bbfa74bf',
-        src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        alt: 'profile picture',
-        name: 'Steven Sim',
-        message: 'Your free bump will expire soon',
-        createdAt: '1 day ago',
-    },
-]
+import React, { useEffect, useState } from 'react';
+import { HiPlusSm } from 'react-icons/hi';
+import router from 'next/router';
+import Link from 'next/link';
+import axios from 'axios';
+import moment from 'moment';
 
 const MessageList = () => {
-    const [messages, setMessages] = useState(messagesStaticData)
+    const [messages, setMessages] = useState([]);
+
+    //TODO check how to get the current user id - localstorage.getitem()
+    useEffect(() => {
+        const fetchMessages = async () => {
+            await axios
+                .get('/api/messages/getMessages', {
+                    params: { sender: '62de47ab819e077df87d0661' },
+                })
+                .then((result) => {
+                    setTimeout(() => setMessages(result.data.message), 1000);
+                })
+                .then((result) => {
+                    if (!result.data.message) {
+                        return null;
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        };
+
+        fetchMessages();
+    }, []);
 
     return (
         <div className={'bg-gray-100'}>
-            <div className="py-4 px-4 md:max-w-4xl mx-auto pt-8">
+            <div className="mx-auto py-4 px-4 pt-8 md:max-w-4xl">
                 <div className={'w-full bg-white p-5 shadow-sm'}>
                     <div className="mt-4 px-1">
                         <Link href="/inbox/new">
                             <button
-                                className={`inline-flex items-center px-4 py-1.5 border border-transparent shadow-sm text-xs font-medium rounded-md text-susty bg-red-100 hover:bg-susty hover:text-white hover:border-susty`}
+                                className={`inline-flex items-center rounded-md border border-transparent bg-red-100 px-4 py-1.5 text-xs font-medium text-susty shadow-sm hover:border-susty hover:bg-susty hover:text-white`}
                             >
-                                <HiPlusSm className="w-5 h-5 mr-2 items-center" />
+                                <HiPlusSm className="mr-2 h-5 w-5 items-center" />
                                 New Message
                             </button>
                         </Link>
                     </div>
-                    <div className={'flex flex-col-reverse mt-10'}>
-                        {messages.map((msg) => (
-                            <div
-                                key={msg.id}
-                                className={
-                                    'flex flex-row gap-2 border-b-2 border-gray-200 py-5 px-2 lg:px-4 hover:bg-red-50 cursor-pointer'
-                                }
-                                onClick={async () => {
-                                    await router.push({
-                                        pathname: '/inbox/overview',
-                                        query: {
-                                            id: msg.id,
-                                            name: msg.name,
-                                        },
-                                    })
-                                }}
-                            >
-                                <div className={'shrink-0'}>
-                                    <img
-                                        className={
-                                            'basis-1/4 sm:basis-1/6 md:basis-1/12 inline-block h-14 w-14 rounded-full'
-                                        }
-                                        src={msg.src}
-                                        alt={msg.alt}
-                                    />
-                                </div>
-                                <div
-                                    className={
-                                        'basis-1/2 sm:basis-4/6 md:basis-9/12 pl-3 flex flex-col pr-2 w-full '
-                                    }
-                                >
-                                    <div
-                                        className={
-                                            'font-medium text-base capitalize'
-                                        }
-                                    >
-                                        {msg.name}
+
+                    <div className="w-full overflow-auto bg-white shadow md:h-[410px] xl:h-[630px]">
+                        <div className="h-full w-full">
+                            <div className={'mt-10 flex flex-col-reverse'}>
+                                {messages.map((item) => (
+                                    <div key={item} id={item}>
+                                        <div
+                                            className={
+                                                'flex cursor-pointer flex-row gap-2 border-b-2 border-gray-200 py-5 px-2 hover:bg-red-50 lg:px-4'
+                                            }
+                                            onClick={async () => {
+                                                await router.push({
+                                                    pathname: '/inbox/overview',
+                                                    query: {
+                                                        id: item.id,
+                                                        name: item.name,
+                                                    },
+                                                });
+                                            }}
+                                        >
+                                            <div className={'shrink-0'}>
+                                                <img
+                                                    src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
+                                                    className={
+                                                        'inline-block h-14 w-14 basis-1/4 rounded-full sm:basis-1/6 md:basis-1/12'
+                                                    }
+                                                    //src={item.src}
+                                                    alt={item.alt}
+                                                />
+                                            </div>
+                                            <div
+                                                className={
+                                                    'flex w-full basis-1/2 flex-col pl-3 pr-2 sm:basis-4/6 md:basis-9/12 '
+                                                }
+                                            >
+                                                <div
+                                                    className={
+                                                        'text-base font-medium capitalize'
+                                                    }
+                                                >
+                                                    {item.name}
+                                                </div>
+                                                <div
+                                                    className={
+                                                        'text-sm text-gray-500'
+                                                    }
+                                                >
+                                                    {item.message}
+                                                </div>
+                                            </div>
+                                            <div className="w-full basis-1/4 sm:basis-1/6 md:basis-2/12">
+                                                <div
+                                                    className={
+                                                        'float-right text-xs font-normal text-gray-500 md:text-sm '
+                                                    }
+                                                >
+                                                    {moment(item.createdAt)
+                                                        .startOf('minute')
+                                                        .fromNow()}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className={'text-sm text-gray-500'}>
-                                        {msg.message}
-                                    </div>
-                                </div>
-                                <div className="basis-1/4 sm:basis-1/6 md:basis-2/12 w-full">
-                                    <div
-                                        className={
-                                            'float-right md:text-sm text-xs font-normal text-gray-500 '
-                                        }
-                                    >
-                                        {msg.createdAt}
-                                    </div>
-                                </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default MessageList
+export default MessageList;
