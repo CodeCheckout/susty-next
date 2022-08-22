@@ -94,7 +94,7 @@ const MessageList = () => {
                                                     {item.message}
                                                 </div>
                                             </div>
-                                            <div className="w-full basis-1/4 sm:basis-1/6 md:basis-2/12 pt-2">
+                                            <div className=" basis-1/4 sm:basis-1/6 md:basis-2/12 pt-2 w-full">
                                                 <div
                                                     className={
                                                         'float-right text-xs font-normal text-gray-500 md:text-sm '
