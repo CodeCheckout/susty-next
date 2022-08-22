@@ -1,35 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import moment from 'moment';
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
+import moment from 'moment'
 
 const Notifications = () => {
-    const [notifications, setNotifications] = useState([]);
+    const [notifications, setNotifications] = useState([])
 
     //TODO check how to get the current user id - localstorage.getitem()
     useEffect(() => {
         const fetchNotifications = async () => {
             await axios
                 .get('/api/notification/getNotification', {
-                    params: { user: '62de47ab819e077df87d0661' },
+                    params: {user: '62de47ab819e077df87d0661'},
                 })
                 .then((result) => {
                     setTimeout(
                         () => setNotifications(result.data.notification),
                         1000
-                    );
+                    )
                 })
                 .then((result) => {
                     if (!result.data.notification) {
-                        return null;
+                        return null
                     }
                 })
                 .catch((err) => {
-                    console.log(err);
-                });
-        };
+                    console.log(err)
+                })
+        }
 
-        fetchNotifications();
-    }, []);
+        fetchNotifications()
+    }, [])
 
     return (
         <>
@@ -87,7 +87,7 @@ const Notifications = () => {
                 </div>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default Notifications;
+export default Notifications

@@ -1,35 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import { HiPlusSm } from 'react-icons/hi';
-import router from 'next/router';
-import Link from 'next/link';
-import axios from 'axios';
-import moment from 'moment';
+import React, {useEffect, useState} from 'react'
+import {HiPlusSm} from 'react-icons/hi'
+import router from 'next/router'
+import Link from 'next/link'
+import axios from 'axios'
+import moment from 'moment'
 
 const MessageList = () => {
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState([])
 
     //TODO check how to get the current user id - localstorage.getitem()
     useEffect(() => {
         const fetchMessages = async () => {
             await axios
                 .get('/api/messages/getMessages', {
-                    params: { sender: '62de47ab819e077df87d0661' },
+                    params: {sender: '62de47ab819e077df87d0661'},
                 })
                 .then((result) => {
-                    setTimeout(() => setMessages(result.data.message), 1000);
+                    setTimeout(() => setMessages(result.data.message), 1000)
                 })
                 .then((result) => {
                     if (!result.data.message) {
-                        return null;
+                        return null
                     }
                 })
                 .catch((err) => {
-                    console.log(err);
-                });
-        };
+                    console.log(err)
+                })
+        }
 
-        fetchMessages();
-    }, []);
+        fetchMessages()
+    }, [])
 
     return (
         <div className={'bg-gray-100'}>
@@ -62,7 +62,7 @@ const MessageList = () => {
                                                         id: item.id,
                                                         name: item.name,
                                                     },
-                                                });
+                                                })
                                             }}
                                         >
                                             <div className={'shrink-0'}>
@@ -115,7 +115,7 @@ const MessageList = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default MessageList;
+export default MessageList
