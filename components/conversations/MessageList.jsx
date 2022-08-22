@@ -76,7 +76,7 @@ const MessageList = () => {
                                             </div>
                                             <div
                                                 className={
-                                                    'flex w-full basis-1/2 flex-col pl-3 pr-2 sm:basis-4/6 md:basis-9/12 '
+                                                    'pt-2 flex w-full basis-1/2 flex-col pl-3 pr-2 sm:basis-4/6 md:basis-9/12 '
                                                 }
                                             >
                                                 <div
@@ -94,7 +94,7 @@ const MessageList = () => {
                                                     {item.message}
                                                 </div>
                                             </div>
-                                            <div className="w-full basis-1/4 sm:basis-1/6 md:basis-2/12">
+                                            <div className="w-full basis-1/4 sm:basis-1/6 md:basis-2/12 pt-2">
                                                 <div
                                                     className={
                                                         'float-right text-xs font-normal text-gray-500 md:text-sm '
