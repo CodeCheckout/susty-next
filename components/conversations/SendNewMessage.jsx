@@ -1,33 +1,33 @@
-import React, {useState} from 'react'
-import {Combobox} from '@headlessui/react'
-import {HiArrowRight, HiCheck, HiChevronUp} from 'react-icons/hi'
-import {FiCamera} from 'react-icons/fi'
-import {useClickOutside} from '@mantine/hooks'
-import {AnimatePresence, motion} from 'framer-motion'
+import React, { useState } from 'react';
+import { Combobox } from '@headlessui/react';
+import { HiArrowRight, HiCheck, HiChevronUp } from 'react-icons/hi';
+import { FiCamera } from 'react-icons/fi';
+import { useClickOutside } from '@mantine/hooks';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const peopleStaticData = [
-    {id: 1, name: 'Kade Cooper'},
-    {id: 2, name: 'Arlene Mccoy'},
-    {id: 3, name: 'Devon Webb'},
+    { id: 1, name: 'Kade Cooper' },
+    { id: 2, name: 'Arlene Mccoy' },
+    { id: 3, name: 'Devon Webb' },
     {
         id: 4,
         name: 'Tom Cook',
     },
-    {id: 5, name: 'Tanya Fox'},
-    {id: 6, name: 'Hellen Schmidt'},
-    {id: 7, name: 'Sebastian Carlos'},
+    { id: 5, name: 'Tanya Fox' },
+    { id: 6, name: 'Hellen Schmidt' },
+    { id: 7, name: 'Sebastian Carlos' },
     {
         id: 8,
         name: 'Kris Raven',
     },
-    {id: 9, name: 'Amir Diafi'},
-    {id: 10, name: 'David Rodenas'},
-]
+    { id: 9, name: 'Amir Diafi' },
+    { id: 10, name: 'David Rodenas' },
+];
 
 const SendNewMessage = () => {
-    const [people, setPeople] = useState(peopleStaticData)
-    const [selected, setSelected] = useState(people[0])
-    const [query, setQuery] = useState('')
+    const [people, setPeople] = useState(peopleStaticData);
+    const [selected, setSelected] = useState(people[0]);
+    const [query, setQuery] = useState('');
 
     const filteredPeople =
         query === ''
@@ -37,31 +37,31 @@ const SendNewMessage = () => {
                       .toLowerCase()
                       .replace(/\s+/g, '')
                       .includes(query.toLowerCase().replace(/\s+/g, ''))
-              )
+              );
 
-    const [opened, setOpened] = useState(false)
-    const ref = useClickOutside(() => setOpened(false))
+    const [opened, setOpened] = useState(false);
+    const ref = useClickOutside(() => setOpened(false));
 
-    const [msgInput, setMsgInput] = useState('')
+    const [msgInput, setMsgInput] = useState('');
 
     return (
         <div className={'bg-gray-100'}>
-            <div className="py-4 px-4 md:max-w-4xl mx-auto pt-8">
+            <div className="mx-auto py-4 px-4 pt-8 md:max-w-4xl">
                 <div
                     className={
-                        'text-gray-400 text-sm ml-2 font-medium uppercase'
+                        'ml-2 text-sm font-medium uppercase text-gray-400'
                     }
                 >
                     New Message
                 </div>
                 <div className={'bg-white shadow-md'}>
                     <div
-                        className={'grid grid-cols-3 mt-5 px-5 pt-5 pb-[20rem]'}
+                        className={'mt-5 grid grid-cols-3 px-5 pt-5 pb-[20rem]'}
                     >
                         <div className={'col-span-1 text-sm'}>To:</div>
                         <div
                             className={
-                                'col-start-2 col-span-2 lg:col-start-3 col-span-1 col-end-12'
+                                'col-span-2 col-span-1 col-start-2 col-end-12 lg:col-start-3'
                             }
                         >
                             <AnimatePresence>
@@ -72,7 +72,7 @@ const SendNewMessage = () => {
                                     onChange={setSelected}
                                 >
                                     <div className="relative mt-1">
-                                        <div className="relative w-full cursor-default overflow-hidden rounded-md bg-white text-left border-b border-susty focus-visible:outline-2 focus-visible:outline-susty focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-susty sm:text-sm">
+                                        <div className="relative w-full cursor-default overflow-hidden rounded-md border-b border-susty bg-white text-left focus-visible:outline-2 focus-visible:outline-susty focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-susty sm:text-sm">
                                             <Combobox.Input
                                                 className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 ring-2 ring-susty"
                                                 displayValue={(person) =>
@@ -84,7 +84,7 @@ const SendNewMessage = () => {
                                             />
                                             <Combobox.Button
                                                 onClick={() => {
-                                                    setOpened(true)
+                                                    setOpened(true);
                                                 }}
                                                 className="absolute inset-y-0 right-0 flex items-center pr-2"
                                             >
@@ -99,11 +99,11 @@ const SendNewMessage = () => {
                                             </Combobox.Button>
                                         </div>
                                         <motion.div
-                                            initial={{opacity: 0, scale: 0}}
-                                            animate={{opacity: 1, scale: 1}}
-                                            exit={{opacity: 0, scale: 0}}
+                                            initial={{ opacity: 0, scale: 0 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 0 }}
                                         >
-                                            <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md shadow bg-white py-1 text-base ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                            <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                                 {filteredPeople.length === 0 &&
                                                 query !== '' ? (
                                                     <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
@@ -126,7 +126,7 @@ const SendNewMessage = () => {
                                                                 onClick={() => {
                                                                     setOpened(
                                                                         false
-                                                                    )
+                                                                    );
                                                                 }}
                                                             >
                                                                 {({
@@ -147,7 +147,7 @@ const SendNewMessage = () => {
                                                                         </span>
                                                                         {selected ? (
                                                                             <span
-                                                                                className={`absolute inset-y-0 left-0 flex items-center text-sm pl-3 ${
+                                                                                className={`absolute inset-y-0 left-0 flex items-center pl-3 text-sm ${
                                                                                     active
                                                                                         ? 'text-white'
                                                                                         : 'text-red-600'
@@ -174,25 +174,25 @@ const SendNewMessage = () => {
                     </div>
                     <div
                         className={
-                            'grid grid-cols-6 lg:grid-cols-10 gap-2 items-center border border-t-4 border-gray-100 pr-4 relative'
+                            'relative grid grid-cols-6 items-center gap-2 border border-t-4 border-gray-100 pr-4 lg:grid-cols-10'
                         }
                     >
                         <FiCamera
                             className={
-                                'col-span-1 col-start-1 col-end-2 lg:col-start-1 lg:col-end-2 relative w-12 h-8 mr-auto ml-4 mr-4 text-gray-400'
+                                'relative col-span-1 col-start-1 col-end-2 mr-auto ml-4 mr-4 h-8 w-12 text-gray-400 lg:col-start-1 lg:col-end-2'
                             }
                         />
                         <input
                             onChange={(e) => {
-                                setMsgInput(e.target.value)
+                                setMsgInput(e.target.value);
                             }}
                             className={
-                                'col-start-2 col-end-7 lg:col-start-2 lg:col-end-11 px-5 py-3 my-5 text-sm bg-gray-100 rounded-lg focus:outline-none'
+                                'col-start-2 col-end-7 my-5 rounded-lg bg-gray-100 px-5 py-3 text-sm focus:outline-none lg:col-start-2 lg:col-end-11'
                             }
                             placeholder={'Write a message here'}
                         />
                         <HiArrowRight
-                            className={`col-start-6 lg:col-start-10 w-5 h-5 font-semibold absolute ${
+                            className={`absolute col-start-6 h-5 w-5 font-semibold lg:col-start-10 ${
                                 msgInput.length > 0
                                     ? 'text-susty'
                                     : 'text-gray-300'
@@ -202,7 +202,7 @@ const SendNewMessage = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default SendNewMessage
+export default SendNewMessage;
