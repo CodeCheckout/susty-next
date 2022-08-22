@@ -8,7 +8,6 @@ import moment from 'moment';
 const MessageList = () => {
     const [messages, setMessages] = useState([]);
 
-    //TODO check how to get the current user id - localstorage.getitem()
     useEffect(() => {
         const fetchMessages = async () => {
             await axios
