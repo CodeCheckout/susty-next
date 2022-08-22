@@ -1,33 +1,33 @@
-import React, { useState } from 'react';
-import { Combobox } from '@headlessui/react';
-import { HiArrowRight, HiCheck, HiChevronUp } from 'react-icons/hi';
-import { FiCamera } from 'react-icons/fi';
-import { useClickOutside } from '@mantine/hooks';
-import { AnimatePresence, motion } from 'framer-motion';
+import React, {useState} from 'react'
+import {Combobox} from '@headlessui/react'
+import {HiArrowRight, HiCheck, HiChevronUp} from 'react-icons/hi'
+import {FiCamera} from 'react-icons/fi'
+import {useClickOutside} from '@mantine/hooks'
+import {AnimatePresence, motion} from 'framer-motion'
 
 const peopleStaticData = [
-    { id: 1, name: 'Kade Cooper' },
-    { id: 2, name: 'Arlene Mccoy' },
-    { id: 3, name: 'Devon Webb' },
+    {id: 1, name: 'Kade Cooper'},
+    {id: 2, name: 'Arlene Mccoy'},
+    {id: 3, name: 'Devon Webb'},
     {
         id: 4,
         name: 'Tom Cook',
     },
-    { id: 5, name: 'Tanya Fox' },
-    { id: 6, name: 'Hellen Schmidt' },
-    { id: 7, name: 'Sebastian Carlos' },
+    {id: 5, name: 'Tanya Fox'},
+    {id: 6, name: 'Hellen Schmidt'},
+    {id: 7, name: 'Sebastian Carlos'},
     {
         id: 8,
         name: 'Kris Raven',
     },
-    { id: 9, name: 'Amir Diafi' },
-    { id: 10, name: 'David Rodenas' },
-];
+    {id: 9, name: 'Amir Diafi'},
+    {id: 10, name: 'David Rodenas'},
+]
 
 const SendNewMessage = () => {
-    const [people, setPeople] = useState(peopleStaticData);
-    const [selected, setSelected] = useState(people[0]);
-    const [query, setQuery] = useState('');
+    const [people, setPeople] = useState(peopleStaticData)
+    const [selected, setSelected] = useState(people[0])
+    const [query, setQuery] = useState('')
 
     const filteredPeople =
         query === ''
@@ -37,12 +37,12 @@ const SendNewMessage = () => {
                       .toLowerCase()
                       .replace(/\s+/g, '')
                       .includes(query.toLowerCase().replace(/\s+/g, ''))
-              );
+              )
 
-    const [opened, setOpened] = useState(false);
-    const ref = useClickOutside(() => setOpened(false));
+    const [opened, setOpened] = useState(false)
+    const ref = useClickOutside(() => setOpened(false))
 
-    const [msgInput, setMsgInput] = useState('');
+    const [msgInput, setMsgInput] = useState('')
 
     return (
         <div className={'bg-gray-100'}>
@@ -84,7 +84,7 @@ const SendNewMessage = () => {
                                             />
                                             <Combobox.Button
                                                 onClick={() => {
-                                                    setOpened(true);
+                                                    setOpened(true)
                                                 }}
                                                 className="absolute inset-y-0 right-0 flex items-center pr-2"
                                             >
@@ -99,9 +99,9 @@ const SendNewMessage = () => {
                                             </Combobox.Button>
                                         </div>
                                         <motion.div
-                                            initial={{ opacity: 0, scale: 0 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            exit={{ opacity: 0, scale: 0 }}
+                                            initial={{opacity: 0, scale: 0}}
+                                            animate={{opacity: 1, scale: 1}}
+                                            exit={{opacity: 0, scale: 0}}
                                         >
                                             <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                                 {filteredPeople.length === 0 &&
@@ -126,7 +126,7 @@ const SendNewMessage = () => {
                                                                 onClick={() => {
                                                                     setOpened(
                                                                         false
-                                                                    );
+                                                                    )
                                                                 }}
                                                             >
                                                                 {({
@@ -184,7 +184,7 @@ const SendNewMessage = () => {
                         />
                         <input
                             onChange={(e) => {
-                                setMsgInput(e.target.value);
+                                setMsgInput(e.target.value)
                             }}
                             className={
                                 'col-start-2 col-end-7 my-5 rounded-lg bg-gray-100 px-5 py-3 text-sm focus:outline-none lg:col-start-2 lg:col-end-11'
@@ -202,7 +202,7 @@ const SendNewMessage = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default SendNewMessage;
+export default SendNewMessage

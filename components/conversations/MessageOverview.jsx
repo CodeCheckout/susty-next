@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react'
 import {
     HiInformationCircle,
     HiLocationMarker,
     HiArrowRight,
-} from 'react-icons/hi';
-import { FiCamera, FiEye } from 'react-icons/fi';
-import { useRouter } from 'next/router';
+} from 'react-icons/hi'
+import {FiCamera, FiEye} from 'react-icons/fi'
+import {useRouter} from 'next/router'
 
 const receiverMessageStaticData = [
     {
@@ -19,19 +19,19 @@ const receiverMessageStaticData = [
         active: '4 months',
         updatedAt: '6 minutes',
     },
-];
+]
 
-const senderMessageStaticData = [{ id: 1, chat: 'Hi, I will Check them.' }];
+const senderMessageStaticData = [{id: 1, chat: 'Hi, I will Check them.'}]
 
-const MessageOverview = ({ inboxId }) => {
-    const router = useRouter();
+const MessageOverview = ({inboxId}) => {
+    const router = useRouter()
 
     const [receiverMessage, setReceiverMessage] = useState(
         receiverMessageStaticData
-    );
-    const [senderMessage, setSenderMessage] = useState(senderMessageStaticData);
-    const [msgInput, setMsgInput] = useState('');
-    const [receiverUsername, setReceiverUsername] = useState(router.query.name);
+    )
+    const [senderMessage, setSenderMessage] = useState(senderMessageStaticData)
+    const [msgInput, setMsgInput] = useState('')
+    const [receiverUsername, setReceiverUsername] = useState(router.query.name)
 
     return (
         <div className={'bg-gray-100'}>
@@ -161,7 +161,7 @@ const MessageOverview = ({ inboxId }) => {
                             />
                             <input
                                 onChange={(e) => {
-                                    setMsgInput(e.target.value);
+                                    setMsgInput(e.target.value)
                                 }}
                                 className={
                                     'col-start-2 col-end-13 my-5 rounded-lg bg-gray-100 px-5 py-3 text-sm focus:outline-none sm:col-start-3 lg:col-start-2 lg:col-end-11'
@@ -180,7 +180,7 @@ const MessageOverview = ({ inboxId }) => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default MessageOverview;
+export default MessageOverview
