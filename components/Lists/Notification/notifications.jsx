@@ -41,13 +41,13 @@ const Notifications = () => {
                             Notifications
                         </div>
 
-                        <div className="md:h-[410px] xl:h-[630px] w-full overflow-auto bg-white shadow">
+                        <div className="w-full overflow-auto bg-white shadow md:h-[410px] xl:h-[630px]">
                             <div className="h-full w-full">
                                 {notifications.map((item) => (
                                     <div key={item} id={item}>
                                         <button
                                             type="button"
-                                            className=" relative inline-flex w-2xl items-center border-b px-4 py-2 text-sm font-medium"
+                                            className=" w-2xl relative inline-flex items-center border-b px-4 py-2 text-sm font-medium"
                                         >
                                             <div className="items-left  m-1 ">
                                                 <div className="m-1">
@@ -59,13 +59,13 @@ const Notifications = () => {
                                                 </div>
                                             </div>
 
-                                            <div className=" w-[450px] bg-white text-sm font-medium text-gray-700 text-left pl-1 ">
+                                            <div className=" w-[450px] bg-white pl-1 text-left text-sm font-medium text-gray-700 ">
                                                 <a
                                                     href="#"
                                                     className="block w-full px-1 py-2 "
                                                 >
                                                     <span className="text-susty">
-                                                        {item.partnerId}
+                                                        {item.partner}
                                                     </span>{' '}
                                                     <span>{item.message}</span>
                                                 </a>
