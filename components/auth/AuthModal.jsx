@@ -1,57 +1,75 @@
-import React, {useState} from 'react'
-import {Dialog} from '@headlessui/react'
-import {AnimatePresence, motion} from 'framer-motion'
-import Link from 'next/link'
-import {getAuth, GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
-import {firebaseApp} from '../../services/firebase'
-import axios from 'axios'
-import {useLocalStorage} from '@mantine/hooks'
+import React, { useEffect, useState } from 'react';
+import { Dialog } from '@headlessui/react';
+import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { firebaseApp } from '../../services/firebase';
+import axios from 'axios';
+import { useLocalStorage } from '@mantine/hooks';
 
-const AuthModal = ({openState, setOpenModal}) => {
+const AuthModal = ({ openState, setOpenModal }) => {
     const closeModalHandler = () => {
-        setOpenModal(false)
-        setIsRegisterStatus(true)
-        setIsRegisterAnd3Button(true)
-        setIsLoginRouteAnd3Button(true)
-        setIsLoginEmailPassword(true)
-    }
+        setOpenModal(false);
+        setIsRegisterStatus(true);
+        setIsRegisterAnd3Button(true);
+        setIsLoginRouteAnd3Button(true);
+        setIsLoginEmailPassword(true);
+        setIsResetPassword(false)
+        setIsForgotPassword(false)
+        setEmail('')
+        setNewPassword('')
+        setEmailNotification('')
+        setErrorMessage('')
+    };
 
     const [sustyAuth, setSustyAuth] = useLocalStorage({
         key: 'susty',
         defaultValue: {},
-    })
-    const [fullName, setFullName] = useState('')
-    const [username, setUsername] = useState('')
-    const [address, setAddress] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    });
+    const [fullName, setFullName] = useState('');
+    const [username, setUsername] = useState('');
+    const [address, setAddress] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [userId, setUserId] = useState('');
+    const [emailNotification, setEmailNotification] = useState('');
+    const [errorMessage, setErrorMessage] = useState('')
 
     //1st check
-    const [isRegisterStatus, setIsRegisterStatus] = useState(true)
+    const [isRegisterStatus, setIsRegisterStatus] = useState(true);
 
     // in register route
-    const [isRegisterAnd3Button, setIsRegisterAnd3Button] = useState(true)
+    const [isRegisterAnd3Button, setIsRegisterAnd3Button] = useState(true);
 
     // in login route
-    const [isLoginRouteAnd3Button, setIsLoginRouteAnd3Button] = useState(true)
-    const [isLoginEmailPassword, setIsLoginEmailPassword] = useState(true)
+    const [isLoginRouteAnd3Button, setIsLoginRouteAnd3Button] = useState(true);
+    const [isLoginEmailPassword, setIsLoginEmailPassword] = useState(true);
+
+    // forgot password check
+    const [isForgotPassword, setIsForgotPassword] = useState(false);
+    const [verificationCode, setVerificationCode] = useState('');
+
+    //  reset password
+    const [isResetPassword, setIsResetPassword] = useState(false);
+    const [resetPasswordEnter, setResetPasswordEnter] = useState('');
 
     //Firebase auth object
-    const auth = getAuth(firebaseApp)
+    const auth = getAuth(firebaseApp);
 
     //Firebase Auth for Google login
-    const provider = new GoogleAuthProvider()
+    const provider = new GoogleAuthProvider();
     const signInWithGoogleHandler = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
                 const credential =
-                    GoogleAuthProvider.credentialFromResult(result)
-                const token = credential.accessToken
+                    GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
                 // The signed-in user info.
-                const user = result.user
+                const user = result.user;
                 // ...
-                return result.user
+                return result.user;
             })
             .then(async (userDetails) => {
                 await axios
@@ -63,24 +81,25 @@ const AuthModal = ({openState, setOpenModal}) => {
                         // address: "My Address"
                     })
                     .then((res) => {
-                        setSustyAuth(res.data.user)
-                    })
+                        setSustyAuth(res.data.user);
+                    });
             })
             .then(() => {
-                closeModalHandler()
+                closeModalHandler();
             })
             .catch((error) => {
-                console.log(error)
+                console.log(error);
                 // Handle Errors here.
-                const errorCode = error.code
-                const errorMessage = error.message
+                const errorCode = error.code;
+                const errorMessage = error.message;
                 // The email of the user's account used.
-                const email = error.customData.email
+                const email = error.customData.email;
                 // The AuthCredential type that was used.
-                const credential = GoogleAuthProvider.credentialFromError(error)
+                const credential =
+                    GoogleAuthProvider.credentialFromError(error);
                 // ...
-            })
-    }
+            });
+    };
 
     const onContinueClick = async () => {
         await axios
@@ -92,22 +111,111 @@ const AuthModal = ({openState, setOpenModal}) => {
                 password,
             })
             .then((result) => {
-                console.log('User registered successfully!', result)
+                console.log('User registered successfully!', result);
+            });
+    };
+
+    const onForgotPasswordContinue = async () => {
+        console.log("Called forgot password continue 1")
+        try {
+            const { data } = await axios
+                .post('/api/user/forgotPassword', { email })
+                .then((result) => {
+                    console.log(`Email sent ${email}`);
+                    if (result.data.success == true) {
+                        setIsForgotPassword(true);
+                        setEmailNotification('Email sent');
+                    } else {
+                        setIsForgotPassword(false);
+                        setErrorMessage('Email is not registered')
+                        console.log("Called forgot password continue")
+                    }
+                });
+        } catch (err) {
+            console.log(err);
+            setIsForgotPassword(false);
+            setErrorMessage('Email is not registered')
+        }
+    };
+
+    const onVerificationEnter = async () => {
+        await axios
+            .post('/api/user/verifyPasswordToken', {
+                resetToken: verificationCode,
             })
-    }
+            .then((result) => {
+                if (result.data.success === true) {
+                    console.log('Verification success');
+                    setIsResetPassword(true);
+                    setUserId(result.data.userId);
+                } else {
+                    setIsResetPassword(false);
+                    console.log('Verification unsuccess');
+                }
+            });
+    };
+
+    const onResetPasswordEnter = async () => {
+        console.log(newPassword);
+
+        // save new password in db
+        await axios
+            .put('/api/user/resetPassword', {
+                userId: userId,
+                password: newPassword,
+            })
+            .then((result) => {
+                if (result.data.success === true) {
+                    console.log('Password reset successfully!');
+                    setIsLoginEmailPassword(false);
+                    closeModalHandler();
+                } else {
+                    console.log('Password reset Unsuccessfully!');
+                    setIsLoginEmailPassword(false);
+                    closeModalHandler();
+                }
+            });
+    };
+
+    const onResendEmailClick = () => {
+        console.log('Resend email is clicked');
+        console.log(email);
+    };
 
     const onEmailLogIn = async () => {
-        await axios
-            .post('/api/user/emailSignIn', {email, password})
-            .then((result) => {
-                if (result.data.success == true) {
-                    setSustyAuth(result.data.user)
-                    closeModalHandler()
-                }
-            })
-    }
+        try {
+            const { data } = await axios
+                .post('/api/user/emailSignIn', { email, password })
+                .then((result) => {
+                    console.log(result);
+                    if (result.data.success == true) {
+                        localStorage.setItem('authToken', result.data.token);
+                        setSustyAuth(result.data.user);
+                        closeModalHandler();
+                    }
+                });
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
-    console.log(sustyAuth)
+    // add timeout function to set the time to display a message
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setEmailNotification('');
+        }, 4000);
+        return () => clearTimeout(timer);
+    }, [emailNotification]);
+
+    // add timeout to forgot email message
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setErrorMessage('');
+        }, 4000);
+        return () => clearTimeout(timer);
+    }, [errorMessage]);
+
+    console.log(sustyAuth);
 
     return (
         <AnimatePresence>
@@ -128,11 +236,11 @@ const AuthModal = ({openState, setOpenModal}) => {
                         },
                     }}
                 >
-                    <div className={'fixed inset-0 overflow-y-auto font-susty'}>
-                        <div className="flex  min-h-full overflow-y-auto items-center justify-center p-4 text-center bg-gray-700 bg-opacity-80">
+                    <div className={'font-susty fixed inset-0 overflow-y-auto'}>
+                        <div className="flex  min-h-full items-center justify-center overflow-y-auto bg-gray-700 bg-opacity-80 p-4 text-center">
                             <motion.div
                                 key={`modal-for-email`}
-                                initial={{scale: 0, opacity: 0, y: -500}}
+                                initial={{ scale: 0, opacity: 0, y: -500 }}
                                 animate={{
                                     y: 0,
                                     scale: 1,
@@ -150,7 +258,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                             >
                                 <Dialog.Title as="h3" className={`mb-2`}>
                                     <span
-                                        className="flex justify-end text-base font-medium leading-5 mr-2 cursor-pointer text-susty"
+                                        className="mr-2 flex cursor-pointer justify-end text-base font-medium leading-5 text-susty"
                                         onClick={closeModalHandler}
                                     >
                                         Close
@@ -162,7 +270,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                 <>
                                                     <p
                                                         className={
-                                                            'flex flex-col gap-3 text-2xl font-medium mt-5 pt-2'
+                                                            'mt-5 flex flex-col gap-3 pt-2 text-2xl font-medium'
                                                         }
                                                     >
                                                         <span
@@ -186,7 +294,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                 <>
                                                     <p
                                                         className={
-                                                            'flex justify-center text-xl font-medium mt-5 pt-2'
+                                                            'mt-5 flex justify-center pt-2 text-xl font-medium'
                                                         }
                                                     >
                                                         Register with email
@@ -200,7 +308,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                 <>
                                                     <p
                                                         className={
-                                                            'flex justify-center text-xl font-medium mt-5 pt-2'
+                                                            'mt-5 flex justify-center pt-2 text-xl font-medium'
                                                         }
                                                     >
                                                         Welcome back!
@@ -213,7 +321,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         <>
                                                             <p
                                                                 className={
-                                                                    'flex justify-center text-2xl font-medium mt-5 pt-2'
+                                                                    'mt-5 flex justify-center pt-2 text-2xl font-medium'
                                                                 }
                                                                 onClick={
                                                                     onEmailLogIn
@@ -224,14 +332,59 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         </>
                                                     ) : (
                                                         <>
-                                                            <p
-                                                                className={
-                                                                    'flex justify-center text-xl font-medium mt-5 pt-2'
-                                                                }
-                                                            >
-                                                                Forgot your
-                                                                password
-                                                            </p>
+                                                            {isForgotPassword ? (
+                                                                <>
+                                                                    {isResetPassword ? (
+                                                                        <>
+                                                                            <p
+                                                                                className={
+                                                                                    'mt-5 flex justify-center pt-2 text-xl font-medium'
+                                                                                }
+                                                                            >
+                                                                                Enter
+                                                                                Your
+                                                                                New
+                                                                                Password
+                                                                            </p>
+                                                                        </>
+                                                                    ) : (
+                                                                        <>
+                                                                            <p
+                                                                                className={
+                                                                                    'mt-5 flex justify-center pt-2 text-xl font-medium'
+                                                                                }
+                                                                            >
+                                                                                Enter
+                                                                                Verification
+                                                                                code
+                                                                            </p>
+                                                                            <p className="flex justify-center text-sm font-normal">
+                                                                                A
+                                                                                verification
+                                                                                code
+                                                                                has
+                                                                                sent
+                                                                                to
+                                                                                your
+                                                                                email
+                                                                                address
+                                                                            </p>
+                                                                        </>
+                                                                    )}
+                                                                </>
+                                                            ) : (
+                                                                <>
+                                                                    <p
+                                                                        className={
+                                                                            'mt-5 flex justify-center pt-2 text-xl font-medium'
+                                                                        }
+                                                                    >
+                                                                        Forgot
+                                                                        your
+                                                                        password
+                                                                    </p>
+                                                                </>
+                                                            )}
                                                         </>
                                                     )}
                                                 </>
@@ -241,7 +394,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                 </Dialog.Title>
                                 <div
                                     className={
-                                        'my-4 grid grid-cols-1 grid-rows-10 gap-y-3'
+                                        'grid-rows-10 my-4 grid grid-cols-1 gap-y-3'
                                     }
                                 >
                                     {/*TODO*/}
@@ -249,11 +402,11 @@ const AuthModal = ({openState, setOpenModal}) => {
                                         <>
                                             {isRegisterAnd3Button === true ? (
                                                 <>
-                                                    <div className="bg-white rounded w-full p-2">
+                                                    <div className="w-full rounded bg-white p-2">
                                                         <button
                                                             aria-label="Continue with facebook"
                                                             role="button"
-                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4 blur-sm"
+                                                            className="mt-4 flex w-full items-center rounded-lg border border-gray-900 py-3 px-4 blur-sm focus:bg-gray-200 focus:outline-none"
                                                         >
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -271,7 +424,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     d="M29.368,24H26v12h-5V24h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H30v4h-2.287 C26.104,16,26,16.6,26,17.723V20h4L29.368,24z"
                                                                 ></path>
                                                             </svg>
-                                                            <p className="text-base font-medium ml-4 text-gray-700">
+                                                            <p className="ml-4 text-base font-medium text-gray-700">
                                                                 Continue with
                                                                 Facebook
                                                             </p>
@@ -282,7 +435,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             }
                                                             aria-label="Continue with google"
                                                             role="button"
-                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4"
+                                                            className="mt-4 flex w-full items-center rounded-lg border border-gray-900 py-3 px-4 focus:bg-gray-200 focus:outline-none"
                                                         >
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -308,7 +461,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
                                                                 ></path>
                                                             </svg>
-                                                            <p className="text-base font-medium ml-4 text-gray-700">
+                                                            <p className="ml-4 text-base font-medium text-gray-700">
                                                                 Continue with
                                                                 Google
                                                             </p>
@@ -316,14 +469,14 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         <button
                                                             aria-label="Continue with apple"
                                                             role="button"
-                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4 blur-sm"
+                                                            className="mt-4 flex w-full items-center rounded-lg border border-gray-900 py-3 px-4 blur-sm focus:bg-gray-200 focus:outline-none"
                                                         >
                                                             <img
                                                                 src="https://img.icons8.com/fluency-systems-filled/48/000000/mac-client.png"
                                                                 width={'38'}
                                                                 height={'38'}
                                                             />
-                                                            <p className="text-base font-medium ml-4 text-gray-700">
+                                                            <p className="ml-4 text-base font-medium text-gray-700">
                                                                 Continue with
                                                                 Apple
                                                             </p>
@@ -345,7 +498,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             <input
                                                                 type={'text'}
                                                                 className={
-                                                                    'px-8 py-1.5 min-w-full rounded-md shadow-sm border border-gray-300 focus:border-susty focus:ring-susty focus:ring-offset-susty'
+                                                                    'min-w-full rounded-md border border-gray-300 px-8 py-1.5 shadow-sm focus:border-susty focus:ring-susty focus:ring-offset-susty'
                                                                 }
                                                                 placeholder={
                                                                     'Full name'
@@ -356,7 +509,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     setFullName(
                                                                         e.target
                                                                             .value
-                                                                    )
+                                                                    );
                                                                 }}
                                                             />
                                                             <span
@@ -377,7 +530,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             <input
                                                                 type={'text'}
                                                                 className={
-                                                                    'px-8 py-1.5 min-w-full rounded-md shadow-sm border border-gray-300 focus:border-susty focus:ring-susty focus:ring-offset-susty'
+                                                                    'min-w-full rounded-md border border-gray-300 px-8 py-1.5 shadow-sm focus:border-susty focus:ring-susty focus:ring-offset-susty'
                                                                 }
                                                                 placeholder={
                                                                     'Username'
@@ -388,7 +541,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     setUsername(
                                                                         e.target
                                                                             .value
-                                                                    )
+                                                                    );
                                                                 }}
                                                             />
                                                             <span
@@ -409,7 +562,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             <input
                                                                 type={'text'}
                                                                 className={
-                                                                    'px-8 py-1.5 min-w-full rounded-md shadow-sm border border-gray-300 focus:border-susty focus:ring-susty focus:ring-offset-susty'
+                                                                    'min-w-full rounded-md border border-gray-300 px-8 py-1.5 shadow-sm focus:border-susty focus:ring-susty focus:ring-offset-susty'
                                                                 }
                                                                 placeholder={
                                                                     'Address'
@@ -420,7 +573,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     setAddress(
                                                                         e.target
                                                                             .value
-                                                                    )
+                                                                    );
                                                                 }}
                                                             />
                                                         </div>
@@ -428,7 +581,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             <input
                                                                 type={'email'}
                                                                 className={
-                                                                    'px-8 py-1.5 min-w-full rounded-md shadow-sm border border-gray-300 focus:border-susty focus:ring-susty focus:ring-offset-susty'
+                                                                    'min-w-full rounded-md border border-gray-300 px-8 py-1.5 shadow-sm focus:border-susty focus:ring-susty focus:ring-offset-susty'
                                                                 }
                                                                 placeholder={
                                                                     'Email'
@@ -439,7 +592,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     setEmail(
                                                                         e.target
                                                                             .value
-                                                                    )
+                                                                    );
                                                                 }}
                                                             />
                                                         </div>
@@ -453,7 +606,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     'password'
                                                                 }
                                                                 className={
-                                                                    'px-8 py-1.5 min-w-full rounded-md shadow-sm border border-gray-300 focus:border-susty focus:ring-susty focus:ring-offset-susty'
+                                                                    'min-w-full rounded-md border border-gray-300 px-8 py-1.5 shadow-sm focus:border-susty focus:ring-susty focus:ring-offset-susty'
                                                                 }
                                                                 placeholder={
                                                                     'Password'
@@ -464,7 +617,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     setPassword(
                                                                         e.target
                                                                             .value
-                                                                    )
+                                                                    );
                                                                 }}
                                                             />
                                                             <span
@@ -489,7 +642,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 id="checkbox"
                                                                 name="checkbox"
                                                                 type="checkbox"
-                                                                className="focus:ring-red-400 h-5 w-5 text-susty border-gray-300 rounded"
+                                                                className="h-5 w-5 rounded border-gray-300 text-susty focus:ring-red-400"
                                                             />
                                                             <span
                                                                 className={
@@ -508,11 +661,11 @@ const AuthModal = ({openState, setOpenModal}) => {
                                         <>
                                             {isLoginRouteAnd3Button === true ? (
                                                 <>
-                                                    <div className="bg-white rounded w-full p-2">
+                                                    <div className="w-full rounded bg-white p-2">
                                                         <button
                                                             aria-label="Continue with facebook"
                                                             role="button"
-                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4 blur-sm"
+                                                            className="mt-4 flex w-full items-center rounded-lg border border-gray-900 py-3 px-4 blur-sm focus:bg-gray-200 focus:outline-none"
                                                         >
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -530,7 +683,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     d="M29.368,24H26v12h-5V24h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H30v4h-2.287 C26.104,16,26,16.6,26,17.723V20h4L29.368,24z"
                                                                 ></path>
                                                             </svg>
-                                                            <p className="text-base font-medium ml-4 text-gray-700">
+                                                            <p className="ml-4 text-base font-medium text-gray-700">
                                                                 Continue with
                                                                 Facebook
                                                             </p>
@@ -541,7 +694,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             }
                                                             aria-label="Continue with google"
                                                             role="button"
-                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4"
+                                                            className="mt-4 flex w-full items-center rounded-lg border border-gray-900 py-3 px-4 focus:bg-gray-200 focus:outline-none"
                                                         >
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -567,7 +720,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
                                                                 ></path>
                                                             </svg>
-                                                            <p className="text-base font-medium ml-4 text-gray-700">
+                                                            <p className="ml-4 text-base font-medium text-gray-700">
                                                                 Continue with
                                                                 Google
                                                             </p>
@@ -575,14 +728,14 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         <button
                                                             aria-label="Continue with apple"
                                                             role="button"
-                                                            className="focus:outline-none focus:bg-gray-200 py-3 px-4 border rounded-lg border-gray-900 flex items-center w-full mt-4 blur-sm"
+                                                            className="mt-4 flex w-full items-center rounded-lg border border-gray-900 py-3 px-4 blur-sm focus:bg-gray-200 focus:outline-none"
                                                         >
                                                             <img
                                                                 src="https://img.icons8.com/fluency-systems-filled/48/000000/mac-client.png"
                                                                 width={'38'}
                                                                 height={'38'}
                                                             />
-                                                            <p className="text-base font-medium ml-4 text-gray-700">
+                                                            <p className="ml-4 text-base font-medium text-gray-700">
                                                                 Continue with
                                                                 Apple
                                                             </p>
@@ -604,7 +757,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                         'text'
                                                                     }
                                                                     className={
-                                                                        'px-8 py-1.5 min-w-full rounded-md shadow-sm border border-gray-300 focus:border-susty focus:ring-susty focus:ring-offset-susty'
+                                                                        'min-w-full rounded-md border border-gray-300 px-8 py-1.5 shadow-sm focus:border-susty focus:ring-susty focus:ring-offset-susty'
                                                                     }
                                                                     placeholder={
                                                                         'Email or username'
@@ -624,7 +777,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                         'password'
                                                                     }
                                                                     className={
-                                                                        'px-8 py-1.5 min-w-full rounded-md shadow-sm border border-gray-300 focus:border-susty focus:ring-susty focus:ring-offset-susty'
+                                                                        'min-w-full rounded-md border border-gray-300 px-8 py-1.5 shadow-sm focus:border-susty focus:ring-susty focus:ring-offset-susty'
                                                                     }
                                                                     placeholder={
                                                                         'Password'
@@ -643,21 +796,101 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         </>
                                                     ) : (
                                                         <>
-                                                            <input
-                                                                type={'email'}
-                                                                className={
-                                                                    'px-8 py-1.5 min-w-full rounded-md shadow-sm border border-gray-300 focus:border-susty focus:ring-susty focus:ring-offset-susty'
-                                                                }
-                                                                placeholder={
-                                                                    'Enter your email address'
-                                                                }
-                                                                onChange={(e) =>
-                                                                    setEmail(
-                                                                        e.target
-                                                                            .value
-                                                                    )
-                                                                }
-                                                            />
+                                                            {isForgotPassword ? (
+                                                                <>
+                                                                    {isResetPassword ? (
+                                                                        <>
+                                                                            <input
+                                                                                type={
+                                                                                    'password'
+                                                                                }
+                                                                                className={
+                                                                                    'min-w-full rounded-md border border-gray-300 px-8 py-1.5 shadow-sm focus:border-susty focus:ring-susty focus:ring-offset-susty'
+                                                                                }
+                                                                                placeholder={
+                                                                                    'Enter your new password'
+                                                                                }
+                                                                                value={
+                                                                                    newPassword
+                                                                                }
+                                                                                onChange={(
+                                                                                    e
+                                                                                ) =>
+                                                                                    setNewPassword(
+                                                                                        e
+                                                                                            .target
+                                                                                            .value
+                                                                                    )
+                                                                                }
+                                                                            />
+                                                                        </>
+                                                                    ) : (
+                                                                        <>
+                                                                            <input
+                                                                                type={
+                                                                                    'text'
+                                                                                }
+                                                                                className={
+                                                                                    'min-w-full rounded-md border border-gray-300 px-8 py-1.5 shadow-sm focus:border-susty focus:ring-susty focus:ring-offset-susty'
+                                                                                }
+                                                                                placeholder={
+                                                                                    'Enter Verification code here'
+                                                                                }
+                                                                                onChange={(
+                                                                                    e
+                                                                                ) =>
+                                                                                    setVerificationCode(
+                                                                                        e
+                                                                                            .target
+                                                                                            .value
+                                                                                    )
+                                                                                }
+                                                                            />
+
+                                                                            <div className="mt-4 flex justify-center text-susty">
+                                                                                <p
+                                                                                    className="cursor-pointer text-sm hover:text-red-600 hover:underline"
+                                                                                    onClick={() =>
+                                                                                        onForgotPasswordContinue()
+                                                                                    }
+                                                                                >
+                                                                                    Resend
+                                                                                    email
+                                                                                </p>
+                                                                            </div>
+                                                                            {emailNotification.length > 0 && 
+                                                                                <div className="flex justify-center rounded-md bg-green-200 p-0.5 text-sm text-green-800">
+                                                                                    { emailNotification }
+                                                                                </div>
+                                                                            }
+                                                                            
+                                                                        </>
+                                                                    )}
+                                                                </>
+                                                            ) : (
+                                                                <>
+                                                                    <input
+                                                                        type={
+                                                                            'email'
+                                                                        }
+                                                                        className={
+                                                                            'min-w-full rounded-md border border-gray-300 px-8 py-1.5 shadow-sm focus:border-susty focus:ring-susty focus:ring-offset-susty'
+                                                                        }
+                                                                        placeholder={
+                                                                            'Enter your email address'
+                                                                        }
+                                                                        onChange={(
+                                                                            e
+                                                                        ) =>
+                                                                            setEmail(
+                                                                                e
+                                                                                    .target
+                                                                                    .value
+                                                                            )
+                                                                        }
+                                                                    />
+                                                                </>
+                                                            )}
                                                         </>
                                                     )}
                                                 </>
@@ -677,7 +910,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                     >
                                                         <div
                                                             className={
-                                                                'text-base text-gray-500 font-medium mx-auto'
+                                                                'mx-auto text-base font-medium text-gray-500'
                                                             }
                                                         >
                                                             Or register with{' '}
@@ -685,10 +918,10 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 onClick={() => {
                                                                     setIsRegisterAnd3Button(
                                                                         false
-                                                                    )
+                                                                    );
                                                                 }}
                                                                 className={
-                                                                    'text-susty hover:underline cursor-pointer'
+                                                                    'cursor-pointer text-susty hover:underline'
                                                                 }
                                                             >
                                                                 Email
@@ -696,7 +929,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         </div>
                                                         <div
                                                             className={
-                                                                'text-base text-gray-500 font-medium mx-auto cursor-pointer'
+                                                                'mx-auto cursor-pointer text-base font-medium text-gray-500'
                                                             }
                                                         >
                                                             Already have an
@@ -705,7 +938,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 onClick={() => {
                                                                     setIsRegisterStatus(
                                                                         false
-                                                                    )
+                                                                    );
                                                                 }}
                                                                 className={
                                                                     'text-susty hover:underline'
@@ -729,9 +962,9 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             Send
                                                             confirmation
                                                             email
-                                                            className={`flex justify-center min-w-full px-28 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                                            className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                             onClick={() => {
-                                                                onContinueClick()
+                                                                onContinueClick();
                                                             }}
                                                         >
                                                             Continue
@@ -776,7 +1009,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         </div>
                                                         <div
                                                             className={
-                                                                'text-base font-medium mx-auto text-susty hover:underline'
+                                                                'mx-auto text-base font-medium text-susty hover:underline'
                                                             }
                                                         >
                                                             Having trouble?
@@ -796,7 +1029,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                     >
                                                         <div
                                                             className={
-                                                                'text-base text-gray-500 font-medium mx-auto'
+                                                                'mx-auto text-base font-medium text-gray-500'
                                                             }
                                                         >
                                                             Or log in with{' '}
@@ -804,13 +1037,13 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 onClick={() => {
                                                                     setIsLoginRouteAnd3Button(
                                                                         false
-                                                                    )
+                                                                    );
                                                                     setIsLoginEmailPassword(
                                                                         true
-                                                                    )
+                                                                    );
                                                                 }}
                                                                 className={
-                                                                    'text-susty hover:underline cursor-pointer'
+                                                                    'cursor-pointer text-susty hover:underline'
                                                                 }
                                                             >
                                                                 Email
@@ -818,7 +1051,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         </div>
                                                         <div
                                                             className={
-                                                                'text-base text-gray-500 font-medium mx-auto'
+                                                                'mx-auto text-base font-medium text-gray-500'
                                                             }
                                                         >
                                                             Don't have an
@@ -827,13 +1060,13 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 onClick={() => {
                                                                     setIsRegisterStatus(
                                                                         true
-                                                                    )
+                                                                    );
                                                                     setIsRegisterAnd3Button(
                                                                         true
-                                                                    )
+                                                                    );
                                                                 }}
                                                                 className={
-                                                                    'text-susty hover:underline cursor-pointer'
+                                                                    'cursor-pointer text-susty hover:underline'
                                                                 }
                                                             >
                                                                 Sign up
@@ -857,7 +1090,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     Send
                                                                     confirmation
                                                                     email
-                                                                    className={`flex justify-center min-w-full px-28 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
+                                                                    className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                                     onClick={
                                                                         onEmailLogIn
                                                                     }
@@ -867,17 +1100,17 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             </div>
                                                             <div
                                                                 className={
-                                                                    'flex flex-col gap-2 mt-3'
+                                                                    'mt-3 flex flex-col gap-2'
                                                                 }
                                                             >
                                                                 <div
                                                                     onClick={() => {
                                                                         setIsLoginEmailPassword(
                                                                             false
-                                                                        )
+                                                                        );
                                                                     }}
                                                                     className={
-                                                                        'text-base font-medium mx-auto text-susty hover:underline cursor-pointer'
+                                                                        'mx-auto cursor-pointer text-base font-medium text-susty hover:underline'
                                                                     }
                                                                 >
                                                                     Forgotten
@@ -886,7 +1119,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 </div>
                                                                 <div
                                                                     className={
-                                                                        'text-sm font-medium mx-auto text-susty hover:underline cursor-pointer'
+                                                                        'mx-auto cursor-pointer text-sm font-medium text-susty hover:underline'
                                                                     }
                                                                 >
                                                                     Having
@@ -896,22 +1129,85 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                         </>
                                                     ) : (
                                                         <>
-                                                            <div className="mt-6">
-                                                                <motion.button
-                                                                    whileHover={{
-                                                                        scale: 1.02,
-                                                                    }}
-                                                                    whileTap={{
-                                                                        scale: 0.98,
-                                                                    }}
-                                                                    Send
-                                                                    confirmation
-                                                                    email
-                                                                    className={`flex justify-center min-w-full px-28 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-white bg-susty hover:bg-white hover:text-susty hover:border-susty focus:text-red-400 focus:border-susty focus:bg-red-50`}
-                                                                >
-                                                                    Continue
-                                                                </motion.button>
-                                                            </div>
+                                                            {isForgotPassword ? (
+                                                                <>
+                                                                    {isResetPassword ? (
+                                                                        <>
+                                                                            <div className="mt-6">
+                                                                                <motion.button
+                                                                                    whileHover={{
+                                                                                        scale: 1.02,
+                                                                                    }}
+                                                                                    whileTap={{
+                                                                                        scale: 0.98,
+                                                                                    }}
+                                                                                    Send
+                                                                                    confirmation
+                                                                                    email
+                                                                                    className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
+                                                                                    onClick={() => {
+                                                                                        onResetPasswordEnter();
+                                                                                    }}
+                                                                                >
+                                                                                    Enter
+                                                                                </motion.button>
+                                                                            </div>
+                                                                        </>
+                                                                    ) : (
+                                                                        <>
+                                                                            <div className="">
+                                                                                <motion.button
+                                                                                    whileHover={{
+                                                                                        scale: 1.02,
+                                                                                    }}
+                                                                                    whileTap={{
+                                                                                        scale: 0.98,
+                                                                                    }}
+                                                                                    Send
+                                                                                    confirmation
+                                                                                    email
+                                                                                    className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
+                                                                                    onClick={() => {
+                                                                                        onVerificationEnter();
+                                                                                    }}
+                                                                                >
+                                                                                    Continue
+                                                                                </motion.button>
+                                                                            </div>
+                                                                        </>
+                                                                    )}
+                                                                </>
+                                                            ) : (
+                                                                <>
+                                                                    <div className='mt-4'>
+                                                                        {
+                                                                            errorMessage.length > 0 && <>
+                                                                            <div className='bg-red-100 flex justify-center rounded-md text-red-700 p-0.5 text-sm'>{errorMessage}</div>
+                                                                            </>
+                                                                        }
+                                                                        
+                                                                        <div className="mt-2">
+                                                                            <motion.button
+                                                                                whileHover={{
+                                                                                    scale: 1.02,
+                                                                                }}
+                                                                                whileTap={{
+                                                                                    scale: 0.98,
+                                                                                }}
+                                                                                Send
+                                                                                confirmation
+                                                                                email
+                                                                                className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
+                                                                                onClick={() => {
+                                                                                    onForgotPasswordContinue();
+                                                                                }}
+                                                                            >
+                                                                                Continue
+                                                                            </motion.button>
+                                                                        </div>
+                                                                    </div>
+                                                                </>
+                                                            )}
                                                         </>
                                                     )}
                                                 </>
@@ -925,7 +1221,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                 </Dialog>
             )}
         </AnimatePresence>
-    )
-}
+    );
+};
 
-export default AuthModal
+export default AuthModal;
