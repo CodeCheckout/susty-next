@@ -224,8 +224,6 @@ const ProductItemsFilterSection = () => {
         getSellers();
     }, [])
 
-    console.log(sellers)
-
     return (
         <>
             <ProductCategoryFilterWrapper
