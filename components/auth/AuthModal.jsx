@@ -14,12 +14,12 @@ const AuthModal = ({ openState, setOpenModal }) => {
         setIsRegisterAnd3Button(true);
         setIsLoginRouteAnd3Button(true);
         setIsLoginEmailPassword(true);
-        setIsResetPassword(false)
-        setIsForgotPassword(false)
-        setEmail('')
-        setNewPassword('')
-        setEmailNotification('')
-        setErrorMessage('')
+        setIsResetPassword(false);
+        setIsForgotPassword(false);
+        setEmail('');
+        setNewPassword('');
+        setEmailNotification('');
+        setErrorMessage('');
     };
 
     const [sustyAuth, setSustyAuth] = useLocalStorage({
@@ -34,7 +34,7 @@ const AuthModal = ({ openState, setOpenModal }) => {
     const [newPassword, setNewPassword] = useState('');
     const [userId, setUserId] = useState('');
     const [emailNotification, setEmailNotification] = useState('');
-    const [errorMessage, setErrorMessage] = useState('')
+    const [errorMessage, setErrorMessage] = useState('');
 
     //1st check
     const [isRegisterStatus, setIsRegisterStatus] = useState(true);
@@ -116,7 +116,7 @@ const AuthModal = ({ openState, setOpenModal }) => {
     };
 
     const onForgotPasswordContinue = async () => {
-        console.log("Called forgot password continue 1")
+        console.log('Called forgot password continue 1');
         try {
             const { data } = await axios
                 .post('/api/user/forgotPassword', { email })
@@ -127,14 +127,14 @@ const AuthModal = ({ openState, setOpenModal }) => {
                         setEmailNotification('Email sent');
                     } else {
                         setIsForgotPassword(false);
-                        setErrorMessage('Email is not registered')
-                        console.log("Called forgot password continue")
+                        setErrorMessage('Email is not registered');
+                        console.log('Called forgot password continue');
                     }
                 });
         } catch (err) {
             console.log(err);
             setIsForgotPassword(false);
-            setErrorMessage('Email is not registered')
+            setErrorMessage('Email is not registered');
         }
     };
 
@@ -177,17 +177,11 @@ const AuthModal = ({ openState, setOpenModal }) => {
             });
     };
 
-    const onResendEmailClick = () => {
-        console.log('Resend email is clicked');
-        console.log(email);
-    };
-
     const onEmailLogIn = async () => {
         try {
             const { data } = await axios
                 .post('/api/user/emailSignIn', { email, password })
                 .then((result) => {
-                    console.log(result);
                     if (result.data.success == true) {
                         localStorage.setItem('authToken', result.data.token);
                         setSustyAuth(result.data.user);
@@ -858,12 +852,14 @@ const AuthModal = ({ openState, setOpenModal }) => {
                                                                                     email
                                                                                 </p>
                                                                             </div>
-                                                                            {emailNotification.length > 0 && 
+                                                                            {emailNotification.length >
+                                                                                0 && (
                                                                                 <div className="flex justify-center rounded-md bg-green-200 p-0.5 text-sm text-green-800">
-                                                                                    { emailNotification }
+                                                                                    {
+                                                                                        emailNotification
+                                                                                    }
                                                                                 </div>
-                                                                            }
-                                                                            
+                                                                            )}
                                                                         </>
                                                                     )}
                                                                 </>
@@ -959,9 +955,6 @@ const AuthModal = ({ openState, setOpenModal }) => {
                                                             whileTap={{
                                                                 scale: 0.98,
                                                             }}
-                                                            Send
-                                                            confirmation
-                                                            email
                                                             className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                             onClick={() => {
                                                                 onContinueClick();
@@ -1087,9 +1080,6 @@ const AuthModal = ({ openState, setOpenModal }) => {
                                                                     whileTap={{
                                                                         scale: 0.98,
                                                                     }}
-                                                                    Send
-                                                                    confirmation
-                                                                    email
                                                                     className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                                     onClick={
                                                                         onEmailLogIn
@@ -1141,9 +1131,6 @@ const AuthModal = ({ openState, setOpenModal }) => {
                                                                                     whileTap={{
                                                                                         scale: 0.98,
                                                                                     }}
-                                                                                    Send
-                                                                                    confirmation
-                                                                                    email
                                                                                     className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                                                     onClick={() => {
                                                                                         onResetPasswordEnter();
@@ -1163,9 +1150,6 @@ const AuthModal = ({ openState, setOpenModal }) => {
                                                                                     whileTap={{
                                                                                         scale: 0.98,
                                                                                     }}
-                                                                                    Send
-                                                                                    confirmation
-                                                                                    email
                                                                                     className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                                                     onClick={() => {
                                                                                         onVerificationEnter();
@@ -1179,13 +1163,18 @@ const AuthModal = ({ openState, setOpenModal }) => {
                                                                 </>
                                                             ) : (
                                                                 <>
-                                                                    <div className='mt-4'>
-                                                                        {
-                                                                            errorMessage.length > 0 && <>
-                                                                            <div className='bg-red-100 flex justify-center rounded-md text-red-700 p-0.5 text-sm'>{errorMessage}</div>
+                                                                    <div className="mt-4">
+                                                                        {errorMessage.length >
+                                                                            0 && (
+                                                                            <>
+                                                                                <div className="flex justify-center rounded-md bg-red-100 p-0.5 text-sm text-red-700">
+                                                                                    {
+                                                                                        errorMessage
+                                                                                    }
+                                                                                </div>
                                                                             </>
-                                                                        }
-                                                                        
+                                                                        )}
+
                                                                         <div className="mt-2">
                                                                             <motion.button
                                                                                 whileHover={{
@@ -1194,9 +1183,6 @@ const AuthModal = ({ openState, setOpenModal }) => {
                                                                                 whileTap={{
                                                                                     scale: 0.98,
                                                                                 }}
-                                                                                Send
-                                                                                confirmation
-                                                                                email
                                                                                 className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                                                 onClick={() => {
                                                                                     onForgotPasswordContinue();
