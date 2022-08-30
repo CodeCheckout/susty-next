@@ -4,6 +4,7 @@ import {HiChevronLeft, HiChevronRight} from 'react-icons/hi'
 import ProductCategoryFilterWrapper from '../layouts/SideBarMenus/ProductCategoryFilterWrapper'
 import ClosetSpotlightItems from '../home/ClosetSpotlightItems'
 import CommonItemCard from '../Cards/Item/CommonItemCard'
+import axios from 'axios'
 
 const itemsStaticData = [
     {
@@ -136,6 +137,7 @@ const ProductItemsFilterSection = () => {
     const [pagePathSet, setPagePathSet] = useState([])
     const [items, setItems] = useState(itemsStaticData)
     const [productResult, setProductResult] = useState([])
+    const [sellers, setSellers] = useState([])
 
     useEffect(() => {
         setSectionCount(Object.keys(router.query).length)
@@ -215,6 +217,15 @@ const ProductItemsFilterSection = () => {
         }
     }, [sectionCount])
 
+    useEffect(() => {
+        async function getSellers() {
+            await axios
+                .get('/api/user/fetch-sellers')
+                .then((result) => setSellers(result.data.sellers))
+        }
+        getSellers()
+    }, [])
+
     return (
         <>
             <ProductCategoryFilterWrapper
@@ -245,7 +256,11 @@ const ProductItemsFilterSection = () => {
                             </div>
                         ))}
                     </div>
-                    <ClosetSpotlightItems />
+                    {sellers.length > 0 && (
+                        <>
+                            <ClosetSpotlightItems seller={sellers[0]} />
+                        </>
+                    )}
                 </div>
             </ProductCategoryFilterWrapper>
             {/*TODO NAVIGATION DYNAMIC */}

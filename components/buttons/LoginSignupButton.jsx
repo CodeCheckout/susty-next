@@ -27,6 +27,7 @@ const LoginSignupButton = ({setLoggedIn, loggedIn}) => {
     const logoutHandler = () => {
         toast.info('Logging out...')
         setSustyAuth({})
+        localStorage.removeItem('authToken')
         signOut(auth)
             .then(() => {
                 // Sign-out successful.

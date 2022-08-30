@@ -8,6 +8,22 @@ const NewsFeedItems = () => {
 
     useEffect(() => {
         async function getProducts() {
+            // added to ensure that private route is working or not
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem(
+                        'authToken'
+                    )}`,
+                },
+            }
+
+            // just for private router testing only
+            await axios
+                .get('/api/privateRoute', config)
+                .then((result) => console.log(result))
+            // end of ensuring
+
             await axios
                 .get('/api/product/fetch-products', {
                     params: {productLimit},
