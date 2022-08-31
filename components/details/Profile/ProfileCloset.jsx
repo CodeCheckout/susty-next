@@ -1,9 +1,9 @@
-import React from 'react'
-import {TbArrowBigUpLine} from 'react-icons/tb'
-import {BiChevronRight} from 'react-icons/bi'
-import SellerItems from '../../Lists/Seller/SellerItems'
+import React from 'react';
+import { TbArrowBigUpLine } from 'react-icons/tb';
+import { BiChevronRight } from 'react-icons/bi';
+import SellerItems from '../../Lists/Seller/SellerItems';
 
-const ProfileCloset = ({userId, isSameUser, percentage}) => {
+const ProfileCloset = ({ userId, isSameUser, percentage }) => {
     return (
         <>
             <div className={'border border-gray-100 hover:bg-gray-50'}>
@@ -64,7 +64,7 @@ const ProfileCloset = ({userId, isSameUser, percentage}) => {
                 <SellerItems userId={userId} isSameUser={isSameUser} />
             </div>
         </>
-    )
-}
+    );
+};
 
-export default ProfileCloset
+export default ProfileCloset;
