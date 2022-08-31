@@ -219,9 +219,11 @@ const ProductItemsFilterSection = () => {
 
     useEffect(() => {
         async function getSellers() {
-            await axios.get('/api/user/fetch-sellers').then((result) => setSellers(result.data.sellers))
+            await axios
+                .get('/api/user/fetch-sellers')
+                .then((result) => setSellers(result.data.sellers))
         }
-        getSellers();
+        getSellers()
     }, [])
 
     return (
@@ -254,11 +256,11 @@ const ProductItemsFilterSection = () => {
                             </div>
                         ))}
                     </div>
-                    {sellers.length > 0 && <>
-                        <ClosetSpotlightItems seller = {sellers[0]}/>
-                    </>}
-                    
-
+                    {sellers.length > 0 && (
+                        <>
+                            <ClosetSpotlightItems seller={sellers[0]} />
+                        </>
+                    )}
                 </div>
             </ProductCategoryFilterWrapper>
             {/*TODO NAVIGATION DYNAMIC */}
