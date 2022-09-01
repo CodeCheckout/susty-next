@@ -1,12 +1,8 @@
-import React from 'react'
-import FavouriteItems from '../../components/Lists/Favourites/FavouriteItems'
+import React from 'react';
+import FavouriteItems from '../../components/Lists/Favourites/FavouriteItems';
 
 const Index = () => {
-    return (
-        <>
-            <FavouriteItems />
-        </>
-    )
-}
+    return <FavouriteItems />;
+};
 
-export default Index
+export default Index;
