@@ -1,21 +1,21 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import NewsFeedItemCard from '../Cards/Item/NewsFeedItemCard';
+import axios from 'axios'
+import React, {useEffect, useState} from 'react'
+import NewsFeedItemCard from '../Cards/Item/NewsFeedItemCard'
 
 const NewsFeedItems = () => {
-    const [products, setProducts] = useState([]);
-    const [productLimit, setProductLimit] = useState(10);
+    const [products, setProducts] = useState([])
+    const [productLimit, setProductLimit] = useState(10)
 
     useEffect(() => {
         async function getProducts() {
             await axios
                 .get('/api/product/fetch-products', {
-                    params: { productLimit },
+                    params: {productLimit},
                 })
-                .then((result) => setProducts(result.data.products));
+                .then((result) => setProducts(result.data.products))
         }
-        getProducts();
-    }, []);
+        getProducts()
+    }, [])
 
     return (
         <div>
@@ -39,7 +39,7 @@ const NewsFeedItems = () => {
                 ))}
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default NewsFeedItems;
+export default NewsFeedItems

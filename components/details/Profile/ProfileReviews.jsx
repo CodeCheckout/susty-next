@@ -6,8 +6,7 @@ const ProfileReviews = ({isSameUser, anyReviews, setAnyReviews, seller}) => {
     const [reviewData, setReviewData] = useState(seller.reviews)
 
     useEffect(() => {
-
-        if(reviewData.length > 0){
+        if (reviewData.length > 0) {
             setAnyReviews(true)
         }
     }, [])

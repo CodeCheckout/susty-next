@@ -1,40 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import FavouriteItemCard from '../../Cards/Item/FavouriteItemCard';
-import axios from 'axios';
-import { FiHeart } from 'react-icons/fi';
+import React, {useEffect, useState} from 'react'
+import FavouriteItemCard from '../../Cards/Item/FavouriteItemCard'
+import axios from 'axios'
+import {FiHeart} from 'react-icons/fi'
 
 const FavouriteItems = () => {
-    const [items, setItems] = useState([]);
-    const [userId, setUserId] = useState('');
+    const [items, setItems] = useState([])
+    const [userId, setUserId] = useState('')
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            const user = JSON.parse(localStorage.getItem('susty'));
-            setUserId(user._id);
+            const user = JSON.parse(localStorage.getItem('susty'))
+            setUserId(user._id)
         }
-    }, []);
+    }, [])
 
     useEffect(() => {
         const fetchFavProducts = async () => {
             await axios
                 .get('/api/favourites/fetch-favourites-product-list', {
-                    params: { userId: userId },
+                    params: {userId: userId},
                 })
                 .then((result) => {
-                    setTimeout(() => setItems(result.data.favourites), 1000);
+                    setTimeout(() => setItems(result.data.favourites), 1000)
                 })
                 .then((result) => {
                     if (!result.data.favourites) {
-                        return null;
+                        return null
                     }
                 })
                 .catch((err) => {
-                    console.log(err);
-                });
-        };
+                    console.log(err)
+                })
+        }
 
-        fetchFavProducts();
-    }, []);
+        fetchFavProducts()
+    }, [])
 
     return (
         <div className="m-auto max-w-7xl">
@@ -66,7 +66,7 @@ const FavouriteItems = () => {
                 </div>
             )}
         </div>
-    );
-};
+    )
+}
 
-export default FavouriteItems;
+export default FavouriteItems

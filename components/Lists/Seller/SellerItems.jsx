@@ -328,7 +328,7 @@ const SellerItems = ({userId, isSameUser}) => {
             ) : (
                 <>
                     <div className="mt-14 grid place-content-center gap-4">
-                    <div className="grid place-content-center">
+                        <div className="grid place-content-center">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-24 w-24"
@@ -345,12 +345,11 @@ const SellerItems = ({userId, isSameUser}) => {
                             </svg>
                         </div>
                         <p className={'text-2xl font-medium text-center'}>
-                                        No items yet
+                            No items yet
                         </p>
                         <p className="font-susty text-gray-500">
                             The user doesn't have any products.
                         </p>
-                        
                     </div>
                 </>
             )}

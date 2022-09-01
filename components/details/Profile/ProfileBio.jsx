@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from 'react';
-import { Popover, Transition, Tab } from '@headlessui/react';
-import { motion } from 'framer-motion';
+import React, {Fragment, useState} from 'react'
+import {Popover, Transition, Tab} from '@headlessui/react'
+import {motion} from 'framer-motion'
 import {
     HiCheckCircle,
     HiClock,
@@ -8,19 +8,19 @@ import {
     HiPencil,
     HiRss,
     HiChatAlt,
-} from 'react-icons/hi';
+} from 'react-icons/hi'
 
-import Link from 'next/link';
-import ProfileCloset from './ProfileCloset';
-import ProfileReviews from './ProfileReviews';
-import { BsThreeDots } from 'react-icons/bs';
-import { useEffect } from 'react';
-import axios from 'axios';
+import Link from 'next/link'
+import ProfileCloset from './ProfileCloset'
+import ProfileReviews from './ProfileReviews'
+import {BsThreeDots} from 'react-icons/bs'
+import {useEffect} from 'react'
+import axios from 'axios'
 
 const solutions = [
-    { id: 1, name: 'Report', href: '#' },
-    { id: 2, name: 'Block', href: '#' },
-];
+    {id: 1, name: 'Report', href: '#'},
+    {id: 2, name: 'Block', href: '#'},
+]
 
 const tabsStaticData = {
     Closet: [
@@ -55,42 +55,42 @@ const tabsStaticData = {
             shareCount: 12,
         },
     ],
-};
+}
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ');
+    return classes.filter(Boolean).join(' ')
 }
 
 const ProfileBio = () => {
-    const [tabs, setTabs] = useState(tabsStaticData);
-    const [isSameUser, setIsSameUser] = useState(false);
-    const [isFollow, setIsFollow] = useState(false);
-    const [anyReviews, setAnyReviews] = useState(false);
-    const [userId, setUserId] = useState(''); // get user id
-    const [userDetails, setUserDetails] = useState();
-    const [discountFromBundles, setDiscountFromBundles] = useState('25%');
+    const [tabs, setTabs] = useState(tabsStaticData)
+    const [isSameUser, setIsSameUser] = useState(false)
+    const [isFollow, setIsFollow] = useState(false)
+    const [anyReviews, setAnyReviews] = useState(false)
+    const [userId, setUserId] = useState('') // get user id
+    const [userDetails, setUserDetails] = useState()
+    const [discountFromBundles, setDiscountFromBundles] = useState('25%')
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            const user = JSON.parse(localStorage.getItem('susty'));
-            setUserId(user._id);
-            console.log('user is = ', user);
+            const user = JSON.parse(localStorage.getItem('susty'))
+            setUserId(user._id)
+            console.log('user is = ', user)
         }
-    }, []);
+    }, [])
 
     // get user details
     useEffect(() => {
         if (userId.length > 0) {
             async function getUserDetails() {
                 await axios
-                    .get('/api/user/fetch-user-details', { params: { userId } })
+                    .get('/api/user/fetch-user-details', {params: {userId}})
                     .then((result) => {
-                        setUserDetails(result.data.user);
-                    });
+                        setUserDetails(result.data.user)
+                    })
             }
-            getUserDetails();
+            getUserDetails()
         }
-    }, [userId]);
+    }, [userId])
 
     return (
         <>
@@ -139,8 +139,8 @@ const ProfileBio = () => {
                             {isSameUser === true ? (
                                 <>
                                     <motion.button
-                                        whileHover={{ scale: 1.02 }}
-                                        whileTap={{ scale: 0.98 }}
+                                        whileHover={{scale: 1.02}}
+                                        whileTap={{scale: 0.98}}
                                         className={`mr-16 inline-flex max-w-fit items-center rounded-md border border-red-300 bg-red-100 px-4 py-1.5 text-sm font-medium text-susty shadow-sm hover:border-susty hover:bg-susty hover:text-white focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                     >
                                         <HiPencil className={`mr-2 h-5 w-5`} />
@@ -155,8 +155,8 @@ const ProfileBio = () => {
                                         }
                                     >
                                         <motion.button
-                                            whileHover={{ scale: 1.02 }}
-                                            whileTap={{ scale: 0.98 }}
+                                            whileHover={{scale: 1.02}}
+                                            whileTap={{scale: 0.98}}
                                             className={`inline-flex items-center rounded-md border border-red-300 bg-red-100 px-4 py-1.5 text-sm font-medium text-susty shadow-sm hover:border-susty hover:bg-susty hover:text-white focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                         >
                                             <HiChatAlt
@@ -168,10 +168,10 @@ const ProfileBio = () => {
                                             <>
                                                 <motion.button
                                                     onClick={() => {
-                                                        setIsFollow(false);
+                                                        setIsFollow(false)
                                                     }}
-                                                    whileHover={{ scale: 1.02 }}
-                                                    whileTap={{ scale: 0.98 }}
+                                                    whileHover={{scale: 1.02}}
+                                                    whileTap={{scale: 0.98}}
                                                     className={`inline-flex items-center rounded-md border border-red-300 bg-susty px-4 py-1.5 text-sm font-medium text-white shadow-sm hover:border-susty hover:bg-red-100 hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                 >
                                                     Following
@@ -181,10 +181,10 @@ const ProfileBio = () => {
                                             <>
                                                 <motion.button
                                                     onClick={() => {
-                                                        setIsFollow(true);
+                                                        setIsFollow(true)
                                                     }}
-                                                    whileHover={{ scale: 1.02 }}
-                                                    whileTap={{ scale: 0.98 }}
+                                                    whileHover={{scale: 1.02}}
+                                                    whileTap={{scale: 0.98}}
                                                     className={`inline-flex items-center rounded-md border border-red-300 bg-susty px-4 py-1.5 text-sm font-medium text-white shadow-sm hover:border-susty hover:bg-red-100 hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                 >
                                                     Follow
@@ -197,7 +197,7 @@ const ProfileBio = () => {
                                             }
                                         >
                                             <Popover>
-                                                {({ open }) => (
+                                                {({open}) => (
                                                     <>
                                                         <Popover.Button
                                                             className={`${
@@ -362,7 +362,7 @@ const ProfileBio = () => {
                             {Object.keys(tabs).map((tab) => (
                                 <Tab
                                     key={tab}
-                                    className={({ selected }) =>
+                                    className={({selected}) =>
                                         classNames(
                                             'w-full py-2.5 text-sm font-medium leading-5 text-gray-900',
                                             'ring-white ring-opacity-60 focus:outline-none focus:ring-2',
@@ -417,7 +417,7 @@ const ProfileBio = () => {
                             {Object.keys(tabs).map((tab) => (
                                 <Tab
                                     key={tab}
-                                    className={({ selected }) =>
+                                    className={({selected}) =>
                                         classNames(
                                             'w-full py-2.5 text-sm font-medium leading-5 text-gray-900',
                                             'ring-white ring-opacity-60 focus:outline-none focus:ring-2',
@@ -538,7 +538,7 @@ const ProfileBio = () => {
                                                                     onClick={() => {
                                                                         setIsFollow(
                                                                             false
-                                                                        );
+                                                                        )
                                                                     }}
                                                                     whileHover={{
                                                                         scale: 1.02,
@@ -557,7 +557,7 @@ const ProfileBio = () => {
                                                                     onClick={() => {
                                                                         setIsFollow(
                                                                             true
-                                                                        );
+                                                                        )
                                                                     }}
                                                                     whileHover={{
                                                                         scale: 1.02,
@@ -577,7 +577,7 @@ const ProfileBio = () => {
                                                             }
                                                         >
                                                             <Popover>
-                                                                {({ open }) => (
+                                                                {({open}) => (
                                                                     <>
                                                                         <Popover.Button
                                                                             className={`${
@@ -740,7 +740,7 @@ const ProfileBio = () => {
                 </div>
             </div>
         </>
-    );
-};
+    )
+}
 
-export default ProfileBio;
+export default ProfileBio
