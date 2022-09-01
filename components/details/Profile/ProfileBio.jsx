@@ -65,22 +65,32 @@ const ProfileBio = () => {
     const [tabs, setTabs] = useState(tabsStaticData)
     const [isSameUser, setIsSameUser] = useState(false)
     const [isFollow, setIsFollow] = useState(false)
-    const [anyReviews, setAnyReviews] = useState(true)
-    const [userId, setUserId] = useState('629a8c2f26b267cc90f62991') // get user id
+    const [anyReviews, setAnyReviews] = useState(false)
+    const [userId, setUserId] = useState('') // get user id
     const [userDetails, setUserDetails] = useState()
     const [discountFromBundles, setDiscountFromBundles] = useState('25%')
 
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const user = JSON.parse(localStorage.getItem('susty'))
+            setUserId(user._id)
+            console.log('user is = ', user)
+        }
+    }, [])
+
     // get user details
     useEffect(() => {
-        async function getUserDetails() {
-            await axios
-                .get('/api/user/fetch-user-details', {params: {userId}})
-                .then((result) => {
-                    setUserDetails(result.data.user)
-                })
+        if (userId.length > 0) {
+            async function getUserDetails() {
+                await axios
+                    .get('/api/user/fetch-user-details', {params: {userId}})
+                    .then((result) => {
+                        setUserDetails(result.data.user)
+                    })
+            }
+            getUserDetails()
         }
-        getUserDetails()
-    }, [])
+    }, [userId])
 
     return (
         <>
@@ -272,6 +282,7 @@ const ProfileBio = () => {
                                     <div className={'flex flex-row gap-1'}>
                                         <HiClock className={'h-5 w-5'} />
                                         <div className={'text-sm'}>
+                                            {/* TODO */}
                                             Last seen 1 hour ago
                                         </div>
                                     </div>
@@ -391,6 +402,7 @@ const ProfileBio = () => {
                                         isSameUser={isSameUser}
                                         anyReviews={anyReviews}
                                         seller={userDetails}
+                                        setAnyReviews={setAnyReviews}
                                     />
                                 </ul>
                             </Tab.Panel>
@@ -719,6 +731,7 @@ const ProfileBio = () => {
                                         isSameUser={isSameUser}
                                         anyReviews={anyReviews}
                                         seller={userDetails}
+                                        setAnyReviews={setAnyReviews}
                                     />
                                 </ul>
                             </Tab.Panel>

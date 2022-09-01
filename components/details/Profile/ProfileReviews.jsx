@@ -1,9 +1,15 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {FiStar} from 'react-icons/fi'
 import ReviewFromOneCustomer from './ReviewFromOneCustomer'
 
-const ProfileReviews = ({isSameUser, anyReviews, seller}) => {
+const ProfileReviews = ({isSameUser, anyReviews, setAnyReviews, seller}) => {
     const [reviewData, setReviewData] = useState(seller.reviews)
+
+    useEffect(() => {
+        if (reviewData.length > 0) {
+            setAnyReviews(true)
+        }
+    }, [])
 
     return (
         <>
