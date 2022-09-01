@@ -1,75 +1,75 @@
-import React, {useEffect, useState} from 'react'
-import {Dialog} from '@headlessui/react'
-import {AnimatePresence, motion} from 'framer-motion'
-import Link from 'next/link'
-import {getAuth, GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
-import {firebaseApp} from '../../services/firebase'
-import axios from 'axios'
-import {useLocalStorage} from '@mantine/hooks'
+import React, { useEffect, useState } from 'react';
+import { Dialog } from '@headlessui/react';
+import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { firebaseApp } from '../../services/firebase';
+import axios from 'axios';
+import { useLocalStorage } from '@mantine/hooks';
 
-const AuthModal = ({openState, setOpenModal}) => {
+const AuthModal = ({ openState, setOpenModal }) => {
     const closeModalHandler = () => {
-        setOpenModal(false)
-        setIsRegisterStatus(true)
-        setIsRegisterAnd3Button(true)
-        setIsLoginRouteAnd3Button(true)
-        setIsLoginEmailPassword(true)
-        setIsResetPassword(false)
-        setIsForgotPassword(false)
-        setEmail('')
-        setNewPassword('')
-        setEmailNotification('')
-        setErrorMessage('')
-    }
+        setOpenModal(false);
+        setIsRegisterStatus(true);
+        setIsRegisterAnd3Button(true);
+        setIsLoginRouteAnd3Button(true);
+        setIsLoginEmailPassword(true);
+        setIsResetPassword(false);
+        setIsForgotPassword(false);
+        setEmail('');
+        setNewPassword('');
+        setEmailNotification('');
+        setErrorMessage('');
+    };
 
     const [sustyAuth, setSustyAuth] = useLocalStorage({
         key: 'susty',
         defaultValue: {},
-    })
-    const [fullName, setFullName] = useState('')
-    const [username, setUsername] = useState('')
-    const [address, setAddress] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [newPassword, setNewPassword] = useState('')
-    const [userId, setUserId] = useState('')
-    const [emailNotification, setEmailNotification] = useState('')
-    const [errorMessage, setErrorMessage] = useState('')
+    });
+    const [fullName, setFullName] = useState('');
+    const [username, setUsername] = useState('');
+    const [address, setAddress] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [userId, setUserId] = useState('');
+    const [emailNotification, setEmailNotification] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     //1st check
-    const [isRegisterStatus, setIsRegisterStatus] = useState(true)
+    const [isRegisterStatus, setIsRegisterStatus] = useState(true);
 
     // in register route
-    const [isRegisterAnd3Button, setIsRegisterAnd3Button] = useState(true)
+    const [isRegisterAnd3Button, setIsRegisterAnd3Button] = useState(true);
 
     // in login route
-    const [isLoginRouteAnd3Button, setIsLoginRouteAnd3Button] = useState(true)
-    const [isLoginEmailPassword, setIsLoginEmailPassword] = useState(true)
+    const [isLoginRouteAnd3Button, setIsLoginRouteAnd3Button] = useState(true);
+    const [isLoginEmailPassword, setIsLoginEmailPassword] = useState(true);
 
     // forgot password check
-    const [isForgotPassword, setIsForgotPassword] = useState(false)
-    const [verificationCode, setVerificationCode] = useState('')
+    const [isForgotPassword, setIsForgotPassword] = useState(false);
+    const [verificationCode, setVerificationCode] = useState('');
 
     //  reset password
-    const [isResetPassword, setIsResetPassword] = useState(false)
-    const [resetPasswordEnter, setResetPasswordEnter] = useState('')
+    const [isResetPassword, setIsResetPassword] = useState(false);
+    const [resetPasswordEnter, setResetPasswordEnter] = useState('');
 
     //Firebase auth object
-    const auth = getAuth(firebaseApp)
+    const auth = getAuth(firebaseApp);
 
     //Firebase Auth for Google login
-    const provider = new GoogleAuthProvider()
+    const provider = new GoogleAuthProvider();
     const signInWithGoogleHandler = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
                 const credential =
-                    GoogleAuthProvider.credentialFromResult(result)
-                const token = credential.accessToken
+                    GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
                 // The signed-in user info.
-                const user = result.user
+                const user = result.user;
                 // ...
-                return result.user
+                return result.user;
             })
             .then(async (userDetails) => {
                 await axios
@@ -81,24 +81,25 @@ const AuthModal = ({openState, setOpenModal}) => {
                         // address: "My Address"
                     })
                     .then((res) => {
-                        setSustyAuth(res.data.user)
-                    })
+                        setSustyAuth(res.data.user);
+                    });
             })
             .then(() => {
-                closeModalHandler()
+                closeModalHandler();
             })
             .catch((error) => {
-                console.log(error)
+                console.log(error);
                 // Handle Errors here.
-                const errorCode = error.code
-                const errorMessage = error.message
+                const errorCode = error.code;
+                const errorMessage = error.message;
                 // The email of the user's account used.
-                const email = error.customData.email
+                const email = error.customData.email;
                 // The AuthCredential type that was used.
-                const credential = GoogleAuthProvider.credentialFromError(error)
+                const credential =
+                    GoogleAuthProvider.credentialFromError(error);
                 // ...
-            })
-    }
+            });
+    };
 
     const onContinueClick = async () => {
         await axios
@@ -110,32 +111,32 @@ const AuthModal = ({openState, setOpenModal}) => {
                 password,
             })
             .then((result) => {
-                console.log('User registered successfully!', result)
-            })
-    }
+                console.log('User registered successfully!', result);
+            });
+    };
 
     const onForgotPasswordContinue = async () => {
-        console.log('Called forgot password continue 1')
+        console.log('Called forgot password continue 1');
         try {
-            const {data} = await axios
-                .post('/api/user/forgotPassword', {email})
+            const { data } = await axios
+                .post('/api/user/forgotPassword', { email })
                 .then((result) => {
-                    console.log(`Email sent ${email}`)
+                    console.log(`Email sent ${email}`);
                     if (result.data.success == true) {
-                        setIsForgotPassword(true)
-                        setEmailNotification('Email sent')
+                        setIsForgotPassword(true);
+                        setEmailNotification('Email sent');
                     } else {
-                        setIsForgotPassword(false)
-                        setErrorMessage('Email is not registered')
-                        console.log('Called forgot password continue')
+                        setIsForgotPassword(false);
+                        setErrorMessage('Email is not registered');
+                        console.log('Called forgot password continue');
                     }
-                })
+                });
         } catch (err) {
-            console.log(err)
-            setIsForgotPassword(false)
-            setErrorMessage('Email is not registered')
+            console.log(err);
+            setIsForgotPassword(false);
+            setErrorMessage('Email is not registered');
         }
-    }
+    };
 
     const onVerificationEnter = async () => {
         await axios
@@ -144,18 +145,18 @@ const AuthModal = ({openState, setOpenModal}) => {
             })
             .then((result) => {
                 if (result.data.success === true) {
-                    console.log('Verification success')
-                    setIsResetPassword(true)
-                    setUserId(result.data.userId)
+                    console.log('Verification success');
+                    setIsResetPassword(true);
+                    setUserId(result.data.userId);
                 } else {
-                    setIsResetPassword(false)
-                    console.log('Verification unsuccess')
+                    setIsResetPassword(false);
+                    console.log('Verification unsuccess');
                 }
-            })
-    }
+            });
+    };
 
     const onResetPasswordEnter = async () => {
-        console.log(newPassword)
+        console.log(newPassword);
 
         // save new password in db
         await axios
@@ -165,50 +166,50 @@ const AuthModal = ({openState, setOpenModal}) => {
             })
             .then((result) => {
                 if (result.data.success === true) {
-                    console.log('Password reset successfully!')
-                    setIsLoginEmailPassword(false)
-                    closeModalHandler()
+                    console.log('Password reset successfully!');
+                    setIsLoginEmailPassword(false);
+                    closeModalHandler();
                 } else {
-                    console.log('Password reset Unsuccessfully!')
-                    setIsLoginEmailPassword(false)
-                    closeModalHandler()
+                    console.log('Password reset Unsuccessfully!');
+                    setIsLoginEmailPassword(false);
+                    closeModalHandler();
                 }
-            })
-    }
+            });
+    };
 
     const onEmailLogIn = async () => {
         try {
-            const {data} = await axios
-                .post('/api/user/emailSignIn', {email, password})
+            const { data } = await axios
+                .post('/api/user/emailSignIn', { email, password })
                 .then((result) => {
                     if (result.data.success == true) {
-                        localStorage.setItem('authToken', result.data.token)
-                        setSustyAuth(result.data.user)
-                        closeModalHandler()
+                        localStorage.setItem('authToken', result.data.token);
+                        setSustyAuth(result.data.user);
+                        closeModalHandler();
                     }
-                })
+                });
         } catch (err) {
-            console.log(err)
+            console.log(err);
         }
-    }
+    };
 
     // add timeout function to set the time to display a message
     useEffect(() => {
         const timer = setTimeout(() => {
-            setEmailNotification('')
-        }, 4000)
-        return () => clearTimeout(timer)
-    }, [emailNotification])
+            setEmailNotification('');
+        }, 4000);
+        return () => clearTimeout(timer);
+    }, [emailNotification]);
 
     // add timeout to forgot email message
     useEffect(() => {
         const timer = setTimeout(() => {
-            setErrorMessage('')
-        }, 4000)
-        return () => clearTimeout(timer)
-    }, [errorMessage])
+            setErrorMessage('');
+        }, 4000);
+        return () => clearTimeout(timer);
+    }, [errorMessage]);
 
-    console.log(sustyAuth)
+    console.log(sustyAuth);
 
     return (
         <AnimatePresence>
@@ -233,7 +234,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                         <div className="flex  min-h-full items-center justify-center overflow-y-auto bg-gray-700 bg-opacity-80 p-4 text-center">
                             <motion.div
                                 key={`modal-for-email`}
-                                initial={{scale: 0, opacity: 0, y: -500}}
+                                initial={{ scale: 0, opacity: 0, y: -500 }}
                                 animate={{
                                     y: 0,
                                     scale: 1,
@@ -502,7 +503,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     setFullName(
                                                                         e.target
                                                                             .value
-                                                                    )
+                                                                    );
                                                                 }}
                                                             />
                                                             <span
@@ -534,7 +535,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     setUsername(
                                                                         e.target
                                                                             .value
-                                                                    )
+                                                                    );
                                                                 }}
                                                             />
                                                             <span
@@ -566,7 +567,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     setAddress(
                                                                         e.target
                                                                             .value
-                                                                    )
+                                                                    );
                                                                 }}
                                                             />
                                                         </div>
@@ -585,7 +586,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     setEmail(
                                                                         e.target
                                                                             .value
-                                                                    )
+                                                                    );
                                                                 }}
                                                             />
                                                         </div>
@@ -610,7 +611,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     setPassword(
                                                                         e.target
                                                                             .value
-                                                                    )
+                                                                    );
                                                                 }}
                                                             />
                                                             <span
@@ -913,7 +914,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 onClick={() => {
                                                                     setIsRegisterAnd3Button(
                                                                         false
-                                                                    )
+                                                                    );
                                                                 }}
                                                                 className={
                                                                     'cursor-pointer text-susty hover:underline'
@@ -933,7 +934,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 onClick={() => {
                                                                     setIsRegisterStatus(
                                                                         false
-                                                                    )
+                                                                    );
                                                                 }}
                                                                 className={
                                                                     'text-susty hover:underline'
@@ -956,7 +957,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                             }}
                                                             className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                             onClick={() => {
-                                                                onContinueClick()
+                                                                onContinueClick();
                                                             }}
                                                         >
                                                             Continue
@@ -1029,10 +1030,10 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 onClick={() => {
                                                                     setIsLoginRouteAnd3Button(
                                                                         false
-                                                                    )
+                                                                    );
                                                                     setIsLoginEmailPassword(
                                                                         true
-                                                                    )
+                                                                    );
                                                                 }}
                                                                 className={
                                                                     'cursor-pointer text-susty hover:underline'
@@ -1052,10 +1053,10 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                 onClick={() => {
                                                                     setIsRegisterStatus(
                                                                         true
-                                                                    )
+                                                                    );
                                                                     setIsRegisterAnd3Button(
                                                                         true
-                                                                    )
+                                                                    );
                                                                 }}
                                                                 className={
                                                                     'cursor-pointer text-susty hover:underline'
@@ -1096,7 +1097,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                     onClick={() => {
                                                                         setIsLoginEmailPassword(
                                                                             false
-                                                                        )
+                                                                        );
                                                                     }}
                                                                     className={
                                                                         'mx-auto cursor-pointer text-base font-medium text-susty hover:underline'
@@ -1132,7 +1133,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                                     }}
                                                                                     className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                                                     onClick={() => {
-                                                                                        onResetPasswordEnter()
+                                                                                        onResetPasswordEnter();
                                                                                     }}
                                                                                 >
                                                                                     Enter
@@ -1151,7 +1152,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                                     }}
                                                                                     className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                                                     onClick={() => {
-                                                                                        onVerificationEnter()
+                                                                                        onVerificationEnter();
                                                                                     }}
                                                                                 >
                                                                                     Continue
@@ -1184,7 +1185,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                                                                                 }}
                                                                                 className={`flex min-w-full justify-center rounded-md border border-gray-300 bg-susty px-28 py-2 text-base font-medium text-white shadow-sm hover:border-susty hover:bg-white hover:text-susty focus:border-susty focus:bg-red-50 focus:text-red-400`}
                                                                                 onClick={() => {
-                                                                                    onForgotPasswordContinue()
+                                                                                    onForgotPasswordContinue();
                                                                                 }}
                                                                             >
                                                                                 Continue
@@ -1206,7 +1207,7 @@ const AuthModal = ({openState, setOpenModal}) => {
                 </Dialog>
             )}
         </AnimatePresence>
-    )
-}
+    );
+};
 
-export default AuthModal
+export default AuthModal;

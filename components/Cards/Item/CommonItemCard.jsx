@@ -1,23 +1,23 @@
-import React, {useEffect, useState} from 'react'
-import {HiInformationCircle} from 'react-icons/hi'
-import Link from 'next/link'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react';
+import { HiInformationCircle } from 'react-icons/hi';
+import Link from 'next/link';
+import axios from 'axios';
 
-const CommonItemCard = ({userId, src, alt, price, size, brand}) => {
-    const [isFavourite, setIsFavourite] = useState(false)
-    const [userDetails, setUserDetails] = useState({})
-    let favCount = 2
+const CommonItemCard = ({ userId, src, alt, price, size, brand }) => {
+    const [isFavourite, setIsFavourite] = useState(false);
+    const [userDetails, setUserDetails] = useState({});
+    let favCount = 2;
 
     useEffect(() => {
         async function getUsers() {
             await axios
                 .get('api/user/fetch-user-details', {
-                    params: {userId: userId},
+                    params: { userId: userId },
                 })
-                .then((result) => setUserDetails(result.data.user))
+                .then((result) => setUserDetails(result.data.user));
         }
-        getUsers()
-    }, [])
+        getUsers();
+    }, []);
 
     return (
         <>
@@ -96,7 +96,7 @@ const CommonItemCard = ({userId, src, alt, price, size, brand}) => {
                                         className="h-5 w-5 text-red-900"
                                         viewBox="0 0 20 20"
                                         onClick={() => {
-                                            setIsFavourite(false)
+                                            setIsFavourite(false);
                                         }}
                                         fill="currentColor"
                                     >
@@ -114,7 +114,7 @@ const CommonItemCard = ({userId, src, alt, price, size, brand}) => {
                                         className="h-5 w-5"
                                         fill="none"
                                         onClick={() => {
-                                            setIsFavourite(true)
+                                            setIsFavourite(true);
                                         }}
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
@@ -154,7 +154,7 @@ const CommonItemCard = ({userId, src, alt, price, size, brand}) => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default CommonItemCard
+export default CommonItemCard;

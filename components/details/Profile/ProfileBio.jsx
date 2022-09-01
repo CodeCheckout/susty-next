@@ -282,6 +282,7 @@ const ProfileBio = () => {
                                     <div className={'flex flex-row gap-1'}>
                                         <HiClock className={'h-5 w-5'} />
                                         <div className={'text-sm'}>
+                                            {/* TODO */}
                                             Last seen 1 hour ago
                                         </div>
                                     </div>
